@@ -34,12 +34,7 @@ public class Ordered {
 	private Date ordered_date;// 訂單日期
 	private int iv_no;//
 	private String note;
-	//test
-	//test
-	//test
-	//test
-	//test
-	//test
+
 	
 //	@ManyToOne(cascade=CascadeType.ALL)
 //	@JoinColumn(name="member_id")
