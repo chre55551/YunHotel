@@ -32,29 +32,42 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		od = session.get(Ordered.class, ordered_number);
 		return od;
 	}
-	
+	//依照訂單編號來查詢整筆訂單資料
 	@SuppressWarnings("unchecked")
-	@Override
-	public List<Ordered> queryAll() {
+	@Override							//為何用string
+	public List<Ordered> queryOrderAll(String ordered_number) {
 		List<Ordered> list = null;
-		String hql = "FROM Ordered";
 		Session session = factory.getCurrentSession();
-		
-		list = session.createQuery(hql).getResultList();
-		
+		String hql = "FROM Ordered od WHERE od.ordered_number = :onb";
+		list = session.createQuery(hql).setParameter("onb", ordered_number).getResultList();
 		return list;
 	}
-
+	
+	//可以從訂單去取整筆顧客的資料
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ordered> getcustomer(String customer_id) {
+		List<Ordered> list = null;
+		Session session = factory.getCurrentSession();
+		String hql ="FROM Ordered od WHERE od.customer_id = :cid";
+		list = session.createQuery(hql).setParameter("cid", customer_id).getResultList();
+		return list;
+	}
+	
 	@Override
 	public Ordered update(Ordered oBean) {
 		
 		return null;
 	}
 
+	//依照訂單編號來刪除整筆資料
 	@Override
 	public void delete(int ordered_number) {
-	//	Session session = factory.getCurrentSession();
-	
+	Session session = factory.getCurrentSession();
+	Ordered od = new Ordered();
+	od.setOrdered_number(ordered_number);
+	session.delete(od);
 	}
+
 
 }
