@@ -27,26 +27,34 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 
 	@Override
 	public Ordered query(int ordered_number) {
-		
-		return null;
+		Ordered od = null;
+		Session session = factory.getCurrentSession();
+		od = session.get(Ordered.class, ordered_number);
+		return od;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Ordered> queryAll() {
+		List<Ordered> list = null;
+		String hql = "FROM Ordered";
+		Session session = factory.getCurrentSession();
+		
+		list = session.createQuery(hql).getResultList();
+		
+		return list;
+	}
+
+	@Override
+	public Ordered update(Ordered oBean) {
 		
 		return null;
 	}
 
 	@Override
-	public Ordered update(Ordered obean) {
-		
-		return null;
-	}
-
-	@Override
-	public boolean delete(int ordered_number) {
-		
-		return false;
+	public void delete(int ordered_number) {
+	//	Session session = factory.getCurrentSession();
+	
 	}
 
 }
