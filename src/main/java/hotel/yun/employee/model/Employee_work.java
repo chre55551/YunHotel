@@ -15,7 +15,7 @@ public class Employee_work implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer employee_id;//employee_id
+	Integer employee_work_id;//employee_id
 	Integer employee_workyears;//employee_workyears
 	Integer employee_salary;//employee_salary
 	Integer working_hours;//working_hours
@@ -26,11 +26,11 @@ public class Employee_work implements Serializable {
 	}
 
 	public Integer getEmployee_id() {
-		return employee_id;
+		return employee_work_id;
 	}
 
 	public void setEmployee_id(Integer employee_id) {
-		this.employee_id = employee_id;
+		this.employee_work_id = employee_id;
 	}
 
 	public Integer getEmployee_workyears() {

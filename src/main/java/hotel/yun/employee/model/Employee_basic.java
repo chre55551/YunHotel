@@ -4,12 +4,17 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import ch05.one2one._07.anno.model.Patient;
 
 
 
@@ -23,6 +28,14 @@ public class Employee_basic implements Serializable {
 	String employee_name;//姓名
 	String employee_department;//部門
 	String employee_position;//職位
+	
+	@OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="employee_info_id", referencedColumnName="employee_info_id")
+    private Employee_info employee_info;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="employee_work_id", referencedColumnName="employee_work_id")
+    private Employee_work employee_work;
 	
 	@ManyToMany(mappedBy = "employee")
 	private Set<Schedule> scedule = new HashSet<Schedule>(0);
