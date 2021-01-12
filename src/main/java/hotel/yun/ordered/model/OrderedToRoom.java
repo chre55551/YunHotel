@@ -2,15 +2,11 @@ package hotel.yun.ordered.model;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,9 +22,6 @@ public class OrderedToRoom implements Serializable{
 	private int number_of_room;
 	private Date room_ordered_time;
 	private int room_number;
-	
-	@OneToMany(mappedBy = "OrderedToRoom", cascade = CascadeType.ALL)
-	private Set<Ordered> ordered = new HashSet<>();
 	
 	public OrderedToRoom() {
 		

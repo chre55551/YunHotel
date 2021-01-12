@@ -2,15 +2,11 @@ package hotel.yun.ordered.model;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,16 +23,12 @@ public class OrderedToMeals implements Serializable{
 	private Date meals_ordered_time;//餐點訂單時間
 	private int table_number;//桌號
 	
-	@OneToMany(mappedBy = "OrderedToMeals", cascade = CascadeType.ALL)
-	private Set<Ordered> ordered = new HashSet<>();
-	
 	public OrderedToMeals() {
 		
 	}
 	
 	public OrderedToMeals(int ordered_tomeals_id, int meals_id, int meals_accounts, int number_of_meals,
 			Date meals_ordered_time, int table_number) {
-		super();
 		this.ordered_tomeals_id = ordered_tomeals_id;
 		this.meals_id = meals_id;
 		this.meals_accounts = meals_accounts;
