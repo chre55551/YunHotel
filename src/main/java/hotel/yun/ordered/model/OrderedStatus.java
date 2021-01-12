@@ -1,29 +1,29 @@
 package hotel.yun.ordered.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "ordered_status")
-public class OrderedStatus {
-	
+public class OrderedStatus implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int status_id;//狀態ID
 	
 	private String ordered_status;//訂單狀態
 	
-	@OneToMany
-	@JoinColumn(name="status_id")
+	@OneToMany(mappedBy = "OrderedStatus", cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<>();
 	
 	public OrderedStatus() {

@@ -9,31 +9,31 @@ public class OrderStatus_DaoImpl implements OrderedStatus_Dao {
 
 	@Override
 	public OrderedStatus insert(OrderedStatus osBean) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public OrderedStatus query(int status_id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public List<OrderedStatus> queryAll() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public OrderedStatus update(OrderedStatus osbean) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public boolean delete(int status_id) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

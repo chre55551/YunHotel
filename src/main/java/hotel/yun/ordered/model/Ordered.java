@@ -1,5 +1,6 @@
 package hotel.yun.ordered.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
@@ -13,39 +14,43 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordered")
-public class Ordered {
-
+public class Ordered implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_number;// 訂單編號
-	private int member_id;// 會員編號
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name= "ordered_number")
-	private int status_id;// 狀態ID
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name= "ordered_number")
-	private int payment_id;// 付款ID
-	
+	private int member_id;// 會員編號，必須建其他資料表才吃的到
+	private int status_id;// 狀態ID，必須建其他資料表才吃的到
+	private int payment_id;// 付款ID，必須建其他資料表才吃的到
 	private int room_accounts;// 房間總價
 	private int meals_accounts;// 餐點總價
 	private int ordered_accounts;// 訂單總價
 	private Date ordered_date;// 訂單日期
-	private int iv_no;//
-	private String note;
-
+	private int iv_no;//發票號碼
+	private String note;//註記
 	
-//	@ManyToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="member_id")
-//	private Member_Bean member_Bean;
+	//@ManyToOne(cascade=CascadeType.ALL)
+	//@JoinColumn(name= "member_id")
+	//private Member member;// 會員編號
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name= "status_id")
+	private OrderedStatus orderedStatus;// 狀態ID
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name= "payment_id")
+	private OrderedPayment orderedPayment;// 付款ID
+	
 	
 	public Ordered() {
 
 	}
 
 	public Ordered(int ordered_number, int member_id, int status_id, int payment_id, int room_accounts,
-			int meals_accounts, int ordered_accounts, Date ordered_date, int iv_no, String note) {
+			int meals_accounts, int ordered_accounts, Date ordered_date, int iv_no, String note,
+			OrderedStatus orderedStatus, OrderedPayment orderedPayment) {
+		super();
 		this.ordered_number = ordered_number;
 		this.member_id = member_id;
 		this.status_id = status_id;
@@ -56,6 +61,8 @@ public class Ordered {
 		this.ordered_date = ordered_date;
 		this.iv_no = iv_no;
 		this.note = note;
+		this.orderedStatus = orderedStatus;
+		this.orderedPayment = orderedPayment;
 	}
 
 	public int getOrdered_number() {
@@ -64,6 +71,22 @@ public class Ordered {
 
 	public void setOrdered_number(int ordered_number) {
 		this.ordered_number = ordered_number;
+	}
+
+	public OrderedStatus getOrderedStatus() {
+		return orderedStatus;
+	}
+
+	public void setOrderedStatus(OrderedStatus orderedStatus) {
+		this.orderedStatus = orderedStatus;
+	}
+
+	public OrderedPayment getOrderedPayment() {
+		return orderedPayment;
+	}
+
+	public void setOrderedPayment(OrderedPayment orderedPayment) {
+		this.orderedPayment = orderedPayment;
 	}
 
 	public int getMember_id() {
@@ -138,5 +161,4 @@ public class Ordered {
 		this.note = note;
 	}
 
-	
 }

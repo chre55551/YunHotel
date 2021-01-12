@@ -1,28 +1,28 @@
 package hotel.yun.ordered.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordered_payment")
-public class OrderedPayment {
-	
+public class OrderedPayment implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
-	private int payment_id;
-	private String bill_status;
-	private String payment_status;
+	private int payment_id;//付款ID
+	private String bill_status;//付款方式
+	private String payment_status;//付款狀態
 	
-	@OneToMany
-	@JoinColumn(name="payment_id")
+	@OneToMany(mappedBy = "OrderedPayment",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
 	public OrderedPayment() {
