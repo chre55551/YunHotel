@@ -74,8 +74,6 @@ public  class MealsDaoImpl implements MealsDao {
 		        .setParameter("price",mbean.getMeals_price())
 		        .setParameter("typeid",mbean.getMealsType().getMeals_typeid())
 		        .executeUpdate();
-	
-		
 	}
 	@Override
 	public void delete(int key) {

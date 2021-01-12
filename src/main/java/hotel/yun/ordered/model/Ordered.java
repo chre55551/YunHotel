@@ -112,6 +112,14 @@ public class Ordered implements Serializable{
 		this.note = note;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 	public OrderedStatus getOrderedStatus() {
 		return orderedStatus;
 	}
@@ -147,5 +155,6 @@ public class Ordered implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 }

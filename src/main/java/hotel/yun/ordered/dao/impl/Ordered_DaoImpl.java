@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import hotel.yun.meals.model.Meals;
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 
@@ -18,6 +19,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	@Autowired
 	SessionFactory factory;
 	
+	//新增訂單資訊
 	@Override
 	public Ordered insert(Ordered oBean) {
 		Session session = factory.getCurrentSession();
@@ -25,6 +27,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return oBean;
 	}
 
+	//依照訂單編號可以查到該筆訂單資訊
 	@Override
 	public Ordered query(int ordered_number) {
 		Ordered od = null;
@@ -33,7 +36,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return od;
 	}
 	
-	//依照訂單編號來查詢整筆訂單資料
+	//依照訂單編號來查詢所有訂單資料
 	@SuppressWarnings("unchecked")
 	@Override							//為何用String?
 	public List<Ordered> queryOrderAll(String ordered_number) {
@@ -54,6 +57,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		list = session.createQuery(hql).setParameter("cid", customer_id).getResultList();
 		return list;
 	}
+	
 	//可查詢該日期的所有訂單
 	@SuppressWarnings("unchecked")
 	@Override
@@ -65,12 +69,35 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return list;
 	}
 	
+	//依照訂單編號即可修改整張訂單
 	@Override
-	public Ordered update(Ordered oBean) {
+	public void update(Ordered odBean) {
+		Session session = factory.getCurrentSession();
+		String hql = "UPDATE Ordered od SET od.customer_id  = :customer "
+				+ ", od.ordered_tomeals_id = :tomeals"
+				+ ", od.ordered_toroom_id = :toroom"
+				+ ", od.status_id = :status"
+				+ ", od.payment_id = :payment"
+				+ ", od.ordered_accounts = :accounts"
+				+ ", od.ordered_date = :date"
+				+ ", od.iv_no = :ivno"
+				+ ", od.note = :note"
+				+ "WHERE od.ordered_number = :number ";
 		
-		return null;
+		session.createQuery(hql)
+		        .setParameter("number",odBean.getOrdered_number())
+		        .setParameter("customer",odBean.getCustomer())
+		        .setParameter("tomeals",odBean.getOrderedToMeals())
+		        .setParameter("toroom",odBean.getOrderedToRoom())
+		        .setParameter("status",odBean.getOrderedStatus())
+		        .setParameter("payment",odBean.getOrderedPayment())
+		        .setParameter("accounts",odBean.getOrdered_accounts())
+		        .setParameter("date",odBean.getOrdered_date())
+		        .setParameter("ivno",odBean.getIv_no())
+		        .setParameter("note",odBean.getNote())
+		        .executeUpdate();
 	}
-
+	
 	//依照訂單編號來刪除整筆資料
 	@Override
 	public void delete(int ordered_number) {
