@@ -32,9 +32,10 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		od = session.get(Ordered.class, ordered_number);
 		return od;
 	}
+	
 	//依照訂單編號來查詢整筆訂單資料
 	@SuppressWarnings("unchecked")
-	@Override							//為何用string
+	@Override							//為何用String?
 	public List<Ordered> queryOrderAll(String ordered_number) {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
@@ -43,7 +44,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return list;
 	}
 	
-	//可以從訂單去取整筆顧客的資料
+	//可以從顧客ID去取顧客的所有訂單資料
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Ordered> getcustomer(String customer_id) {
@@ -51,6 +52,16 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		Session session = factory.getCurrentSession();
 		String hql ="FROM Ordered od WHERE od.customer_id = :cid";
 		list = session.createQuery(hql).setParameter("cid", customer_id).getResultList();
+		return list;
+	}
+	//可查詢該日期的所有訂單
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ordered> queryDateToOrdered(String ordered_date) {
+		List<Ordered> list = null;
+		Session session = factory.getCurrentSession();
+		String hql ="FROM Ordered od WHERE od.ordered_date = :odd";
+		list = session.createQuery(hql).setParameter("cid", ordered_date).getResultList();
 		return list;
 	}
 	
@@ -68,6 +79,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	od.setOrdered_number(ordered_number);
 	session.delete(od);
 	}
+
 
 
 }
