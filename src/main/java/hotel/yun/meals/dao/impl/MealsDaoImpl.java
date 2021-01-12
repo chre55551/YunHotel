@@ -63,7 +63,18 @@ public  class MealsDaoImpl implements MealsDao {
 	@Override
 	public void update(Meals mbean) {
 		Session session = factory.getCurrentSession();
-		session.update(mbean);
+		String hql = "UPDATE Meals m SET m.meals_price  = :price "
+				+ ", m.meals_stock = :stock"
+				+ ", m.meals_typeid = :typeid"
+				+ "WHERE m.meals_name = :name ";
+		
+		session.createQuery(hql)
+		        .setParameter("name",mbean.getMeals_name())
+		        .setParameter("stock",mbean.getMeals_stock())
+		        .setParameter("price",mbean.getMeals_price())
+		        .setParameter("typeid",mbean.getMealsType().getMeals_typeid())
+		        .executeUpdate();
+	
 		
 	}
 	@Override
