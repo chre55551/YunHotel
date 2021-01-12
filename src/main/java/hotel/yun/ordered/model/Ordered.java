@@ -19,6 +19,7 @@ import hotel.yun.customer.model.Customer;
 @Table(name = "ordered")
 public class Ordered implements Serializable{
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_number;// 訂單編號

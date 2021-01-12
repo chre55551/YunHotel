@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import hotel.yun.customer.dao.CustomerDao;
 import hotel.yun.customer.model.Customer;
 @Repository
-public class CustomerDaoImpl implements CustomerDao {
+public class CustomerDaoimpl implements CustomerDao {
 SessionFactory factory;
 	
 	@Autowired
@@ -22,7 +22,7 @@ SessionFactory factory;
 		this.factory = factory;
 	}
 
-	public CustomerDaoImpl() { 	}
+	public CustomerDaoimpl() { 	}
 	@Override
 	public Customer getCustomerById(int id) {
 		Customer bean = null;
