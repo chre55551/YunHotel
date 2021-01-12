@@ -25,3 +25,8 @@ target/m2e-wtp/web-resources/META-INF/maven/tw.com.yun/YunHotel/pom.properties
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 target/m2e-wtp/web-resources/META-INF/maven/tw.com.yun/YunHotel/pom.properties
+/target/
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+target/m2e-wtp/web-resources/META-INF/maven/tw.com.yun/YunHotel/pom.properties
+.classpath
+target/m2e-wtp/web-resources/META-INF/maven/tw.com.yun/YunHotel/pom.properties
