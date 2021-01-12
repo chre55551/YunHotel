@@ -1,4 +1,4 @@
-package hotel.yun.employee.bean;
+package hotel.yun.employee.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
