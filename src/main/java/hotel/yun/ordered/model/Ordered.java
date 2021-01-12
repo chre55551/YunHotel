@@ -18,7 +18,7 @@ public class Ordered implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ordered_number;// 訂單編號ㄏ
+	private int ordered_number;// 訂單編號
 	
 	private int member_id;// 會員編號，必須建其他資料表才吃的到
 	private int status_id;// 狀態ID，必須建其他資料表才吃的到
