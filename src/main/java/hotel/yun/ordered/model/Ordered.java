@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import hotel.yun.customer.model.Customer;
+
 @Entity
 @Table(name = "ordered")
 public class Ordered implements Serializable{
@@ -32,9 +34,9 @@ public class Ordered implements Serializable{
 	private int iv_no;//發票號碼
 	private String note;//註記
 	
-	//@ManyToOne(cascade=CascadeType.ALL)
-	//@JoinColumn(name= "customer_id")
-	//private Customer customer;// 會員編號
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name= "customer_id")
+	private Customer customer;// 顧客編號
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name= "status_id")

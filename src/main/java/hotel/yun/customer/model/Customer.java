@@ -1,7 +1,10 @@
 package hotel.yun.customer.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,11 +13,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import hotel.yun.ordered.model.Ordered;
 
 @Entity
 @Table(name="customer")
 public class Customer {
+	
 	@Id@Column(name = "customer_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customer_id;
@@ -24,10 +31,13 @@ public class Customer {
 	private String address;
 	private String mobile_phone;
 	private int member_id;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_id")
 	private Customer customer;
 	
+	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
+	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
 	public Customer(String chinese_name, String idcard_number, Date birthday, String address, String mobile_phone) {
 		this.chinese_name = chinese_name;
