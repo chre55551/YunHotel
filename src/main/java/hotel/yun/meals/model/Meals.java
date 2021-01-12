@@ -32,11 +32,22 @@ public class Meals implements Serializable{
 	private MealsType mealsType;   
 	
 	
-	
 	public Meals() {
 		
 	}
-
+	
+	
+	
+	public Meals(int meals_id,String meals_name,double meals_price,String meals_stock,Blob meals_image,MealsType mealsType) {
+		this.meals_id = meals_id;
+		this.meals_name = meals_name;
+		this.meals_price = meals_price;
+		this.meals_stock = meals_stock;
+		this.meals_image = meals_image;
+		this.mealsType = mealsType;
+	}
+	
+	
 
 
 	public int getMeals_id() {

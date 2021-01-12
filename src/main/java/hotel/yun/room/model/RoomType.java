@@ -35,6 +35,22 @@ public class RoomType implements Serializable{
 		
 		
 	}
+	
+	
+	
+	public RoomType(int room_typeid, String room_type,double room_price,String room_stock,Blob room_image, Set<Room> room) {
+		this.room_typeid = room_typeid;
+		this.room_type = room_type;
+		this.room_price = room_price;
+		this.room_stock = room_stock;
+		this.room_image = room_image;
+		this.room = room;
+		
+	}
+	
+	
+	
+	
 
 	public int getRoom_typeid() {
 		return room_typeid;

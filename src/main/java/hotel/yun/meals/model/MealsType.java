@@ -35,7 +35,11 @@ public class MealsType implements Serializable{
 	}
 
 
-
+	public MealsType(int meals_typeid ,String meals_type ,Set<Meals> meals ) {
+		this.meals_typeid = meals_typeid;
+		this.meals_type = meals_type;
+		this.meals = meals;
+	}
 
 
 	public int getMeals_typeid() {

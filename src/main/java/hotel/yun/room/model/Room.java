@@ -28,10 +28,18 @@ public class Room implements Serializable {
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType; 
 			
-			
+	
+	
 	public Room() {
 		
 	}
+			
+	public Room(int room_id, String room_name , RoomType roomType) {
+		this.room_id = room_id;
+		this.room_name = room_name;
+		this.roomType = roomType;
+	}
+	
 
 
 	public int getRoom_id() {
