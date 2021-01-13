@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
+
+@Transactional
 @Service
 public class Ordered_ServiceImpl implements Ordered_Service {
 	
@@ -57,6 +60,4 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	public void delete(int ordered_number) {
 		oDao.delete(ordered_number);
 	}
-
-	
 }
