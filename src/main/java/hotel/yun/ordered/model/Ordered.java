@@ -24,7 +24,7 @@ public class Ordered implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_number;// 訂單編號
 	
-//	private int customer_id;// 會員編號
+//	private int customer_id;// 顧客編號
 //	private int ordered_tomeals_id;//餐點訂單編號
 //	private int ordered_toroom_id;//房間訂單編號
 //	private int status_id;// 狀態ID
