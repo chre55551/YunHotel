@@ -13,47 +13,49 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	
 	@Autowired
 	private Ordered_Dao oDao;
-	
+
+	public void setoDao(Ordered_Dao oDao) {
+		this.oDao = oDao;
+	}
+
 	@Override
 	public Ordered insert(Ordered oBean) {
 		
-		return null;
+		return oDao.insert(oBean);
 	}
 
 	@Override
 	public Ordered query(int ordered_number) {
 		
-		return null;
+		return oDao.query(ordered_number);
 	}
 
 	@Override
 	public List<Ordered> queryOrderAll(String ordered_number) {
 		
-		return null;
+		return oDao.queryOrderAll(ordered_number);
 	}
 
 	@Override
 	public List<Ordered> getcustomer(String customer_id) {
 		
-		return null;
+		return oDao.getcustomer(customer_id);
 	}
 
 	@Override
 	public List<Ordered> queryDateToOrdered(String ordered_date) {
 	
-		return null;
+		return oDao.queryDateToOrdered(ordered_date);
 	}
 
 	@Override
 	public void update(Ordered oBean) {
-		
-		
+		oDao.update(oBean);
 	}
 
 	@Override
 	public void delete(int ordered_number) {
-		
-		
+		oDao.delete(ordered_number);
 	}
 
 	
