@@ -24,7 +24,7 @@ public class OrderedPayment implements Serializable{
 	
 	private String payment_status;//付款狀態
 	
-	@OneToMany(mappedBy = "OrderedPayment",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderedPayment",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
 	public OrderedPayment() {

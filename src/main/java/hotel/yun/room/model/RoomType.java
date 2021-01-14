@@ -28,7 +28,7 @@ public class RoomType implements Serializable{
 	private double room_price;//房價
 	private String room_stock;//庫存
 	private Blob room_image;  //房間圖片
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "RoomType", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roomType", cascade = CascadeType.ALL)
 	private Set<Room> room = new HashSet<>();
 	
 	public RoomType() {

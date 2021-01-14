@@ -25,7 +25,7 @@ public class OrderedStatus implements Serializable{
 	
 	private String ordered_type;//訂單類型
 	
-	@OneToMany(mappedBy = "OrderedStatus", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderedStatus", cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<>();
 	
 	public OrderedStatus() {
