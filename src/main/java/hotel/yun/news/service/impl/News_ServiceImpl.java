@@ -8,14 +8,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.news.dao.News_Dao;
 import hotel.yun.news.model.News;
-
-@Repository
+@Transactional
+@Service
 public class News_ServiceImpl implements Serializable, News_Dao {
 	private static final long serialVersionUID = 1L;
-	
+	@Autowired
 	News_Dao NDao;
 	
 	@Override

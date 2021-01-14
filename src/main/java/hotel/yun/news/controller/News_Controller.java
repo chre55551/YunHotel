@@ -15,10 +15,6 @@ public class News_Controller {
 	
 	@Autowired
 	News_Service service;
-	public void setService(News_Service service) {
-		this.service = service;
-	}
-	
 	
 //	@PostMapping("/insertCustomer")
 //	public String insertCustomerData(
