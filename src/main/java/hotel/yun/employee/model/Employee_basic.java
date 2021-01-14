@@ -50,6 +50,24 @@ public class Employee_basic implements Serializable {
 	public Employee_basic() {
 		
 	}
+	
+	
+	
+	public Employee_info getEmployee_info() {
+		return employee_info;
+	}
+
+	public void setEmployee_info(Employee_info employee_info) {
+		this.employee_info = employee_info;
+	}
+
+	public Employee_work getEmployee_work() {
+		return employee_work;
+	}
+
+	public void setEmployee_work(Employee_work employee_work) {
+		this.employee_work = employee_work;
+	}
 
 	public Integer getEmployee_id() {
 		return employee_id;

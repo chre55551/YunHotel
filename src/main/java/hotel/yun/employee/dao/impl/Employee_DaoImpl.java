@@ -3,9 +3,6 @@ package hotel.yun.employee.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.NoResultException;
-
-import org.hibernate.NonUniqueResultException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,22 +27,13 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 	}
 	
 	@Override
-	public boolean query(Integer employee_id) {
-		boolean exist = false;
-		String hql = "FROM Employee_basic WHERE employee_id = :employee_id";
+	public Employee_basic query(int employee_id) {
+		
+		Employee_basic bean = null;
 		Session session = factory.getCurrentSession();
-		Employee_basic employee_basic = null;
-		try {
-			employee_basic = (Employee_basic) session.createQuery(hql)
-					.setParameter("employee_id", employee_id)
-					.getSingleResult();
-		} catch(NoResultException | NonUniqueResultException e){
-			;
-		}
-		if (employee_basic != null) { 
-			exist = true;
-		}
-	return exist;
+		bean = session.get(Employee_basic.class, employee_id);
+		return bean;
+	
 	}
 
 	@Override
@@ -71,7 +59,7 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 
 	// 刪除紀錄
 	@Override
-	public void delete(Integer employee_id) {
+	public void delete(int employee_id) {
 		Session session = factory.getCurrentSession();
 		Employee_basic emBean = new Employee_basic();
 		emBean.setEmployee_id(employee_id);

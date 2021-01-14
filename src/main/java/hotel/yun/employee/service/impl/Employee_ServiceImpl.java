@@ -31,9 +31,9 @@ public class Employee_ServiceImpl implements Employee_Service {
 	}
 
 	@Override
-	public boolean query(Integer employee_id) {
+	public Employee_basic query(int employee_id) {
 		
-		return emDao.query(employee_id);
+		return emDao.query(employee_id);	
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class Employee_ServiceImpl implements Employee_Service {
 	}
 
 	@Override
-	public void delete(Integer employee_id) {
+	public void delete(int employee_id) {
 		emDao.delete(employee_id);
 	}
 }
