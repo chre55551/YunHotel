@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import hotel.yun.meals.dao.MealsDao;
 import hotel.yun.meals.model.Meals;
+import hotel.yun.room.model.Room;
 @Repository
 public  class MealsDaoImpl implements MealsDao {
 	SessionFactory factory;
@@ -36,7 +37,7 @@ public  class MealsDaoImpl implements MealsDao {
 	}
 	
 	@Override
-	public Meals getMeals_id(int id) {
+	public Meals queryMeals_id(int id) {
 	Meals bean = null;
 	Session session = factory.getCurrentSession();
 	String hql  = "FROM Meals m WHERE m.meals_id = :id";
@@ -53,33 +54,26 @@ public  class MealsDaoImpl implements MealsDao {
 }
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Meals> getAll() {
+	public List<Meals> queryAll() {
 		Session session = factory.getCurrentSession();
 		String hql  = "FROM Meals";
 		List<Meals> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
+	
 	@Override
-	public void update(Meals mbean) {
-		Session session = factory.getCurrentSession();
-		String hql = "UPDATE Meals m SET m.meals_price  = :price "
-				+ ", m.meals_stock = :stock"
-				+ ", m.meals_typeid = :typeid"
-				+ "WHERE m.meals_name = :name ";
-		
-		session.createQuery(hql)
-		        .setParameter("name",mbean.getMeals_name())
-		        .setParameter("stock",mbean.getMeals_stock())
-		        .setParameter("price",mbean.getMeals_price())
-		        .setParameter("typeid",mbean.getMealsType().getMeals_typeid())
-		        .executeUpdate();
-	}
+	public void update(Meals mBean) {
+			Session session = factory.getCurrentSession();
+			session.update(mBean);
+			
+		}
+	
 	@Override
-	public void delete(int key) {
+	public void delete(int meals_id) {
 		Session session = factory.getCurrentSession();
 		Meals food = new Meals();
-		food.setMeals_id(key);
+		food.setMeals_id(meals_id);
 		session.delete(food);
 	}
 }

@@ -8,10 +8,10 @@ import hotel.yun.meals.model.Meals;
 
 public interface MealsDao {
 	    Object save(Meals mBean);
-	    Meals getMeals_id(int id);
-	    List<Meals> getAll();
-	    void update(Meals mbean); 
-		void delete(int key);
+	    Meals queryMeals_id(int id);
+	    List<Meals> queryAll();
+	    void update(Meals mBean); 
+		void delete(int meals_id);
 }
 
 //public boolean delete(int meals_id);

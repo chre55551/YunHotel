@@ -1,5 +1,6 @@
 package hotel.yun.meals.model;
 
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import hotel.yun.room.model.Room;
+
 
 @Entity
 @Table(name = "meals_type")
