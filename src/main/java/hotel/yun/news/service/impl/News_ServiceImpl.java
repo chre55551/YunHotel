@@ -25,7 +25,7 @@ public class News_ServiceImpl implements News_Service {
 	public News insert(News nBean) {
 		return NDao.insert(nBean);
 	}
-
+//test
 	@Override
 	public News queryNewID(int news_id) {
 		return NDao.queryNewID(news_id);
