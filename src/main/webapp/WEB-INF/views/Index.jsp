@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='${pageContext.request.contextPath}/WEB-INF/css/style.css'  type="text/css" />
+<link rel='stylesheet' href='${pageContext.request.contextPath}/WEB-INF/css/indexcss.css'  type="text/css" />
 <title>澐YunHotel酒店.首頁</title>
-    <link rel="stylesheet" href="css/themes/cupertino/jquery-ui.min.css">
+    <link rel="stylesheet" href="../css/themes/cupertino/jquery-ui.min.css">
     <!-- Bootstrapt插件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 
 <header> 
     <ul>
-        <li><img id="logo" src="imgs/logo.png"></li>
+        <li><img id="logo" src="../imgs/logo.png"></li>
         <li>&emsp;&emsp;&emsp;&emsp;</li>
         <li><a href="#">關於我們</a></li>
         <li><a href="#">最新消息</a></li>
@@ -34,14 +34,14 @@
                 <p id="dateF">入住:</p><br>
                 <!-- readonly:不讓使用者自行輸入日期 -->
                 <input type="text" id="from" class="datepicker" readonly> 
-                <img id="datepic" src="imgs/date1.png">
+                <img id="datepic" src="../imgs/date1.png">
                 <button></button>
             </div>
 
             <div class="D1">
                 <p id="dateF">退房:</p><br>
                 <input type="text" id="to" class="datepicker" readonly>
-                <img id="datepic" src="imgs/date1.png">
+                <img id="datepic" src="../imgs/date1.png">
                 <button></button>
             </div>
         </div>
@@ -57,8 +57,8 @@
 </div>
 
 
-<script src="js/jquery-3.5.1.min.js"></script>
-<script src="js/plugin/jquery-ui.js"></script>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script src="../js/plugin/jquery-ui.js"></script>
 <script>
 
 $(function() {
