@@ -15,7 +15,7 @@ public class Employee_info implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer employee_id;//employee_id
+	Integer employee_info_id;//employee_id
 	String employee_gender;//employee_gender
 	Integer employee_age;//employee_age
 	String employee_address;//employee_address
@@ -25,11 +25,11 @@ public class Employee_info implements Serializable {
 	String emergency_contact;//emergency_contact
 	byte[] employee_image;//employee_image
 	
-	public Employee_info(Integer employee_id,String employee_gender,
+	public Employee_info(Integer employee_info_id,String employee_gender,
 			Integer employee_age,String employee_address,String employee_mobile,
 			String employee_phone,String employee_email,String emergency_contact,
 			byte[] employee_image) {
-		this.employee_id = employee_id;
+		this.employee_info_id = employee_info_id;
 		this.employee_gender = employee_gender;
 		this.employee_age = employee_age;
 		this.employee_address = employee_address;
@@ -42,11 +42,11 @@ public class Employee_info implements Serializable {
 	public Employee_info() {
 		
 	}
-	public Integer getEmployee_id() {
-		return employee_id;
+	public Integer getemployee_info_id() {
+		return employee_info_id;
 	}
-	public void setEmployee_id(Integer employee_id) {
-		this.employee_id = employee_id;
+	public void setemployee_info_id(Integer employee_info_id) {
+		this.employee_info_id = employee_info_id;
 	}
 	public String getEmployee_gender() {
 		return employee_gender;
