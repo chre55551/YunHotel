@@ -13,9 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.news.dao.News_Dao;
 import hotel.yun.news.model.News;
+import hotel.yun.news.service.News_Service;
 @Transactional
 @Service
-public class News_ServiceImpl implements Serializable, News_Dao {
+public class News_ServiceImpl implements News_Service {
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	News_Dao NDao;
