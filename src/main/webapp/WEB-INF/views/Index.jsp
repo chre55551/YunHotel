@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='${pageContext.request.contextPath}/WEB-INF/css/indexcss.css'  type="text/css" />
+<link rel='stylesheet' href='${pageContext.request.contextPath}/WEB-INF/css/indexcss.css'  type="text/css" charset=UTF-8 />
 <title>澐YunHotel酒店.首頁</title>
     <link rel="stylesheet" href="../css/themes/cupertino/jquery-ui.min.css">
     <!-- Bootstrapt插件 -->
