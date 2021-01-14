@@ -39,14 +39,18 @@ public class Ordered_Controller {
 	public String ShowOrdered(Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("ordered", od);
-		return "ordered/InsertOrdered";
+		String s = "ordered/InsertOrdered";
+		return s;
 	}
-	
+	//給他輸入
 	@PostMapping("/ShowOrdered")
 	public String insert(@ModelAttribute("od") Ordered od,Model model) {
 		service.insert(od);
 		return "redirect";
-		
 	}
 	
+	public String query() {
+		return null;
+		
+	}
 }

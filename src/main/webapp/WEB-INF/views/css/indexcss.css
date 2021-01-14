@@ -40,7 +40,7 @@ header ul li a:hover{
 body{
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../imgs/indexbg.jpeg');
+    background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
 }
 /* 主體 */
 #main{
