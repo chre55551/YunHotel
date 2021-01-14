@@ -30,13 +30,12 @@ public class Customer {
 	private Date birthday;
 	private String address;
 	private String mobile_phone;
-	private int member_id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_id")
 	private Customer customer;
 	
-	@OneToMany(mappedBy = "Customer",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
 	public Customer(String chinese_name, String idcard_number, Date birthday, String address, String mobile_phone) {
@@ -82,12 +81,7 @@ public class Customer {
 	public void setMobile_phone(String mobile_phone) {
 		this.mobile_phone = mobile_phone;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+
 	public Customer getCustomer() {
 		return customer;
 	}
