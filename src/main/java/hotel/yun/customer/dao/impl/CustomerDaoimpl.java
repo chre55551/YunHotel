@@ -66,7 +66,8 @@ SessionFactory factory;
 	@Override
 	public void deleteCustomerByPrimaryKey(int key) {
 		Session session = factory.getCurrentSession();
-		Customer customer = new Customer(null, null, null, null, null);
+		//你他媽這段是在寫三小?????????????????????????
+		Customer customer = new Customer(key, null, null, null, null, null, null, null);
 		customer.setCustomer_id(key);
 		session.delete(customer);
 

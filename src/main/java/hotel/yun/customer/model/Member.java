@@ -28,13 +28,10 @@ public class Member {
 	private String email;
 	private Date register_date;
 	private Date updated_date;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "member", cascade = CascadeType.ALL)
-	private Set<Customer> customer = new HashSet<Customer>();
-	
-	
+
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
-			String email, Date register_date, Date updated_date, Set<Customer> customer) {
-		
+			String email, Date register_date, Date updated_date) {
+		super();
 		this.member_id = member_id;
 		this.account = account;
 		this.password = password;
@@ -44,9 +41,8 @@ public class Member {
 		this.email = email;
 		this.register_date = register_date;
 		this.updated_date = updated_date;
-		this.customer = customer;
 	}
-
+	
 	public int getMember_id() {
 		return member_id;
 	}
@@ -100,12 +96,6 @@ public class Member {
 	}
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
-	}
-	public Set<Customer> getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Set<Customer> customer) {
-		this.customer = customer;
 	}
 	
 }

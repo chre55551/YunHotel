@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import hotel.yun.ordered.model.Ordered;
@@ -31,20 +32,26 @@ public class Customer {
 	private String address;
 	private String mobile_phone;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "member_id")
-	private Customer customer;
+	@OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="member_id", referencedColumnName="member_id")
+	private Member member;
 	
 	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
-	public Customer(String chinese_name, String idcard_number, Date birthday, String address, String mobile_phone) {
+	public Customer(int customer_id, String chinese_name, String idcard_number, Date birthday, String address,
+			String mobile_phone, Member member, Set<Ordered> ordered) {
+		super();
+		this.customer_id = customer_id;
 		this.chinese_name = chinese_name;
 		this.idcard_number = idcard_number;
 		this.birthday = birthday;
 		this.address = address;
 		this.mobile_phone = mobile_phone;
+		this.member = member;
+		this.ordered = ordered;
 	}
+	
 	public int getCustomer_id() {
 		return customer_id;
 	}
@@ -80,13 +87,6 @@ public class Customer {
 	}
 	public void setMobile_phone(String mobile_phone) {
 		this.mobile_phone = mobile_phone;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
 	}
 	
 }
