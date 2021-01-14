@@ -9,12 +9,12 @@ import javax.persistence.NoResultException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Repository;
 
 import hotel.yun.room.dao.RoomDao;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
-
+@Repository
 public class RoomDaoImpl implements RoomDao{
 	SessionFactory factory;
 	
