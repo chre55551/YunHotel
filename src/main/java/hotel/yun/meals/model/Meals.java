@@ -29,26 +29,23 @@ public class Meals implements Serializable{
 	private Blob meals_image;   //餐點圖片
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "meals_typeid")
-	private MealsType mealsType;   
+	private MealsType meals_type;   
 	
 	
 	public Meals() {
 		
 	}
 	
-	
-	
-	public Meals(int meals_id,String meals_name,double meals_price,String meals_stock,Blob meals_image,MealsType mealsType) {
+	public Meals(int meals_id, String meals_name, double meals_price, String meals_stock, Blob meals_image,
+			MealsType meals_type) {
+		super();
 		this.meals_id = meals_id;
 		this.meals_name = meals_name;
 		this.meals_price = meals_price;
 		this.meals_stock = meals_stock;
 		this.meals_image = meals_image;
-		this.mealsType = mealsType;
+		this.meals_type = meals_type;
 	}
-	
-	
-
 
 	public int getMeals_id() {
 		return meals_id;
@@ -110,14 +107,14 @@ public class Meals implements Serializable{
 
 
 
-	public MealsType getMealsType() {
-		return mealsType;
+	public MealsType getMeals_type() {
+		return meals_type;
 	}
 
 
 
-	public void setMealsType(MealsType mealsType) {
-		this.mealsType = mealsType;
+	public void setMeals_type(MealsType meals_type) {
+		this.meals_type = meals_type;
 	}
 
 
