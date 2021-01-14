@@ -42,6 +42,10 @@ public class Ordered_Controller {
 		return "redirect";
 	}
 
+	public String getCustomerOrder(@ModelAttribute("od") Ordered od, Model model) {
+		return null;
+	}
+	
 	// 從訂單編號刪除一筆訂單
 	@DeleteMapping("/ShowOrdered/{ordered_number}")
 	public String delete(@PathVariable("ordered_number") int ordered_number) {
