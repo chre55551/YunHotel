@@ -13,7 +13,8 @@ header{
     padding-left:25px;
     height: 80px;
     width: 100vw; /* 寬度=網頁寬 */
-    background-color: rgba(15, 37, 64, 0.8); /* 稍微透明 */
+    background-color: #0F2540;
+/*     background-color: rgba(15, 37, 64, 0.8); 稍微透明 */
     color: white;
     flex: 0 0 auto; 
     position: fixed;/* 固定頁首 */

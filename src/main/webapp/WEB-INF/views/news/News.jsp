@@ -5,7 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/indexcss.css'  type="text/css"/>
 <title>消息</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+    <!-- Bootstrapt插件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div align='center'>
