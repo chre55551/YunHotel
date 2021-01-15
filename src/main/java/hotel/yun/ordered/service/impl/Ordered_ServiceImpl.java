@@ -28,21 +28,21 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
-	public Ordered query(int ordered_number) {
+	public Ordered queryAll(int ordered_number) {
 		
-		return oDao.query(ordered_number);
+		return oDao.queryAll(ordered_number);
 	}
 
 	@Override
-	public List<Ordered> queryOrderAll(String ordered_number) {
+	public List<Ordered> queryOrderNum(String ordered_number) {
 		
-		return oDao.queryOrderAll(ordered_number);
+		return oDao.queryOrderNum(ordered_number);
 	}
 
 	@Override
-	public List<Ordered> getcustomer(String customer_id) {
+	public List<Ordered> queryCustomerToOrdered(String customer_id) {
 		
-		return oDao.getcustomer(customer_id);
+		return oDao.queryCustomerToOrdered(customer_id);
 	}
 
 	@Override

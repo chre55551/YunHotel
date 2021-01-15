@@ -26,19 +26,19 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return oBean;
 	}
 
-	//依照訂單編號可以查到該筆訂單資訊
+	//依照訂單號碼來查詢所有訂單資料
 	@Override
-	public Ordered query(int ordered_number) {
+	public Ordered queryAll(int ordered_number) {
 		Ordered od = null;
 		Session session = factory.getCurrentSession();
 		od = session.get(Ordered.class, ordered_number);
 		return od;
 	}
 	
-	//依照訂單編號來查詢所有訂單資料
+	//依照訂單編號來查詢該筆訂單
 	@SuppressWarnings("unchecked")
 	@Override							//為何用String?
-	public List<Ordered> queryOrderAll(String ordered_number) {
+	public List<Ordered> queryOrderNum(String ordered_number) {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Ordered od WHERE od.ordered_number = :onb";
@@ -49,7 +49,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	//可以從顧客ID去取顧客的所有訂單資料
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Ordered> getcustomer(String customer_id) {
+	public List<Ordered> queryCustomerToOrdered(String customer_id) {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
 		String hql ="FROM Ordered od WHERE od.customer_id = :cid";
