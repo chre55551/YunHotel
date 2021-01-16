@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,7 @@ public class Ordered_Controller {
 	}
 	
 	@PostMapping("/getCustomerOrder")
-	public String getCustomerOrder(@ModelAttribute("odd") Ordered odd, Model model) {
+	public String getCustomerOrder(@ModelAttribute("odd") Ordered odd, Model model,HttpSession session) {
 		//等小魏寫好取到顧客名子和手機的方法，我再取用
 //		List<Ordered> CustomerOrdered = service.queryCustomerToOrdered();
 //		model.addAttribute("Ordered",CustomerOrdered);
@@ -96,10 +97,6 @@ public class Ordered_Controller {
 	model.addAttribute("updateOdered", afterOrdered);
 		return "/ordered/ThisOrdered";//依訂單到查詢到的訂單，再做修改
 	}
-	
-	
-	
-	
 	
 	
 //---------------------------------------------------------

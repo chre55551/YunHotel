@@ -1,4 +1,4 @@
-package hotel.yun.ordered.controller;
+package hotel.yun.home;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
