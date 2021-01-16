@@ -1,6 +1,7 @@
 package hotel.yun.ordered.dao.impl;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -26,19 +27,19 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return oBean;
 	}
 
-	//依照訂單號碼來查詢所有訂單資料
+	//依照訂單編號來查詢該筆訂單
 	@Override
-	public Ordered queryAll(int ordered_number) {
+	public Ordered queryOrderNum(int ordered_number) {
 		Ordered od = null;
 		Session session = factory.getCurrentSession();
 		od = session.get(Ordered.class, ordered_number);
 		return od;
 	}
 	
-	//依照訂單編號來查詢該筆訂單
+	//依照訂單編號來查詢所有訂單
 	@SuppressWarnings("unchecked")
-	@Override							//為何用String?
-	public List<Ordered> queryOrderNum(String ordered_number) {
+	@Override							
+	public List<Ordered> queryAll(int ordered_number) {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Ordered od WHERE od.ordered_number = :onb";
@@ -49,7 +50,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	//可以從顧客ID去取顧客的所有訂單資料
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Ordered> queryCustomerToOrdered(String customer_id) {
+	public List<Ordered> queryCustomerToOrdered(int customer_id) {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
 		String hql ="FROM Ordered od WHERE od.customer_id = :cid";
@@ -60,7 +61,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	//可查詢該日期的所有訂單
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Ordered> queryDateToOrdered(String ordered_date) {
+	public List<Ordered> queryDateToOrdered(Date ordered_date) {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
 		String hql ="FROM Ordered od WHERE od.ordered_date = :odd";
@@ -70,7 +71,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	
 	//依照訂單編號即可修改整張訂單
 	@Override
-	public void update(Ordered odBean) {
+	public Ordered update(Ordered odBean) {
 		Session session = factory.getCurrentSession();
 		String hql = "UPDATE Ordered od SET od.customer_id  = :customer "
 				+ ", od.ordered_tomeals_id = :tomeals"
@@ -83,7 +84,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 				+ ", od.note = :note"
 				+ "WHERE od.ordered_number = :number ";
 		
-		session.createQuery(hql)
+		 session.createQuery(hql)
 		        .setParameter("number",odBean.getOrdered_number())
 		        .setParameter("customer",odBean.getCustomer())
 		        .setParameter("tomeals",odBean.getOrderedToMeals())
@@ -95,8 +96,9 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		        .setParameter("ivno",odBean.getIv_no())
 		        .setParameter("note",odBean.getNote())
 		        .executeUpdate();
+		return odBean;
 	}
-	
+	 
 	//依照訂單編號來刪除整筆資料
 	@Override
 	public void delete(int ordered_number) {

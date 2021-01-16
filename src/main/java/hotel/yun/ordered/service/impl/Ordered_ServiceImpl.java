@@ -1,5 +1,6 @@
 package hotel.yun.ordered.service.impl;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,32 +29,32 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
-	public Ordered queryAll(int ordered_number) {
-		
-		return oDao.queryAll(ordered_number);
-	}
-
-	@Override
-	public List<Ordered> queryOrderNum(String ordered_number) {
+	public Ordered queryOrderNum(int ordered_number) {
 		
 		return oDao.queryOrderNum(ordered_number);
 	}
 
 	@Override
-	public List<Ordered> queryCustomerToOrdered(String customer_id) {
+	public List<Ordered> queryAll(int ordered_number) {
+		
+		return oDao.queryAll(ordered_number);
+	}
+
+	@Override
+	public List<Ordered> queryCustomerToOrdered(int customer_id) {
 		
 		return oDao.queryCustomerToOrdered(customer_id);
 	}
 
 	@Override
-	public List<Ordered> queryDateToOrdered(String ordered_date) {
+	public List<Ordered> queryDateToOrdered(Date ordered_date) {
 	
 		return oDao.queryDateToOrdered(ordered_date);
 	}
 
 	@Override
-	public void update(Ordered oBean) {
-		oDao.update(oBean);
+	public Ordered update(Ordered oBean) {
+		return oDao.update(oBean);
 	}
 
 	@Override
