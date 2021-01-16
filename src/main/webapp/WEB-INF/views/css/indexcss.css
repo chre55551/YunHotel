@@ -1,0 +1,108 @@
+/* 為了讓header貼齊頂端 */
+*{ 
+    margin:0 auto;
+    padding:0px;
+    /*6+7行:網頁x軸不出現捲軸，多餘的內容由y捲軸延伸*/
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+/* 頁首 */
+header{
+    margin:0 auto;
+    padding-top: 25px;  
+    padding-left:25px;
+    height: 80px;
+    width: 100vw; /* 寬度=網頁寬 */
+    background-color: #0F2540;
+/*     background-color: rgba(15, 37, 64, 0.8); 稍微透明 */
+    color: white;
+    flex: 0 0 auto; 
+    position: fixed;/* 固定頁首 */
+}
+#logo{
+    margin-top:-15px;
+    width: 120px;
+    height: 60px;
+    position: fixed;
+}
+/* 頁首連結 */
+header ul li{
+    margin-right: 40px; /* 連結間隔 */
+    display:inline; /* 水平 */
+    font-size: 1.2em;
+}
+header ul li a:visited{
+    color: white;
+}
+header ul li a:hover{
+    color: #8a97a5;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
+}
+/* 主體 */
+#main{
+    padding-top: 50px;
+    min-height: 100vh;
+    width: 100vw;  /*寬度=網頁寬 */
+    text-align: center;
+    background: rgba(94, 73, 68, 0.5); /* 整個網頁壓暗的程度 */
+    flex: 1 0 auto; /* 頁首頁尾剩的空間 */
+}
+/* 內容 */
+#container{
+    margin-top: 450px;
+    width: 1000px;
+    height: 600px;
+    text-align: center;
+    /* background-color: rgb(212, 194, 160); */
+}
+/* Date標題字 */
+#dateF{
+    float: left;
+    color: white;
+    font-size: 1.4em;
+    font-weight:bold; /* 粗體 */
+}
+/* Date下面那整條 */
+.dateline{
+    float: left;
+    display:block;
+    /* background-color: rgb(243, 176, 165); */
+}
+.D1{
+    float: left;
+}
+/* Date的input */
+.datepicker{
+    margin-top: -10px;
+    padding-left: 15px;
+    width: 200px;
+    height: 70px;
+    background-color: #212e3d;
+    opacity: 0.6;
+    color: white;
+    font-size: 1.4em;
+    font-family:"Trebuchet MS";
+    border:2px solid white;
+    /* position:absolute; */
+    z-index:-1; 
+}
+#datepic{
+    margin-left: -40px;
+    margin-top: 10px;
+    position:absolute;
+    z-index:0; /* 讓日曆圖疊在輸入框上 */
+}
+
+/* 頁尾 */
+#footer{
+    height: 20px;
+    width: 100vw;  /*寬度=網頁寬 */
+    text-align: center;
+    background-color: #0F2540;
+    color: white;
+}

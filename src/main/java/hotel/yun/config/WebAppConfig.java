@@ -40,8 +40,10 @@ public class WebAppConfig implements WebMvcConfigurer {
 	             .addResourceLocations("/WEB-INF/views/css/");
 	     registry.addResourceHandler("/image/**")
 	             .addResourceLocations("/WEB-INF/views/images/");
+	     registry.addResourceHandler("/js/**")
+	     .addResourceLocations("/WEB-INF/views/js/");
 	}
-	
+	//localhost:8080/image/logo.png
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();

@@ -19,20 +19,16 @@ public class OrderedPayment implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int payment_id;//付款ID
+	
 	private String bill_status;//付款方式
+	
 	private String payment_status;//付款狀態
 	
-	@OneToMany(mappedBy = "OrderedPayment",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderedPayment",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
 	public OrderedPayment() {
 		
-	}
-
-	public OrderedPayment(int payment_id, String bill_status, String payment_status) {
-		this.payment_id = payment_id;
-		this.bill_status = bill_status;
-		this.payment_status = payment_status;
 	}
 	
 	public OrderedPayment(int payment_id, String bill_status, String payment_status, Set<Ordered> ordered) {
