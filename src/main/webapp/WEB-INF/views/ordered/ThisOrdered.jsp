@@ -94,8 +94,6 @@
 				<td><form:input path="note" /></td>
 				<td><form:errors path="note" cssStyle="color: red;" /></td>
 			</tr>
-			<tr>
-				<td colspan=3><input type="submit"></td>
 		</form:form>
 	</table>
 </body>
