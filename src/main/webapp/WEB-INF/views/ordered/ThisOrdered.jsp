@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新增訂單</title>
+<title>Ordered</title>
 </head>
 <body>
 	<h3>表單資料</h3>
@@ -39,7 +39,7 @@
 		<%-- 			<td>${ordered.note}</td> --%>
 		<!-- 		</tr> -->
 		<%-- 		</c:forEach> --%>
-		<form:form action="ShowOrdered" method="post" modelAttribute="od">
+		<form:form action="ShowOrdered" method="post" modelAttribute="odd">
 			<tr>
 				<td>訂單編號</td>
 				<td><form:input path="ordered_number" /></td>

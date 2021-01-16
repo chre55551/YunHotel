@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,14 +44,14 @@ public class Ordered_Controller {
 //	}
 	// 讓使用者輸入
 	@PostMapping("/InsertOrdred")
-	public String insert(@ModelAttribute("od") Ordered od, Model model,HttpServletRequest request,BindingResult result) {
+	public String insert(@ModelAttribute("odd") Ordered odd, Model model,HttpServletRequest request,BindingResult result) {
 		service.insert(od);
 		
 		return "ordered/ThisOrdered";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 //-------------------------------------
 	@PostMapping("/thisOrdered")
-	public String ThisOrdered(Model model) {
+	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		Ordered Ordered = service.queryOrderNum(od.getOrdered_number());
 		model.addAttribute("ThisOrdered", Ordered);
 		return "/ordered/ThisOrdered";//依訂單號查到他的訂單
