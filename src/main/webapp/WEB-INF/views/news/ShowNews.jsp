@@ -19,22 +19,24 @@
 		<hr>
 		<table border='1'>
 			<tr>
-				<th width='60'>時間</th>
-				<th width='160'>消息內容</th>
+				<th width='30'>no.</th>
+				<th width='60'>上傳時間</th>
+        		<th width='60'>更新時間</th>
+        		<th width='160'>消息內容</th>
 			</tr>
 			<c:choose>
-<%-- 				<c:when test="${not empty customerBeanList}"> --%>
+
 					<c:forEach var='news' items="${NewsList}">
 						<tr>
-							<td align='center'><a
-								href='GetAllNews/${news.news_id}'>${news.news_updated_date}</a></td>
+							<td align='center'>
+							<a href='GetAllNews/${news.news_id}'>
+							${news.news_id}</a></td>
+							<td>${news.news_date}</td>
+							<td>${news.news_updated_date}</td>
 							<td>${news.news_content}</td>
 						</tr>
 					</c:forEach>
-<%-- 				</c:when> --%>
-<%-- 				<c:otherwise> --%>
-<!-- 				查無Customer資料 -->
-<%-- 			</c:otherwise> --%>
+
 			</c:choose>
 		</table>
 		<br> <a href="<c:url value='../index' />">回首頁</a>

@@ -29,8 +29,8 @@ public class News_Controller {
 	//@Autowired
 	News nw;
 	
-	@PostMapping("/InsertNews")
-	public String insert(@ModelAttribute("nws") News nw, Model model,HttpServletRequest request,BindingResult result) {
+	@PostMapping("/insertNews")
+	public String Insert(@ModelAttribute("nws") News nw, Model model,HttpServletRequest request,BindingResult result) {
 		service.insert(nw);
 		return "news/GetaNew";
 	}
@@ -63,14 +63,6 @@ public class News_Controller {
 		return "/news/GetaNew";
 	}
 
-	
-	@GetMapping("/ShowNews")
-	public String getNews(Model model) {
-		List<News> beans = service.queryAllNews();
-		model.addAttribute(beans);      
-		System.out.println("queryAllNews...");
-		return "news/News";
-	}
 	
 	//前端網頁按按鈕送出請求，()內是前端的東東
 	@DeleteMapping("/DeleteNew/{news_id}")
