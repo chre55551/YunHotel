@@ -14,8 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import hotel.yun.date.model.Date;
+import hotel.yun.date.model.RDate;
 
 @Entity
 @Table(name = "room")
@@ -26,12 +27,14 @@ public class Room implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int room_id;         //房間編號
 	private String room_name;    //房間名稱
-	//private int room_typeid;     //房間類別編號
+	@Transient
+	private int room_typeid;     //房間類別編號
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
-	private RoomType roomType; 
-    @ManyToMany(mappedBy = "room")
-    private Set<Date> date = new HashSet<Date>();
+	private RoomType roomType;
+	
+    @ManyToMany(mappedBy = "rooms")
+    private Set<RDate> date = new HashSet<RDate>();
 	
 	
 	public Room() {

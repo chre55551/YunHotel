@@ -1,5 +1,6 @@
 package hotel.yun.date.model;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,25 +18,29 @@ import javax.persistence.Table;
 import hotel.yun.room.model.Room;
 
 @Entity
-@Table(name = "date")
-public class Date {
+@Table(name = "rdate")
+public class RDate {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer date_id;
-	private Date room_date;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "room_date", joinColumns = {
-            @JoinColumn(name = "fk_date_id", referencedColumnName = "date_id") }, inverseJoinColumns = {
-                    @JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
-    private Set<Room> room = new HashSet<Room>();
+	private Date rdate;
 	
-	public Date() {
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "room_date",
+    joinColumns = {
+            @JoinColumn(name = "fk_date_id", referencedColumnName = "date_id") },
+    inverseJoinColumns = {
+            @JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
+    private Set<Room> rooms = new HashSet<Room>();
+	
+    
+	public RDate() {
 		
 	}
 	
-	public Date(Date room_date) {
-		this.room_date = room_date;
+	public RDate(Date room_date) {
+		this.rdate = room_date;
 	}
 	public int getDate_id() {
 		return date_id;
@@ -44,10 +49,10 @@ public class Date {
 		this.date_id = date_id;
 	}
 	public Date getRoom_date() {
-		return room_date;
+		return rdate;
 	}
 	public void setRoom_date(Date room_date) {
-		this.room_date = room_date;
+		this.rdate = room_date;
 	}
 	
 	
