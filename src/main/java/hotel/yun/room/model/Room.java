@@ -30,7 +30,7 @@ public class Room implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType; 
-    @ManyToMany(mappedBy = "date")
+    @ManyToMany(mappedBy = "room")
     private Set<Date> date = new HashSet<Date>();
 	
 	

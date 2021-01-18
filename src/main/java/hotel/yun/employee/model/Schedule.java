@@ -33,10 +33,10 @@ public class Schedule {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "employee_schedule",  
 		joinColumns = {   // 在Join Table中，儲存本類別之主鍵值的外鍵欄位名稱
-			@JoinColumn(name = "FK_schedule_id", referencedColumnName = "schedule_id") 
+			@JoinColumn(name = "fk_schedule_id", referencedColumnName = "schedule_id") 
 		}, 
 		inverseJoinColumns = { // 在Join Table中，儲存對應對照類別之主鍵值的外鍵欄位名稱
-			@JoinColumn(name = "FK_employee_id",	referencedColumnName = "employee_id") 
+			@JoinColumn(name = "fk_employee_id",	referencedColumnName = "employee_id") 
 		}
 	)
 	private Set<Employee_basic> employee = new HashSet<Employee_basic>(0);
