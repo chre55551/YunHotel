@@ -9,8 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import hotel.yun.employee.dao.Employee_Dao;
 import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.service.Employee_Service;
-import hotel.yun.ordered.dao.Ordered_Dao;
-import hotel.yun.ordered.model.Ordered;
+
 
 
 @Transactional
