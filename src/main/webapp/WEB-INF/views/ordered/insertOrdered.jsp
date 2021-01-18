@@ -45,24 +45,21 @@ background-color:#C4E1FF
 			</tr>
 			<tr>
 				<td>訂單狀態</td>
-				<td><form:input path="status_id" />
-				<select>
-					<option>未付款</option>
-					<option>已付訂</option>
-					<option>已結清</option>
-					<option>已取消</option>
-				</select>
+				<td><form:select path="status_id">
+					<form:option value="1">未付款</form:option>
+					<form:option value="2">已付訂</form:option>
+					<form:option value="3">已結清</form:option>
+					<form:option value="4">已取消</form:option>
+					</form:select>
 				</td>
 <%-- 				<td><form:errors path="status_id" cssStyle="color: red;" /></td> --%>
 			</tr>
 			<tr>
 				<td>付款方式</td>
-				<td><form:input path="payment_id" />
-				<select>
-					<option>現金</option>
-					<option>信用卡</option>
-					<option>電子錢包</option>
-				</select>
+				<td><form:select path="payment_id">
+				<form:option value="1">現金</form:option>
+				<form:option value="2">信用卡</form:option>
+				</form:select>
 				</td>
 <%-- 				<td><form:errors path="payment_id" cssStyle="color: red;" /></td> --%>
 			</tr>
