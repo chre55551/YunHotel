@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.service.Employee_Service;
-import hotel.yun.ordered.model.Ordered;
+
 
 
 
@@ -36,19 +36,18 @@ public class Employee_Controller {
 	@Autowired
 	Employee_Service service;
 
-	@Autowired
-	Employee_basic em;
+
 	
 	@PostMapping("/thisEmployee")
 	public String ThisEmployee(@ModelAttribute("pojo") Employee_basic pojo,Model model) {
-		Employee_basic beans = service.query(em.getEmployee_id());
+		Employee_basic beans = service.query(pojo.getEmployee_id());
 		model.addAttribute("ThisEmployee", beans);
 		return "/Employee/ThisEmployee";//依訂單號查到他的訂單
 	}
 	
 	@GetMapping("/employees")
-	public String getEmployees(Model model) {
-		List<Employee_basic> beans = service.queryAll(em.getEmployee_id());
+	public String getEmployees(@ModelAttribute("pojo") Employee_basic pojo,Model model) {
+		List<Employee_basic> beans = service.queryAll(pojo.getEmployee_id());
 		model.addAttribute(beans);      
 		// 若屬性物件為CustomerBean型別的物件，則預設的識別字串 ==> customerBean
 		// 若屬性物件為List<CustomerBean>型別的物件，則預設的識別字串 ==> customerBeanList
