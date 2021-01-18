@@ -21,7 +21,6 @@ import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Controller
-@RequestMapping("/hotel.yun.ordered")
 @SessionAttributes({ "order_number", "customer_id", "ordered_tomeals_id", "ordered_toroom_id", "status_id",
 		"payment_id" })
 public class Ordered_Controller {
@@ -36,32 +35,31 @@ public class Ordered_Controller {
 //	Ordered od;
 	
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
-//	@GetMapping("/Ordred")
-//	public String ShowOrdered(Model model) {
-//		Ordered od = new Ordered();
-//		model.addAttribute("ordered", od);
-//		return "ordered/InsertOrdered";
-//	}
-	// 讓使用者輸入
-	@PostMapping("/InsertOrdred")
+	@GetMapping("/insertOrdered")
+	public String ShowOrdered(Model model) {
+		Ordered od = new Ordered();
+		model.addAttribute("ordered", od);
+		return "ordered/insertOrdered";
+	}
+	// 讓使用者輸入，用ajax請求
+	@PostMapping("/insertOrderedCheck")
 	public String insert(@ModelAttribute("odd") Ordered odd, Model model,HttpServletRequest request,BindingResult result) {
-		service.insert(odd);
-		
-		return "ordered/ThisOrdered";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+	service.insert(odd);
+		return "ordered/thisOrdered";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 //-------------------------------------
 	@PostMapping("/thisOrdered")
 	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		Ordered Ordered = service.queryOrderNum(odd.getOrdered_number());
 		model.addAttribute("ThisOrdered", Ordered);
-		return "ThisOrdered";//依訂單號查到他的訂單
+		return "ordered/ThisOrdered";//依訂單號查到他的訂單
 	}
 	
 	@GetMapping("/showAllOrdered")
 	public String OrderedList(@ModelAttribute("odd") Ordered odd,Model model) {
 		List<Ordered> Ordered = service.queryAll(odd.getOrdered_number());
 		model.addAttribute("OrderedList",Ordered);
-		return "ordered/ThisOrderedAll";//進到查詢到的全部訂單，需再THhisOrdered裡設超連結進來
+		return "ordered/thisOrderedAll";//進到查詢到的全部訂單，需再ThisOrdered裡設超連結進來
 	}
 	
 	@PostMapping("/getCustomerOrder")
@@ -69,14 +67,14 @@ public class Ordered_Controller {
 		//等小魏寫好取到顧客名子和手機的方法，我再取用
 //		List<Ordered> CustomerOrdered = service.queryCustomerToOrdered();
 //		model.addAttribute("Ordered",CustomerOrdered);
-		return "ordered/CustomerOrdered";
+		return "ordered/customerOrdered";
 	}	
 	
 	@PostMapping("/showDateToOrdered")
 	public String showDateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
 		model.addAttribute("showDateToOrdered",Ordered);
-		return "ordered/DateToOrdered";//進到該日期的所有訂單
+		return "ordered/dateToOrdered";//進到該日期的所有訂單
 	}
 //-----------------------------------------------------------	
 	@PostMapping("/thisOrdered/{ordered_number}")
@@ -94,7 +92,7 @@ public class Ordered_Controller {
 		ThisOrdered.setNote(ThisOrdered.getNote());
 	Ordered afterOrdered = service.update(ThisOrdered);
 	model.addAttribute("updateOdered", afterOrdered);
-		return "/ordered/ThisOrdered";//依訂單到查詢到的訂單，再做修改
+		return "/ordered/thisOrdered";//依訂單到查詢到的訂單，再做修改
 	}
 	
 	
@@ -103,6 +101,6 @@ public class Ordered_Controller {
 	@PostMapping("/DeleteOrdred/{ordered_number}")
 	public String delete(@PathVariable("ordered_number") int ordered_number) {
 		service.delete(ordered_number);
-		return "redirect:/ThisOrderedAll";
+		return "redirect:/thisOrderedAll";
 	}
 }

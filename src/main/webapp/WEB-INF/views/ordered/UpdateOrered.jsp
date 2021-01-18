@@ -6,40 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ordered</title>
+<title>UpdateOrdered</title>
 </head>
 <body>
-	<h3>表單資料</h3>
-	<a href='ShowOrdered'>新增訂單資料</a> &nbsp;&nbsp;&nbsp;
-	<a href="<c:url value='/'/> ">回前頁</a>
+	<h3>修改訂單</h3>
+	<a href='ThisOrdred'>修改訂單資料</a> &nbsp;&nbsp;&nbsp;
+	<a href="<c:url value='/'/> ">回首頁</a>
 	<table>
-		<!-- 		<tr> -->
-		<!-- 			<th>訂單編號</th> -->
-		<!-- 			<th>顧客編號</th> -->
-		<!-- 			<th>餐點訂單編號</th> -->
-		<!-- 			<th>房間訂單編號</th> -->
-		<!-- 			<th>狀態ID</th> -->
-		<!-- 			<th>付款ID</th> -->
-		<!-- 			<th>訂單總價</th> -->
-		<!-- 			<th>訂單日期</th> -->
-		<!-- 			<th>發票編號</th> -->
-		<!-- 			<th>備註</th> -->
-		<!-- 		</tr> -->
-		<%-- 		<c:forEach var='ordered' items='${ordered}'> --%>
-		<!-- 		<tr> -->
-		<%-- 			<td>${ordered.ordered_number}</td> --%>
-		<%-- 			<td>${ordered.customer_id}</td> --%>
-		<%-- 			<td>${ordered.ordered_tomeals_id}</td> --%>
-		<%-- 			<td>${ordered.ordered_toroom_id}</td> --%>
-		<%-- 			<td>${ordered.status_id}</td> --%>
-		<%-- 			<td>${ordered.payment_id}</td> --%>
-		<%-- 			<td>${ordered.ordered_accounts}</td> --%>
-		<%-- 			<td>${ordered.ordered_date}</td> --%>
-		<%-- 			<td>${ordered.iv_no}</td> --%>
-		<%-- 			<td>${ordered.note}</td> --%>
-		<!-- 		</tr> -->
-		<%-- 		</c:forEach> --%>
-		<form:form action="ShowOrdered" method="post" modelAttribute="odd">
+		<form:form action="update" method="post" modelAttribute="odd">
 			<tr>
 				<td>訂單編號</td>
 				<td><form:input path="ordered_number" /></td>
