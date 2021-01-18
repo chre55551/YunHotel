@@ -31,7 +31,7 @@ public class Room implements Serializable {
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType; 
     @ManyToMany(mappedBy = "date")
-    private Set<Date> groups = new HashSet<Date>();
+    private Set<Date> date = new HashSet<Date>();
 	
 	
 	public Room() {
