@@ -27,7 +27,7 @@
 					<c:forEach var='news' items="${NewsList}">
 						<tr>
 							<td align='center'><a
-								href='modifyNews/${news.news_id}'>${news.news_updated_date}</a></td>
+								href='GetAllNews/${news.news_id}'>${news.news_updated_date}</a></td>
 							<td>${news.news_content}</td>
 						</tr>
 					</c:forEach>

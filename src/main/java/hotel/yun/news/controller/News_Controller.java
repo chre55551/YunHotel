@@ -14,28 +14,30 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.news.model.News;
 import hotel.yun.news.service.News_Service;
 import hotel.yun.ordered.model.Ordered;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/hotel.yun.news")
+@SessionAttributes({ "news_id", "news_date", "news_updated_date", "news_content"})
 public class News_Controller {
 	
 	@Autowired
 	News_Service service;
-	@Autowired
+	//@Autowired
 	News nw;
 	
 	@PostMapping("/InsertNews")
-	public String insert(@ModelAttribute("nw") News nw, Model model,HttpServletRequest request,BindingResult result) {
+	public String insert(@ModelAttribute("nws") News nw, Model model,HttpServletRequest request,BindingResult result) {
 		service.insert(nw);
 		return "news/GetaNew";
 	}
 	
 	@PostMapping("/getaNew")
-	public String GetaNew(@ModelAttribute("nw") News nw,Model model) {
+	public String GetaNew(@ModelAttribute("nws") News nw,Model model) {
 		News news = service.queryNewID(nw.getNews_id());
 		model.addAttribute("GetaNew", news);
 		return "/news/GetaNew";
@@ -50,7 +52,7 @@ public class News_Controller {
 	}
 	
 	@PostMapping("/getaNew/{news_id}")
-	public String update(@ModelAttribute("odd") Ordered odd,Model model) {
+	public String update(@ModelAttribute("nws") Ordered odd,Model model) {
 		News thenew = service.queryNewID(nw.getNews_id());
 		thenew.setNews_id(thenew.getNews_id());
 		thenew.setNews_date(thenew.getNews_date());
