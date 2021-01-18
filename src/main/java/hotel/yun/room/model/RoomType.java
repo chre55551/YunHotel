@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import hotel.yun.ordered.model.Ordered;
+
 
 @Entity
 @Table(name = "room_type")
