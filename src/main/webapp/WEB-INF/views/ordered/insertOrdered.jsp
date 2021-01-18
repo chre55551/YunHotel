@@ -13,7 +13,7 @@
 	<a href='ThisOrdred'>新增訂單資料</a> &nbsp;&nbsp;&nbsp;
 	<a href="<c:url value='/'/> ">回首頁</a>
 	<table>
-		<form:form action="InsertOrdred" method="post" modelAttribute="odd">
+		<form:form action="InsertOrdred" method="get" modelAttribute="odd">
 			<tr>
 				<td>訂單編號</td>
 				<td><form:input path="ordered_number" /></td>
