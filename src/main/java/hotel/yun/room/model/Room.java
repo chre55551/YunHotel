@@ -1,6 +1,8 @@
 package hotel.yun.room.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,8 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import hotel.yun.date.model.Date;
 
 @Entity
 @Table(name = "room")
@@ -25,7 +30,8 @@ public class Room implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType; 
-			
+    @ManyToMany(mappedBy = "date")
+    private Set<Date> groups = new HashSet<Date>();
 	
 	
 	public Room() {
