@@ -20,7 +20,7 @@
         <li><img id="logo" src="image/logo.png"></li>
         <li>&emsp;&emsp;&emsp;&emsp;</li>
         <li><a href="#">關於我們</a></li>
-        <li><a href="ShowNews">最新消息</a></li>
+        <li><a href="">最新消息</a></li>
         <li><a href="#">房型介紹</a></li>
         <li><a href="#">美食佳餚</a></li>
         <li><a href="#">其他設施</a></li>
