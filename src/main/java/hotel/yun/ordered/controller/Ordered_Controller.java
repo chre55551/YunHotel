@@ -38,12 +38,12 @@ public class Ordered_Controller {
 	@GetMapping("/insertOrdered")
 	public String ShowOrdered(Model model) {
 		Ordered od = new Ordered();
-		model.addAttribute("ordered", od);
+		model.addAttribute("odd", od);
 		return "ordered/insertOrdered";
 	}
 	// 讓使用者輸入，用ajax請求
 	@PostMapping("/insertOrderedCheck")
-	public String insert(@ModelAttribute("odd") Ordered odd, Model model,HttpServletRequest request,BindingResult result) {
+	public String insert(@ModelAttribute("odd") Ordered odd, Model model) {
 	service.insert(odd);
 		return "ordered/thisOrdered";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}

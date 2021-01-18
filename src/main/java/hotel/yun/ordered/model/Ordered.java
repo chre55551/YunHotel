@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import hotel.yun.customer.model.Customer;
 
@@ -24,11 +25,16 @@ public class Ordered implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_number;// 訂單編號
 	
-//	private int customer_id;// 顧客編號
-//	private int ordered_tomeals_id;//餐點訂單編號
-//	private int ordered_toroom_id;//房間訂單編號
-//	private int status_id;// 狀態ID
-//	private int payment_id;// 付款ID
+	@Transient
+	private int customer_id;// 顧客編號
+	@Transient
+	private int ordered_tomeals_id;//餐點訂單編號
+	@Transient
+	private int ordered_toroom_id;//房間訂單編號
+	@Transient
+	private int status_id;// 狀態ID
+	@Transient
+	private int payment_id;// 付款ID
 	
 	private int ordered_accounts;// 訂單總價
 	private Date ordered_date;// 訂單日期
@@ -155,6 +161,46 @@ public class Ordered implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public int getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public int getOrdered_tomeals_id() {
+		return ordered_tomeals_id;
+	}
+
+	public void setOrdered_tomeals_id(int ordered_tomeals_id) {
+		this.ordered_tomeals_id = ordered_tomeals_id;
+	}
+
+	public int getOrdered_toroom_id() {
+		return ordered_toroom_id;
+	}
+
+	public void setOrdered_toroom_id(int ordered_toroom_id) {
+		this.ordered_toroom_id = ordered_toroom_id;
+	}
+
+	public int getStatus_id() {
+		return status_id;
+	}
+
+	public void setStatus_id(int status_id) {
+		this.status_id = status_id;
+	}
+
+	public int getPayment_id() {
+		return payment_id;
+	}
+
+	public void setPayment_id(int payment_id) {
+		this.payment_id = payment_id;
 	}
 
 
