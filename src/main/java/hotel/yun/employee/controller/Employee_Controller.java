@@ -24,13 +24,10 @@ import hotel.yun.employee.service.Employee_Service;
 
 
 @Controller
-@RequestMapping("/hotel.yun.employee")
+
 
 @SessionAttributes({"employee_id", "employee_work_id","employee_info_id"})
 public class Employee_Controller {
-	
-	@Autowired
-	ServletContext context;
 	
 	
 	@Autowired
@@ -55,7 +52,7 @@ public class Employee_Controller {
 		return "employee/ShowEmployees";
 	}
 	
-	@PostMapping("/InsertOrdred")
+	@PostMapping("/ertOrdred")
 	public String insert(@ModelAttribute("pojo") Employee_basic pojo, Model model,HttpServletRequest request,BindingResult result) {
 		service.insert(pojo);
 		
@@ -87,12 +84,12 @@ public class Employee_Controller {
 	public String deleteEmployeeData(@PathVariable Integer employee_id) {
 		System.out.println(11122233);
 		service.delete(employee_id);	
-		return "redirect:../employees";
+		return "employee/employees";
 	}
 	
-	@RequestMapping("/index")
+	@RequestMapping("/employee/index")
 	public String home() {
-		return "employee/index";
+		return "employee/empindex";
 	}
 	
 	
