@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.news.model.News;
 import hotel.yun.news.service.News_Service;
-import hotel.yun.ordered.model.Ordered;
 
 @Controller
 @RequestMapping("/hotel.yun.news")
@@ -52,7 +51,7 @@ public class News_Controller {
 	}
 	
 	@PostMapping("/getaNew/{news_id}")
-	public String update(@ModelAttribute("nws") Ordered odd,Model model) {
+	public String update(@ModelAttribute("nws") News nw,Model model) {
 		News thenew = service.queryNewID(nw.getNews_id());
 		thenew.setNews_id(thenew.getNews_id());
 		thenew.setNews_date(thenew.getNews_date());
@@ -63,13 +62,21 @@ public class News_Controller {
 		model.addAttribute("updatenew", afternew);
 		return "/news/GetaNew";
 	}
+
 	
+	@GetMapping("/ShowNews")
+	public String getNews(Model model) {
+		List<News> beans = service.queryAllNews();
+		model.addAttribute(beans);      
+		System.out.println("queryAllNews...");
+		return "news/News";
+	}
 	
 	//前端網頁按按鈕送出請求，()內是前端的東東
-	@PostMapping("/DeleteNew/{news_id})")
+	@DeleteMapping("/DeleteNew/{news_id}")
 	public String deleteNew(@PathVariable int news_id) {
 		service.delete(news_id);	
-		return "redirect:/GetAllNews";
+		return "redirect:news/GetAllNews";
 	}
 
 }
