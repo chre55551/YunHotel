@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.news.model.News;
 import hotel.yun.news.service.News_Service;
+import hotel.yun.ordered.model.Ordered;
 
 @Controller
 @RequestMapping("/hotel.yun.news")
@@ -26,9 +27,13 @@ public class News_Controller {
 	
 	@Autowired
 	News_Service service;
-	//@Autowired
-	News nw;
-	
+
+	@GetMapping("/insertNews")
+	public String ShowNews(Model model) {
+		News nw = new News();
+		model.addAttribute("news", nw);
+		return "news/AddNews";
+	}
 	@PostMapping("/insertNews")
 	public String Insert(@ModelAttribute("nws") News nw, Model model,HttpServletRequest request,BindingResult result) {
 		service.insert(nw);
