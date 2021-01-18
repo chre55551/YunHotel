@@ -7,11 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <title>InsertOrdered</title>
+<style type="text/css">
+#bg{
+background-color:#C4E1FF
+}
+
+</style>
 </head>
 <body>
+<div id="main">
 	<h3>新增訂單</h3>
 	<a href='ThisOrdred'>新增訂單資料</a> &nbsp;&nbsp;&nbsp;
-	<a href="<c:url value='/'/> ">回首頁</a>
+	<a href="<c:url value='/indexOrdered'/> ">回首頁</a>
 	<table>
 		<form:form action="insertOrdred" method="get" modelAttribute="odd">
 			<tr>
@@ -37,26 +44,39 @@
 <!-- 						cssStyle="color: red;" /></td> -->
 			</tr>
 			<tr>
-				<td>狀態ID</td>
-				<td><form:input path="status_id" /></td>
+				<td>訂單狀態</td>
+				<td><form:input path="status_id" />
+				<select>
+					<option>未付款</option>
+					<option>已付訂</option>
+					<option>已結清</option>
+					<option>已取消</option>
+				</select>
+				</td>
 <%-- 				<td><form:errors path="status_id" cssStyle="color: red;" /></td> --%>
 			</tr>
 			<tr>
-				<td>付款ID</td>
-				<td><form:input path="payment_id" /></td>
+				<td>付款方式</td>
+				<td><form:input path="payment_id" />
+				<select>
+					<option>現金</option>
+					<option>信用卡</option>
+					<option>電子錢包</option>
+				</select>
+				</td>
 <%-- 				<td><form:errors path="payment_id" cssStyle="color: red;" /></td> --%>
 			</tr>
 			<tr>
 				<td>訂單總價</td>
 				<td><form:input path="ordered_accounts" /></td>
-<%-- 				<td><form:errors path="ordered_accounts" cssStyle="color: red;" /> --%>
-				</td>
+<%-- 				<td><form:errors path="ordered_accounts" cssStyle="color: red;" /></td> --%>
+				
 			</tr>
 			<tr>
 				<td>訂單日期</td>
-				<td><form:input path="ordered_date" /></td>
-<%-- 				<td><form:errors path="ordered_date" cssStyle="color: red;" /> --%>
-				</td>
+				<td><form:input path="ordered_date" type="date" /></td>
+<%-- 				<td><form:errors path="ordered_date" cssStyle="color: red;" /></td> --%>
+				
 			</tr>
 			<tr>
 				<td>發票編號</td>
@@ -70,5 +90,6 @@
 			</tr>
 		</form:form>
 	</table>
+	</div>
 </body>
 </html>
