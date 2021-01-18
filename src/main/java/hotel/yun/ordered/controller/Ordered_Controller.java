@@ -32,8 +32,8 @@ public class Ordered_Controller {
 	@Autowired
 	Ordered_Service service;
 
-	@Autowired
-	Ordered od;
+//	@Autowired
+//	Ordered od;
 	
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
 //	@GetMapping("/Ordred")
@@ -45,21 +45,21 @@ public class Ordered_Controller {
 	// 讓使用者輸入
 	@PostMapping("/InsertOrdred")
 	public String insert(@ModelAttribute("odd") Ordered odd, Model model,HttpServletRequest request,BindingResult result) {
-		service.insert(od);
+		service.insert(odd);
 		
 		return "ordered/ThisOrdered";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 //-------------------------------------
 	@PostMapping("/thisOrdered")
 	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-		Ordered Ordered = service.queryOrderNum(od.getOrdered_number());
+		Ordered Ordered = service.queryOrderNum(odd.getOrdered_number());
 		model.addAttribute("ThisOrdered", Ordered);
-		return "/ordered/ThisOrdered";//依訂單號查到他的訂單
+		return "ThisOrdered";//依訂單號查到他的訂單
 	}
 	
 	@GetMapping("/showAllOrdered")
-	public String OrderedList(Model model) {
-		List<Ordered> Ordered = service.queryAll(od.getOrdered_number());
+	public String OrderedList(@ModelAttribute("odd") Ordered odd,Model model) {
+		List<Ordered> Ordered = service.queryAll(odd.getOrdered_number());
 		model.addAttribute("OrderedList",Ordered);
 		return "ordered/ThisOrderedAll";//進到查詢到的全部訂單，需再THhisOrdered裡設超連結進來
 	}
@@ -73,8 +73,8 @@ public class Ordered_Controller {
 	}	
 	
 	@PostMapping("/showDateToOrdered")
-	public String showDateToOrdered(Model model) {
-		List<Ordered> Ordered = service.queryDateToOrdered(od.getOrdered_date());
+	public String showDateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
+		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
 		model.addAttribute("showDateToOrdered",Ordered);
 		return "ordered/DateToOrdered";//進到該日期的所有訂單
 	}
