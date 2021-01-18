@@ -3,10 +3,12 @@ package hotel.yun.employee.controller;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.service.Employee_Service;
 import hotel.yun.ordered.model.Ordered;
+
 
 
 @Controller
@@ -53,6 +56,13 @@ public class Employee_Controller {
 		return "employee/ShowEmployees";
 	}
 	
+	@PostMapping("/InsertOrdred")
+	public String insert(@ModelAttribute("pojo") Employee_basic pojo, Model model,HttpServletRequest request,BindingResult result) {
+		service.insert(pojo);
+		
+		return "ordered/ThisOrdered";
+	}
+	
 	@GetMapping("/modifyEmployee/{id}")
 	public String editEmployeeForm(Model model, @PathVariable Integer employee_info_id) {
 		Employee_basic bean = service.query(employee_info_id);
@@ -61,17 +71,17 @@ public class Employee_Controller {
 		return "employee/EditEmployeeForm";
 	}
 	
-	@GetMapping("/insertEmployee")
-	public String showEmployeeForm(Model model) {
-		System.out.println("1. 本方法送出新增Employee資料的空白表單");
+	@GetMapping("/thisEmployee/{Employee_id}")
+	public String thisEmployee(Model model) {
 		Employee_basic bean = new Employee_basic();
-		bean.setEmployee_name(null);
-		bean.setEmployee_department(null);
-		bean.setEmployee_position(null);
-		bean.setEmployee_info(null);
-		bean.setEmployee_work(null);
-		model.addAttribute("Employee_basic", bean);
-		return "employee/EmployeeForm";
+		bean.setEmployee_name(bean.getEmployee_name());
+		bean.setEmployee_department(bean.getEmployee_department());
+		bean.setEmployee_position(bean.getEmployee_position());
+		bean.setEmployee_info(bean.getEmployee_info());
+		bean.setEmployee_work(bean.getEmployee_work());
+		Employee_basic afterBean = service.update(bean);
+		model.addAttribute("updateEmployee", afterBean);
+		return "employee/thisEmployee";
 	}
 	
 	@DeleteMapping(value="/modifyEmployee/{id}")

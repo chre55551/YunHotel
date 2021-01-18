@@ -37,7 +37,7 @@ public class Employee_ServiceImpl implements Employee_Service {
 	}
 
 	@Override
-	public List<Employee_basic> queryAll() {
+	public List<Employee_basic> queryAll(int employee_id) {
 		
 		return emDao.queryAll();
 	}
