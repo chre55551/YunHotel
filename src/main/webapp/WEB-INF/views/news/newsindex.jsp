@@ -33,10 +33,10 @@
             <ul id="ALLdiamond">
                 
             <li id="diamond">
-                <div class="diamondtxt">所有消息</div>
+                <a href='showinsertNews' class="diamondtxt">所有消息</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">新增消息</div>
+                <a href='showinsertNews' class="diamondtxt">新增消息</a>
             </li>
             <li id="diamond">
                 <div class="diamondtxt">刪除消息</div>
