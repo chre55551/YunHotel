@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 
@@ -28,6 +29,11 @@ public class Employee_basic implements Serializable {
 	String employee_department;//部門
 	String employee_position;//職位
 	
+	@Transient
+	private int employee_info_id;
+	@Transient
+	private int employee_work_id;	
+	
 	@OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="employee_info_id", referencedColumnName="employee_info_id")
     private Employee_info employee_info;
@@ -40,11 +46,14 @@ public class Employee_basic implements Serializable {
 	private Set<Schedule> scedule = new HashSet<Schedule>(0);
 	
 	public Employee_basic(Integer employee_id,String employee_name,
-			String employee_department,String employee_position){
+			String employee_department,String employee_position
+			,int employee_info_id,int employee_work_id){
 		this.employee_id = employee_id;
 		this.employee_name = employee_name;
 		this.employee_department = employee_department;
 		this.employee_position = employee_position;
+		this.employee_info_id = employee_info_id;
+		this.employee_work_id = employee_work_id;
 	}
 	
 	public Employee_basic() {

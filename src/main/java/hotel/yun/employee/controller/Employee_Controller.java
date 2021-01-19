@@ -19,30 +19,38 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.service.Employee_Service;
+import hotel.yun.ordered.model.Ordered;
 
 
 
 
 @Controller
-
-
 @SessionAttributes({"employee_id", "employee_work_id","employee_info_id"})
 public class Employee_Controller {
 	
 	
 	@Autowired
 	Employee_Service service;
+	
+	
 
-
+	// 本方法於新增時，送出空白的表單讓使用者輸入資料
+	@GetMapping("/insertEmployee")
+	public String ShowEmployee(Model model) {
+		Employee_basic beans = new Employee_basic();
+		model.addAttribute("pojo", beans);
+		return "employee/insertEmployee";
+	}
 	
 	@PostMapping("/thisEmployee")
 	public String ThisEmployee(@ModelAttribute("pojo") Employee_basic pojo,Model model) {
 		Employee_basic beans = service.query(pojo.getEmployee_id());
-		model.addAttribute("ThisEmployee", beans);
+		model.addAttribute("Employee_basic", beans);
+		model.addAttribute("null", beans);
 		return "/Employee/ThisEmployee";//依訂單號查到他的訂單
 	}
 	
-	@GetMapping("/employees")
+	@GetMapping("/showAllemployees")
 	public String getEmployees(@ModelAttribute("pojo") Employee_basic pojo,Model model) {
 		List<Employee_basic> beans = service.queryAll(pojo.getEmployee_id());
 		model.addAttribute(beans);      
@@ -52,12 +60,6 @@ public class Employee_Controller {
 		return "employee/ShowEmployees";
 	}
 	
-	@PostMapping("/ertOrdred")
-	public String insert(@ModelAttribute("pojo") Employee_basic pojo, Model model,HttpServletRequest request,BindingResult result) {
-		service.insert(pojo);
-		
-		return "ordered/ThisOrdered";
-	}
 	
 	@GetMapping("/modifyEmployee/{id}")
 	public String editEmployeeForm(Model model, @PathVariable Integer employee_info_id) {
@@ -68,8 +70,9 @@ public class Employee_Controller {
 	}
 	
 	@GetMapping("/thisEmployee/{Employee_id}")
-	public String thisEmployee(Model model) {
-		Employee_basic bean = new Employee_basic();
+	public String updateEmployee(@ModelAttribute("pojo") Employee_basic pojo,Model model) {
+		Employee_basic bean = service.query(pojo.getEmployee_id());
+		bean.setEmployee_id(bean.getEmployee_id());
 		bean.setEmployee_name(bean.getEmployee_name());
 		bean.setEmployee_department(bean.getEmployee_department());
 		bean.setEmployee_position(bean.getEmployee_position());

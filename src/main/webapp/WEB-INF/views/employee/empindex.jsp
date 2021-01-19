@@ -10,9 +10,14 @@
 </head>
 <body>
 	<div align='center'>
-		<h3>客戶資料</h3>
+		<h3>員工資料</h3>
 		
-		<a href='employees'>顯示客戶資料</a><br> <a href='insertEmployee'>新增客戶資料</a><br>
+		<a href='employees'>查詢全部員工資料</a><br>
+		
+		<a href='thisEmployee'>查詢單筆員工資料</a><br>
+		
+		<a href='insertEmployee'>新增員工資料</a><br>
+
 		<hr>
 		<a href="<c:url value='/' />">首頁</a><br>
 	</div>
