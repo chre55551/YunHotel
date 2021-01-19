@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>Ordered</title>
+<title>news</title>
 </head>
 <body>
     <header> 
@@ -33,19 +33,19 @@
             <ul id="ALLdiamond">
                 
             <li id="diamond">
-                <div class="diamondtxt">所有訂單</div>
+                <div class="diamondtxt">所有消息</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">新增訂單</div>
+                <div class="diamondtxt">新增消息</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">刪除訂單</div>
+                <div class="diamondtxt">刪除消息</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">修改訂單</div>
+                <div class="diamondtxt">修改消息</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">查詢訂單</div>
+                <div class="diamondtxt">查詢消息</div>
             </li>
             </ul>
         </div>

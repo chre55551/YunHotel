@@ -21,14 +21,14 @@ import hotel.yun.news.service.News_Service;
 import hotel.yun.ordered.model.Ordered;
 
 @Controller
-@RequestMapping("/hotel.yun.news")
+//@RequestMapping("/news")
 @SessionAttributes({ "news_id", "news_date", "news_updated_date", "news_content"})
 public class News_Controller {
 	
 	@Autowired
 	News_Service service;
 
-	@GetMapping("/insertNews")
+	@GetMapping("/news/showinsertNews")
 	public String ShowNews(Model model) {
 		News nw = new News();
 		model.addAttribute("news", nw);
@@ -74,6 +74,11 @@ public class News_Controller {
 	public String deleteNew(@PathVariable int news_id) {
 		service.delete(news_id);	
 		return "redirect:news/GetAllNews";
+	}
+	
+	@RequestMapping("/news/index")
+	public String home() {
+		return "news/newsindex";
 	}
 
 }
