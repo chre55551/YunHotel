@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>房型介紹</title>
+<title>房間管理後台</title>
 </head>
 <body>
 
