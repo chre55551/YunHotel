@@ -43,7 +43,7 @@ position: fixed;/* 固定頁首 */
 /* 左側連結 */
 #leftmenu{
     width: 150px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #0F2540;
     float: left;
 }

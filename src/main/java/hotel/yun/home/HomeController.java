@@ -8,6 +8,11 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home() {
+		return "BackstageIndex";
+	}
+	
+	@GetMapping("/YunPage")
+	public String fronthome() {
 		return "Index";
 	}
 	

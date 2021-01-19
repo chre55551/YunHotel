@@ -22,7 +22,7 @@
 			<input type="submit" value="提交"/>
 		</form>
 		
-		<br> <a href="<c:url value='../index' />">回首頁</a>
+		<br> <a href="<c:url value='/' />">回首頁</a>
 	</div>
 </body>
 </html>
