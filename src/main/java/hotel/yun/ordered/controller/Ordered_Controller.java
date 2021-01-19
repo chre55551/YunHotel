@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Controller
+@RequestMapping("/ordered")
 @SessionAttributes({ "order_number", "customer_id", "ordered_tomeals_id", "ordered_toroom_id", "status_id",
 		"payment_id" })
 public class Ordered_Controller {
@@ -40,9 +43,9 @@ public class Ordered_Controller {
 	}
 	// 讓使用者輸入，用ajax請求
 	@PostMapping("/insertOrderedCheck")
-	public String insert(@ModelAttribute("odd") Ordered odd, Model model) {
+	public @ResponseBody Ordered insert(@ModelAttribute("odd") Ordered odd, Model model) {
 	service.insert(odd);
-		return "ordered/thisOrdered";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		return odd;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	//後台的進入點
 	@GetMapping("/indexOrdered")
