@@ -50,6 +50,15 @@ public class Customer {
 		this.ordered = ordered;
 	}
 	
+	
+	
+	public Customer(String chinese_name, String mobile_phone) {
+		this.chinese_name = chinese_name;
+		this.mobile_phone = mobile_phone;
+	}
+
+
+
 	public int getCustomer_id() {
 		return customer_id;
 	}

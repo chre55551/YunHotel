@@ -64,11 +64,13 @@ public class Ordered_Controller {
 	}
 	// 讓使用者輸入，用ajax請求
 	@PostMapping("/insertOrderedCheck")
-	public @ResponseBody Ordered insert(@RequestParam(value="chinese_name") String chinese_name,
+	public @ResponseBody Ordered insert(
+			@RequestParam(value="chinese_name") String chinese_name,
 			@RequestParam(value="mobile_phone") String mobile_phone,
 			@RequestParam(value="number_of_meals") int number_of_meals,
 			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
 			Model model) {
+//		customer = new Customer(chinese_name,mobile_phone);
 		customer.setChinese_name(chinese_name);
 		customer.setMobile_phone(mobile_phone);
 		om.setNumber_of_meals(number_of_meals);
@@ -76,7 +78,7 @@ public class Ordered_Controller {
 		od.setCustomer(customer);
 		od.setOrderedToMeals(om);
 		service.insert(od);
-//		System.out.println(od.getCustomer());
+//		System.out.println(od.getCustomer().getMobile_phone());
 		
 		
 	
@@ -86,8 +88,9 @@ public class Ordered_Controller {
 //--------------------------------------------------
 	@GetMapping("/thisOrdered")
 	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-		Ordered Ordered = service.queryOrderNum(odd.getOrdered_number());
-		model.addAttribute("ThisOrdered", Ordered);
+		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
+		model.addAttribute("ordered_status",ordered.getOrderedStatus().getOrdered_status());
+		model.addAttribute("ordered", ordered);
 		return "ordered/ThisOrdered";//依訂單號查到他的訂單
 	}
 	
