@@ -80,7 +80,9 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 				+ ", od.payment_id = :payment"
 				+ ", od.ordered_accounts = :accounts"
 				+ ", od.ordered_date = :date"
-				+ ", od.iv_no = :ivno"
+				+ ", od.ordered_last_update = :lastupdate"
+				+ ", od.ordered_finish_date = :finishdate"
+				+ ", od.ordered_date = :date"
 				+ ", od.note = :note"
 				+ "WHERE od.ordered_number = :number ";
 		
@@ -93,7 +95,8 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		        .setParameter("payment",odBean.getOrderedPayment())
 		        .setParameter("accounts",odBean.getOrdered_accounts())
 		        .setParameter("date",odBean.getOrdered_date())
-		        .setParameter("ivno",odBean.getIv_no())
+		        .setParameter("lastupdate",odBean.getOrdered_last_update())
+		        .setParameter("finishdate",odBean.getOrdered_finish_date())
 		        .setParameter("note",odBean.getNote())
 		        .executeUpdate();
 		return odBean;

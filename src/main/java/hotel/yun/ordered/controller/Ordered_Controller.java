@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,19 +34,14 @@ public class Ordered_Controller {
 	@Autowired
 	ServletContext context;
 
+	
 	@Autowired
 	Ordered_Service service;
-	@Autowired
-	OrderedToMeals om;
 	
+
 	@Autowired
 	CustomerService cser;
 	
-	@Autowired
-	Customer customer;
-	
-	@Autowired
-	Ordered od;
 	
 //---------------------------------------------------------------
 		//後台的進入點
@@ -70,26 +66,26 @@ public class Ordered_Controller {
 			@RequestParam(value="number_of_meals") int number_of_meals,
 			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
 			Model model) {
-//		customer = new Customer(chinese_name,mobile_phone);
-		customer.setChinese_name(chinese_name);
-		customer.setMobile_phone(mobile_phone);
-		om.setNumber_of_meals(number_of_meals);
-		om.setMeals_ordered_time(meals_ordered_time);
+		Customer customer = new Customer(chinese_name,mobile_phone);
+//		customer.setChinese_name(chinese_name);
+//		customer.setMobile_phone(mobile_phone);
+		OrderedToMeals otm = new OrderedToMeals();
+		otm.setNumber_of_meals(number_of_meals);
+		otm.setMeals_ordered_time(meals_ordered_time);
+		Ordered od = new Ordered();
 		od.setCustomer(customer);
-		od.setOrderedToMeals(om);
+		od.setOrderedToMeals(otm);
 		service.insert(od);
 //		System.out.println(od.getCustomer().getMobile_phone());
-		
-		
-	
-		return null;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		return od;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	
 //--------------------------------------------------
 	@GetMapping("/thisOrdered")
 	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
-		model.addAttribute("ordered_status",ordered.getOrderedStatus().getOrdered_status());
+		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
+		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
 		model.addAttribute("ordered", ordered);
 		return "ordered/ThisOrdered";//依訂單號查到他的訂單
 	}
@@ -127,7 +123,6 @@ public class Ordered_Controller {
 		ThisOrdered.setOrderedPayment(ThisOrdered.getOrderedPayment());
 		ThisOrdered.setOrdered_accounts(ThisOrdered.getOrdered_accounts());
 		ThisOrdered.setOrdered_date(ThisOrdered.getOrdered_date());
-		ThisOrdered.setIv_no(ThisOrdered.getIv_no());
 		ThisOrdered.setNote(ThisOrdered.getNote());
 	Ordered afterOrdered = service.update(ThisOrdered);
 	model.addAttribute("updateOdered", afterOrdered);

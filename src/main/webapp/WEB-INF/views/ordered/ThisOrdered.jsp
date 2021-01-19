@@ -15,10 +15,9 @@
 	<p>餐點訂單: ${ordered.ordered_tomeals_id}</p>
 	<p>房間訂單: ${ordered.ordered_toroom_id}</p>
 	<p>訂單狀態: ${ordered_status}</p>
-	<p>付款方式: ${ordered.payment_id}</p>
+	<p>付款方式: ${payment_status}</p>
 	<p>訂單總價: ${ordered.ordered_accounts}</p>
 	<p>訂單日期: ${ordered.ordered_date}</p>
-	<p>發票編號: ${ordered.iv_no}</p>
 	<p>備註: ${ordered.note}</p>
 </body>
 </html>

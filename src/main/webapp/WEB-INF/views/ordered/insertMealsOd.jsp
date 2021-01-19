@@ -16,19 +16,19 @@
 		<table>
 				<tr>
 					<td>姓名</td>
-					<td><input /></td>
+						<td><input name ="chinese_name" id="requestCn" /></td>
 				</tr>
 				<tr>
-					<td>電話</td>
-					<td><input /></td>
+					<td>手機</td>
+						<td><input name ="mobile_phone" id="requestMp" /></td>
 				</tr>
 				<tr>
 					<td>人數</td>
-					<td><input /></td>
+					<td><input name ="number_of_meals" id="requestNom" /></td>
 				</tr>
 				<tr>
 					<td>用餐時間</td>
-					<td><input name ="ordered_tomeals_id" id="requestOtmi" /></td>
+					<td><input name ="meals_ordered_time" id="requestMot" /></td>
 				</tr>
 		</table>
 

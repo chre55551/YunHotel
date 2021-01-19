@@ -41,7 +41,6 @@ public class Ordered implements Serializable{
 	private Date ordered_date;// 訂單日期
 	private Timestamp ordered_last_update;//訂單最後修改時間
 	private Timestamp ordered_finish_date;//訂單完成時間
-	private int iv_no;//發票號碼
 	private String note;//註記
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -68,13 +67,12 @@ public class Ordered implements Serializable{
 
 	}
 	
-	public Ordered(int ordered_number, int ordered_accounts, Date ordered_date, int iv_no, String note,
+	public Ordered(int ordered_number, int ordered_accounts, Date ordered_date, String note,
 			OrderedStatus orderedStatus, OrderedPayment orderedPayment, OrderedToMeals orderedToMeals,
 			OrderedToRoom orderedToRoom) {
 		this.ordered_number = ordered_number;
 		this.ordered_accounts = ordered_accounts;
 		this.ordered_date = ordered_date;
-		this.iv_no = iv_no;
 		this.note = note;
 		this.orderedStatus = orderedStatus;
 		this.orderedPayment = orderedPayment;
@@ -85,7 +83,7 @@ public class Ordered implements Serializable{
 
 	public Ordered(int ordered_number, int customer_id, int ordered_tomeals_id, int ordered_toroom_id, int status_id,
 			int payment_id, int ordered_accounts, Date ordered_date, Timestamp ordered_last_update,
-			Timestamp ordered_finish_date, int iv_no, String note, Customer customer, OrderedStatus orderedStatus,
+			Timestamp ordered_finish_date, String note, Customer customer, OrderedStatus orderedStatus,
 			OrderedPayment orderedPayment, OrderedToMeals orderedToMeals, OrderedToRoom orderedToRoom) {
 		super();
 		this.ordered_number = ordered_number;
@@ -98,7 +96,6 @@ public class Ordered implements Serializable{
 		this.ordered_date = ordered_date;
 		this.ordered_last_update = ordered_last_update;
 		this.ordered_finish_date = ordered_finish_date;
-		this.iv_no = iv_no;
 		this.note = note;
 		this.customer = customer;
 		this.orderedStatus = orderedStatus;
@@ -145,14 +142,6 @@ public class Ordered implements Serializable{
 
 	public void setOrdered_finish_date(Timestamp ordered_finish_date) {
 		this.ordered_finish_date = ordered_finish_date;
-	}
-
-	public int getIv_no() {
-		return iv_no;
-	}
-
-	public void setIv_no(int iv_no) {
-		this.iv_no = iv_no;
 	}
 
 	public String getNote() {
