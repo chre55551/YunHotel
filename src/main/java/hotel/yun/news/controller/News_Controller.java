@@ -21,13 +21,20 @@ import hotel.yun.news.service.News_Service;
 import hotel.yun.ordered.model.Ordered;
 
 @Controller
-//@RequestMapping("/news")
+@RequestMapping("/news")
 @SessionAttributes({ "news_id", "news_date", "news_updated_date", "news_content"})
 public class News_Controller {
 	
 	@Autowired
 	News_Service service;
 
+	//後台
+	@GetMapping("/newsindex")
+	public String indexNews(Model model){
+		return "news/newsindex";
+	
+	}
+	
 	@GetMapping("/news/showinsertNews")
 	public String ShowNews(Model model) {
 		News nw = new News();

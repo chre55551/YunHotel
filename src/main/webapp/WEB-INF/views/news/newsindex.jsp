@@ -18,14 +18,14 @@
     <div id="main">
         <div id="leftmenu">
             <ul>
-                <li><a href="#" class="menutxt">後台首頁</a></li>
-                <li><a href="#" class="menutxt">member</a></li>
-                <li><a href="#" class="menutxt">ordered</a></li>
-                <li><a href="#" class="menutxt">employee</a></li>
-                <li><a href="#" class="menutxt">meals</a></li>
-                <li><a href="#" class="menutxt">room</a></li>
-                <li><a href="#" class="menutxt">news</a></li>
-                <li><a href="#" class="menutxt">回到官網</a></li>
+				<li><a href="#" class="menutxt">後台首頁</a></li>
+				<li><a href="#" class="menutxt">會員</a></li>
+				<li><a href="../ordered/indexOrdered" class="menutxt">訂單</a></li>
+				<li><a href="#" class="menutxt">員工</a></li>
+				<li><a href="#" class="menutxt">餐點</a></li>
+				<li><a href="#" class="menutxt">房務</a></li>
+				<li><a href="newsindex" class="menutxt">消息</a></li>
+				<li><a href="YunPage" class="menutxt">回到官網</a></li>
             </ul>
         </div>
 
