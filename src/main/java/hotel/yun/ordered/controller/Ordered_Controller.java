@@ -60,26 +60,26 @@ public class Ordered_Controller {
 	}
 	// 讓使用者輸入，用ajax請求
 	@PostMapping("/insertOrderedCheck")
-	public @ResponseBody Ordered insert(
+	public @ResponseBody String insert(
 			@RequestParam(value="chinese_name") String chinese_name,
 			@RequestParam(value="mobile_phone") String mobile_phone,
 			@RequestParam(value="number_of_meals") int number_of_meals,
-			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
+			@RequestParam(value="meals_ordered_time") String meals_ordered_time,
 			Model model) {
 		Customer customer = new Customer(chinese_name,mobile_phone);
 //		customer.setChinese_name(chinese_name);
 //		customer.setMobile_phone(mobile_phone);
 		OrderedToMeals otm = new OrderedToMeals();
 		otm.setNumber_of_meals(number_of_meals);
-		otm.setMeals_ordered_time(meals_ordered_time);
+//		otm.setMeals_ordered_time(meals_ordered_time);
 		Ordered od = new Ordered();
 		od.setCustomer(customer);
 		od.setOrderedToMeals(otm);
 //		service.insert(od);
 //		System.out.println(od.getCustomer().getMobile_phone());
 		System.out.println("puipui");
-		return null;
-//		return od;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+//		return null;
+		return "od";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	
 //--------------------------------------------------
