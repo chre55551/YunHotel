@@ -59,7 +59,7 @@ public class Ordered_Controller {
 		return "ordered/insertMealsOd";
 	}
 	// 讓使用者輸入，用ajax請求
-	@PostMapping("/insertOrderedCheck")
+	@PostMapping("/insertMealsOrdered")
 	public @ResponseBody String insert(
 			@RequestParam(value="chinese_name") String chinese_name,
 			@RequestParam(value="mobile_phone") String mobile_phone,

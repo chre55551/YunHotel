@@ -31,7 +31,7 @@
 				<td><input name="meals_ordered_time" id="requestMot" /></td>
 			</tr>
 		</table>
-		<button name="insertOrderedCheck" id="insertOd">新增</button>
+		<button name="insertMealsOrdered" id="insertOd">新增</button>
 		<a href="<c:url value='indexOrdered'/> ">返回</a>
 
 	</div>
@@ -54,7 +54,7 @@
 					 mobile_phone : $("#requestMp").val(),
 					 number_of_meals : $("#requestNom").val(),
 					 meals_ordered_time : $("#requestMot").val()},
-				url : '/YunHotel/ordered/insertOrderedCheck',
+				url : '/YunHotel/ordered/insertMealsOrdered',
 				dataType : "json",
 				success : function() {
 					alert("新增成功");
