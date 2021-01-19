@@ -75,9 +75,11 @@ public class Ordered_Controller {
 		Ordered od = new Ordered();
 		od.setCustomer(customer);
 		od.setOrderedToMeals(otm);
-		service.insert(od);
+//		service.insert(od);
 //		System.out.println(od.getCustomer().getMobile_phone());
-		return od;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		System.out.println("puipui");
+		return null;
+//		return od;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	
 //--------------------------------------------------

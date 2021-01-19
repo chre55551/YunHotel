@@ -36,7 +36,7 @@
                 <div class="diamondtxt">所有訂單</div>
             </li>
             <li id="diamond">
-                <a href="" class="diamondtxt">新增餐點訂單</div>
+                <a href="insertMealsOd" class="diamondtxt">新增餐點訂單</a>
             </li>
             <li id="diamond">
                 <div class="diamondtxt">新增房間訂單</div>
