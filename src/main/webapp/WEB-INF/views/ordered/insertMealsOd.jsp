@@ -12,7 +12,7 @@
 	<div>
 		<h3>新增餐點訂單</h3>
 		<button id="insertOd">新增</button>
-		<a href="<c:url value='/indexOrdered'/> ">返回</a>
+		<a href="<c:url value='index'/> ">返回</a>
 		<table>
 				<tr>
 					<td>姓名</td>

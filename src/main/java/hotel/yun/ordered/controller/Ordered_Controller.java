@@ -7,7 +7,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,12 +50,13 @@ public class Ordered_Controller {
 		
 		}
 //---------------------------------------------------------------
+	//這是餐點的新增
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
-	@GetMapping("/insertOrdered")
+	@GetMapping("/insertMealsOd")
 	public String ShowOrdered(Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
-		return "ordered/insertOrdered";
+		return "ordered/insertMealsOd";
 	}
 	// 讓使用者輸入，用ajax請求
 	@PostMapping("/insertOrderedCheck")

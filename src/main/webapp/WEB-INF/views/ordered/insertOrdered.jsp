@@ -79,11 +79,6 @@ background-color:#C4E1FF
 				
 			</tr>
 			<tr>
-				<td>發票編號</td>
-				<td><form:input path="iv_no" id="requestIn"/></td>
-<%-- 				<td><form:errors path="iv_no" cssStyle="color: red;" /></td> --%>
-			</tr>
-			<tr>
 				<td>備註</td>
 				<td><form:input path="note" id="requestNote"/></td>
 <%-- 				<td><form:errors path="note" cssStyle="color: red;" /></td> --%>

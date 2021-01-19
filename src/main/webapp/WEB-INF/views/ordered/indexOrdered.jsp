@@ -13,7 +13,7 @@
 		<table border="1" style="margin: 0px auto;">
 
 			<tr>
-				<td width="350"><p align="center" /> <a href='insertOrdered'>新增餐點訂單</a><BR>
+				<td width="350"><p align="center" /> <a href='insertMealsOd'>新增餐點訂單</a><BR>
 				</td>
 			</tr>
 			<tr>
