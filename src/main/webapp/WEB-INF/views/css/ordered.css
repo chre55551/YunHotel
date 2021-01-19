@@ -1,0 +1,105 @@
+/* 為了讓header貼齊頂端 */
+*{ 
+    margin:0 auto;
+    padding:0px;
+    /*6+7行:網頁x軸不出現捲軸，多餘的內容由y捲軸延伸*/
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+/* 頁首 */
+header{
+margin:0 auto;
+padding-top: 25px;  
+padding-left:25px;
+height: 30px;
+width: 100vw; /* 寬度=網頁寬 */
+background-color: #0F2540;
+color: white;
+font-size: 1.1em;
+flex: 0 0 auto; 
+position: fixed;/* 固定頁首 */
+}
+#logo{
+    margin-top:-18px;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+}
+/* 後台這串字 */
+#backstage{
+    margin-top:-10px;
+    margin-left: 50px;
+}
+/* 登出字 */
+#logout{
+    float: right;
+    color: white;
+    margin-top:-22px;
+    margin-right: 60px;
+}
+#logout:hover{
+    color: #8a97a5;
+}
+/* 左側連結 */
+#leftmenu{
+    width: 150px;
+    height: 100vh;
+    background-color: #0F2540;
+    float: left;
+}
+#leftmenu ul{/* 用來調整連結整體 */
+    padding-top: 100px;
+    padding-left: 40px;
+}
+#leftmenu ul li{/* 單個連結細項 */
+    margin-bottom: 30px;
+    font-size: 1em;
+    color: white;
+}
+#leftmenu ul li a:visited{
+    color: white;
+}
+#leftmenu ul li a:hover{
+    color: #8a97a5;
+}
+body{
+    background-color: gainsboro;
+}
+/* 主體 */
+#main{
+    min-height: 100vh;
+    width: 100vw;  /*寬度=網頁寬 */
+    flex: 1 0 auto; /* 頁首頁尾剩的空間 */
+}
+/* 內容 */
+#container{
+    margin-top: 100px;
+    width: 800px;
+    height: 450px;
+    text-align: center;
+    background-color: rgb(212, 194, 160);
+}
+#ALLdiamond{
+    margin-top: 50px;
+}
+#diamond{
+    border:2px rgb(194, 187, 187) solid;
+    border-radius:10px;
+    width:100px;
+    height:100px;
+    display: inline-block;
+    background-color:#eee;
+}
+.diamondtxt{
+    margin-top: 40px;
+    display: inline-block;
+    text-align: center;
+}
+/* 頁尾 */
+#footer{
+    height: 20px;
+    width: 100vw;  /*寬度=網頁寬 */
+    text-align: center;
+    background-color: #0F2540;
+    color: white;
+}
