@@ -24,8 +24,6 @@
         <li><a href="#">房型介紹</a></li>
         <li><a href="#">美食佳餚</a></li>
         <li><a href="#">其他設施</a></li>
-<%--        <li><a href="<c:url value='insertOrdered'/> ">訂單後台(暫)</a></li> --%>
-       <li><a href="ordered/index">訂單後台(暫)</a>
 </header>
 
 <div id="main">

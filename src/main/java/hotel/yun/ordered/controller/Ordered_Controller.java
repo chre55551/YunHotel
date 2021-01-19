@@ -44,9 +44,9 @@ public class Ordered_Controller {
 	
 //---------------------------------------------------------------
 		//後台的進入點
-		@GetMapping("/index")
+		@GetMapping("/indexOrdered")
 		public String indexOrdered(Model model){
-			return "ordered/indexOrdered";
+			return "ordered/ordered";
 		
 		}
 //---------------------------------------------------------------

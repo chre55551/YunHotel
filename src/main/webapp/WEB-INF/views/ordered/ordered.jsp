@@ -36,7 +36,10 @@
                 <div class="diamondtxt">所有訂單</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">新增訂單</div>
+                <div class="diamondtxt">新增餐點訂單</div>
+            </li>
+            <li id="diamond">
+                <div class="diamondtxt">新增房間訂單</div>
             </li>
             <li id="diamond">
                 <div class="diamondtxt">刪除訂單</div>
