@@ -2,6 +2,7 @@ package hotel.yun.ordered.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -38,6 +39,8 @@ public class Ordered implements Serializable{
 	
 	private int ordered_accounts;// 訂單總價
 	private Date ordered_date;// 訂單日期
+	private Timestamp ordered_last_update;//訂單最後修改時間
+	private Timestamp ordered_finish_date;//訂單完成時間
 	private int iv_no;//發票號碼
 	private String note;//註記
 	
@@ -78,6 +81,31 @@ public class Ordered implements Serializable{
 		this.orderedToMeals = orderedToMeals;
 		this.orderedToRoom = orderedToRoom;
 	}
+	
+
+	public Ordered(int ordered_number, int customer_id, int ordered_tomeals_id, int ordered_toroom_id, int status_id,
+			int payment_id, int ordered_accounts, Date ordered_date, Timestamp ordered_last_update,
+			Timestamp ordered_finish_date, int iv_no, String note, Customer customer, OrderedStatus orderedStatus,
+			OrderedPayment orderedPayment, OrderedToMeals orderedToMeals, OrderedToRoom orderedToRoom) {
+		super();
+		this.ordered_number = ordered_number;
+		this.customer_id = customer_id;
+		this.ordered_tomeals_id = ordered_tomeals_id;
+		this.ordered_toroom_id = ordered_toroom_id;
+		this.status_id = status_id;
+		this.payment_id = payment_id;
+		this.ordered_accounts = ordered_accounts;
+		this.ordered_date = ordered_date;
+		this.ordered_last_update = ordered_last_update;
+		this.ordered_finish_date = ordered_finish_date;
+		this.iv_no = iv_no;
+		this.note = note;
+		this.customer = customer;
+		this.orderedStatus = orderedStatus;
+		this.orderedPayment = orderedPayment;
+		this.orderedToMeals = orderedToMeals;
+		this.orderedToRoom = orderedToRoom;
+	}
 
 	public int getOrdered_number() {
 		return ordered_number;
@@ -101,6 +129,22 @@ public class Ordered implements Serializable{
 
 	public void setOrdered_date(Date ordered_date) {
 		this.ordered_date = ordered_date;
+	}
+
+	public Timestamp getOrdered_last_update() {
+		return ordered_last_update;
+	}
+
+	public void setOrdered_last_update(Timestamp ordered_last_update) {
+		this.ordered_last_update = ordered_last_update;
+	}
+
+	public Timestamp getOrdered_finish_date() {
+		return ordered_finish_date;
+	}
+
+	public void setOrdered_finish_date(Timestamp ordered_finish_date) {
+		this.ordered_finish_date = ordered_finish_date;
 	}
 
 	public int getIv_no() {

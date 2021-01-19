@@ -48,7 +48,7 @@ public class Ordered_Controller {
 		return odd;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	//後台的進入點
-	@GetMapping("/indexOrdered")
+	@GetMapping("/index")
 	public String indexOrdered(Model model){
 		return "ordered/indexOrdered";
 	
