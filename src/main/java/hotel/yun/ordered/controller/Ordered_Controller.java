@@ -1,5 +1,6 @@
 package hotel.yun.ordered.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -13,10 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.service.CustomerService;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedToMeals;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Controller
@@ -30,10 +35,26 @@ public class Ordered_Controller {
 
 	@Autowired
 	Ordered_Service service;
-
-//	@Autowired
-//	Ordered od;
+	@Autowired
+	OrderedToMeals om;
 	
+	@Autowired
+	CustomerService cser;
+	
+	@Autowired
+	Customer customer;
+	
+	@Autowired
+	Ordered od;
+	
+//---------------------------------------------------------------
+		//後台的進入點
+		@GetMapping("/index")
+		public String indexOrdered(Model model){
+			return "ordered/indexOrdered";
+		
+		}
+//---------------------------------------------------------------
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
 	@GetMapping("/insertOrdered")
 	public String ShowOrdered(Model model) {
@@ -43,17 +64,26 @@ public class Ordered_Controller {
 	}
 	// 讓使用者輸入，用ajax請求
 	@PostMapping("/insertOrderedCheck")
-	public @ResponseBody Ordered insert(@ModelAttribute("odd") Ordered odd, Model model) {
-	service.insert(odd);
-		return odd;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
-	}
-	//後台的進入點
-	@GetMapping("/index")
-	public String indexOrdered(Model model){
-		return "ordered/indexOrdered";
+	public @ResponseBody Ordered insert(@RequestParam(value="chinese_name") String chinese_name,
+			@RequestParam(value="mobile_phone") String mobile_phone,
+			@RequestParam(value="number_of_meals") int number_of_meals,
+			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
+			Model model) {
+		customer.setChinese_name(chinese_name);
+		customer.setMobile_phone(mobile_phone);
+		om.setNumber_of_meals(number_of_meals);
+		om.setMeals_ordered_time(meals_ordered_time);
+		od.setCustomer(customer);
+		od.setOrderedToMeals(om);
+		service.insert(od);
+//		System.out.println(od.getCustomer());
+		
+		
 	
+		return null;//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
-//-------------------------------------
+	
+//--------------------------------------------------
 	@GetMapping("/thisOrdered")
 	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		Ordered Ordered = service.queryOrderNum(odd.getOrdered_number());

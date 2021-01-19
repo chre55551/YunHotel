@@ -21,7 +21,7 @@ background-color:#C4E1FF
 	<h3>新增訂單</h3>
 <!-- 	<a href='ThisOrdred'>新增訂單資料</a> &nbsp;&nbsp;&nbsp; -->
 	<button id="insertOd">新增訂單資料</button>
-	<a href="<c:url value='/indexOrdered'/> ">返回</a>
+	<a href="<c:url value='index'/> ">返回</a>
 	<table>
 		<form:form action="insertOrdred" method="get" modelAttribute="odd" id="Odxx">
 			<tr>

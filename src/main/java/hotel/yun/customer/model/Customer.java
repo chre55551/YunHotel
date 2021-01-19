@@ -86,5 +86,21 @@ public class Customer {
 	public void setMobile_phone(String mobile_phone) {
 		this.mobile_phone = mobile_phone;
 	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public Set<Ordered> getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Set<Ordered> ordered) {
+		this.ordered = ordered;
+	}
 	
 }
