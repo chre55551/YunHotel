@@ -12,31 +12,31 @@
 <body>
 	<div>
 		<h3>新增餐點訂單</h3>
-
-		<table id="odd">
-			<tr>
-				<td>姓名</td>
-				<td><input name="chinese_name" id="requestCn" /></td>
-			</tr>
-			<tr>
-				<td>手機</td>
-				<td><input name="mobile_phone" id="requestMp" /></td>
-			</tr>
-			<tr>
-				<td>人數</td>
-				<td><input name="number_of_meals" id="requestNom" /></td>
-			</tr>
-			<tr>
-				<td>用餐日期</td>
-				<td><input name="meals_ordered_time" id="requestMot" type = date /></td>
-			</tr>
-		</table>
-		<button name="insertMealsOrdered" id="insertOd">新增</button>
+		<form>
+			<div>
+				<label>姓名</label>
+				<input name="chinese_name" id="requestCn" />
+			</div>
+			<div>
+				<label>手機</label>
+				<input name="mobile_phone" id="requestMp" />
+			</div>
+			<div>
+				<label>人數</label>
+				<input name="number_of_meals" id="requestMp" />
+			</div>
+			<div>
+				<label>用餐日期</label>
+				<input name="meals_ordered_time" id="requestMp" />
+			</div>
+			</form>
+		<input id="insertMealsOrdered" value="新增" type="submit">
 		<a href="<c:url value='indexOrdered'/> ">返回</a>
 
 	</div>
 	<script type="text/javascript">
-		$("#insertOd").click(function() {
+	
+// 		$("#insertOd").click(function() {
 // 			 o=$("#odd input");
 // 			 o.each(function(X,item){console.log(item.value)})
 // 			 var atr = o.each(function(X,item){item.value})
@@ -48,19 +48,23 @@
 // 				 meals_ordered_time:atr[3]
 // 			 }
 
-			$.ajax({
-				type : 'POST',
-				data : {chinese_name : $("#requestCn").val(),
-					 mobile_phone : $("#requestMp").val(),
-					 number_of_meals : $("#requestNom").val(),
-					 meals_ordered_time : $("#requestMot").val()},
-				url : '/YunHotel/ordered/insertMealsOrdered',
-				dataType : "json",
-				success : function() {
-					alert("新增成功");
-				}
-			})
-		})
+
+//當初寫新增的ajax
+// 			$.ajax({
+// 				type : 'POST',
+// 				data : {chinese_name : $("#requestCn").val(),
+// 					 mobile_phone : $("#requestMp").val(),
+// 					 number_of_meals : $("#requestNom").val(),
+// 					 meals_ordered_time : $("#requestMot").val()},
+// 				url : '/YunHotel/ordered/insertMealsOrdered',
+// 				dataType : "json",
+// 				success : function() {
+// 					alert("新增成功");
+// 				}
+// 			})
+// 		})
+
+
 		// 		document.getElementById("insertOd").addEventListener("click",
 		// 				function() {
 		// 					let QQQ = document.getElementById("Odxx").serialize();

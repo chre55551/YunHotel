@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.customer.model.Customer;
@@ -58,9 +57,9 @@ public class Ordered_Controller {
 		model.addAttribute("odd", od);
 		return "ordered/insertMealsOd";
 	}
-	// 讓使用者輸入，用ajax請求
+	// 讓使用者輸入，導到查詢頁面
 	@PostMapping("/insertMealsOrdered")
-	public @ResponseBody String insert(
+	public String insert(
 			@RequestParam(value="chinese_name") String chinese_name,
 			@RequestParam(value="mobile_phone") String mobile_phone,
 			@RequestParam(value="number_of_meals") int number_of_meals,
@@ -75,11 +74,12 @@ public class Ordered_Controller {
 		Ordered od = new Ordered();
 		od.setCustomer(customer);
 		od.setOrderedToMeals(otm);
-//		service.insert(od);
+		Ordered odd = service.insert(od);
 //		System.out.println(od.getCustomer().getMobile_phone());
 		System.out.println("puipui");
+		model.addAttribute(odd);
 //		return null;
-		return "od";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		return "ordered/costomerOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	
 //--------------------------------------------------
