@@ -7,12 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
 <title>insertMealsOrdered</title>
 </head>
 <body>
-	<div>
+
+	<%@ include file="../CommonTemplates/header.jsp"%>
+	
+
+	<div id="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>新增餐點訂單</h3>
-		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST">
+		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" id="container">
 			<div>
 				<label>姓名</label> <input name="chinese_name" id="requestCn" />
 			</div>
@@ -28,11 +34,12 @@
 			</div>
 			<div>
 				<input value="新增" type="submit">
+				<a href="<c:url value='indexOrdered'/> ">返回</a>
 			</div>
 		</form>
-		<a href="<c:url value='indexOrdered'/> ">返回</a>
-
 	</div>
+	
+	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
 		// 		$("#insertOd").click(function() {
 		// 			 o=$("#odd input");

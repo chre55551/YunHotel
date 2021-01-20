@@ -21,6 +21,7 @@ import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedToMeals;
+import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Controller
@@ -49,42 +50,73 @@ public class Ordered_Controller {
 		
 		}
 //---------------------------------------------------------------
-	//這是餐點的新增
-	// 本方法於新增時，送出空白的表單讓使用者輸入資料
+	//新增
+	// 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱
 	@GetMapping("/insertMealsOd")
-	public String ShowOrdered( Model model) {
+	public String ShowMealsOrdered( Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/insertMealsOd";
 	}
-	// 讓使用者輸入，導到查詢頁面
+	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面
 	@PostMapping("/insertMealsOrdered")
-	public String insert(
+	public String insertMealsOrdered(
 			@RequestParam(value="chinese_name") String chinese_name,
 			@RequestParam(value="mobile_phone") String mobile_phone,
 			@RequestParam(value="number_of_meals") int number_of_meals,
 			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
 			Model model) {
-		//用姓名手機撈顧客，若是存在此顧客就將撈出來的Cusomer塞進 od.setCustomer(customer);
+		//用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
 		//若是不存在就做以下這些事情
 		Customer customer = new Customer(chinese_name,mobile_phone);
 //		customer.setChinese_name(chinese_name);
 //		customer.setMobile_phone(mobile_phone);
-		OrderedToMeals otm = new OrderedToMeals();
-		otm.setNumber_of_meals(number_of_meals);
-		otm.setMeals_ordered_time(meals_ordered_time);
+		OrderedToMeals otm = new OrderedToMeals(number_of_meals,meals_ordered_time);
+//		otm.setNumber_of_meals(number_of_meals);
+//		otm.setMeals_ordered_time(meals_ordered_time);
 		Ordered od = new Ordered();
 		od.setCustomer(customer);
 		od.setOrderedToMeals(otm);
 		Ordered odd = service.insert(od);
-//		System.out.println(od.getCustomer().getMobile_phone());
 		System.out.println("puipui");
 		model.addAttribute("odd", odd);
 //		return null;
-		return "ordered/customerOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		return "ordered/customerMealsOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	
+	// 送出空白的Bean來接訂房的屬性，Jsp input的name要對到DB的名稱
+	@GetMapping("/insertRoomOd")
+	public String ShowRoomOrdered( Model model) {
+		Ordered od = new Ordered();
+		model.addAttribute("odd", od);
+		return "ordered/insertRoomOd";
+	}
+	
+	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面(訂房)
+	@PostMapping("/insertRoomOrdered")
+	public String insertRoomOrdered(
+			@RequestParam(value="chinese_name") String chinese_name,
+			@RequestParam(value="idcard_number") String idcard_number,
+			@RequestParam(value="mobile_phone") String mobile_phone,
+			@RequestParam(value="birthday") Date birthday,
+			@RequestParam(value="address") String address,
+			@RequestParam(value="room_number") int room_number,
+			@RequestParam(value="room_ordered_time") Date room_ordered_time,
+			Model model) {
+
+		Customer customer = new Customer(chinese_name,idcard_number,birthday,address,mobile_phone);
+		OrderedToRoom otr = new OrderedToRoom(room_ordered_time,room_number);
+		Ordered od = new Ordered();
+		od.setCustomer(customer);
+		od.setOrderedToRoom(otr);
+		Ordered odd = service.insert(od);
+		System.out.println("puipui");
+		model.addAttribute("odd", odd);
+//		return null;
+		return "ordered/customerRoomOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+	}
 //--------------------------------------------------
+	//查詢
 	@GetMapping("/thisOrdered")
 	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
@@ -116,6 +148,7 @@ public class Ordered_Controller {
 		return "ordered/dateToOrdered";//進到該日期的所有訂單
 	}
 //-----------------------------------------------------------	
+	//更新
 	@PostMapping("/thisOrdered/{ordered_number}")
 	public String update(@ModelAttribute("odd") Ordered odd,Model model) {
 		Ordered ThisOrdered = service.queryOrderNum(odd.getOrdered_number());
@@ -135,6 +168,7 @@ public class Ordered_Controller {
 	
 	
 //---------------------------------------------------------
+	//刪除
 	// 從訂單編號刪除一筆訂單
 	@PostMapping("/DeleteOrdred/{ordered_number}")
 	public String delete(@PathVariable("ordered_number") int ordered_number) {

@@ -49,15 +49,20 @@ public class Customer {
 		this.member = member;
 		this.ordered = ordered;
 	}
-	
-	
-	
+	//我訂單加的建構式，勿刪
 	public Customer(String chinese_name, String mobile_phone) {
 		this.chinese_name = chinese_name;
 		this.mobile_phone = mobile_phone;
 	}
 
-
+	//我訂單加的建構式，勿刪
+	public Customer(String chinese_name, String idcard_number, Date birthday, String address, String mobile_phone) {
+		this.chinese_name = chinese_name;
+		this.idcard_number = idcard_number;
+		this.birthday = birthday;
+		this.address = address;
+		this.mobile_phone = mobile_phone;
+	}
 
 	public int getCustomer_id() {
 		return customer_id;

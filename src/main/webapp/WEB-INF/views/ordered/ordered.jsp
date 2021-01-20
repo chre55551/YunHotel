@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
 <title>Ordered</title>
+
 </head>
 <body>
  
@@ -25,7 +26,7 @@
                 <a href="insertMealsOd" class="diamondtxt">新增餐點訂單</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">新增房間訂單</div>
+              <a href="insertRoomOd" class="diamondtxt">新增房間訂單</a>
             </li>
             <li id="diamond">
                 <div class="diamondtxt">刪除訂單</div>
@@ -34,7 +35,8 @@
                 <div class="diamondtxt">修改訂單</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">查詢訂單</div>
+               	<div class="diamondtxt">查詢訂單</div>
+<!--                  <a href="insertMealsOrdered" class="diamondtxt">查詢訂單</a> -->
             </li>
             </ul>
         </div>

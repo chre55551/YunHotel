@@ -37,6 +37,11 @@ public class OrderedToRoom implements Serializable{
 		this.room_number = room_number;
 	}
 
+	public OrderedToRoom(Date room_ordered_time, int room_number) {
+		this.room_ordered_time = room_ordered_time;
+		this.room_number = room_number;
+	}
+
 	public int getOrdered_toroom_id() {
 		return ordered_toroom_id;
 	}

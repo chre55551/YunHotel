@@ -28,6 +28,16 @@ public class OrderedToMeals implements Serializable{
 		
 	}
 	
+	
+	
+	public OrderedToMeals(int number_of_meals, Date meals_ordered_time) {
+		super();
+		this.number_of_meals = number_of_meals;
+		this.meals_ordered_time = meals_ordered_time;
+	}
+
+
+
 	public OrderedToMeals(int ordered_tomeals_id, int meals_id, int meals_accounts, int number_of_meals,
 			Date meals_ordered_time, int table_number) {
 		this.ordered_tomeals_id = ordered_tomeals_id;

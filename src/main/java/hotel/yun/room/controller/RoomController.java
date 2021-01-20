@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import hotel.yun.news.model.News;
-import hotel.yun.ordered.model.Ordered;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
 
