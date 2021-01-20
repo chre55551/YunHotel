@@ -27,8 +27,8 @@
 				<td><input name="number_of_meals" id="requestNom" /></td>
 			</tr>
 			<tr>
-				<td>用餐時間</td>
-				<td><input name="meals_ordered_time" id="requestMot" /></td>
+				<td>用餐日期</td>
+				<td><input name="meals_ordered_time" id="requestMot" type = date /></td>
 			</tr>
 		</table>
 		<button name="insertMealsOrdered" id="insertOd">新增</button>

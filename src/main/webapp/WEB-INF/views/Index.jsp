@@ -24,6 +24,7 @@
         <li><a href="#">房型介紹</a></li>
         <li><a href="#">美食佳餚</a></li>
         <li><a href="#">其他設施</a></li>
+    </ul>
 </header>
 
 <div id="main">
