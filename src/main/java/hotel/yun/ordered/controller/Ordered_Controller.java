@@ -123,8 +123,16 @@ public class Ordered_Controller {
 		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
 		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
 		model.addAttribute("ordered", ordered);
-		return "ordered/ThisOrdered";//依訂單號查到他的訂單
+		return "ordered/thisOrdered";//依訂單號查到他的訂單
 	}
+//	@GetMapping("/thisOrdered")
+//	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
+//		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
+//		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
+//		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
+//		model.addAttribute("ordered", ordered);
+//		return "ordered/thisOrdered";//依訂單號查到他的訂單
+//	}
 	
 	@GetMapping("/showAllOrdered")
 	public String OrderedList(@ModelAttribute("odd") Ordered odd,Model model) {

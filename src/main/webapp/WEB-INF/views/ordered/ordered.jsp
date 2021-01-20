@@ -35,8 +35,7 @@
                 <div class="diamondtxt">修改訂單</div>
             </li>
             <li id="diamond">
-               	<div class="diamondtxt">查詢訂單</div>
-<!--                  <a href="insertMealsOrdered" class="diamondtxt">查詢訂單</a> -->
+                 <a href="thisOrdered" class="diamondtxt">查詢訂單</a>
             </li>
             </ul>
         </div>
