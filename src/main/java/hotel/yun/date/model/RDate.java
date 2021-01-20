@@ -54,6 +54,14 @@ public class RDate {
 	public void setRoom_date(Date room_date) {
 		this.rdate = room_date;
 	}
+
+	public Set<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(Set<Room> rooms) {
+		this.rooms = rooms;
+	}
 	
 	
 }

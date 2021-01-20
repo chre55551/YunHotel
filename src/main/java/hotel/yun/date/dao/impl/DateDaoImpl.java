@@ -32,5 +32,19 @@ public class DateDaoImpl implements Serializable, DateDao {
 		return rd;
 	}
 //	@Override
+	public RDate update(RDate r) {
+		RDate rd = null;
+		Session session = factory.getCurrentSession();
+		rd = session.get(RDate.class, r.getDate_id());
+		if(r.getRoom_date()!=null) {
+		rd.setRoom_date(r.getRoom_date());
+		}
+		if(r.getRooms()!= null) {
+			rd.setRooms(r.getRooms());
+		}
+		session.update(rd);
+		return rd;
+	
+	}
 	
 }
