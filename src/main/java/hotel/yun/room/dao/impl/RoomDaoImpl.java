@@ -38,18 +38,19 @@ public class RoomDaoImpl implements RoomDao{
     
     @Override
 	public Room queryRoom_id(int id) {
-	Room bean = null;
+//	Room bean = null;
 	Session session = factory.getCurrentSession();
-	String hql  = "FROM Room r WHERE r.room_id = :id";
-	try {
-		bean = (Room)session.createQuery(hql)
-								.setParameter("id", id)
-								.getSingleResult();
-	} catch(NoResultException e) {
-		;  // 表示查無紀錄
-	}
+	Room room = session.get(Room.class, id);
+//	String hql  = "FROM Room r WHERE r.room_id = :id";
+//	try {
+//		bean = (Room)session.createQuery(hql)
+//								.setParameter("id", id)
+//								.getSingleResult();
+//	} catch(NoResultException e) {
+//		;  // 表示查無紀錄
+//	}
 	
-	return bean;
+	return room;
 	
 }
     @SuppressWarnings("unchecked")
@@ -66,6 +67,10 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public void update(Room rBean) {
 		Session session = factory.getCurrentSession();
+		Room room = session.get(Room.class, rBean.getRoom_id());
+		if(rBean.getRoom_name()!=null) {
+			room.setRoom_name(rBean.getRoom_name());
+		}
 		session.update(rBean);
 		
 	}
