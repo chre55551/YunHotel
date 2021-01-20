@@ -5,13 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<%-- <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/> --%>
-
-<title>房務</title>
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
+<title>IndexRoom</title>
 </head>
 <body>
- <header> 
+  <header> 
         <img id="logo" src="${pageContext.request.contextPath}/image/home.png">
         <p id="backstage">後台管理系統</p>
         <a href="#" id="login">登入</a>
