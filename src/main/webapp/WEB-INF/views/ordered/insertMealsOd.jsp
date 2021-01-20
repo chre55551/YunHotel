@@ -12,58 +12,54 @@
 <body>
 	<div>
 		<h3>新增餐點訂單</h3>
-		<form>
+		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST">
 			<div>
-				<label>姓名</label>
-				<input name="chinese_name" id="requestCn" />
+				<label>姓名</label> <input name="chinese_name" id="requestCn" />
 			</div>
 			<div>
-				<label>手機</label>
-				<input name="mobile_phone" id="requestMp" />
+				<label>手機</label> <input name="mobile_phone" id="requestMp" />
 			</div>
 			<div>
-				<label>人數</label>
-				<input name="number_of_meals" id="requestMp" />
+				<label>人數</label> <input name="number_of_meals" id="requestMp" />
 			</div>
 			<div>
-				<label>用餐日期</label>
-				<input name="meals_ordered_time" id="requestMp" />
+				<label>用餐日期</label> <input name="meals_ordered_time" id="requestMp"
+					type="date" />
 			</div>
-			</form>
-		<input id="insertMealsOrdered" value="新增" type="submit">
+			<div>
+				<input value="新增" type="submit">
+			</div>
+		</form>
 		<a href="<c:url value='indexOrdered'/> ">返回</a>
 
 	</div>
 	<script type="text/javascript">
-	
-// 		$("#insertOd").click(function() {
-// 			 o=$("#odd input");
-// 			 o.each(function(X,item){console.log(item.value)})
-// 			 var atr = o.each(function(X,item){item.value})
-			 
-// 			 var btr = {
-// 				 chinese_name:atr[0],
-// 				 mobile_phone:atr[1],
-// 				 number_of_meals:atr[2],
-// 				 meals_ordered_time:atr[3]
-// 			 }
+		// 		$("#insertOd").click(function() {
+		// 			 o=$("#odd input");
+		// 			 o.each(function(X,item){console.log(item.value)})
+		// 			 var atr = o.each(function(X,item){item.value})
 
+		// 			 var btr = {
+		// 				 chinese_name:atr[0],
+		// 				 mobile_phone:atr[1],
+		// 				 number_of_meals:atr[2],
+		// 				 meals_ordered_time:atr[3]
+		// 			 }
 
-//當初寫新增的ajax
-// 			$.ajax({
-// 				type : 'POST',
-// 				data : {chinese_name : $("#requestCn").val(),
-// 					 mobile_phone : $("#requestMp").val(),
-// 					 number_of_meals : $("#requestNom").val(),
-// 					 meals_ordered_time : $("#requestMot").val()},
-// 				url : '/YunHotel/ordered/insertMealsOrdered',
-// 				dataType : "json",
-// 				success : function() {
-// 					alert("新增成功");
-// 				}
-// 			})
-// 		})
-
+		//當初寫新增的ajax
+		// 			$.ajax({
+		// 				type : 'POST',
+		// 				data : {chinese_name : $("#requestCn").val(),
+		// 					 mobile_phone : $("#requestMp").val(),
+		// 					 number_of_meals : $("#requestNom").val(),
+		// 					 meals_ordered_time : $("#requestMot").val()},
+		// 				url : '/YunHotel/ordered/insertMealsOrdered',
+		// 				dataType : "json",
+		// 				success : function() {
+		// 					alert("新增成功");
+		// 				}
+		// 			})
+		// 		})
 
 		// 		document.getElementById("insertOd").addEventListener("click",
 		// 				function() {

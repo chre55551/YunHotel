@@ -23,7 +23,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
-	public Ordered insert(Ordered oBean) {
+	public Ordered insert(Ordered oBean) {	
 		
 		return oDao.insert(oBean);
 	}

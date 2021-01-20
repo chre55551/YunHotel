@@ -52,7 +52,7 @@ public class Ordered_Controller {
 	//這是餐點的新增
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
 	@GetMapping("/insertMealsOd")
-	public String ShowOrdered(Model model) {
+	public String ShowOrdered( Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/insertMealsOd";
@@ -65,6 +65,8 @@ public class Ordered_Controller {
 			@RequestParam(value="number_of_meals") int number_of_meals,
 			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
 			Model model) {
+		//用姓名手機撈顧客，若是存在此顧客就將撈出來的Cusomer塞進 od.setCustomer(customer);
+		//若是不存在就做以下這些事情
 		Customer customer = new Customer(chinese_name,mobile_phone);
 //		customer.setChinese_name(chinese_name);
 //		customer.setMobile_phone(mobile_phone);
@@ -77,9 +79,9 @@ public class Ordered_Controller {
 		Ordered odd = service.insert(od);
 //		System.out.println(od.getCustomer().getMobile_phone());
 		System.out.println("puipui");
-		model.addAttribute(odd);
+		model.addAttribute("odd", odd);
 //		return null;
-		return "ordered/costomerOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		return "ordered/customerOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 	}
 	
 //--------------------------------------------------
