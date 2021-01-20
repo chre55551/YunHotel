@@ -93,6 +93,14 @@ public class Room implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Set<RDate> getDate() {
+		return date;
+	}
+
+	public void setDate(Set<RDate> date) {
+		this.date = date;
+	}
+
 
 
 
