@@ -34,7 +34,7 @@
 			</div>
 			<div>
 				<input value="新增" type="submit">
-				<a href="<c:url value='indexOrdered'/> ">返回</a>
+<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
 	</div>

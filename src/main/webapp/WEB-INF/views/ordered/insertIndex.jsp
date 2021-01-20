@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>QueryIndex</title>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/backstage.css'
+	type="text/css" />
+<title>InsertIndex</title>
 </head>
-<body>
- 
 <%@ include file="../CommonTemplates/header.jsp"%>
 
     <div id="main">
@@ -19,10 +21,10 @@
             <ul id="ALLdiamond">
                 
             <li id="diamond">
-                <div class="diamondtxt">依顧客查詢</div>
+                <a href="insertMealsOd" class="diamondtxt">餐點訂單</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">依日期查詢</div>
+              <a href="insertRoomOd" class="diamondtxt">房間訂單</a>
             </li>
             </ul>
         </div>

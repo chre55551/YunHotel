@@ -41,8 +41,8 @@
 				<label>訂房日期</label> <input name="room_ordered_time" type="date" />
 			</div>
 			<div>
-				<input value="新增" type="submit"> <a
-					href="<c:url value='indexOrdered'/> ">返回</a>
+				<input value="新增" type="submit"> 
+<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
 	</div>

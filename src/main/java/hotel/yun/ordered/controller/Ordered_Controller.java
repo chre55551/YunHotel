@@ -47,7 +47,18 @@ public class Ordered_Controller {
 		@GetMapping("/indexOrdered")
 		public String indexOrdered(Model model){
 			return "ordered/ordered";
+		}
 		
+		//新增的分流
+		@GetMapping("/insertIndex")
+		public String insertIndex(Model model){
+			return "ordered/insertIndex";
+		}
+		
+		//查詢的分流
+		@GetMapping("/queryIndex")
+		public String queryIndex(Model model){
+			return "ordered/queryIndex";
 		}
 //---------------------------------------------------------------
 	//新增
