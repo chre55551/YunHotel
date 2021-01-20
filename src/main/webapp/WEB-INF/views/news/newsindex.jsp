@@ -35,6 +35,7 @@
             </ul>
         </div>
 </div>
+<div></div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
 
 </body>
