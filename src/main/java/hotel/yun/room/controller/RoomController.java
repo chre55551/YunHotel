@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import hotel.yun.news.model.News;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
@@ -38,19 +39,33 @@ public class RoomController {
 	
 	
 	//後台的進入點
-	@GetMapping("/indexRoom")
+	@GetMapping("/IndexRoom")
 	public String indexRoom(Model model){
-		return "room/indexRoom";
+		return "room/IndexRoom";
 	
 	}
 	
 
-	@GetMapping("/insertRoom")
-	public String ShowRoom(Model model) {
+	@GetMapping("/ShowRooms")
+	public String ShowRooms(Model model) {
 		Room rm = new Room();
 		model.addAttribute("rom", rm);
-		return "room/insertRoom";
+		return "room/ShowRooms";
 	}
+	
+	@PostMapping("InsertRoom")
+	public String Insert(@ModelAttribute("rom") Room rm, Model model,HttpServletRequest request,BindingResult result) {
+		service.save(rm);
+		return "room/InsertRoom";
+	}
+	@PostMapping("/ShowRoom")
+	public String GetaNew(@ModelAttribute("rom") Room rm,Model model) {
+		Room room = service.queryRoom_id(rm.getRoom_id());
+		model.addAttribute("GetaNew", room);
+		return "room/ShowRoom";
+	}
+	
+	
 	
 	
 	

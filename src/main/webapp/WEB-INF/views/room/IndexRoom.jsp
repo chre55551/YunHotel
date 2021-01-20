@@ -12,8 +12,7 @@
   <header> 
         <img id="logo" src="${pageContext.request.contextPath}/image/home.png">
         <p id="backstage">後台管理系統</p>
-        <a href="#" id="login">登入</a>
-        <a href="#" id="logout">登出</a>
+        <a href="#" id="logout">登出</a> 
     </header>
 
     <div id="main">
@@ -21,36 +20,42 @@
             <ul>
                 <li><a href="../" class="menutxt">後台首頁</a></li>
                 <li><a href="#" class="menutxt">會員</a></li>
-                <li><a href="indexOrdered" class="menutxt">訂單</a></li>
+                <li><a href="../ordered/indexOrdered" class="menutxt">訂單</a></li>
                 <li><a href="#" class="menutxt">員工</a></li>
                 <li><a href="#" class="menutxt">餐點</a></li>
-                <li><a href="#" class="menutxt">房務</a></li>
-                <li><a href="#" class="menutxt">消息</a></li>
+                <li><a href="IndexRoom" class="menutxt">房務</a></li>
+                <li><a href="../news/newsindex" class="menutxt">消息</a></li>
                 <li><a href="../YunPage" class="menutxt">回到官網</a></li>
             </ul>
         </div>
 
         <div id="container">
             <ul id="ALLdiamond">
+            
+            
                 
+  
             <li id="diamond">
-                <div class="diamondtxt">所有訂單</div>
+                <a href="" class="diamondtxt">所有房型</a>
             </li>
             <li id="diamond">
-                <a href="insertMealsOd" class="diamondtxt">新增餐點訂單</a>
+                <a href="insertRoom" class="diamondtxt">新增房型</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">新增房間訂單</div>
+                <a href="" class="diamondtxt">查詢房型</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">刪除訂單</div>
+                <a href="" class="diamondtxt">修改房型</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">修改訂單</div>
+                <a href="" class="diamondtxt">刪除房型</a>
             </li>
-            <li id="diamond">
-                <div class="diamondtxt">查詢訂單</div>
-            </li>
+            
+            
+            
+            
+            
+
             </ul>
         </div>
     </div>
