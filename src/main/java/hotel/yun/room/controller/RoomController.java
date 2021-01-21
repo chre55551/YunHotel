@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
 import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
 
@@ -52,29 +53,39 @@ public class RoomController {
 	
 	}
 	
-
-	@GetMapping("/ShowRooms")
-	public String ShowRooms(Model model) {
+    //查詢所有房型
+	@GetMapping("/QueryAllRooms")
+	public String QueryAllRooms(Model model) {
 		List<Room> rm = service.queryAll();
 		model.addAttribute("rom", rm);
-		return "room/ShowRooms";
+		return "room/QueryAllRooms";
 	}
 	
-	@PostMapping("InsertRoom")
-	public String Insert(@ModelAttribute("rom") Room rm, Model model,HttpServletRequest request,BindingResult result) {
+	
+	//查詢單筆房型
+	@GetMapping("/queryRoom")
+	public String QueryRoom(@ModelAttribute("rom") Room rm,Model model) {
+		Room room = service.queryRoom_id(rm.getRoom_id());
+		model.addAttribute("rom", room);
+		return "room/ShowRoom";
+	}
+	
+	
+    //送出空白表單
+	@GetMapping("/ShowBlankRoomform")
+	public String ShowBlankRoomform( Model model) {
+		Room rm = new Room();
+		model.addAttribute("rom", rm);
+		return "room/ShowBlankRoomform";
+		}
+	
+	
+	//新增房型
+	@PostMapping("/InsertRoom")
+	public String InsertRoom(@ModelAttribute("rom") Room rm, Model model,HttpServletRequest request,BindingResult result) {
 		service.save(rm);
 		return "room/InsertRoom";
 	}
-//	@PostMapping("/ShowRoom")
-//	public String GetaNew(@ModelAttribute("rom") Room rm,Model model) {
-//		Room room = service.queryRoom_id(rm.getRoom_id());
-//		model.addAttribute("GetaNew", room);
-//		return "room/ShowRoom";
-//	}
-	
-	
-	
-	
 	
 	
 }

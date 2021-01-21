@@ -6,40 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>Index Room</title>
+<title>Query All Rooms</title>
 </head>
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
     <div id="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-        	
-        	
-        	
-        	
-        	
-        	
+
 
         <div id="container">
             <ul id="ALLdiamond">
            
-          
+            
+            
+            
+            
+            
+            
+            
+            
   
-            <li id="diamond">
-                <a href="QueryAllRooms" class="diamondtxt">所有房型</a>
-            </li>
-            <li id="diamond">
-                <a href="ShowBlankRoomform" class="diamondtxt">新增房型</a>
-            </li>
-            <li id="diamond">
-                <a href="" class="diamondtxt">查詢房型</a>
-            </li>
-            <li id="diamond">
-                <a href="" class="diamondtxt">修改房型</a>
-            </li>
-            <li id="diamond">
-                <a href="" class="diamondtxt">刪除房型</a>
-            </li>
+      
             
             
             
