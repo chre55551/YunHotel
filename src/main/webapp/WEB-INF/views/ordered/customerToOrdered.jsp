@@ -1,67 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/backstage.css'
+	type="text/css" />
 <title>依顧客查詢</title>
 </head>
 <body>
-<%@ include file="../CommonTemplates/header.jsp"%>
+	<%@ include file="../CommonTemplates/header.jsp"%>
 	<div id="main">
-    <table class="mytable" id="container">
-    <%@ include file="../CommonTemplates/leftmenu.jsp"%>
-      <thead>
-        <tr>
-          <th>姓名</th>
-          <td>
-          <input id="name" type="text">
-          <button></button>
-          </td>
-          <th>電話</th>
-          <td>
-          <input id="phone" type="text">
-          <button></button>
-          </td>
-          <td>
-    		<input type="radio" name="r" id="status1" value="1" >
-    			 <label for="status1"> 已成立 </label>
-    		 <input type="radio" name="r" id="status2" value="2">
-    			 <label for="status2"> 已結單 </label>
-    		<input type="radio" name="r" id="status3" value="3">
-    			 <label for="status3"> 全部 </label>
-          </td>
-        </tr>
-        <tr>
-        <td>
-        <div id="mycenter">
-        	<button id="peko" >查詢</button>
-        </div>
-        </td>
-        </tr>
-      </thead>
-    </table>
-    </div>
-	    <%@ include file="../CommonTemplates/footer.jsp"%>
-	    
-	    
-    <script>
+		<table class="mytable" id="container">
+			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<td><input id="name" type="text">
+						<button></button></td>
+					<th>電話</th>
+					<td><input id="phone" type="text">
+						<button></button></td>
+					<td><input type="radio" name="r" id="status1" value="1">
+						<label for="status1"> 已成立 </label> <input type="radio" name="r"
+						id="status2" value="2"> <label for="status2"> 已結單
+					</label> <input type="radio" name="r" id="status3" value="3"> <label
+						for="status3"> 全部 </label></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="mycenter">
+							<button id="peko">查詢</button>
+						</div>
+					</td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<%@ include file="../CommonTemplates/footer.jsp"%>
+
+
+	 <script>
     
     //已成立訂單的Ajax
-      $(document).ready(function () {
+
         $('#peko').click(function () {
-			if($("input[name='r']:checked").val()== 1){
+          if($("input[name='r']:checked").val()== 1){
           $.ajax({
-            url: 'http://localhost:8080/YunHotel/customerToOrdered/orderedCreated',
+            url: 'http://localhost:8080/YunHotel/ordered/customerToOrdered/orderedCreated',
             dataType: 'json',
-            data:	{chinese_name : $("#name").val(), 
-            		 mobile_phone : $("#phone").val(),
-            		 ordered_status : "已成立",
-            }
+            data: {chinese_name : $("#name").val(), 
+               mobile_phone : $("#phone").val(),
+               ordered_status : "已成立",
+            },
             type: 'Post',
             cache: false,
             success: function (data) {
@@ -85,27 +80,23 @@
                 this_data += '</tr>';
               });
               $('#container').append(this_data);
-            	}
-            },
+             },
             error: function (d) {
               /*console.log("error");*/
               alert('錯誤');
             },
-          });
-        });
-      });
-    
-    //已結單訂單的Ajax
-      $(document).ready(function () {
-        $('#status2').click(function () {
-          var date = $(this).val();
+             })
+         }
+
+
+         if($("input[name='r']:checked").val()== 2){
           $.ajax({
-            url: 'http://localhost:8080/YunHotel/customerToOrdered/orderedFinished',
+            url: 'http://localhost:8080/YunHotel/ordered/customerToOrdered/orderedFinished',
             dataType: 'json',
-            data:	{chinese_name : $("#name").val(), 
-       		 mobile_phone : $("#phone").val(),
-       		 ordered_status : "已結單",
-       }
+            data: {chinese_name : $("#name").val(), 
+          mobile_phone : $("#phone").val(),
+          ordered_status : "已結單",
+       },
             type: 'Post',
             cache: false,
             success: function (data) {
@@ -135,21 +126,18 @@
               /*console.log("error");*/
               alert('錯誤');
             },
-          });
-        });
-      });
-    
-      //全部訂單的Ajax
-      $(document).ready(function () {
-        $('#status3').click(function () {
-          var date = $(this).val();
+           },
+          );
+          };
+
+          if($("input[name='r']:checked").val()== 3){
           $.ajax({
-            url: 'http://localhost:8080/YunHotel/customerToOrdered/orderedAll',
+            url: 'http://localhost:8080/YunHotel/ordered/customerToOrdered/orderedAll',
             dataType: 'json',
-            data:	{chinese_name : $("#name").val(), 
-       				 mobile_phone : $("#phone").val(),
-       				 ordered_status : "全部",
-     			  }
+            data: {chinese_name : $("#name").val(), 
+            mobile_phone : $("#phone").val(),
+            ordered_status : "全部",
+          },
             type: 'Post',
             cache: false,
             success: function (data) {
@@ -180,8 +168,8 @@
               alert('錯誤');
             },
           });
-        });
-      });
+     	 }
+    });
     </script>
-  </body>
+</body>
 </html>

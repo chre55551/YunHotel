@@ -1,12 +1,15 @@
 package hotel.yun.customer.model;
 
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+
+import java.util.List;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,14 +37,14 @@ public class Customer {
     @JoinColumn(name="member_id", referencedColumnName="member_id")
 	private Member member;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-	private Set<Ordered> ordered = new HashSet<Ordered>();
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Ordered> ordered = new ArrayList<Ordered>();
 	public Customer() {
 		
 	}
 	
 	public Customer(int customer_id, String chinese_name, String idcard_number, Date birthday, String address,
-			String mobile_phone, Member member, Set<Ordered> ordered) {
+			String mobile_phone, Member member, List<Ordered> ordered) {
 		super();
 		this.customer_id = customer_id;
 		this.chinese_name = chinese_name;
@@ -112,11 +115,11 @@ public class Customer {
 		this.member = member;
 	}
 
-	public Set<Ordered> getOrdered() {
+	public List<Ordered> getOrdered() {
 		return ordered;
 	}
 
-	public void setOrdered(Set<Ordered> ordered) {
+	public void setOrdered(List<Ordered> ordered) {
 		this.ordered = ordered;
 	}
 	

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -51,10 +52,11 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Ordered> queryCustomerToOrdered(int customer_id) {
-		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
-		String hql ="FROM Ordered od WHERE od.customer_id = :cid";
-		list = session.createQuery(hql).setParameter("cid", customer_id).getResultList();
+		String hql ="from Ordered od where od.customer_id = :cid";
+		Query<Ordered> query= session.createQuery(hql);
+		
+		List<Ordered> list = query.setParameter("cid",2).getResultList();
 		return list;
 	}
 	
@@ -65,7 +67,8 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		List<Ordered> list = null;
 		Session session = factory.getCurrentSession();
 		String hql ="FROM Ordered od WHERE od.ordered_date = :odd";
-		list = session.createQuery(hql).setParameter("cid", ordered_date).getResultList();
+		list = session.createQuery(hql)
+				.setParameter("cid", ordered_date).getResultList();
 		return list;
 	}
 	

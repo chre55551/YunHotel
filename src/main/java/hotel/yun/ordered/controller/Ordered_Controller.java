@@ -204,6 +204,8 @@ public class Ordered_Controller {
 	 Model model,HttpSession session) {
 			Customer c = new Customer(chinese_name, mobile_phone);
 			Customer customer = cser.query(c);
+			System.out.println(customer.getCustomer_id());
+//			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(18);
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 //			model.addAttribute("Ordered",CustomerOrdered);
 			return CustomerOrdered;

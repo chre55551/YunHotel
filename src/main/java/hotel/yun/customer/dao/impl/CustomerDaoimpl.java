@@ -55,8 +55,7 @@ public class CustomerDaoimpl implements Serializable,CustomerDao {
 	@Override
 	public Customer query(Customer c) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Customer cu WHERE cu.chinese_name = :cn"+
-		"FROM Customer cu WHERE cu.mobile_phone = :mp";
+		String hql = "FROM Customer cu WHERE cu.chinese_name = :cn and cu.mobile_phone = :mp";
 		
 		 Customer customer = (Customer)session.createQuery(hql)
 				.setParameter("cn", c.getChinese_name())

@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ import javax.persistence.Transient;
 import hotel.yun.customer.model.Customer;
 
 @Entity
-@Table(name = "ordered")
+@Table(name = "Ordered")
 public class Ordered implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -43,7 +44,7 @@ public class Ordered implements Serializable{
 	private Timestamp ordered_finish_date;//訂單完成時間
 	private String note;//註記
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER )
 	@JoinColumn(name= "customer_id")
 	private Customer customer;// 顧客編號
 	
