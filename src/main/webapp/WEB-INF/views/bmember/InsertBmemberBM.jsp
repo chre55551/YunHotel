@@ -18,7 +18,7 @@
 	<div id="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>新增後台會員</h3>
-		<form action="/YunHotel/bmember/InsertBmemberBM" method="POST" id="container">
+		<form action="/YunHotel/bmember/InsertBmemberBB" method="POST" id="container">
 			<div>
 				<label>帳號</label> <input name="bs_account" id="requestCn" />
 			</div>
@@ -26,13 +26,13 @@
 				<label>密碼</label> <input name="bs_password" id="requestMp" />
 			</div>
 			<div>
-				<label>信箱</label> <input name=" bs_email" id="requestMp" />
+				<label>信箱</label> <input name="bs_email" id="requestMp" />
 			</div>
 			<div>
 				<label>設定使用者權限</label> <input name="authority" id="requestMp" />
 			</div>
 			<div>
-				<label>暱稱</label> <input name=" user_id" id="requestMp" />
+				<label>暱稱</label> <input name="user_id" id="requestMp" />
 			</div>
 			<div>
 				<input value="新增" type="submit">

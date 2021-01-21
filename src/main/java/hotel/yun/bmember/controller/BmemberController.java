@@ -15,12 +15,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 
 import hotel.yun.bmember.model.bmemberbean;
 import hotel.yun.bmember.service.BmemberService;
-//import hotel.yun.bmember.validate.BmemberValidator;
 
 @Controller
 @RequestMapping("/bmember")
@@ -28,6 +27,7 @@ import hotel.yun.bmember.service.BmemberService;
 public class BmemberController {
 
 	ServletContext context;
+
 	@Autowired
 	public void setContext(ServletContext context) {
 		this.context = context;
@@ -46,7 +46,7 @@ public class BmemberController {
 		return "bmember/IndexMember";
 
 	}
-
+//------------------------------------------------------------------------------------------------------
 	// 新增
 
 	@GetMapping("/InsertBmemberBM")
@@ -56,28 +56,41 @@ public class BmemberController {
 		return "bmember/InsertBmemberBM";
 	}
 
-	@PostMapping("/InsertBmemberBM")
-	public String Insert(@ModelAttribute("BM") bmemberbean bm, Model model, HttpServletRequest request,
-			BindingResult result) {
-		service.insert(bm);
+	@PostMapping("/InsertBmemberBB")
+	public String Insert(@RequestParam(value = "bs_account") String bs_account,
+			@RequestParam(value = "bs_password") String bs_password, @RequestParam(value = "bs_email") String bs_email,
+			@RequestParam(value = "authority") String authority, @RequestParam(value = "user_id") String user_id,
+			Model model) {
+		bmemberbean BM = new bmemberbean();
+		BM.setBs_account(bs_account);
+		BM.setBs_password(bs_password);
+		BM.setBs_email(bs_email);
+		BM.setAuthority(authority);
+		BM.setUser_id(user_id);
+		bmemberbean BMS = service.insert(BM);
+		model.addAttribute("BMS", BMS);
 		return "bmember/InsertBmemberOK";
-	}
 
+	}
+	
+	
+
+//------------------------------------------------------------------------------------------------
 	// 刪除
-	@DeleteMapping(value="/DeleteBmember/{bs_id}")
+	@DeleteMapping(value = "/DeleteBmember/{bs_id}")
 	public String delete(@PathVariable("bs_id") int bs_id) {
 		service.delete(bs_id);
-		return "redirect:../InsertBmemberOK";
+		return "redirect:/InsertBmemberOK";
 
 	}
-	//顯示所有會員
+//----------------------------------------------------------------------------------------------------
+	// 顯示所有會員
 	@GetMapping("/Bmembers")
 	public String getCustomers(Model model) {
 		List<bmemberbean> beans = service.queryAllMember();
-		model.addAttribute(beans);      
-		// 若屬性物件為CustomerBean型別的物件，則預設的識別字串 ==> customerBean
-		// 若屬性物件為List<CustomerBean>型別的物件，則預設的識別字串 ==> customerBeanList	
+		model.addAttribute(beans);
+
 		return "bmember/ShowBmember";
 	}
-	
+
 }

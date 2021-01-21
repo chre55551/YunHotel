@@ -25,7 +25,7 @@
 			
 			<div>
 				<input value="刪除" type="submit">
-<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
+
 			</div>
 		</form>
 	</div>
