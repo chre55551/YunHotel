@@ -40,8 +40,15 @@ public class RoomController {
 	
 	//後台的進入點
 	@GetMapping("/IndexRoom")
-	public String indexRoom(Model model){
+	public String IndexRoom(Model model){
 		return "room/IndexRoom";
+	
+	}
+	
+	
+	@GetMapping("/RoomIntroduction")
+	public String RoomIntroduction(Model model){
+		return "room/RoomIntroduction";
 	
 	}
 	
@@ -58,12 +65,12 @@ public class RoomController {
 		service.save(rm);
 		return "room/InsertRoom";
 	}
-	@PostMapping("/ShowRoom")
-	public String GetaNew(@ModelAttribute("rom") Room rm,Model model) {
-		Room room = service.queryRoom_id(rm.getRoom_id());
-		model.addAttribute("GetaNew", room);
-		return "room/ShowRoom";
-	}
+//	@PostMapping("/ShowRoom")
+//	public String GetaNew(@ModelAttribute("rom") Room rm,Model model) {
+//		Room room = service.queryRoom_id(rm.getRoom_id());
+//		model.addAttribute("GetaNew", room);
+//		return "room/ShowRoom";
+//	}
 	
 	
 	
