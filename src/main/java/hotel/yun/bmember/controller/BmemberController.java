@@ -1,47 +1,83 @@
 package hotel.yun.bmember.controller;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
 import hotel.yun.bmember.model.bmemberbean;
 import hotel.yun.bmember.service.BmemberService;
-import hotel.yun.ordered.model.Ordered;
+//import hotel.yun.bmember.validate.BmemberValidator;
 
 @Controller
 @RequestMapping("/bmember")
-@SessionAttributes({ "bs_id", "bs_account", "bs_password", "bs_email","authority","user_id"})
+@SessionAttributes({ "bs_id", "bs_account", "bs_password", "bs_email", "authority", "user_id" })
 public class BmemberController {
-	
-	@Autowired
-	ServletContext context;
 
-	
+	ServletContext context;
+	@Autowired
+	public void setContext(ServletContext context) {
+		this.context = context;
+	}
+
 	BmemberService service;
-	
+
 	@Autowired
 	public BmemberService getService() {
 		return service;
 	}
-	
-	
-	//後台
+
+	// 後台
 	@GetMapping("/IndexMember")
-	public String indexMember(Model model){
+	public String indexMember(Model model) {
 		return "bmember/IndexMember";
-	
+
 	}
-	//新增
-		// 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱
-		@GetMapping("/InsertBmemberBM")
-		public String ShowMealsOrdered( Model model) {
-			bmemberbean bm = new bmemberbean();
-			model.addAttribute("bmm", bm);
-			return "bmember/InsertBmemberBM";
-}
+
+	// 新增
+
+	@GetMapping("/InsertBmemberBM")
+	public String InsertBmemberBM(Model model) {
+		bmemberbean bm = new bmemberbean();
+		model.addAttribute("bmm", bm);
+		return "bmember/InsertBmemberBM";
+	}
+
+	@PostMapping("/InsertBmemberBM")
+	public String Insert(@ModelAttribute("BM") bmemberbean bm, Model model, HttpServletRequest request,
+			BindingResult result) {
+		service.insert(bm);
+		return "bmember/InsertBmemberOK";
+	}
+
+	// 刪除
+	@DeleteMapping(value="/DeleteBmember/{bs_id}")
+	public String delete(@PathVariable("bs_id") int bs_id) {
+		service.delete(bs_id);
+		return "redirect:../InsertBmemberOK";
+
+	}
+	//顯示所有會員
+	@GetMapping("/Bmembers")
+	public String getCustomers(Model model) {
+		List<bmemberbean> beans = service.queryAllMember();
+		model.addAttribute(beans);      
+		// 若屬性物件為CustomerBean型別的物件，則預設的識別字串 ==> customerBean
+		// 若屬性物件為List<CustomerBean>型別的物件，則預設的識別字串 ==> customerBeanList	
+		return "bmember/ShowBmember";
+	}
+	
 }

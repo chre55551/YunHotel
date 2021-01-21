@@ -21,19 +21,19 @@
                 
   
             <li id="diamond">
-                <a href="" class="diamondtxt">顯示所有會員</a>
+                <a href="ShowBmember" class="diamondtxt">顯示所有會員</a>
             </li>
             <li id="diamond">
                 <a href="InsertBmemberBM" class="diamondtxt">新增會員</a>
             </li>
             <li id="diamond">
-                <a href="" class="diamondtxt">查詢會員</a>
+                <a href="QueryBmember" class="diamondtxt">查詢會員</a>
             </li>
             <li id="diamond">
-                <a href="" class="diamondtxt">修改會員</a>
+                <a href="UpdateBmember" class="diamondtxt">修改會員</a>
             </li>
             <li id="diamond">
-                <a href="" class="diamondtxt">刪除會員</a>
+                <a href="DeleteBmember" class="diamondtxt">刪除會員</a>
             </li>
             
             
