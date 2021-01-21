@@ -44,7 +44,7 @@
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 
-	 <script>
+  <script>
     
     //已成立訂單的Ajax
 
@@ -61,7 +61,7 @@
             cache: false,
             success: function (data) {
               /*console.log(data);*/
-              var event_data = '';
+              var this_data = '';
               $.each(data.results, function (index, ordered) {
                 /*console.log(value);*/
                 this_data += '<tr>';
@@ -101,7 +101,7 @@
             cache: false,
             success: function (data) {
               /*console.log(data);*/
-              var event_data = '';
+              var this_data = '';
               $.each(data.results, function (index, ordered) {
                 /*console.log(value);*/
                 this_data += '<tr>';
@@ -141,10 +141,9 @@
             type: 'Post',
             cache: false,
             success: function (data) {
-              /*console.log(data);*/
-              var event_data = '';
-              $.each(data.results, function (index, ordered) {
-                /*console.log(value);*/
+            	fk = data;
+              var this_data = '';
+             for(let ordered of fk){
                 this_data += '<tr>';
                 this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
                 this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
@@ -160,7 +159,7 @@
                 this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
                 this_data += '<td>' + ordered.note + '</td>';//備註
                 this_data += '</tr>';
-              });
+              };
               $('#container').append(this_data);
             },
             error: function (d) {

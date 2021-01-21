@@ -152,7 +152,6 @@ public class Ordered_Controller {
 	//寫在後台需要從顧客查詢到他的訂單
 	@GetMapping("/customerToOrdered")
 	public String getCustomerOrder(Model model,HttpSession session) {
-
 		return "ordered/customerToOrdered";
 	}	
 	//寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立
@@ -214,10 +213,14 @@ public class Ordered_Controller {
 	//寫在後台需要從日期查詢到他的訂單
 	@GetMapping("/dateToOrdered")
 	public String showDateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
-		model.addAttribute("Ordered",Ordered);
 		return "ordered/dateToOrdered";//進到該日期的所有訂單
 	}
+//	@GetMapping("/dateToThisOrdered")
+//	public String DateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
+//		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
+//		model.addAttribute("Ordered",Ordered);
+//		return "ordered/dateToOrdered";//進到該日期的所有訂單
+//	}
 //-----------------------------------------------------------	
 	//更新
 	@PostMapping("/thisOrdered/{ordered_number}")

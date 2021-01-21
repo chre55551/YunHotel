@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.customer.model.Customer;
 
 @Entity
@@ -44,7 +46,7 @@ public class Ordered implements Serializable{
 	private Timestamp ordered_finish_date;//訂單完成時間
 	private String note;//註記
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER )
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY )
 	@JoinColumn(name= "customer_id")
 	private Customer customer;// 顧客編號
 	
@@ -79,6 +81,7 @@ public class Ordered implements Serializable{
 		this.orderedPayment = orderedPayment;
 		this.orderedToMeals = orderedToMeals;
 		this.orderedToRoom = orderedToRoom;
+		
 	}
 	
 
@@ -106,6 +109,7 @@ public class Ordered implements Serializable{
 	}
 
 	public int getOrdered_number() {
+	
 		return ordered_number;
 	}
 
@@ -127,6 +131,7 @@ public class Ordered implements Serializable{
 
 	public void setOrdered_date(Date ordered_date) {
 		this.ordered_date = ordered_date;
+	
 	}
 
 	public Timestamp getOrdered_last_update() {

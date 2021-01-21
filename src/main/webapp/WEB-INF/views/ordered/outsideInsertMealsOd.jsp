@@ -7,27 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/backstage.css'
-	type="text/css" />
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
 <title>insertMealsOrdered</title>
 </head>
 <body>
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
-
+	
 
 	<div id="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增餐點訂單</h3>
-		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST"
-			id="container">
-			<div>
-				<label>姓名</label> <input name="chinese_name" id="requestCn" />
-			</div>
-			<div>
-				<label>手機</label> <input name="mobile_phone" id="requestMp" />
-			</div>
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+		<h3>${customer.chinese_name}，請輸入您的訂位資訊</h3>
+		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" id="container">
 			<div>
 				<label>人數</label> <input name="number_of_meals" id="requestMp" />
 			</div>
@@ -36,14 +27,13 @@
 					type="date" />
 			</div>
 			<div>
-				<input value="新增" type="submit">
+				<input value="訂位" type="submit">
 				<input value="清除" type="reset">
-				<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
 	</div>
-
-	<%@ include file="../CommonTemplates/footer.jsp"%>
+	
+	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
 		// 		$("#insertOd").click(function() {
 		// 			 o=$("#odd input");

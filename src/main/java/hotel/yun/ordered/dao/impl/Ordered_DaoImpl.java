@@ -53,10 +53,10 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	@Override
 	public List<Ordered> queryCustomerToOrdered(int customer_id) {
 		Session session = factory.getCurrentSession();
-		String hql ="from Ordered od where od.customer_id = :cid";
+		String hql ="from Ordered where customer_id = :cid";
 		Query<Ordered> query= session.createQuery(hql);
 		
-		List<Ordered> list = query.setParameter("cid",2).getResultList();
+		List<Ordered> list = query.setParameter("cid",customer_id).getResultList();
 		return list;
 	}
 	

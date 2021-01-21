@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.ordered.model.Ordered;
 
 @Entity
@@ -37,7 +39,8 @@ public class Customer {
     @JoinColumn(name="member_id", referencedColumnName="member_id")
 	private Member member;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Ordered> ordered = new ArrayList<Ordered>();
 	public Customer() {
 		

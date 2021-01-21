@@ -16,26 +16,12 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	<div id="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增房間訂單</h3>
+		<h3>您好，${customer.chinese_name}，想訂哪間房?</h3>
 		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
 			id="container">
 			<div>
-				<label>姓名</label> <input name="chinese_name" />
-			</div>
-			<div>
-				<label>身分證</label> <input name="idcard_number" />
-			</div>
-			<div>
-				<label>手機</label> <input name="mobile_phone" />
-			</div>
-			<div>
-				<label>生日</label> <input name="birthday" type="date" />
-			</div>
-			<div>
-				<label>地址</label> <input name="address" />
-			</div>
-			<div>
-				<label>房號</label> <input name="room_number" />
+				<label>房型</label> <input name="room_type" /> 
+<!-- 				從ordered到ordered_toroom到room再到room_type的bean裡取 -->
 			</div>
 			<div>
 				<label>訂房日期</label> <input name="room_ordered_time" type="date" />
