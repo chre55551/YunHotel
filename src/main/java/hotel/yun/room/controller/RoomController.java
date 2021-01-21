@@ -1,5 +1,7 @@
 package hotel.yun.room.controller;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -46,7 +48,7 @@ public class RoomController {
 
 	@GetMapping("/ShowRooms")
 	public String ShowRooms(Model model) {
-		Room rm = new Room();
+		List<Room> rm = service.queryAll();
 		model.addAttribute("rom", rm);
 		return "room/ShowRooms";
 	}
