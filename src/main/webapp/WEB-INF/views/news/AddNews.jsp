@@ -1,28 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新增消息</title>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
+<title>insertMealsOrdered</title>
 </head>
 <body>
-<div align='center'>
-		<h3>消息</h3>
-		<hr>
-		<form action="showinsertNews" method="get" modelAttribute="nws"
-				id="nwsid">
-        	消息編號：<input type="text" name="news_id"/> <br><br>
-            消息上傳時間：<input type="text" name="news_date"/> <br><br>
-            消息更新時間：<input type="text" name="news_updated_date"/> <br><br>
-            消息內容：<input type="text" name="news_content"/> <br><br>
 
-			<input type="submit" value="提交"/>
+	<%@ include file="../CommonTemplates/header.jsp"%>
+	
+
+	<div id="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+		<h3>新增消息</h3>
+		<form action="/YunHotel/news/insertNews" method="POST" id="container">
+			<div>
+				<label>消息上傳時間：</label> <input name="news_date" id="requestMp" />
+			</div>
+			<div>
+				<label>消息內容：</label> <input name="mobile_phone" id="requestCn" type="date"/>
+			</div>
+			<div>
+				<input value="新增" type="submit">
+<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
+			</div>
 		</form>
-		
-		<br> <a href="<c:url value='/' />">回首頁</a>
 	</div>
+	
+	    <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

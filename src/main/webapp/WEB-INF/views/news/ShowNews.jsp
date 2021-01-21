@@ -29,11 +29,11 @@
 					<c:forEach var='news' items="${NewsList}">
 						<tr>
 							<td align='center'>
-							<a href='GetAllNews/${news.news_id}'>
-							${news.news_id}</a></td>
-							<td>${news.news_date}</td>
-							<td>${news.news_updated_date}</td>
-							<td>${news.news_content}</td>
+							<a href='GetAllNews/${NWS.news_id}'>
+							${NWS.news_id}</a></td>
+							<td>${NWS.news_date}</td>
+							<td>${NWS.news_updated_date}</td>
+							<td>${NWS.news_content}</td>
 						</tr>
 					</c:forEach>
 

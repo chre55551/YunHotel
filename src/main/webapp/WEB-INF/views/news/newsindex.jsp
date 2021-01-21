@@ -18,7 +18,7 @@
             <ul id="ALLdiamond">
                 
             <li id="diamond">
-                <a href='showinsertNews' class="diamondtxt">所有消息</a>
+                <a href='showNews' class="diamondtxt">所有消息</a>
             </li>
             <li id="diamond">
                 <a href='showinsertNews' class="diamondtxt">新增消息</a>

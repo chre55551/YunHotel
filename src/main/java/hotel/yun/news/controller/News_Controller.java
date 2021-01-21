@@ -1,5 +1,6 @@
 package hotel.yun.news.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import hotel.yun.customer.model.Customer;
 import hotel.yun.news.model.News;
 import hotel.yun.news.service.News_Service;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedToMeals;
 
 @Controller
 @RequestMapping("/news")
@@ -34,19 +38,25 @@ public class News_Controller {
 		return "news/newsindex";
 	
 	}
-	
-	@GetMapping("/news/showinsertNews")
+//---------------------------------------------------------------
+	@GetMapping("/showinsertNews")
 	public String ShowNews(Model model) {
 		News nw = new News();
-		model.addAttribute("news", nw);
+		model.addAttribute("NWS", nw);
 		return "news/AddNews";
 	}
 	@PostMapping("/insertNews")
-	public String Insert(@ModelAttribute("nws") News nw, Model model,HttpServletRequest request,BindingResult result) {
-		service.insert(nw);
-		return "news/GetaNew";
-	}
-	
+	public String Insert(@RequestParam(value="news_id") int news_id,
+			@RequestParam(value="news_date") Date news_date,
+			@RequestParam(value="news_content") String news_content,
+			Model model) {
+		News nw=new News();
+		News NWS=service.insert(nw);
+		model.addAttribute("NWS", NWS);
+		return "news/NewAddSucess";
+}
+
+//---------------------------------------------------------------
 	@PostMapping("/getaNew")
 	public String GetaNew(@ModelAttribute("nws") News nw,Model model) {
 		News news = service.queryNewID(nw.getNews_id());
@@ -59,7 +69,7 @@ public class News_Controller {
 		List<News> beans = service.queryAllNews();
 		model.addAttribute(beans);      
 		System.out.println("queryAllNews...");
-		return "news/GetAllNews";
+		return "news/ShowNews";
 	}
 	
 	@PostMapping("/getaNew/{news_id}")
