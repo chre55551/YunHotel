@@ -51,4 +51,16 @@ public class CustomerDaoimpl implements Serializable,CustomerDao {
 		session.delete(cu);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Customer> query(String chinese_name, String mobile_phone) {
+		List<Customer> list = null;
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Customer cu WHERE cu.chinese_name = :cn"+
+		"FROM Customer cu WHERE cu.mobile_phone = :mp";
+		
+		list = session.createQuery(hql).setParameter("cn", chinese_name).getResultList();
+		return list;
+	}
+
 }

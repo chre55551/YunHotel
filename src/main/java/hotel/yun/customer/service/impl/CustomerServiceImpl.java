@@ -10,12 +10,10 @@ import hotel.yun.customer.dao.CustomerDao;
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
 
-
 @Transactional
 @Service
 public class CustomerServiceImpl implements CustomerService {
-	
-	
+
 	@Autowired
 	private CustomerDao cDao;
 
@@ -45,9 +43,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer checkIdPassword(String userId, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Customer> query(String chinese_name, String mobile_phone) {
+		return cDao.query(chinese_name, mobile_phone);
 
+	}
 }
