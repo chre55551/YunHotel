@@ -15,9 +15,9 @@ public class Employee_info implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer employee_info_id;//employee_id
+	int employee_info_id;//employee_id
 	String employee_gender;//employee_gender
-	Integer employee_age;//employee_age
+	int employee_age;//employee_age
 	String employee_address;//employee_address
 	String employee_mobile;//employee_mobile
 	String employee_phone;//employee_phone
@@ -42,10 +42,25 @@ public class Employee_info implements Serializable {
 	public Employee_info() {
 		
 	}
-	public Integer getemployee_info_id() {
+	
+	public Employee_info(int employee_info_id, String employee_gender, int employee_age, String employee_address,
+			String employee_mobile, String employee_phone, String employee_email, String emergency_contact,
+			byte[] employee_image) {
+		super();
+		this.employee_info_id = employee_info_id;
+		this.employee_gender = employee_gender;
+		this.employee_age = employee_age;
+		this.employee_address = employee_address;
+		this.employee_mobile = employee_mobile;
+		this.employee_phone = employee_phone;
+		this.employee_email = employee_email;
+		this.emergency_contact = emergency_contact;
+		this.employee_image = employee_image;
+	}
+	public int getEmployee_info_id() {
 		return employee_info_id;
 	}
-	public void setemployee_info_id(Integer employee_info_id) {
+	public void setEmployee_info_id(int employee_info_id) {
 		this.employee_info_id = employee_info_id;
 	}
 	public String getEmployee_gender() {
@@ -54,10 +69,10 @@ public class Employee_info implements Serializable {
 	public void setEmployee_gender(String employee_gender) {
 		this.employee_gender = employee_gender;
 	}
-	public Integer getEmployee_age() {
+	public int getEmployee_age() {
 		return employee_age;
 	}
-	public void setEmployee_age(Integer employee_age) {
+	public void setEmployee_age(int employee_age) {
 		this.employee_age = employee_age;
 	}
 	public String getEmployee_address() {
@@ -96,5 +111,7 @@ public class Employee_info implements Serializable {
 	public void setEmployee_image(byte[] employee_image) {
 		this.employee_image = employee_image;
 	}
+	
+	
 	
 }
