@@ -20,10 +20,13 @@
 		<h3>新增消息</h3>
 		<form action="/YunHotel/news/insertNews" method="POST" id="container">
 			<div>
+				<label>編號：</label> <input name="news_id" id="requestMp"/>
+			</div>
+			<div>
 				<label>消息上傳時間：</label> <input name="news_date" id="requestMp" type="date"/>
 			</div>
 			<div>
-				<label>消息內容：</label> <input name="mobile_phone" id="requestCn"/>
+				<label>消息內容：</label> <input name="news_content" id="requestCn"/>
 			</div>
 			<div>
 				<input value="新增" type="submit">

@@ -64,14 +64,13 @@ public class News_Controller {
 		return "/news/GetaNew";
 	}
 	
-	@GetMapping("/showNews")
-	public String GetNews(Model model) {
+	@GetMapping("/showAllNews")
+	public String GetNews(@ModelAttribute("nws") News nw,Model model) {
 		List<News> beans = service.queryAllNews();
 		model.addAttribute(beans);      
-		System.out.println("queryAllNews...");
 		return "news/ShowNews";
 	}
-	
+//---------------------------------------------------------------
 	@PostMapping("/getaNew/{news_id}")
 	public String update(@ModelAttribute("nws") News nw,Model model) {
 		News thenew = service.queryNewID(nw.getNews_id());
@@ -91,11 +90,6 @@ public class News_Controller {
 	public String deleteNew(@PathVariable int news_id) {
 		service.delete(news_id);	
 		return "redirect:news/GetAllNews";
-	}
-	
-	@RequestMapping("/news/index")
-	public String home() {
-		return "news/newsindex";
 	}
 
 }
