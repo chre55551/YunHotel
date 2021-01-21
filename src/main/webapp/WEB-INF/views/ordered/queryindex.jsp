@@ -19,10 +19,12 @@
             <ul id="ALLdiamond">
                 
             <li id="diamond">
-                <div class="diamondtxt">依顧客查詢</div>
+<!--                 <div class="diamondtxt">依顧客查詢</div> -->
+                <a href="customerToOrdered" class="diamondtxt">依顧客查詢</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">依日期查詢</div>
+<!--                 <div class="diamondtxt">依日期查詢</div> -->
+                <a href="dateToOrdered" class="diamondtxt">依日期查詢</a>
             </li>
             </ul>
         </div>

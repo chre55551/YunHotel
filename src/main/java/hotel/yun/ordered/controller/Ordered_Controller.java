@@ -1,6 +1,7 @@
 package hotel.yun.ordered.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.customer.model.Customer;
@@ -124,7 +126,7 @@ public class Ordered_Controller {
 		System.out.println("puipui");
 		model.addAttribute("odd", odd);
 //		return null;
-		return "ordered/customerRoomOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		return "ordered/customerRoomOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
 //--------------------------------------------------
 	//查詢
@@ -136,14 +138,6 @@ public class Ordered_Controller {
 		model.addAttribute("ordered", ordered);
 		return "ordered/thisOrdered";//依訂單號查到他的訂單
 	}
-//	@GetMapping("/thisOrdered")
-//	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-//		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
-//		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
-//		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
-//		model.addAttribute("ordered", ordered);
-//		return "ordered/thisOrdered";//依訂單號查到他的訂單
-//	}
 	
 	@GetMapping("/showAllOrdered")
 	public String OrderedList(@ModelAttribute("odd") Ordered odd,Model model) {
@@ -151,19 +145,73 @@ public class Ordered_Controller {
 		model.addAttribute("OrderedList",Ordered);
 		return "ordered/thisOrderedAll";//進到查詢到的全部訂單，需再ThisOrdered裡設超連結進來
 	}
-	
-	@PostMapping("/getCustomerOrder")
-	public String getCustomerOrder(@ModelAttribute("odd") Ordered odd, Model model,HttpSession session) {
-		//等小魏寫好取到顧客名子和手機的方法，我再取用
-//		List<Ordered> CustomerOrdered = service.queryCustomerToOrdered();
-//		model.addAttribute("Ordered",CustomerOrdered);
-		return "ordered/customerOrdered";
+	//寫在後台需要從顧客查詢到他的訂單
+	@GetMapping("/customerToOrdered")
+	public String getCustomerOrder(Model model,HttpSession session) {
+
+		return "ordered/customerToOrdered";
+	}	
+	//寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立
+	@PostMapping("/customerToOrdered/orderedCreated")
+	public @ResponseBody List<Ordered> orderedCreatedAjax(
+			@RequestParam(value="chinese_name") String chinese_name,
+			@RequestParam(value="mobile_phone") String mobile_phone,
+			@RequestParam(value="ordered_status") String ordered_status,
+ Model model,HttpSession session) {
+		Customer c = new Customer(chinese_name, mobile_phone);
+		Customer customer = cser.query(c);
+		List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+		List<Ordered> returnlist = new ArrayList<Ordered>();
+		for(Ordered o :CustomerOrdered) {
+			if(o.getOrderedStatus().getOrdered_status()=="已成立") {
+				returnlist.add(o);
+			}
+		}
+		model.addAttribute("Ordered",CustomerOrdered);
+		return null;
 	}	
 	
-	@PostMapping("/showDateToOrdered")
+	//寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單
+		@PostMapping("/customerToOrdered/orderedFinished")
+		public @ResponseBody List<Ordered> orderedFinishedAjax(
+				@RequestParam(value="chinese_name") String chinese_name,
+				@RequestParam(value="mobile_phone") String mobile_phone,
+				@RequestParam(value="ordered_status") String ordered_status,
+	 Model model,HttpSession session) {
+			Customer c = new Customer(chinese_name, mobile_phone);
+			Customer customer = cser.query(c);
+			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+			List<Ordered> returnlist = new ArrayList<Ordered>();
+			for(Ordered o :CustomerOrdered) {
+				if(o.getOrderedStatus().getOrdered_status()=="已完成") {
+					returnlist.add(o);
+				}
+			}
+			model.addAttribute("Ordered",CustomerOrdered);
+			return null;
+		}	
+	
+		//寫在後台需要從顧客查詢到他的訂單 AJAX 取出全部訂單
+		@PostMapping("/customerToOrdered/orderedAll")
+		public @ResponseBody List<Ordered> orderedAllAjax(
+				@RequestParam(value="chinese_name") String chinese_name,
+				@RequestParam(value="mobile_phone") String mobile_phone,
+				@RequestParam(value="ordered_status") String ordered_status,
+	 Model model,HttpSession session) {
+			Customer c = new Customer(chinese_name, mobile_phone);
+			Customer customer = cser.query(c);
+			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+			List<Ordered> returnlist = new ArrayList<Ordered>();
+			returnlist.add((Ordered) CustomerOrdered);
+			model.addAttribute("Ordered",CustomerOrdered);
+			return null;
+		}	
+		
+	//寫在後台需要從日期查詢到他的訂單
+	@GetMapping("/dateToOrdered")
 	public String showDateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
-		model.addAttribute("showDateToOrdered",Ordered);
+		model.addAttribute("Ordered",Ordered);
 		return "ordered/dateToOrdered";//進到該日期的所有訂單
 	}
 //-----------------------------------------------------------	
