@@ -1,6 +1,7 @@
 package hotel.yun.customer.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,11 +27,11 @@ public class Member {
 	private String home_phone;
 	private String job;
 	private String email;
-	private Date register_date;
+	private Timestamp registerTime;
 	private Date updated_date;
 
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
-			String email, Date register_date, Date updated_date) {
+			String email, Timestamp register_date, Date updated_date) {
 		super();
 		this.member_id = member_id;
 		this.account = account;
@@ -39,7 +40,7 @@ public class Member {
 		this.home_phone = home_phone;
 		this.job = job;
 		this.email = email;
-		this.register_date = register_date;
+		this.registerTime = register_date;
 		this.updated_date = updated_date;
 	}
 	
@@ -85,12 +86,13 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getRegister_date() {
-		return register_date;
+	public Timestamp getRegister_date() {
+		return registerTime;
 	}
-	public void setRegister_date(Date register_date) {
-		this.register_date = register_date;
+	public void setRegisterTime(Timestamp registerTime) {
+		this.registerTime = registerTime;
 	}
+	
 	public Date getUpdated_date() {
 		return updated_date;
 	}

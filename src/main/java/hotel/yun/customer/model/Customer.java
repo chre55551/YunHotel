@@ -36,6 +36,9 @@ public class Customer {
 	
 	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
+	public Customer() {
+		
+	}
 	
 	public Customer(int customer_id, String chinese_name, String idcard_number, Date birthday, String address,
 			String mobile_phone, Member member, Set<Ordered> ordered) {

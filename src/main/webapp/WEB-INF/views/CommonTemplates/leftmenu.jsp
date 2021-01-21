@@ -10,7 +10,7 @@
 	    <div id="leftmenu">
 			<ul>
 				<li><a href="#" class="menutxt">後台首頁</a></li>
-				<li><a href="#" class="menutxt">會員</a></li>
+				<li><a href="${pageContext.request.contextPath}/bmember/IndexMember" class="menutxt">會員</a></li>
 				<li><a href="${pageContext.request.contextPath}/ordered/indexOrdered" class="menutxt">訂單</a></li>
 				<li><a href="#" class="menutxt">員工</a></li>
 				<li><a href="#" class="menutxt">餐點</a></li>
