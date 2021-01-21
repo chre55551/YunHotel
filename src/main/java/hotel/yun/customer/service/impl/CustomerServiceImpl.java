@@ -43,8 +43,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> query(String chinese_name, String mobile_phone) {
-		return cDao.query(chinese_name, mobile_phone);
+	public Customer query(Customer c) {
+		return cDao.query(c);
 
 	}
 }
