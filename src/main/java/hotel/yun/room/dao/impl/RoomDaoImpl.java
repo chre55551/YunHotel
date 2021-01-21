@@ -71,6 +71,12 @@ public class RoomDaoImpl implements RoomDao{
 		if(rBean.getRoom_name()!=null) {
 			room.setRoom_name(rBean.getRoom_name());
 		}
+		if(rBean.getRoomType()!=null) {
+			room.setRoomType(rBean.getRoomType());
+		}
+		if(rBean.getDate()!=null) {
+			room.setDate(rBean.getDate());
+		}
 		session.update(rBean);
 		
 	}
