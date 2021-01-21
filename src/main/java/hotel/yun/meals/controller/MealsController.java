@@ -33,7 +33,7 @@ public class MealsController {
 	//後台的進入點
 	@GetMapping("/IndexMeals")
 	public String IndexMeals(Model model){
-		return "room/IndexMeals";
+		return "meals/IndexMeals";
 	
 	}
 	

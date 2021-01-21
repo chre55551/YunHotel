@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>IndexRoom</title>
+<title>Index Room</title>
 </head>
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
