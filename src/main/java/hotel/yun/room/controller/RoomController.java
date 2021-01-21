@@ -45,7 +45,7 @@ public class RoomController {
 	
 	}
 	
-	
+	//官網的房型介紹
 	@GetMapping("/RoomIntroduction")
 	public String RoomIntroduction(Model model){
 		return "room/RoomIntroduction";
