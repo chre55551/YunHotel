@@ -26,8 +26,8 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	}
 
 	@Override
-	public bmemberbean queryMemberID(int member_id) {
-		return BDao.queryMemberID(member_id);
+	public bmemberbean queryMemberID(int bs_id) {
+		return BDao.queryMemberID(bs_id);
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	}
 
 	@Override
-	public boolean delete(int member_id) {
-		return BDao.delete(member_id);
+	public boolean delete(int bs_id) {
+		return BDao.delete(bs_id);
 	}
 
 }

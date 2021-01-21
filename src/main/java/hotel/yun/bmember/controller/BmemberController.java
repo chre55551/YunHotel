@@ -11,7 +11,7 @@ import hotel.yun.bmember.service.BmemberService;
 
 @Controller
 @RequestMapping("/bmember")
-@SessionAttributes({ "member_id", "account", "password", "email"})
+@SessionAttributes({ "bs_id", "bs_account", "bs_password", "bs_email","authority","user_id"})
 public class BmemberController {
 	
 

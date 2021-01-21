@@ -29,11 +29,11 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	}
 
 	@Override
-	public bmemberbean queryMemberID(int member_id) {
+	public bmemberbean queryMemberID(int bs_id) {
 		Session session = factory.getCurrentSession();
-		bmemberbean bb=session.get(bmemberbean.class,member_id);
+		bmemberbean bb=session.get(bmemberbean.class,bs_id);
 		if(bb==null)
-			System.out.println("會員編號"+member_id+"找不到");
+			System.out.println("會員編號"+bs_id+"找不到");
 		return bb;
 	}
 
@@ -57,10 +57,10 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	}
 
 	@Override
-	public boolean delete(int member_id) {
+	public boolean delete(int bs_id) {
 		Session session = factory.getCurrentSession();
 		bmemberbean onemember = new bmemberbean();
-		onemember.setMember_id(member_id);
+		onemember.setBs_id(bs_id);
 		session.delete(onemember);
 		return false;
 	}
