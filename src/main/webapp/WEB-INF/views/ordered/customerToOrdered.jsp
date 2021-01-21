@@ -11,7 +11,9 @@
 <title>依顧客查詢</title>
 </head>
 <body>
-    <table class="mytable" id="list_table_json">
+<%@ include file="../CommonTemplates/header.jsp"%>
+	<div id="main">
+    <table class="mytable" id="container">
     <%@ include file="../CommonTemplates/leftmenu.jsp"%>
       <thead>
         <tr>
@@ -26,13 +28,24 @@
           <button></button>
           </td>
           <td>
-    		已成立<input type="radio" name="r1" id="status1">
-    		 已結單<input type="radio" name="r2" id="status2">
-    		 全部<input type="radio" name="r3" id="status3">
+    		<input type="radio" name="r" id="status1" value="1" >
+    			 <label for="status1"> 已成立 </label>
+    		 <input type="radio" name="r" id="status2" value="2">
+    			 <label for="status2"> 已結單 </label>
+    		<input type="radio" name="r" id="status3" value="3">
+    			 <label for="status3"> 全部 </label>
           </td>
+        </tr>
+        <tr>
+        <td>
+        <div id="mycenter">
+        	<button id="peko" >查詢</button>
+        </div>
+        </td>
         </tr>
       </thead>
     </table>
+    </div>
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	    
 	    
@@ -40,15 +53,15 @@
     
     //已成立訂單的Ajax
       $(document).ready(function () {
-        $('#status1').click(function () {
-          var date = $(this).val();
+        $('#peko').click(function () {
+			if($("input[name='r']:checked").val()== 1){
           $.ajax({
             url: 'http://localhost:8080/YunHotel/customerToOrdered/orderedCreated',
             dataType: 'json',
-            data:	{chinese_name : $("#requestCn").val(),
-        							 mobile_phone : $("#requestMp").val(),
-        		 					 number_of_meals : $("#requestNom").val(),
-        							 meals_ordered_time : $("#requestMot").val()},
+            data:	{chinese_name : $("#name").val(), 
+            		 mobile_phone : $("#phone").val(),
+            		 ordered_status : "已成立",
+            }
             type: 'Post',
             cache: false,
             success: function (data) {
@@ -71,7 +84,8 @@
                 this_data += '<td>' + ordered.note + '</td>';//備註
                 this_data += '</tr>';
               });
-              $('#list_table_json').append(this_data);
+              $('#container').append(this_data);
+            	}
             },
             error: function (d) {
               /*console.log("error");*/
@@ -88,10 +102,10 @@
           $.ajax({
             url: 'http://localhost:8080/YunHotel/customerToOrdered/orderedFinished',
             dataType: 'json',
-            data:	{chinese_name : $("#requestCn").val(),
-        							 mobile_phone : $("#requestMp").val(),
-        		 					 number_of_meals : $("#requestNom").val(),
-        							 meals_ordered_time : $("#requestMot").val()},
+            data:	{chinese_name : $("#name").val(), 
+       		 mobile_phone : $("#phone").val(),
+       		 ordered_status : "已結單",
+       }
             type: 'Post',
             cache: false,
             success: function (data) {
@@ -104,18 +118,18 @@
                 this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
                 this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
                 this_data += '<td>' + ordered.customer.idcard_number + '</td>';//身分證字號
-                this_data += '<td>' + ordered.ordered_tomeals.table_number + '</td>';//桌號
-                this_data += '<td>' + ordered.ordered_tomeals.meals_accounts + '</td>';//餐點總價
-                this_data += '<td>' + ordered.ordered_toroom.room_number + '</td>';//房號
-                this_data += '<td>' + ordered.ordered_toroom.room_accounts + '</td>';//房間總價
-                this_data += '<td>' + ordered.ordered_status.ordered_status + '</td>';//訂單狀態
+                this_data += '<td>' + ordered.orderedToMeals.table_number + '</td>';//桌號
+                this_data += '<td>' + ordered.orderedToMeals.meals_accounts + '</td>';//餐點總價
+                this_data += '<td>' + ordered.orderedToRoom.room_number + '</td>';//房號
+                this_data += '<td>' + ordered.orderedToRoom.room_accounts + '</td>';//房間總價
+                this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
                 this_data += '<td>' + ordered.ordered_accounts + '</td>';//訂單總價
                 this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
-                this_data += '<td>' + ordered.ordered_last_update + '</td>';//訂單最後修改日期
+                this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
                 this_data += '<td>' + ordered.note + '</td>';//備註
                 this_data += '</tr>';
               });
-              $('#list_table_json').append(this_data);
+              $('#container').append(this_data);
             },
             error: function (d) {
               /*console.log("error");*/
@@ -132,10 +146,10 @@
           $.ajax({
             url: 'http://localhost:8080/YunHotel/customerToOrdered/orderedAll',
             dataType: 'json',
-            data:	{chinese_name : $("#requestCn").val(),
-        							 mobile_phone : $("#requestMp").val(),
-        		 					 number_of_meals : $("#requestNom").val(),
-        							 meals_ordered_time : $("#requestMot").val()},
+            data:	{chinese_name : $("#name").val(), 
+       				 mobile_phone : $("#phone").val(),
+       				 ordered_status : "全部",
+     			  }
             type: 'Post',
             cache: false,
             success: function (data) {
@@ -155,11 +169,11 @@
                 this_data += '<td>' + ordered.ordered_status.ordered_status + '</td>';//訂單狀態
                 this_data += '<td>' + ordered.ordered_accounts + '</td>';//訂單總價
                 this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
-                this_data += '<td>' + ordered.ordered_last_update + '</td>';//訂單最後修改日期ㄋ
+                this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
                 this_data += '<td>' + ordered.note + '</td>';//備註
                 this_data += '</tr>';
               });
-              $('#list_table_json').append(this_data);
+              $('#container').append(this_data);
             },
             error: function (d) {
               /*console.log("error");*/

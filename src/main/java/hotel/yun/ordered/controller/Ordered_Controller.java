@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.model.OrderedToMeals;
 import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
@@ -122,6 +123,9 @@ public class Ordered_Controller {
 		Ordered od = new Ordered();
 		od.setCustomer(customer);
 		od.setOrderedToRoom(otr);
+		OrderedStatus os = new OrderedStatus();
+		os.setStatus_id(1);
+		od.setOrderedStatus(os);
 		Ordered odd = service.insert(od);
 		System.out.println("puipui");
 		model.addAttribute("odd", odd);
@@ -167,8 +171,8 @@ public class Ordered_Controller {
 				returnlist.add(o);
 			}
 		}
-		model.addAttribute("Ordered",CustomerOrdered);
-		return null;
+//		model.addAttribute("Ordered",CustomerOrdered);
+		return CustomerOrdered;
 	}	
 	
 	//寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單
@@ -187,8 +191,8 @@ public class Ordered_Controller {
 					returnlist.add(o);
 				}
 			}
-			model.addAttribute("Ordered",CustomerOrdered);
-			return null;
+//			model.addAttribute("Ordered",CustomerOrdered);
+			return CustomerOrdered;
 		}	
 	
 		//寫在後台需要從顧客查詢到他的訂單 AJAX 取出全部訂單
@@ -201,10 +205,8 @@ public class Ordered_Controller {
 			Customer c = new Customer(chinese_name, mobile_phone);
 			Customer customer = cser.query(c);
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
-			List<Ordered> returnlist = new ArrayList<Ordered>();
-			returnlist.add((Ordered) CustomerOrdered);
-			model.addAttribute("Ordered",CustomerOrdered);
-			return null;
+//			model.addAttribute("Ordered",CustomerOrdered);
+			return CustomerOrdered;
 		}	
 		
 	//寫在後台需要從日期查詢到他的訂單
