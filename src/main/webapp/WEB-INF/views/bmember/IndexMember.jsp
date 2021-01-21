@@ -24,7 +24,7 @@
                 <a href="" class="diamondtxt">顯示所有會員</a>
             </li>
             <li id="diamond">
-                <a href="insertMember" class="diamondtxt">新增會員</a>
+                <a href="InsertBmemberBM" class="diamondtxt">新增會員</a>
             </li>
             <li id="diamond">
                 <a href="" class="diamondtxt">查詢會員</a>
