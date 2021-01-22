@@ -13,12 +13,6 @@
 
     <div id="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-        	
-        	
-        	
-        	
-        	
-        	
 
         <div id="container">
             <ul id="ALLdiamond">

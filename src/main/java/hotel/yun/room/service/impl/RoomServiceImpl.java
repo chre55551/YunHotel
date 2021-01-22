@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.room.dao.RoomDao;
 import hotel.yun.room.model.Room;
+import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
 
 
@@ -53,6 +54,13 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public void delete(int room_id) {
 		RDao.delete(room_id);
+	}
+
+
+	@Override
+	public void save(RoomType rBean) {
+		RDao.save(rBean);
+		
 	}
 	
 }

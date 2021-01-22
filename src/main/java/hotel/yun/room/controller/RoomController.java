@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 import hotel.yun.room.model.Room;
+import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
 
 @Controller
@@ -62,6 +63,14 @@ public class RoomController {
 	}
 	
 	
+	
+//	@GetMapping("/QueryAllRooms")
+//	public String QueryAllRooms(Model model) {
+//		model.addAttribute("Rooms", RoomService.queryAll());
+//		return "room/QueryAllRooms";
+//	}
+	
+	
 	//查詢單筆房型
 	@GetMapping("/queryRoom")
 	public String QueryRoom(@ModelAttribute("rom") Room rm,Model model) {
@@ -82,7 +91,7 @@ public class RoomController {
 	
 	//新增房型
 	@PostMapping("/InsertRoom")
-	public String InsertRoom(@ModelAttribute("rom") Room rm, Model model,HttpServletRequest request,BindingResult result) {
+	public String InsertRoom(@ModelAttribute("roo") RoomType rm, Model model,HttpServletRequest request,BindingResult result) {
 		service.save(rm);
 		return "room/InsertRoom";
 	}

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import hotel.yun.room.dao.RoomDao;
 import hotel.yun.room.model.Room;
+import hotel.yun.room.model.RoomType;
 
 @Repository
 public class RoomDaoImpl implements RoomDao{
@@ -91,6 +92,15 @@ public class RoomDaoImpl implements RoomDao{
 		Room suite = new Room();
 		suite.setRoom_id(room_id);
 		session.delete(suite);
+	}
+
+
+
+	@Override
+	public void save(RoomType rBean) {
+		Session session = factory.getCurrentSession();
+		session.save(rBean);
+		
 	}
 
 

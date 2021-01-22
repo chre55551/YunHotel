@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface RoomDao {
 	
-    Object save(Room rBean);
-    Room queryRoom_id(int id);
-    List<Room> queryAll();
-    void update(Room rBean); 
-	void delete(int room_id);
+	public Object save(Room rBean);
+    public Room queryRoom_id(int id);
+    public List<Room> queryAll();
+    public void update(Room rBean); 
+    public void delete(int room_id);
+    public void save(RoomType rBean);
 //	public Room insert(Room rBean);
 //  void update(RoomType rbean);
 //	public Room query(int room_id);

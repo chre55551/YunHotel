@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,24 +20,15 @@
          
            
           		<h3>新增房間</h3>
-		<form action="/YunHotel/room/ShowBlankRoomform" method="POST" id="container">
+		<form:form action="/room/InsertRoom" method="POST" id="container" modelAttribute="roo" >
 			<div>
-				<label>房間編號</label> <input name="room_id" id="requestRoomId" />
-			</div>
-			<div>
-				<label>房間名稱</label> <input name="room_name" id="requestRoomName" />
-			</div>
-			<div>
-				<label>房間類別編號</label> <input name="room_typeid" id="requestRoomTypeId" />
-			</div>
-			<div>
-				<label>房型</label> <input name="room_type" id="requestRoomType" />
+				<label>房型名稱</label> <input name="room_type" id="requestRoomType" />
 			</div>
 			<div>
 				<label>房價</label> <input name="room_price" id="requestRoomPrice" />
 			</div>
 			<div>
-				<label>房型庫存</label> <input name="room_stock" id="requestRoomStock" />
+				<label>房型總數</label> <input name="room_stock" id="requestRoomStock" />
 			</div>
 			<div>
 				<label>房型圖片</label> 
@@ -51,7 +43,7 @@
             
             
             	</div>
-		</form>
+		</form:form>
             
             
 
