@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedStatus;
 
 @Repository
 public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
@@ -114,6 +115,13 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	session.delete(od);
 	}
 
+	@Override
+	public OrderedStatus query(int i) {
+		Session session = factory.getCurrentSession();
+		OrderedStatus ods = session.get(OrderedStatus.class, i);
+		return ods;
+		
+	}
 
 
 }

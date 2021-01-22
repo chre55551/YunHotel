@@ -162,6 +162,7 @@ public class Ordered_Controller {
 			@RequestParam(value="ordered_status") String ordered_status,
  Model model,HttpSession session) {
 		Customer c = new Customer(chinese_name, mobile_phone);
+		try {
 		Customer customer = cser.query(c);
 		List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 		List<Ordered> returnlist = new ArrayList<Ordered>();
@@ -170,8 +171,11 @@ public class Ordered_Controller {
 				returnlist.add(o);
 			}
 		}
-//		model.addAttribute("Ordered",CustomerOrdered);
 		return CustomerOrdered;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}	
 	
 	//寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單
@@ -182,6 +186,7 @@ public class Ordered_Controller {
 				@RequestParam(value="ordered_status") String ordered_status,
 	 Model model,HttpSession session) {
 			Customer c = new Customer(chinese_name, mobile_phone);
+			try {
 			Customer customer = cser.query(c);
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
@@ -190,8 +195,11 @@ public class Ordered_Controller {
 					returnlist.add(o);
 				}
 			}
-//			model.addAttribute("Ordered",CustomerOrdered);
 			return CustomerOrdered;
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return null;
 		}	
 	
 		//寫在後台需要從顧客查詢到他的訂單 AJAX 取出全部訂單
@@ -202,12 +210,14 @@ public class Ordered_Controller {
 				@RequestParam(value="ordered_status") String ordered_status,
 	 Model model,HttpSession session) {
 			Customer c = new Customer(chinese_name, mobile_phone);
+			try {
 			Customer customer = cser.query(c);
-			System.out.println(customer.getCustomer_id());
-//			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(18);
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
-//			model.addAttribute("Ordered",CustomerOrdered);
 			return CustomerOrdered;
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return null;
 		}	
 		
 	//寫在後台需要從日期查詢到他的訂單

@@ -46,7 +46,7 @@ public class Ordered implements Serializable{
 	private Timestamp ordered_finish_date;//訂單完成時間
 	private String note;//註記
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY )
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name= "customer_id")
 	private Customer customer;// 顧客編號
 	

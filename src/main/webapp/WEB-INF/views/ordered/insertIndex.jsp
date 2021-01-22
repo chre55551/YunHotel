@@ -12,6 +12,7 @@
 	type="text/css" />
 <title>InsertIndex</title>
 </head>
+<body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
     <div id="main">

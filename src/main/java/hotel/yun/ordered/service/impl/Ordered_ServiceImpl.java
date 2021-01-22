@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Transactional
@@ -24,7 +25,8 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 
 	@Override
 	public Ordered insert(Ordered oBean) {	
-		
+		OrderedStatus ods  = oDao.query(1);
+		oBean.setOrderedStatus(ods);
 		return oDao.insert(oBean);
 	}
 
