@@ -61,22 +61,23 @@
             success: function (data) {
             	let fk = data
                 var this_data = '';
-              $.each(data.results, function (index, ordered) {
-                this_data += '<tr>';
-                this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
-                this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
-                this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
-//                 this_data += '<td>' + ordered.customer.idcard_number + '</td>';//身分證字號
-//                 this_data += '<td>' + ordered.ordered_tomeals.table_number + '</td>';//桌號
-//                 this_data += '<td>' + ordered.ordered_tomeals.meals_accounts + '</td>';//餐點總價
-//                 this_data += '<td>' + ordered.ordered_toroom.room_number + '</td>';//房號
-//                 this_data += '<td>' + ordered.ordered_toroom.room_accounts + '</td>';//房間總價
-                this_data += '<td>' + ordered.ordered_status.ordered_status + '</td>';//訂單狀態
-//                 this_data += '<td>' + ordered.ordered_accounts + '</td>';//訂單總價
-//                 this_data += '<td>' + ordered.ordered_date + '</td>';//成立日期
-//                 this_data += '<td>' + ordered.note + '</td>';//備註
-                this_data += '</tr>';
-              });
+            	for(let ordered of fk){
+                    this_data += '<tr>';
+                    this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
+                    this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
+                    this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
+                    this_data += '<td>' + ordered.customer.idcard_number + '</td>';//身分證字號
+                    this_data += '<td>' + ordered.orderedToMeals.table_number + '</td>';//桌號
+                    this_data += '<td>' + ordered.orderedToMeals.meals_accounts + '</td>';//餐點總價
+//                     this_data += '<td>' + ordered.orderedToRoom.room_number + '</td>';//房號
+//                     this_data += '<td>' + ordered.orderedToRoom.room_accounts + '</td>';//房間總價
+                    this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
+//                     this_data += '<td>' + ordered.ordered_accounts + '</td>';//訂單總價
+//                     this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
+//                     this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
+//                     this_data += '<td>' + ordered.note + '</td>';//備註
+                    this_data += '</tr>';
+                  };
               $('#container').append(this_data);
              },
             error: function (d) {
@@ -100,24 +101,23 @@
             success: function (data) {
             	let fk = data
                 var this_data = '';
-              $.each(data.results, function (index, ordered) {
-                /*console.log(value);*/
-                this_data += '<tr>';
-                this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
-                this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
-                this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
-//                 this_data += '<td>' + ordered.customer.idcard_number + '</td>';//身分證字號
-//                 this_data += '<td>' + ordered.orderedToMeals.table_number + '</td>';//桌號
-//                 this_data += '<td>' + ordered.orderedToMeals.meals_accounts + '</td>';//餐點總價
-//                 this_data += '<td>' + ordered.orderedToRoom.room_number + '</td>';//房號
-//                 this_data += '<td>' + ordered.orderedToRoom.room_accounts + '</td>';//房間總價
-                this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
-//                 this_data += '<td>' + ordered.ordered_accounts + '</td>';//訂單總價
-//                 this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
-//                 this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
-//                 this_data += '<td>' + ordered.note + '</td>';//備註
-                this_data += '</tr>';
-              });
+            	for(let ordered of fk){
+                    this_data += '<tr>';
+                    this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
+                    this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
+                    this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
+                    this_data += '<td>' + ordered.customer.idcard_number + '</td>';//身分證字號
+                    this_data += '<td>' + ordered.orderedToMeals.table_number + '</td>';//桌號
+                    this_data += '<td>' + ordered.orderedToMeals.meals_accounts + '</td>';//餐點總價
+//                     this_data += '<td>' + ordered.orderedToRoom.room_number + '</td>';//房號
+//                     this_data += '<td>' + ordered.orderedToRoom.room_accounts + '</td>';//房間總價
+                    this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
+//                     this_data += '<td>' + ordered.ordered_accounts + '</td>';//訂單總價
+//                     this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
+//                     this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
+//                     this_data += '<td>' + ordered.note + '</td>';//備註
+                    this_data += '</tr>';
+                  };
               $('#container').append(this_data);
             },
             error: function (d) {

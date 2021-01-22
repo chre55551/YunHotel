@@ -167,11 +167,11 @@ public class Ordered_Controller {
 		List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 		List<Ordered> returnlist = new ArrayList<Ordered>();
 		for(Ordered o :CustomerOrdered) {
-			if(o.getOrderedStatus().getOrdered_status()=="已成立") {
+			if(o.getOrderedStatus().getStatus_id()==1) {
 				returnlist.add(o);
 			}
 		}
-		return CustomerOrdered;
+		return returnlist;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -195,7 +195,7 @@ public class Ordered_Controller {
 					returnlist.add(o);
 				}
 			}
-			return CustomerOrdered;
+			return returnlist;
 			}catch(Exception e){
 				e.printStackTrace();
 			}
