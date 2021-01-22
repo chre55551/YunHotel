@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.bmember.dao.BmemberDao;
-import hotel.yun.bmember.model.bmemberbean;
+import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
 
 @Transactional
@@ -16,33 +16,33 @@ import hotel.yun.bmember.service.BmemberService;
 public class BmemberServiceImpl implements Serializable, BmemberService {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Autowired
-	BmemberDao BDao;
-	
+	BmemberDao bDao;
+
 	@Override
-	public bmemberbean insert(bmemberbean nBean) {
-		return BDao.insert(nBean);
+	public void insert(BmemberBean nBean) {
+		bDao.insert(nBean);
 	}
 
 	@Override
-	public bmemberbean queryMemberID(int bs_id) {
-		return BDao.queryMemberID(bs_id);
+	public BmemberBean queryMemberID(int bs_id) {
+		return bDao.queryMemberID(bs_id);
 	}
 
 	@Override
-	public List<bmemberbean> queryAllMember() {
-		return BDao.queryAllMember();
+	public List<BmemberBean> queryAllMember() {
+		return bDao.queryAllMember();
 	}
 
 	@Override
-	public bmemberbean update(bmemberbean nbean) {
-		return BDao.update(nbean);
+	public BmemberBean update(BmemberBean nbean) {
+		return bDao.update(nbean);
 	}
 
 	@Override
 	public boolean delete(int bs_id) {
-		return BDao.delete(bs_id);
+		return bDao.delete(bs_id);
 	}
 
 }

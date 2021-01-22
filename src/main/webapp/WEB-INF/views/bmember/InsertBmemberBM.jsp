@@ -6,44 +6,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>insertBmember</title>
+<title>InsertBmember</title>
 </head>
 <body>
+	<h3>新增會員</h3>
+	<a href="<c:url value='/'/> ">回首頁</a>
+	<table>
+		<form:form action="insertbmemberbb" method="post" modelAttribute="bb">
+			<tr>
+				<td>帳號</td>
+				<td><form:input path="bs_account" /></td>
 
-	<%@ include file="../CommonTemplates/header.jsp"%>
-	
+			</tr>
+			<tr>
+				<td>密碼</td>
+				<td><form:input path="bs_password" /></td>
 
-	<div id="main">
-	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增後台會員</h3>
-		<form action="/YunHotel/bmember/InsertBmemberBB" method="POST" id="container">
-			<div>
-				<label>帳號</label> <input name="bs_account" id="requestCn" />
-			</div>
-			<div>
-				<label>密碼</label> <input name="bs_password" id="requestMp" />
-			</div>
-			<div>
-				<label>信箱</label> <input name="bs_email" id="requestMp" />
-			</div>
-			<div>
-				<label>設定使用者權限</label> <input name="authority" id="requestMp" />
-			</div>
-			<div>
-				<label>暱稱</label> <input name="user_id" id="requestMp" />
-			</div>
+			</tr>
+			<tr>
+				<td>信箱</td>
+				<td><form:input path="bs_email" /></td>
+
+			</tr>
+			<tr>
+				<td>權限</td>
+				<td><form:input path="authority" /></td>
+
+			</tr>
+			<tr>
+				<td>使用者名稱</td>
+				<td><form:input path="user_id" /></td>
+
+			</tr>
+
 			<div>
 				<input value="新增" type="submit">
-<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
-		</form>
-	</div>
-	
-	    <%@ include file="../CommonTemplates/footer.jsp"%>
-	<script type="text/javascript">
-
-	</script>
+		</form:form>
+	</table>
 </body>
 </html>

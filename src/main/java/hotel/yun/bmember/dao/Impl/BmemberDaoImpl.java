@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import hotel.yun.bmember.dao.BmemberDao;
-import hotel.yun.bmember.model.bmemberbean;
+import hotel.yun.bmember.model.BmemberBean;
 
 @Repository
 public class BmemberDaoImpl implements Serializable, BmemberDao {
@@ -22,16 +22,16 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	
 	
 	@Override
-	public bmemberbean insert(bmemberbean nBean) {
+	public void insert(BmemberBean nBean) {
 		Session session = factory.getCurrentSession();
 		session.save(nBean);
-		return nBean;
+
 	}
 
 	@Override
-	public bmemberbean queryMemberID(int bs_id) {
+	public BmemberBean queryMemberID(int bs_id) {
 		Session session = factory.getCurrentSession();
-		bmemberbean bb=session.get(bmemberbean.class,bs_id);
+		BmemberBean bb=session.get(BmemberBean.class,bs_id);
 		if(bb==null)
 			System.out.println("會員編號"+bs_id+"找不到");
 		return bb;
@@ -40,17 +40,17 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<bmemberbean> queryAllMember() {
+	public List<BmemberBean> queryAllMember() {
 		String hql="FROM bmemberbean";
 		Session session=null;
-		List<bmemberbean> list=new ArrayList<>();
+		List<BmemberBean> list=new ArrayList<>();
 		session=factory.getCurrentSession();
 		list=session.createQuery(hql).getResultList();
 		return list;
 	}
 
 	@Override
-	public bmemberbean update(bmemberbean nbean) {
+	public BmemberBean update(BmemberBean nbean) {
 		Session session = factory.getCurrentSession();
 		session.update(nbean);
 		return nbean;
@@ -59,7 +59,7 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	@Override
 	public boolean delete(int bs_id) {
 		Session session = factory.getCurrentSession();
-		bmemberbean onemember = new bmemberbean();
+		BmemberBean onemember = new BmemberBean();
 		onemember.setBs_id(bs_id);
 		session.delete(onemember);
 		return false;

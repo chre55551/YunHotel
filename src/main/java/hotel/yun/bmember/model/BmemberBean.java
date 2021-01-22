@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "backstage")
-public class bmemberbean implements Serializable {
+public class BmemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,12 @@ public class bmemberbean implements Serializable {
 	private String authority;// 權限
 	private String user_id;// 使用者名稱
 
-	public bmemberbean() {
+	public BmemberBean() {
 
 	}
 
 	
-	public bmemberbean(int bs_id, String bs_account, String bs_password, String bs_email, String authority,
+	public BmemberBean(int bs_id, String bs_account, String bs_password, String bs_email, String authority,
 			String user_id) {
 		super();
 		this.bs_id = bs_id;
