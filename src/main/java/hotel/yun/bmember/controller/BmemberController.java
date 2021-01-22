@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
+import hotel.yun.news.model.News;
 import hotel.yun.ordered.model.Ordered;
 
 @Controller
@@ -59,52 +61,57 @@ public class BmemberController {
 	}
 
 	@PostMapping("/insertbmemberbb")
-//	public String Insert(@RequestParam(value = "bs_account") String bs_account,
-//			@RequestParam(value = "bs_password") String bs_password, @RequestParam(value = "bs_email") String bs_email,
-//			@RequestParam(value = "authority") String authority, @RequestParam(value = "user_id") String user_id,
-//			Model model) {
-//		bmemberbean BM = new bmemberbean();
-//		BM.setBs_account(bs_account);
-//		BM.setBs_password(bs_password);
-//		BM.setBs_email(bs_email);
-//		BM.setAuthority(authority);
-//		BM.setUser_id(user_id);
-//		bmemberbean BMS = service.insert(BM);
-//		model.addAttribute("BMS", BMS);
-//		return "bmember/InsertBmemberOK";
-	public String insert(@ModelAttribute("bb") BmemberBean bm,Model model,BindingResult result) {
+	public String insert(@ModelAttribute("bb") BmemberBean bm, Model model, BindingResult result) {
 		bm.getBs_account();
 		bm.getBs_password();
 		bm.getBs_email();
 		bm.getAuthority();
 		bm.getUser_id();
-		System.out.println(bm.getBs_account()+bm.getBs_password()+bm.getBs_email()+bm.getAuthority()+bm.getUser_id());
+		System.out.println(
+				bm.getBs_account() + bm.getBs_password() + bm.getBs_email() + bm.getAuthority() + bm.getUser_id());
 		service.insert(bm);
-		
-		
-		return "bmember/InsertBmemberOK";//依訂單號查到他的訂單
-	}
 
-	
-	
-	
+		return "bmember/InsertBmemberOK";//
+	}
 
 //------------------------------------------------------------------------------------------------
 	// 刪除
-	@DeleteMapping(value = "/DeleteBmember/{bs_id}")
+	@DeleteMapping("/DeleteBmember/{bs_id}")
 	public String delete(@PathVariable("bs_id") int bs_id) {
 		service.delete(bs_id);
 		return "redirect:/InsertBmemberOK";
 
 	}
+
 //----------------------------------------------------------------------------------------------------
 	// 顯示所有會員
-	@GetMapping("/Bmembers")
-	public String getCustomers(Model model) {
-		List<BmemberBean> beans = service.queryAllMember();
-		model.addAttribute(beans);
-
-		return "bmember/ShowBmember";
+	@GetMapping("/showAllMembers")
+	public String list(Model model) {
+		model.addAttribute("members", service.queryAllMember());
+		return "/ShowBmember";
 	}
 
+//-----------------------------------------------------------------------------------------------------
+	// 修改
+//	@GetMapping(value = "/mem/{id}")
+//	public String showDataForm(@PathVariable("id") Integer id, Model model) {
+//		BmemberBean member = BmemberBean.
+//		model.addAttribute(member);
+//		return "crm/updateMember";
+
+//------------------------------------------------------------------------------------------------------
+
+	// 查詢
+
+	@GetMapping("/QueryBmember")
+	public String QueryNew(Model model, HttpSession session) {
+		return "bmember/QueryBmember";
+	}
+
+	@PostMapping("/GetaBmember")
+	public String GetaNew(@ModelAttribute("qbm") BmemberBean bm, Model model) {
+		BmemberBean bb = service.queryMemberID(bm.getBs_id());
+		model.addAttribute("qbm", bb);
+		return "/bmember/GetaBmember";
+	}
 }
