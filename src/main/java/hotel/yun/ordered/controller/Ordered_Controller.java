@@ -134,14 +134,14 @@ public class Ordered_Controller {
 	}
 //--------------------------------------------------
 	//查詢
-	@GetMapping("/thisOrdered")
-	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
-		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
-		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
-		model.addAttribute("ordered", ordered);
-		return "ordered/thisOrdered";//依訂單號查到他的訂單
-	}
+//	@GetMapping("/thisOrdered")
+//	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
+//		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
+//		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
+//		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
+//		model.addAttribute("ordered", ordered);
+//		return "ordered/thisOrdered";//依訂單號查到他的訂單
+//	}
 	
 	@GetMapping("/showAllOrdered")
 	public String OrderedList(@ModelAttribute("odd") Ordered odd,Model model) {
@@ -219,6 +219,13 @@ public class Ordered_Controller {
 			}
 			return null;
 		}	
+		//查到我顧客訂單的詳細資料
+		@RequestMapping("/thisOrdered/{ordered_number}")
+		public String singleOrdered(@PathVariable(value = "ordered_number") int ordered_number,Model model) {
+			Ordered ordered = service.queryOrderNum(ordered_number);
+			model.addAttribute("ordered", ordered);
+			return "ordered/thisOrdered";
+		}
 		
 	//寫在後台需要從日期查詢到他的訂單
 	@GetMapping("/dateToOrdered")
@@ -249,7 +256,7 @@ public class Ordered_Controller {
 //	model.addAttribute("updateOdered", afterOrdered);
 //		return "/ordered/thisOrdered";//依訂單到查詢到的訂單，再做修改
 //	}
-	@PostMapping("/thisOrdered/{ordered_number}")
+	@PostMapping("/update")
 	public String update(@PathVariable(value = "ordered_number") int ordered_number,Model model) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		ThisOrdered.setOrdered_number(ThisOrdered.getOrdered_number());

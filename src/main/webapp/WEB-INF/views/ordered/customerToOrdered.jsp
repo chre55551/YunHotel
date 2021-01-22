@@ -159,7 +159,7 @@
 //                 this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
 //                 this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
 //                 this_data += '<td>' + ordered.note + '</td>';//備註
-				this_data += "<td><button onclick="+'"'+"window.location.href='/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+				this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                 this_data += '</tr>';
               };
               $('#container').append(this_data);
