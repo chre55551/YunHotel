@@ -9,7 +9,7 @@
 <title>ThisOrdered</title>
 </head>
 <body>
-	<h3>你的訂單</h3>
+	<h3>詳細訂單</h3>
 	<p>訂單編號: ${ordered.ordered_number}</p>
 	<p>顧客編號: ${ordered.customer_id}</p>
 	<p>餐點訂單: ${ordered.ordered_tomeals_id}</p>

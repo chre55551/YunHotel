@@ -233,9 +233,25 @@ public class Ordered_Controller {
 //	}
 //-----------------------------------------------------------	
 	//更新
+//	@PostMapping("/thisOrdered/{ordered_number}")
+//	public String update(@ModelAttribute("odd") Ordered odd,Model model) {
+//		Ordered ThisOrdered = service.queryOrderNum(odd.getOrdered_number());
+//		ThisOrdered.setOrdered_number(ThisOrdered.getOrdered_number());
+//		ThisOrdered.setCustomer(ThisOrdered.getCustomer());
+//		ThisOrdered.setOrderedToMeals(ThisOrdered.getOrderedToMeals());
+//		ThisOrdered.setOrderedToRoom(ThisOrdered.getOrderedToRoom());
+//		ThisOrdered.setOrderedStatus(ThisOrdered.getOrderedStatus());
+//		ThisOrdered.setOrderedPayment(ThisOrdered.getOrderedPayment());
+//		ThisOrdered.setOrdered_accounts(ThisOrdered.getOrdered_accounts());
+//		ThisOrdered.setOrdered_date(ThisOrdered.getOrdered_date());
+//		ThisOrdered.setNote(ThisOrdered.getNote());
+//	Ordered afterOrdered = service.update(ThisOrdered);
+//	model.addAttribute("updateOdered", afterOrdered);
+//		return "/ordered/thisOrdered";//依訂單到查詢到的訂單，再做修改
+//	}
 	@PostMapping("/thisOrdered/{ordered_number}")
-	public String update(@ModelAttribute("odd") Ordered odd,Model model) {
-		Ordered ThisOrdered = service.queryOrderNum(odd.getOrdered_number());
+	public String update(@PathVariable(value = "ordered_number") int ordered_number,Model model) {
+		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		ThisOrdered.setOrdered_number(ThisOrdered.getOrdered_number());
 		ThisOrdered.setCustomer(ThisOrdered.getCustomer());
 		ThisOrdered.setOrderedToMeals(ThisOrdered.getOrderedToMeals());
