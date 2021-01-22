@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,16 +52,24 @@ public class News_Controller {
 			@RequestParam(value="news_content") String news_content,
 			Model model) {
 		News nw=new News();
+		nw.setNews_id(news_id);
+		nw.setNews_date(news_date);
+		nw.setNews_content(news_content);
 		News NWS=service.insert(nw);
 		model.addAttribute("NWS", NWS);
+		System.out.println("insert sucess");
 		return "news/NewAddSucess";
 }
 
 //---------------------------------------------------------------
+	@GetMapping("/queryNew")
+	public String QueryNew(Model model,HttpSession session) {
+		return "news/QueryNew";
+	}	
 	@PostMapping("/getaNew")
 	public String GetaNew(@ModelAttribute("nws") News nw,Model model) {
 		News news = service.queryNewID(nw.getNews_id());
-		model.addAttribute("GetaNew", news);
+		model.addAttribute("NWS", news);
 		return "/news/GetaNew";
 	}
 	

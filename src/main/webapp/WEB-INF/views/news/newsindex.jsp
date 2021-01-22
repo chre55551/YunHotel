@@ -30,7 +30,7 @@
                 <div class="diamondtxt">修改消息</div>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">查詢消息</div>
+                <a href='queryNew' class="diamondtxt">查詢消息</div>
             </li>
             </ul>
         </div>
