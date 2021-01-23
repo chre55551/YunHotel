@@ -151,7 +151,7 @@ public class RoomController {
 //	     Company cmp = new Company(companyName,logoblob,logoName,uniformNumbers,categories,account,password,email,phone,busRCblob,busRCName);
 //	     //呼叫Service新增到資料庫
 //	     cmpService.addCompany(cmp);
-//	    
+//	    e04
 //	    } catch (SerialException e) {
 //	     // TODO Auto-generated catch block
 //	     e.printStackTrace();
