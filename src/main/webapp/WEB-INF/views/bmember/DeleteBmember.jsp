@@ -18,9 +18,9 @@
 	<div id="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>刪除後台會員</h3>
-		<form action="/YunHotel/bmember/DeleteBmember" method="DELETE" id="container">
+		<form action="/YunHotel/bmember/DeleteOKBmember" method="Delete" id="container">
 			<div>
-				<label>後台會員ID</label> <input name="bs_id" id="requestCn" />
+				<label>後台會員ID</label> <input name="bs_id" id="bs_id" />
 			</div>
 			
 			<div>

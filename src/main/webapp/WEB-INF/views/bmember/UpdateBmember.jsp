@@ -18,7 +18,7 @@
 	<div id="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改後台會員</h3>
-		<form action="/YunHotel/bmember/InsertBmemberBM" method="POST" id="container">
+		<form action="/YunHotel/bmember/GetaBmember" method="POST" id="container">
 			<div>
 				<label>帳號</label> <input name="bs_account" id="requestCn" />
 			</div>

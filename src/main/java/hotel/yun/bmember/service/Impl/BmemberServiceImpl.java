@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import hotel.yun.bmember.dao.BmemberDao;
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
@@ -43,6 +44,11 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	@Override
 	public boolean delete(int bs_id) {
 		return bDao.delete(bs_id);
+	}
+	public BmemberBean checkIdPassword(String account, String password) {
+		
+		return bDao.checkIdPassword(account, password);
+		
 	}
 
 }

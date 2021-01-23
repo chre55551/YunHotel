@@ -21,7 +21,7 @@
 	<p>編號: ${qbm.bs_id}</p>
 	<p>帳號: ${qbm.bs_account}</p>
 	<p>密碼: ${qbm.bs_password}</p>
-	<p>消息內容: ${qbm.bs_email}</p>
+	<p>信箱: ${qbm.bs_email}</p>
 		<a href="<c:url value='IndexMember'/> ">回上一頁</a>
 		</div>
 	</div>
