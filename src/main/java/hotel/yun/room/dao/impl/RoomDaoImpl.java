@@ -137,20 +137,20 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public void updateRoomType(RoomType rBean) {
 		Session session = factory.getCurrentSession();
-		RoomType room = session.get(RoomType.class, rBean.getRoom_typeid());
+		RoomType roomtype = session.get(RoomType.class, rBean.getRoom_typeid());
 		if(rBean.getRoom_type()!=null) {
-			room.setRoom_type(rBean.getRoom_type());
+			roomtype.setRoom_type(rBean.getRoom_type());
 		}
 		if(rBean.getRoom_price()!=0) {
-			room.setRoom_price(rBean.getRoom_price());
+			roomtype.setRoom_price(rBean.getRoom_price());
 		}
 		if(rBean.getRoom_stock()!=null) {
-			room.setRoom_stock(rBean.getRoom_stock());
+			roomtype.setRoom_stock(rBean.getRoom_stock());
 		}
 		if(rBean.getRoom_image()!=null) {
-			room.setRoom_image(rBean.getRoom_image());
+			roomtype.setRoom_image(rBean.getRoom_image());
 		}
-		session.update(room);
+		session.update(roomtype);
 		
 	}
 	
