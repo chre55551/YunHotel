@@ -11,12 +11,12 @@
 <body>
 	<h3>會員登入</h3>
 	<a href="<c:url value='/'/> ">回首頁</a>
-	<form action="" method="post">
+	<form action="../bmember/login" method="post">
 		<p>帳號: </p>
 		<input type="text" name="account"></input>
 		<br>
 		<p>密碼: </p>
-		<input type="text" name="password"></input>
+		<input type="password" name="password"></input>
 		<br>
 		<input type="submit" value="登入">
 	

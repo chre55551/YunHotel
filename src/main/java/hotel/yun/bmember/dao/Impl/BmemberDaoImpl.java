@@ -69,16 +69,15 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 
 	public BmemberBean checkIdPassword(String account, String password) {
 		BmemberBean mb = null;
-		String hql = "FROM BmemberBean m WHERE m.account = :mid and m.password = :pwsd";
+		String hql = "FROM BmemberBean m WHERE m.bs_account = :mid and m.bs_password = :pwsd";
 		Session session = factory.getCurrentSession();
 		try {
 			mb = (BmemberBean) session.createQuery(hql).setParameter("mid",account).setParameter("pwsd", password)
 					.getSingleResult();
-		} catch (NoResultException ex) {
-			;
-		} catch (NonUniqueResultException ex) {
-			throw new RuntimeException("帳號資料有誤(NonUnique)，應重建初始資料");
+			return mb;
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
-		return mb;
+		return null;
 	}
 }

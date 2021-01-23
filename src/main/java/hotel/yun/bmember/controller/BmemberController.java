@@ -1,7 +1,5 @@
 package hotel.yun.bmember.controller;
 
-import java.util.List;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +22,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
-import hotel.yun.login.model.LoginBean;
-import hotel.yun.news.model.News;
-import hotel.yun.ordered.model.Ordered;
 
 @Controller
 @RequestMapping("/bmember")
@@ -58,10 +53,17 @@ public class BmemberController {
 	// 新增
 
 	@GetMapping("/InsertBmemberBM")
-	public String InsertBmemberBM(Model model) {
+	public String InsertBmemberBM(Model model, HttpSession session) {
+		String kk = (String)session.getAttribute("LoginOK");
+		String a = (String)session.getAttribute("Authority");//如果該功能有權限要求 可以用這個去判別
+		
+//		if(kk!=null) {
 		BmemberBean bm = new BmemberBean();
 		model.addAttribute("bb", bm);
 		return "bmember/InsertBmemberBM";
+//		}else {
+//			return "login/PleaseLoginInBS";
+//		}
 	}
 
 	@PostMapping("/insertbmemberbb")
@@ -137,15 +139,20 @@ public class BmemberController {
 	}
 
 	@PostMapping("/login")
-	public String loginbutton(@ModelAttribute("bl") LoginBean lb, Model m, HttpServletRequest request,
+	public String loginbutton(@RequestParam(value="account")String ac,
+			@RequestParam(value="password")String pw,
+			Model m, HttpServletRequest request,
 			HttpServletResponse response) {
 		System.out.println("進來登入");
+		System.out.println(ac);
+		System.out.println(pw);
 		BmemberBean mb = null;
 		HttpSession session = request.getSession();
-		mb = service.checkIdPassword(lb.getAccount(), lb.getPassword());
+		mb = service.checkIdPassword(ac, pw);
 
 		if (mb != null) {
-			session.setAttribute("LoginOK", mb);
+			session.setAttribute("LoginOK", mb.getBs_account());
+			session.setAttribute("Authority", mb.getAuthority());
 			System.out.println("登入成功");
 		} else {
 			System.out.println("登入失敗");
