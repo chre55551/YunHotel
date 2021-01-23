@@ -15,4 +15,6 @@ public interface Ordered_Service {
 	public Ordered update(Ordered oBean);//依照訂單編號即可修改整張訂單
 	public void updateCustomerOd(Ordered odBean);//依顧客尋找的詳細訂單，來做更新
 	public void delete(int ordered_number);//依照訂單編號來刪除整筆資料
+	List<Ordered> queryDateToOrdered(java.util.Date date);
+	List<Ordered> queryDateToOrdered();
 }

@@ -74,6 +74,7 @@ public class RoomServiceImpl implements RoomService {
 	public void deleteRoomType(int room_typeid) {
 		RDao.delete(room_typeid);
 	}
+
 	
 	
 

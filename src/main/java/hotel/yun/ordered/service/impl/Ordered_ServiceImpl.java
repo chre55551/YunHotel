@@ -1,6 +1,9 @@
 package hotel.yun.ordered.service.impl;
 
-import java.sql.Date;
+import java.util.Date;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	
 	@Autowired
 	private Ordered_Dao oDao;
+	private Date d = new Date();
 
 	public void setoDao(Ordered_Dao oDao) {
 		this.oDao = oDao;
@@ -51,7 +55,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	@Override
 	public List<Ordered> queryDateToOrdered(Date ordered_date) {
 	
-		return oDao.queryDateToOrdered(ordered_date);
+		return oDao.queryDateToOrdered((java.sql.Date) ordered_date);
 	}
 
 	@Override
@@ -61,12 +65,31 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 
 	@Override
 	public void updateCustomerOd(Ordered odBean) {
+		Timestamp c = new java.sql.Timestamp(new Date().getTime());
+//		Date currentTime = new Date();
+//		DateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+//		String dateStr = sdf.format(currentTime); 
+//		Timestamp ts = Timestamp.valueOf(dateStr);
+		odBean.setOrdered_last_update(c);
 		oDao.updateCustomerOd(odBean);
+		
 	}
 	
 	@Override
 	public void delete(int ordered_number) {
 		oDao.delete(ordered_number);
+	}
+
+	@Override
+	public List<Ordered> queryDateToOrdered(java.sql.Date ordered_date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ordered> queryDateToOrdered() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

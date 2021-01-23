@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.model.OrderedToMeals;
 import hotel.yun.ordered.model.OrderedToRoom;
@@ -274,21 +275,89 @@ public class Ordered_Controller {
 		return "ordered/updateOrdered";//依訂單到查詢到的訂單，送出可修改的空白表單，再做修改
 	}
 	//發送修改的請求
-	@PostMapping("/thisOrdered/{ordered_number}")
+	@PostMapping("/updatecheck/{ordered_number}")
 	public String updateCustomerOd(
-			@PathVariable(value = "ordered_number") int ordered_number,
-			@RequestParam(value = "chinese_name") String chinese_name,
-			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "table_number") int table_number,
-			@RequestParam(value = "room_number") int room_number,
-			@RequestParam(value = "ordered_status") String ordered_status,
-			@RequestParam(value = "payment_status") String payment_status,
-			@RequestParam(value = "ordered_accounts") int ordered_accounts,
-			@RequestParam(value = "ordered_date") String note,
+			@PathVariable(value = "ordered_number",required=false) Integer ordered_number,
+			@RequestParam(value = "chinese_name" ,required=false) String chinese_name,
+			@RequestParam(value = "mobile_phone",required=false) String mobile_phone,
+			@RequestParam(value = "table_number",required=false) Integer table_number,
+			@RequestParam(value = "room_number",required=false) Integer room_number,
+			@RequestParam(value = "ordered_status",required=false) String ordered_status,
+			@RequestParam(value = "payment_status",required=false) String payment_status,
+			@RequestParam(value = "ordered_accounts",required=false) Integer ordered_accounts,
+			@RequestParam(value = "note",required=false) String note,
 			Model model) 
 			{
-		Ordered ordered = new Ordered();
+		System.out.println(ordered_number);
+		System.out.println(chinese_name);
+		System.out.println(mobile_phone);
+		System.out.println(table_number);
+		System.out.println(room_number);
+		System.out.println(ordered_status);
+		System.out.println(payment_status);
+		System.out.println(ordered_accounts);
+		System.out.println(note);
+		
+
+		Ordered ordered = service.queryOrderNum(ordered_number.intValue());
+		if(table_number!=null) {
+			if(ordered.getOrderedToMeals()!=null) {
+		ordered.getOrderedToMeals().setTable_number(table_number.intValue());
+			}else {
+				OrderedToMeals otm = new OrderedToMeals();
+				otm.setTable_number(table_number.intValue());
+				ordered.setOrderedToMeals(otm);
+			}
+		}
+		if(room_number!=null) {
+			if(ordered.getOrderedToRoom()!=null) {
+				ordered.getOrderedToRoom().setRoom_number(room_number.intValue());
+			}else {
+				OrderedToRoom otr = new OrderedToRoom();
+				otr.setRoom_number(room_number.intValue());
+				ordered.setOrderedToRoom(otr);
+			}
+		}
+		if(ordered.getOrderedStatus()!=null) {
+			ordered.getOrderedStatus().setOrdered_status(ordered_status);
+		}else {
+			OrderedStatus os = new OrderedStatus();
+			os.setOrdered_status(ordered_status);
+			ordered.setOrderedStatus(os);
+		}
+		if(ordered.getOrderedPayment()!=null) {
+		ordered.getOrderedPayment().setPayment_status(payment_status);
+		}else {
+			 OrderedPayment op = new OrderedPayment();
+			 op.setPayment_status(payment_status);
+			 ordered.setOrderedPayment(op);
+		}
+		ordered.setNote(note);
+		
+		System.out.println(ordered.getOrderedToMeals().getTable_number());
+		System.out.println(ordered.getCustomer().getChinese_name());
+		System.out.println(ordered.getCustomer().getMobile_phone());
+		System.out.println(ordered.getOrderedToMeals().getTable_number());
+		System.out.println(ordered.getOrderedToRoom().getRoom_number());
+		System.out.println(ordered.getOrderedStatus().getOrdered_status());
+		System.out.println(ordered.getOrderedPayment().getPayment_status());
+		System.out.println(ordered.getOrdered_accounts());
+		System.out.println(ordered.getNote());
+		
 		service.updateCustomerOd(ordered);
+		
+		Ordered odAfter = service.queryOrderNum(ordered_number.intValue());
+		
+		System.out.println(odAfter.getOrderedToMeals().getTable_number());
+		System.out.println(odAfter.getCustomer().getChinese_name());
+		System.out.println(odAfter.getCustomer().getMobile_phone());
+		System.out.println(odAfter.getOrderedToMeals().getTable_number());
+		System.out.println(odAfter.getOrderedStatus().getOrdered_status());
+//		System.out.println(odAfter.getOrderedPayment().getPayment_status());
+		System.out.println(odAfter.getOrdered_accounts());
+		System.out.println(odAfter.getNote());
+//		System.out.println(odAfter.getOrderedToRoom().getRoom_number());
+		model.addAttribute("ordered",odAfter);
 		return "ordered/thisOrdered";
 	}
 	

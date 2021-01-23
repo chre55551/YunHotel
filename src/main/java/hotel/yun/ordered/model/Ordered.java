@@ -68,6 +68,29 @@ public class Ordered implements Serializable{
 
 	}
 	
+	
+
+	public Ordered(int ordered_number, int ordered_accounts, String note, Customer customer,
+			OrderedStatus orderedStatus, OrderedPayment orderedPayment, OrderedToMeals orderedToMeals,
+			OrderedToRoom orderedToRoom) {
+		this.ordered_number = ordered_number;
+		this.ordered_accounts = ordered_accounts;
+		this.note = note;
+		this.customer = customer;
+		this.orderedStatus = orderedStatus;
+		this.orderedPayment = orderedPayment;
+		this.orderedToMeals = orderedToMeals;
+		this.orderedToRoom = orderedToRoom;
+	}
+
+
+
+	public Ordered(int ordered_number, int ordered_accounts, String note) {
+		this.ordered_number = ordered_number;
+		this.ordered_accounts = ordered_accounts;
+		this.note = note;
+	}
+
 	public Ordered(int ordered_number, int ordered_accounts, Date ordered_date, String note,
 			OrderedStatus orderedStatus, OrderedPayment orderedPayment, OrderedToMeals orderedToMeals,
 			OrderedToRoom orderedToRoom) {
