@@ -38,10 +38,10 @@ public class RoomDaoImpl implements RoomDao{
 	}
     
     @Override
-	public Room queryRoom_id(int id) {
+	public Room queryRoom_id(int room_id) {
 //	Room bean = null;
 	Session session = factory.getCurrentSession();
-	Room room = session.get(Room.class, id);
+	Room room = session.get(Room.class, room_id);
 //	String hql  = "FROM Room r WHERE r.room_id = :id";
 //	try {
 //		bean = (Room)session.createQuery(hql)
@@ -54,9 +54,10 @@ public class RoomDaoImpl implements RoomDao{
 	return room;
 	
 }
-    @SuppressWarnings("unchecked")
+    
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Room> queryAll() {
+	public List<Room> queryAllRoom() {
 		Session session = factory.getCurrentSession();
 		String hql  = "FROM Room";
 		List<Room> list = new ArrayList<>();
@@ -78,7 +79,7 @@ public class RoomDaoImpl implements RoomDao{
 		if(rBean.getDate()!=null) {
 			room.setDate(rBean.getDate());
 		}
-		session.update(rBean);
+		session.update(room);
 		
 	}
 	
@@ -97,7 +98,7 @@ public class RoomDaoImpl implements RoomDao{
 
 
 	@Override
-	public void save(RoomType rBean) {
+	public void saveRoomType(RoomType rBean) {
 		Session session = factory.getCurrentSession();
 		session.save(rBean);
 		
@@ -105,9 +106,61 @@ public class RoomDaoImpl implements RoomDao{
 
 
 	
+    @Override
+	public RoomType queryRoomType_id(int room_typeid) {
+//	Room bean = null;
+	Session session = factory.getCurrentSession();
+	RoomType roomtype = session.get(RoomType.class, room_typeid);
+	return roomtype;
+    }
+//	String hql  = "FROM Room r WHERE r.room_id = :id";
+//	try {
+//		bean = (Room)session.createQuery(hql)
+//								.setParameter("id", id)
+//								.getSingleResult();
+//	} catch(NoResultException e) {
+//		;  // 表示查無紀錄
+//	}
+	
+  
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RoomType> queryAllRoomType() {
+		Session session = factory.getCurrentSession();
+		String hql  = "FROM RoomType";
+		List<RoomType> list = new ArrayList<>();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
 
-
-
-    
+	
+	@Override
+	public void updateRoomType(RoomType rBean) {
+		Session session = factory.getCurrentSession();
+		RoomType room = session.get(RoomType.class, rBean.getRoom_typeid());
+		if(rBean.getRoom_type()!=null) {
+			room.setRoom_type(rBean.getRoom_type());
+		}
+		if(rBean.getRoom_price()!=0) {
+			room.setRoom_price(rBean.getRoom_price());
+		}
+		if(rBean.getRoom_stock()!=null) {
+			room.setRoom_stock(rBean.getRoom_stock());
+		}
+		if(rBean.getRoom_image()!=null) {
+			room.setRoom_image(rBean.getRoom_image());
+		}
+		session.update(room);
+		
+	}
+	
+	
+	@Override
+	public void deleteRoomType(int room_typeid) {
+		Session session = factory.getCurrentSession();
+		RoomType suite = new RoomType();
+		suite.setRoom_typeid(room_typeid);
+		session.delete(suite);
+	}
     
 }

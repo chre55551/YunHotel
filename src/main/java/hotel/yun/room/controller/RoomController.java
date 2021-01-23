@@ -92,7 +92,7 @@ public class RoomController {
 	//新增房型
 	@PostMapping("/InsertRoom")
 	public String InsertRoom(@ModelAttribute("roo") RoomType rm, Model model,HttpServletRequest request,BindingResult result) {
-		service.save(rm);
+		service.saveRoomType(rm);
 		return "room/InsertRoom";
 	}
 	

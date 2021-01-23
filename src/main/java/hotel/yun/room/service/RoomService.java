@@ -12,5 +12,10 @@ public interface RoomService {
 	    public List<Room> queryAll();
 	    public void update(Room rBean); 
 	    public void delete(int room_id);
-		public void save(RoomType rBean);
+	    
+		public void saveRoomType(RoomType rBean);
+		public RoomType queryRoomType_id(int id);
+		public List<RoomType> queryAllRoomType();
+		public void updateRoomType(RoomType rBean);
+		public void deleteRoomType(int room_typeid);
 }
