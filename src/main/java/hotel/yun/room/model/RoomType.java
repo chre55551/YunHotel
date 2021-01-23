@@ -26,8 +26,9 @@ public class RoomType implements Serializable{
 	private int room_typeid;  //房間類別編號
 	private String room_type; //房型
 	private double room_price;//房價
-	private String room_stock;//庫存
+	private int room_stock;//庫存
 	private Blob room_image;  //房間圖片
+	private String room_image_name;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roomType", cascade = CascadeType.ALL)
 	private Set<Room> room = new HashSet<>();
 	
@@ -38,7 +39,27 @@ public class RoomType implements Serializable{
 	
 	
 	
-	public RoomType(int room_typeid, String room_type,double room_price,String room_stock,Blob room_image, Set<Room> room) {
+	public RoomType(String room_type, double room_price, int room_stock, Blob room_image) {
+		super();
+		this.room_type = room_type;
+		this.room_price = room_price;
+		this.room_stock = room_stock;
+		this.room_image = room_image;
+	}
+
+	
+
+	public RoomType(String room_type, double room_price, int room_stock, Blob room_image, String room_image_name) {
+		this.room_type = room_type;
+		this.room_price = room_price;
+		this.room_stock = room_stock;
+		this.room_image = room_image;
+		this.room_image_name = room_image_name;
+	}
+
+
+
+	public RoomType(int room_typeid, String room_type,double room_price,int room_stock,Blob room_image, Set<Room> room) {
 		this.room_typeid = room_typeid;
 		this.room_type = room_type;
 		this.room_price = room_price;
@@ -76,11 +97,11 @@ public class RoomType implements Serializable{
 		this.room_price = room_price;
 	}
 
-	public String getRoom_stock() {
+	public int getRoom_stock() {
 		return room_stock;
 	}
 
-	public void setRoom_stock(String room_stock) {
+	public void setRoom_stock(int room_stock) {
 		this.room_stock = room_stock;
 	}
 
@@ -102,6 +123,18 @@ public class RoomType implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+
+	public String getRoom_image_name() {
+		return room_image_name;
+	}
+
+
+
+	public void setRoom_image_name(String room_image_name) {
+		this.room_image_name = room_image_name;
 	}
 
 

@@ -1,9 +1,12 @@
 package hotel.yun.room.controller;
 
+import java.io.IOException;
+import java.sql.Blob;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
@@ -57,7 +62,7 @@ public class RoomController {
     //查詢所有房型
 	@GetMapping("/QueryAllRooms")
 	public String QueryAllRooms(Model model) {
-		List<Room> rm = service.queryAll();
+		List<RoomType> rm = service.queryAllRoomType();
 		model.addAttribute("rom", rm);
 		return "room/QueryAllRooms";
 	}
@@ -73,9 +78,9 @@ public class RoomController {
 	
 	//查詢單筆房型
 	@GetMapping("/queryRoom")
-	public String QueryRoom(@ModelAttribute("rom") Room rm,Model model) {
-		Room room = service.queryRoom_id(rm.getRoom_id());
-		model.addAttribute("rom", room);
+	public String QueryRoom(@ModelAttribute("rom") RoomType rm,Model model) {
+		RoomType roomtype = service.queryRoomType_id(rm.getRoom_typeid());
+		model.addAttribute("rom", roomtype);
 		return "room/ShowRoom";
 	}
 	
@@ -83,18 +88,85 @@ public class RoomController {
     //送出空白表單
 	@GetMapping("/ShowBlankRoomform")
 	public String ShowBlankRoomform( Model model) {
-		Room rm = new Room();
-		model.addAttribute("rom", rm);
+		RoomType rmt = new RoomType();
+		model.addAttribute("rom", rmt);
 		return "room/ShowBlankRoomform";
 		}
 	
 	
 	//新增房型
 	@PostMapping("/InsertRoom")
-	public String InsertRoom(@ModelAttribute("roo") RoomType rm, Model model,HttpServletRequest request,BindingResult result) {
-		service.saveRoomType(rm);
-		return "room/InsertRoom";
+	public String InsertRoom(
+			@RequestParam String room_type,
+			@RequestParam double room_price,
+			@RequestParam int room_stock,
+			@RequestParam(value="room_image",required=false) MultipartFile room_image,
+			 Model model,HttpServletRequest request) throws IOException {
+			System.out.println(room_type);
+			System.out.println(room_price);
+			System.out.println(room_stock);
+			System.out.println(room_image);
+			
+		byte[] img = room_image.getBytes();
+		String img_name = room_image.getOriginalFilename();
+		try {
+			Blob ri = new SerialBlob(img);
+			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
+			service.saveRoomType(rt);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "room/QueryAllRooms";
 	}
+	
+//	@PostMapping(value="/CompanyRegister")
+//	 public String companyRegister(
+//	   @RequestParam String companyName,
+//	   @RequestParam String uniformNumbers,
+//	   @RequestParam Integer categories,
+//	   @RequestParam String account,
+//	   @RequestParam String password,
+//	   @RequestParam String phone,
+//	   @RequestParam String email,
+//	   @RequestParam(value="brand",required=false)MultipartFile logo,
+//	   @RequestParam(value="busR",required=false)MultipartFile busRC,
+//	//   HttpServletResponse response
+//	   SessionStatus sessionStatus
+//	   ) throws IOException {
+//	  
+//	  /////////////////存圖片轉成Byte陣列////////////////////
+//
+//	  //用getBytes方法把上傳的MultipartFile logo 轉成 byte[]
+//	  byte[] logoB = logo.getBytes();
+//	  byte[] busRCB = busRC.getBytes();
+//
+//	    try {
+//	     //再把Byte[]轉成Blob物件
+//	     Blob logoblob = new javax.sql.rowset.serial.SerialBlob(logoB);
+//	     Blob busRCblob = new javax.sql.rowset.serial.SerialBlob(busRCB);
+//	     //取得logo 的Filename
+//	     String logoName = logo.getOriginalFilename();
+//	     String busRCName = busRC.getOriginalFilename();
+//	     //得到的參數塞到建構子                  Blob物件  Filename
+//	     Company cmp = new Company(companyName,logoblob,logoName,uniformNumbers,categories,account,password,email,phone,busRCblob,busRCName);
+//	     //呼叫Service新增到資料庫
+//	     cmpService.addCompany(cmp);
+//	    
+//	    } catch (SerialException e) {
+//	     // TODO Auto-generated catch block
+//	     e.printStackTrace();
+//	    } catch (SQLException e) {
+//	     // TODO Auto-generated catch block
+//	     e.printStackTrace();
+//	    }
+//	    
+//	  /////////////////存圖片轉成Byte陣列////////////////////
+//	  //密碼洩漏問題
+//	  sessionStatus.setComplete();
+//	  return "redirect:/index";
+//	  
+//	  
+//	 }
 	
 	
 }

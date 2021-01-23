@@ -144,7 +144,7 @@ public class RoomDaoImpl implements RoomDao{
 		if(rBean.getRoom_price()!=0) {
 			roomtype.setRoom_price(rBean.getRoom_price());
 		}
-		if(rBean.getRoom_stock()!=null) {
+		if(rBean.getRoom_stock()!=0) {
 			roomtype.setRoom_stock(rBean.getRoom_stock());
 		}
 		if(rBean.getRoom_image()!=null) {

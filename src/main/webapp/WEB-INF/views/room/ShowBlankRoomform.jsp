@@ -15,12 +15,8 @@
 
     <div id="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-
-       
-         
-           
-          		<h3>新增房間</h3>
-		<form:form action="/room/InsertRoom" method="POST" id="container" modelAttribute="roo" >
+          	<h3>新增房間</h3>
+		<form action="/YunHotel/room/InsertRoom" method="POST" id="container" enctype="multipart/form-data" >
 			<div>
 				<label>房型名稱</label> <input name="room_type" id="requestRoomType" />
 			</div>
@@ -32,7 +28,7 @@
 			</div>
 			<div>
 				<label>房型圖片</label> 
-				 <input type="file"name="room_image" id="requestRoomImage" onchange="fileShow();" accept="image/*">
+				 <input type="file" name="room_image" id="requestRoomImage" onchange="">
 			</div>
 			
 	
@@ -43,7 +39,7 @@
             
             
             	</div>
-		</form:form>
+	</form>
             
             
 
