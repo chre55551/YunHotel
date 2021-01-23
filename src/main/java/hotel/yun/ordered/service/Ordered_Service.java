@@ -13,5 +13,6 @@ public interface Ordered_Service {
 	public List<Ordered> queryCustomerToOrdered(int customer_id);//可以從顧客ID去取顧客的所有訂單資料
 	public List<Ordered> queryDateToOrdered(Date ordered_date);//可查詢該日期的所有訂單
 	public Ordered update(Ordered oBean);//依照訂單編號即可修改整張訂單
+	public void updateCustomerOd(Ordered odBean);//依顧客尋找的詳細訂單，來做更新
 	public void delete(int ordered_number);//依照訂單編號來刪除整筆資料
 }

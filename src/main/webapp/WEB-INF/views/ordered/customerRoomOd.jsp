@@ -27,8 +27,8 @@
 		<p>生日: ${odd.customer.birthday}</p>
 		<p>地址: ${odd.customer.address}</p>
 		<p>房號: ${odd.orderedToRoom.room_number}</p>
-		<p>訂房日期: ${odd.orderedToRoom.room_ordered_time}</p>
-		<a href="<c:url value='insertRoomOd'/> ">回新增</a>
+		<p>訂房日期: ${odd.orderedToRoom.room_ordered_time}</p><br>
+		<input type="button" value="回新增" onclick="location.href='insertMealsOd'" >
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>

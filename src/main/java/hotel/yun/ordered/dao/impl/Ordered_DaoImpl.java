@@ -105,6 +105,40 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		        .executeUpdate();
 		return odBean;
 	}
+	//依顧客尋找的詳細訂單，來做更新
+	@Override
+	public void updateCustomerOd(Ordered odBean) {
+		Session session = factory.getCurrentSession();
+		Ordered customerOd = session.get(Ordered.class, odBean.getOrdered_number());
+		if(odBean.getCustomer().getChinese_name()!=null) {
+			customerOd.getCustomer().setChinese_name(odBean.getCustomer().getChinese_name());
+		}
+		if(odBean.getCustomer().getMobile_phone()!=null) {
+			customerOd.getCustomer().setMobile_phone(odBean.getCustomer().getMobile_phone());
+		}
+		if(odBean.getOrderedToMeals().getTable_number()!= 0) {
+			customerOd.getOrderedToMeals().setTable_number(odBean.getOrderedToMeals().getTable_number());
+		}
+		if(odBean.getOrderedToRoom().getRoom_number()!=0) {
+			customerOd.getOrderedToRoom().setRoom_number(odBean.getOrderedToRoom().getRoom_number());
+		}
+		if(odBean.getOrderedStatus().getOrdered_status()!=null) {
+			customerOd.getOrderedStatus().setOrdered_status(odBean.getOrderedStatus().getOrdered_status());
+		}
+		if(odBean.getOrderedPayment().getPayment_status()!=null) {
+			customerOd.getOrderedPayment().setPayment_status(odBean.getOrderedPayment().getPayment_status());
+		}
+		if(odBean.getOrdered_accounts()!=0) {
+			customerOd.setOrdered_accounts(odBean.getOrdered_accounts());
+		}
+		if(odBean.getOrdered_last_update()!=null) {
+			customerOd.setOrdered_last_update(odBean.getOrdered_last_update());
+		}
+		if(odBean.getNote()!=null){
+			customerOd.setNote(odBean.getNote());
+		}
+		session.update(customerOd);
+	}
 	 
 	//依照訂單編號來刪除整筆資料
 	@Override
@@ -122,6 +156,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		return ods;
 		
 	}
+
 
 
 }

@@ -256,23 +256,41 @@ public class Ordered_Controller {
 //	model.addAttribute("updateOdered", afterOrdered);
 //		return "/ordered/thisOrdered";//依訂單到查詢到的訂單，再做修改
 //	}
-	@PostMapping("/update")
-	public String update(@PathVariable(value = "ordered_number") int ordered_number,Model model) {
+	//從查詢取值後，送出這個空白表單
+	@GetMapping("/update/{id}")
+	public String update(
+			@PathVariable(value="id") int ordered_number,
+//			@RequestParam(value = "chinese_name") String chinese_name,
+//			@RequestParam(value = "mobile_phone") String mobile_phone,
+//			@RequestParam(value = "table_number") int table_number,
+//			@RequestParam(value = "room_number") int room_number,
+//			@RequestParam(value = "ordered_status") String ordered_status,
+//			@RequestParam(value = "payment_status") String payment_status,
+//			@RequestParam(value = "ordered_accounts") int ordered_accounts,
+//			@RequestParam(value = "ordered_date") String note,
+			Model model) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
-		ThisOrdered.setOrdered_number(ThisOrdered.getOrdered_number());
-		ThisOrdered.setCustomer(ThisOrdered.getCustomer());
-		ThisOrdered.setOrderedToMeals(ThisOrdered.getOrderedToMeals());
-		ThisOrdered.setOrderedToRoom(ThisOrdered.getOrderedToRoom());
-		ThisOrdered.setOrderedStatus(ThisOrdered.getOrderedStatus());
-		ThisOrdered.setOrderedPayment(ThisOrdered.getOrderedPayment());
-		ThisOrdered.setOrdered_accounts(ThisOrdered.getOrdered_accounts());
-		ThisOrdered.setOrdered_date(ThisOrdered.getOrdered_date());
-		ThisOrdered.setNote(ThisOrdered.getNote());
-	Ordered afterOrdered = service.update(ThisOrdered);
-	model.addAttribute("updateOdered", afterOrdered);
-		return "/ordered/thisOrdered";//依訂單到查詢到的訂單，再做修改
+			model.addAttribute("updateOdered", ThisOrdered);
+		return "ordered/updateOrdered";//依訂單到查詢到的訂單，送出可修改的空白表單，再做修改
 	}
-	
+	//發送修改的請求
+	@PostMapping("/thisOrdered/{ordered_number}")
+	public String updateCustomerOd(
+			@PathVariable(value = "ordered_number") int ordered_number,
+			@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "mobile_phone") String mobile_phone,
+			@RequestParam(value = "table_number") int table_number,
+			@RequestParam(value = "room_number") int room_number,
+			@RequestParam(value = "ordered_status") String ordered_status,
+			@RequestParam(value = "payment_status") String payment_status,
+			@RequestParam(value = "ordered_accounts") int ordered_accounts,
+			@RequestParam(value = "ordered_date") String note,
+			Model model) 
+			{
+		Ordered ordered = new Ordered();
+		service.updateCustomerOd(ordered);
+		return "ordered/thisOrdered";
+	}
 	
 //---------------------------------------------------------
 	//刪除

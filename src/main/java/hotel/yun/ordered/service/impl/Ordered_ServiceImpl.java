@@ -60,7 +60,13 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
+	public void updateCustomerOd(Ordered odBean) {
+		oDao.updateCustomerOd(odBean);
+	}
+	
+	@Override
 	public void delete(int ordered_number) {
 		oDao.delete(ordered_number);
 	}
+
 }
