@@ -109,8 +109,9 @@ public class BmemberController {
 	}
 
 	@PostMapping("/GetaBmember")
-	public String GetaNew(@ModelAttribute("qbm") BmemberBean bm, Model model) {
-		BmemberBean bb = service.queryMemberID(bm.getBs_id());
+	public String GetaNew(@RequestParam("bs_account") int bs_account, Model model) {
+		BmemberBean bb = service.queryMemberID(bs_account);
+		System.out.println(bb.getBs_id());
 		model.addAttribute("qbm", bb);
 		return "/bmember/GetaBmember";
 	}

@@ -20,7 +20,7 @@
 		<h3>查詢後台會員</h3>
 		<form action="/YunHotel/bmember/GetaBmember" method="POST" id="container">
 			<div>
-				<label>後台會員ID</label> <input name="bs_account" />
+				<label>後台會員ID</label> <input name="bs_account" id="bs_account" />
 			</div>
 			
 			<div>
@@ -29,7 +29,7 @@
 			</div>
 		</form>
 	</div>
-	
+
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
 
