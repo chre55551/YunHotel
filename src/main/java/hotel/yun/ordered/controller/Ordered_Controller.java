@@ -377,9 +377,9 @@ public class Ordered_Controller {
 //---------------------------------------------------------
 	//刪除
 	// 從訂單編號刪除一筆訂單
-	@PostMapping("/DeleteOrdred/{ordered_number}")
+	@GetMapping("/DeleteOrdred/{ordered_number}")
 	public String delete(@PathVariable("ordered_number") int ordered_number) {
 		service.delete(ordered_number);
-		return "redirect:/thisOrderedAll";
+		return "ordered/deleteFinish";
 	}
 }

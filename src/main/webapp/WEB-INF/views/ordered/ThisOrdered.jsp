@@ -30,8 +30,9 @@
 			<p>訂單總價: ${ordered.ordered_accounts}</p>
 			<p>訂單成立時間: ${ordered.ordered_date}</p>
 			<p>備註: ${ordered.note}</p>
-			<br> <input type="button" value="修改" id="xxx"> <input
-				type="button" value="回查詢"
+			<br> <input type="button" value="修改" id="uuu"> 
+				<input type="button" value="刪除" id ="xxx">
+			<input type="button" value="回查詢"
 				onclick="location.href='../customerToOrdered'">
 			<%-- 			<a href="<c:url value='../customerToOrdered'/> ">回查詢</a> --%>
 
@@ -40,8 +41,12 @@
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 	<script type="text/javascript">
-		$('#xxx').click(function() {
+		$('#uuu').click(function() {
 			location.href = '../update/' + ${ordered.ordered_number}
+		})
+		
+		$('#xxx').click(function() {
+			location.href = '../DeleteOrdred/' + ${ordered.ordered_number}
 		})
 	</script>
 </body>
