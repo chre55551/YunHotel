@@ -13,4 +13,6 @@ public interface DateDao {
 
 	public Mdate queryByDatePeriod(Date d, String tp);
 
+	public Rdate queryByRoomDate(Date rrd);
+
 }

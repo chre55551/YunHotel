@@ -182,7 +182,6 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		Session session = factory.getCurrentSession();
 		OrderedStatus ods = session.get(OrderedStatus.class, i);
 		return ods;
-		
 	}
 
 

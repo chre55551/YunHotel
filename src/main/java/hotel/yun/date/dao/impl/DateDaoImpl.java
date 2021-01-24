@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import hotel.yun.date.dao.DateDao;
 import hotel.yun.date.model.Mdate;
 import hotel.yun.date.model.Rdate;
-import hotel.yun.ordered.model.Ordered;
 
 @Repository
 public class DateDaoImpl implements Serializable, DateDao {
@@ -57,5 +56,12 @@ public class DateDaoImpl implements Serializable, DateDao {
 		return md;	
 	}
 	
+	@Override
+	public Rdate queryByRoomDate(Date rod) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM rdate rd WHERE rd.room_date = :rrd";
+		Rdate md = (Rdate)session.createQuery(hql).setParameter("rrd", rod).getSingleResult();
+		return md;	
+	}
 	
 }

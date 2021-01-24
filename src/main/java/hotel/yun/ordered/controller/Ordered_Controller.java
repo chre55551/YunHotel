@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
 import hotel.yun.date.model.Mdate;
+import hotel.yun.date.model.Rdate;
 import hotel.yun.date.service.Date_Service;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
@@ -148,7 +149,7 @@ public class Ordered_Controller {
 			@RequestParam(value="birthday") Date birthday,
 			@RequestParam(value="address") String address,
 			@RequestParam(value="room_number") int room_number,
-			@RequestParam(value="room_ordered_time") Date room_ordered_time,
+			@RequestParam(value="room_date") Date room_date,
 			Model model) {
 		Ordered od = new Ordered();
 		Customer customer = new Customer(chinese_name,idcard_number,birthday,address,mobile_phone);
@@ -162,14 +163,25 @@ public class Ordered_Controller {
 			od.setCustomer(customer);	
 			e.printStackTrace();
 		}
-		OrderedToRoom otr = new OrderedToRoom(room_ordered_time,room_number);
+		OrderedToRoom otr = new OrderedToRoom();
+		otr.setRoom_number(room_number);
 		od.setOrderedToRoom(otr);
+		try {
+			Rdate rd = dser.queryByRoomDate(room_date);
+			otr.setRdate(rd);
+		}catch(Exception e) {
+			Rdate rd = new Rdate();
+			rd.setRoom_date(room_date);
+			e.printStackTrace();
+			otr.setRdate(rd);
+		}
+		od.setOrderedToRoom(otr);
+		
 		OrderedStatus os = new OrderedStatus();
 		os.setStatus_id(1);
 		od.setOrderedStatus(os);
+		
 		Ordered odd = service.insert(od);
-		System.out.println("puipui");
-		System.out.println(birthday);
 		model.addAttribute("odd", odd);
 //		return null;
 		return "ordered/customerRoomOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)

@@ -110,5 +110,22 @@ public class OrderedToRoom implements Serializable{
 	public void setRoom_number(int room_number) {
 		this.room_number = room_number;
 	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public Rdate getRdate() {
+		return rdate;
+	}
+
+	public void setRdate(Rdate rdate) {
+		this.rdate = rdate;
+	}
+	
 	
 }
