@@ -29,7 +29,7 @@
 				<label>手機</label> <input name="mobile_phone" id="requestMp" />
 			</div>
 			<div>
-				<label>人數</label> <input name="number_of_meals" id="requestMp" />
+				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" />
 			</div>
 			<div>
 				<label>用餐日期</label> <input name="meals_ordered_time" id="requestMp"

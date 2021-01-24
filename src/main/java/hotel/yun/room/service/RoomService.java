@@ -18,4 +18,5 @@ public interface RoomService {
 		public List<RoomType> queryAllRoomType();
 		public void updateRoomType(RoomType rBean);
 		public void deleteRoomType(int room_typeid);
+		public Room queryByRoomNum(String s);
 }

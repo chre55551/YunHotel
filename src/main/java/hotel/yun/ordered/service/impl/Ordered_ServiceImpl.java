@@ -25,7 +25,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
-	public Ordered insert(Ordered oBean) {	
+	public Ordered insert(Ordered oBean)  throws Exception{	
 		OrderedStatus ods  = oDao.query(1);
 		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		oBean.setOrdered_date(c);

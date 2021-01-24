@@ -30,6 +30,8 @@ import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.model.OrderedToMeals;
 import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
+import hotel.yun.room.model.Room;
+import hotel.yun.room.service.RoomService;
 
 @Controller
 @RequestMapping("/ordered")
@@ -44,7 +46,9 @@ public class Ordered_Controller {
 	@Autowired
 	Ordered_Service service;
 	
-
+	@Autowired
+	RoomService rser;
+	
 	@Autowired
 	CustomerService cser;
 	
@@ -84,7 +88,7 @@ public class Ordered_Controller {
 	public String insertMealsOrdered(
 			@RequestParam(value="chinese_name") String chinese_name,
 			@RequestParam(value="mobile_phone") String mobile_phone,
-			@RequestParam(value="number_of_meals") int number_of_meals,
+			@RequestParam(value="mealsnum_of_people") int mealsnum_of_people,
 			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
 			@RequestParam(value="time_period") String time_period,
 			Model model) {
@@ -100,7 +104,7 @@ public class Ordered_Controller {
 			e.printStackTrace();
 		}
 		OrderedToMeals otm = new OrderedToMeals();
-		otm.setNumber_of_meals(number_of_meals);// 這是人數
+		otm.setmealsnum_of_people(mealsnum_of_people);// 這是人數
 		try {// 根據時間跟時段撈出 mdate 並把它放進 otm 裡
 			Mdate md = dser.queryByDatePeriod(meals_ordered_time, time_period);
 			otm.setMdate(md);
@@ -111,21 +115,25 @@ public class Ordered_Controller {
 			e.printStackTrace();
 			otm.setMdate(md);
 		}
-		if(number_of_meals<2) {
+		if(mealsnum_of_people<2) {
 			 Integer k = otm.getMdate().getTable_two_order();
 			 otm.getMdate().setTable_two_order(k++);
-		}else if(number_of_meals<4) {
+		}else if(mealsnum_of_people<4) {
 			Integer k = otm.getMdate().getTable_four_order();
 			otm.getMdate().setTable_four_order(k++);
-		}else if(number_of_meals<6) {
+		}else if(mealsnum_of_people<6) {
 			Integer k = otm.getMdate().getTable_six_order();
 			otm.getMdate().setTable_six_order(k++);
 		}
 		od.setOrderedToMeals(otm);
 		
-		Ordered odd = service.insert(od);
-		System.out.println("puipui");
-		model.addAttribute("odd", odd);
+		Ordered odd;
+		try {
+			odd = service.insert(od);
+			model.addAttribute("odd", odd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 //		return null;
 		return "ordered/customerMealsOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
@@ -148,7 +156,7 @@ public class Ordered_Controller {
 			@RequestParam(value="mobile_phone") String mobile_phone,
 			@RequestParam(value="birthday") Date birthday,
 			@RequestParam(value="address") String address,
-			@RequestParam(value="room_number") int room_number,
+			@RequestParam(value="room_number") String room_name,
 			@RequestParam(value="room_date") Date room_date,
 			Model model) {
 		Ordered od = new Ordered();
@@ -164,7 +172,14 @@ public class Ordered_Controller {
 			e.printStackTrace();
 		}
 		OrderedToRoom otr = new OrderedToRoom();
-		otr.setRoom_number(room_number);
+		try {
+			Room r = rser.queryByRoomNum(room_name);
+			otr.setRoom(r);
+		}catch(Exception e) {
+			Room r = new Room();
+			r.setRoom_name(room_name);
+			otr.setRoom(r);
+		}
 		od.setOrderedToRoom(otr);
 		try {
 			Rdate rd = dser.queryByRoomDate(room_date);
@@ -181,8 +196,13 @@ public class Ordered_Controller {
 		os.setStatus_id(1);
 		od.setOrderedStatus(os);
 		
-		Ordered odd = service.insert(od);
-		model.addAttribute("odd", odd);
+		Ordered odd;
+		try {
+			odd = service.insert(od);
+			model.addAttribute("odd", odd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 //		return null;
 		return "ordered/customerRoomOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}

@@ -20,7 +20,7 @@
 		<h3>${customer.chinese_name}，請輸入您的訂位資訊</h3>
 		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" id="container">
 			<div>
-				<label>人數</label> <input name="number_of_meals" id="requestMp" />
+				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" />
 			</div>
 			<div>
 				<label>用餐日期</label> <input name="meals_ordered_time" id="requestMp"

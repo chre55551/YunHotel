@@ -75,7 +75,10 @@ public class RoomServiceImpl implements RoomService {
 		RDao.delete(room_typeid);
 	}
 
-	
+	@Override
+	public Room queryByRoomNum(String s) {
+		return RDao.queryByRoomNum(s);
+	}
 	
 
 }

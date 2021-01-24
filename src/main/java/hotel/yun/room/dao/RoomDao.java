@@ -26,6 +26,8 @@ public interface RoomDao {
 //	public Room update(Room rBean );
 //	public boolean delete(int room_id);
 	
+	public Room queryByRoomNum(String num);
+	
 
 	
 }

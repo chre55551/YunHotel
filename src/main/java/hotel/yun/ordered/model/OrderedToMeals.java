@@ -29,7 +29,7 @@ public class OrderedToMeals implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_tomeals_id;// 餐點訂單編號
 	private int meals_accounts;// 餐點總價
-	private int number_of_meals;// 用餐人數
+	private int mealsnum_of_people;// 用餐人數
 	private Date meals_ordered_time;// 餐點訂單時間
 	private int table_number;// 桌號
 	@Transient
@@ -49,17 +49,17 @@ public class OrderedToMeals implements Serializable {
 
 	}
 
-	public OrderedToMeals(int number_of_meals, Date meals_ordered_time) {
+	public OrderedToMeals(int mealsnum_of_people, Date meals_ordered_time) {
 		super();
-		this.number_of_meals = number_of_meals;
+		this.mealsnum_of_people = mealsnum_of_people;
 		this.meals_ordered_time = meals_ordered_time;
 	}
 
-	public OrderedToMeals(int ordered_tomeals_id, int meals_accounts, int number_of_meals, Date meals_ordered_time,
+	public OrderedToMeals(int ordered_tomeals_id, int meals_accounts, int mealsnum_of_people, Date meals_ordered_time,
 			int table_number) {
 		this.ordered_tomeals_id = ordered_tomeals_id;
 		this.meals_accounts = meals_accounts;
-		this.number_of_meals = number_of_meals;
+		this.mealsnum_of_people = mealsnum_of_people;
 		this.meals_ordered_time = meals_ordered_time;
 		this.table_number = table_number;
 	}
@@ -84,12 +84,12 @@ public class OrderedToMeals implements Serializable {
 		this.meals_accounts = meals_accounts;
 	}
 
-	public int getNumber_of_meals() {
-		return number_of_meals;
+	public int getmealsnum_of_people() {
+		return mealsnum_of_people;
 	}
 
-	public void setNumber_of_meals(int number_of_meals) {
-		this.number_of_meals = number_of_meals;
+	public void setmealsnum_of_people(int mealsnum_of_people) {
+		this.mealsnum_of_people = mealsnum_of_people;
 	}
 
 	public Date getMeals_ordered_time() {

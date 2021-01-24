@@ -2,17 +2,12 @@ package hotel.yun.customer.model;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,11 +22,11 @@ public class Member {
 	private String home_phone;
 	private String job;
 	private String email;
-	private Timestamp registerTime;
+	private Timestamp register_Time;
 	private Date updated_date;
 
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
-			String email, Timestamp register_date, Date updated_date) {
+			String email, Timestamp register_Time, Date updated_date) {
 		super();
 		this.member_id = member_id;
 		this.account = account;
@@ -40,7 +35,7 @@ public class Member {
 		this.home_phone = home_phone;
 		this.job = job;
 		this.email = email;
-		this.registerTime = register_date;
+		this.register_Time = register_Time;
 		this.updated_date = updated_date;
 	}
 	
@@ -86,11 +81,11 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Timestamp getRegister_date() {
-		return registerTime;
+	public Timestamp getregister_Time() {
+		return register_Time;
 	}
-	public void setRegisterTime(Timestamp registerTime) {
-		this.registerTime = registerTime;
+	public void setregister_Time(Timestamp registerTime) {
+		this.register_Time = registerTime;
 	}
 	
 	public Date getUpdated_date() {

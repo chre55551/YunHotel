@@ -38,7 +38,7 @@
 				<label>房號</label> <input name="room_number" />
 			</div>
 			<div>
-				<label>訂房日期</label> <input name="room_ordered_time" type="date" />
+				<label>欲訂日期</label> <input name="room_date" type="date" />
 			</div>
 			<div>
 				<input value="新增" type="submit"> 

@@ -27,8 +27,7 @@ public class OrderedToRoom implements Serializable{
 	private int ordered_toroom_id;
 	
 	private int room_accounts;
-	@Column(name="roomnum_of_people")
-	private int number_of_room;
+	private int roomnum_of_people;
 	private Date room_ordered_time;
 	private int room_number;
 	@Transient
@@ -48,12 +47,12 @@ public class OrderedToRoom implements Serializable{
 		
 	}
 	
-	public OrderedToRoom(int ordered_toroom_id, int room_id, int room_accounts, int number_of_room,
+	public OrderedToRoom(int ordered_toroom_id, int room_id, int room_accounts, int roomnum_of_people,
 			Date room_ordered_time, int room_number) {
 		this.ordered_toroom_id = ordered_toroom_id;
 		this.room_id = room_id;
 		this.room_accounts = room_accounts;
-		this.number_of_room = number_of_room;
+		this.roomnum_of_people = roomnum_of_people;
 		this.room_ordered_time = room_ordered_time;
 		this.room_number = room_number;
 	}
@@ -87,12 +86,12 @@ public class OrderedToRoom implements Serializable{
 		this.room_accounts = room_accounts;
 	}
 
-	public int getNumber_of_room() {
-		return number_of_room;
+	public int getroomnum_of_people() {
+		return roomnum_of_people;
 	}
 
-	public void setNumber_of_room(int number_of_room) {
-		this.number_of_room = number_of_room;
+	public void setroomnum_of_people(int roomnum_of_people) {
+		this.roomnum_of_people = roomnum_of_people;
 	}
 
 	public Date getRoom_ordered_time() {

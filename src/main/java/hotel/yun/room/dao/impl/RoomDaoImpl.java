@@ -39,9 +39,9 @@ public class RoomDaoImpl implements RoomDao{
     
     @Override
 	public Room queryRoom_id(int room_id) {
-//	Room bean = null;
 	Session session = factory.getCurrentSession();
 	Room room = session.get(Room.class, room_id);
+//	Room bean = null;
 //	String hql  = "FROM Room r WHERE r.room_id = :id";
 //	try {
 //		bean = (Room)session.createQuery(hql)
@@ -50,10 +50,16 @@ public class RoomDaoImpl implements RoomDao{
 //	} catch(NoResultException e) {
 //		;  // 表示查無紀錄
 //	}
-	
 	return room;
-	
 }
+    
+	@Override
+    public Room queryByRoomNum(String num) {
+    	Session session = factory.getCurrentSession();
+    	String hql  = "FROM Room r WHERE r.room_name = :name";
+    	Room r = (Room)session.createQuery(hql).setParameter("name", num).getSingleResult();
+    	return r;
+    }
     
 	@SuppressWarnings("unchecked")
 	@Override
