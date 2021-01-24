@@ -57,13 +57,13 @@ public class BmemberController {
 		String kk = (String)session.getAttribute("LoginOK");
 		String a = (String)session.getAttribute("Authority");//如果該功能有權限要求 可以用這個去判別
 		
-//		if(kk!=null) {
+		if(kk!=null) {
 		BmemberBean bm = new BmemberBean();
 		model.addAttribute("bb", bm);
 		return "bmember/InsertBmemberBM";
-//		}else {
-//			return "login/PleaseLoginInBS";
-//		}
+		}else {
+			return "login/PleaseLoginInBS";
+		}
 	}
 
 	@PostMapping("/insertbmemberbb")
