@@ -23,10 +23,10 @@
                 <a href="QueryAllRooms" class="diamondtxt">所有房型</a>
             </li>
             <li id="diamond">
-                <a href="ShowBlankRoomform" class="diamondtxt">新增房型</a>
+                <a href="ShowBlankInsertForm" class="diamondtxt">新增房型</a>
             </li>
             <li id="diamond">
-                <a href="" class="diamondtxt">查詢房型</a>
+                <a href="ShowBlankQueryForm" class="diamondtxt">查詢房型</a>
             </li>
             <li id="diamond">
                 <a href="" class="diamondtxt">修改房型</a>

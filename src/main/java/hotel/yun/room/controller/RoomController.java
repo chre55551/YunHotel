@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,23 +72,28 @@ public class RoomController {
 //		model.addAttribute("Rooms", RoomService.queryAll());
 //		return "room/QueryAllRooms";
 //	}
+	@GetMapping("/ShowBlankQueryForm")
+	public String ShowBlankQueryForm(Model model,HttpSession session) {
+		return "room/ShowBlankQueryForm";
+	}	
+	
 	
 	
 	//查詢單筆房型
-	@GetMapping("/queryRoom")
-	public String QueryRoom(@ModelAttribute("rom") RoomType rm,Model model) {
+	@PostMapping("/ShowQueryRoom")
+	public String ShowQueryRoom(@ModelAttribute("rom") RoomType rm,Model model) {
 		RoomType roomtype = service.queryRoomType_id(rm.getRoom_typeid());
 		model.addAttribute("rom", roomtype);
-		return "room/ShowRoom";
+		return "room/ShowQueryRoom";
 	}
 	
 	
     //送出空白表單
-	@GetMapping("/ShowBlankRoomform")
-	public String ShowBlankRoomform( Model model) {
+	@GetMapping("/ShowBlankInsertForm")
+	public String ShowBlankInsertForm( Model model) {
 		RoomType rmt = new RoomType();
 		model.addAttribute("rom", rmt);
-		return "room/ShowBlankRoomform";
+		return "room/ShowBlankInsertForm";
 		}
 	
 	
