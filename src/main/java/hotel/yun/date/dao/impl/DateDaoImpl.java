@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import hotel.yun.date.dao.DateDao;
-import hotel.yun.date.model.RDate;
+import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.model.Ordered;
 
 @Repository
@@ -18,24 +18,24 @@ public class DateDaoImpl implements Serializable, DateDao {
 	@Autowired
 	SessionFactory factory;
 	@Override
-	public RDate insert(RDate r) {
+	public Rdate insert(Rdate r) {
 		Session session = factory.getCurrentSession();
 		session.save(r);
 		return r;
 	}
 	
 	@Override
-	public RDate queryByRDNum(int date_id) {
-		RDate rd = null;
+	public Rdate queryByRDNum(int date_id) {
+		Rdate rd = null;
 		Session session = factory.getCurrentSession();
-		rd = session.get(RDate.class, date_id);
+		rd = session.get(Rdate.class, date_id);
 		return rd;
 	}
 //	@Override
-	public RDate update(RDate r) {
-		RDate rd = null;
+	public Rdate update(Rdate r) {
+		Rdate rd = null;
 		Session session = factory.getCurrentSession();
-		rd = session.get(RDate.class, r.getDate_id());
+		rd = session.get(Rdate.class, r.getDate_id());
 		if(r.getRoom_date()!=null) {
 		rd.setRoom_date(r.getRoom_date());
 		}

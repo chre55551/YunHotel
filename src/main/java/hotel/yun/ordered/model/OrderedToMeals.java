@@ -16,8 +16,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import hotel.yun.date.model.MDate;
+import hotel.yun.date.model.Mdate;
 import hotel.yun.meals.model.Meals;
 
 @Entity
@@ -31,11 +32,12 @@ public class OrderedToMeals implements Serializable {
 	private int number_of_meals;// 用餐人數
 	private Date meals_ordered_time;// 餐點訂單時間
 	private int table_number;// 桌號
+	@Transient
 	private int mdate_id;// 對到用餐時間
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "mdate_id")
-	private MDate mdate;
+	private Mdate mdate;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "orderedToMeals_meals", joinColumns = {
@@ -114,11 +116,11 @@ public class OrderedToMeals implements Serializable {
 		this.mdate_id = mdate_id;
 	}
 
-	public MDate getMdate() {
+	public Mdate getMdate() {
 		return mdate;
 	}
 
-	public void setMdate(MDate mdate) {
+	public void setMdate(Mdate mdate) {
 		this.mdate = mdate;
 	}
 

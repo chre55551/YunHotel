@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import hotel.yun.date.model.RDate;
+import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.model.OrderedToRoom;
 
 @Entity
@@ -42,7 +42,7 @@ public class Room implements Serializable {
 	private RoomType roomType;
 	
     @ManyToMany(mappedBy = "rooms")
-    private Set<RDate> date = new HashSet<RDate>();
+    private Set<Rdate> date = new HashSet<Rdate>();
 	
 	
 	public Room() {
@@ -101,11 +101,11 @@ public class Room implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<RDate> getDate() {
+	public Set<Rdate> getDate() {
 		return date;
 	}
 
-	public void setDate(Set<RDate> date) {
+	public void setDate(Set<Rdate> date) {
 		this.date = date;
 	}
 

@@ -16,7 +16,7 @@ import hotel.yun.ordered.model.OrderedToMeals;
 
 @Entity
 @Table(name = "mdate")
-public class MDate {
+public class Mdate {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +30,14 @@ public class MDate {
 	private Integer table_four_total;
 	private Integer table_six_total;
 	
-	@OneToMany(mappedBy = "RDate", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "mdate", cascade = CascadeType.ALL)
 	private List<OrderedToMeals> orderedToMeals = new ArrayList<>();
 	
-	public MDate() {
+	public Mdate() {
 		
 	}
 	
-	public MDate(Integer mdate_id, Date mdate, String time_period, Integer table_two_order, Integer table_four_order,
+	public Mdate(Integer mdate_id, Date mdate, String time_period, Integer table_two_order, Integer table_four_order,
 			Integer table_six_order, Integer table_two_total, Integer table_four_total, Integer table_six_total) {
 		super();
 		this.mdate_id = mdate_id;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import hotel.yun.date.model.RDate;
+import hotel.yun.date.model.Rdate;
 import hotel.yun.room.model.Room;
 
 @Entity
@@ -24,11 +26,15 @@ public class OrderedToRoom implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_toroom_id;
 	
-	private int room_id;
 	private int room_accounts;
+	@Column(name="roomnum_of_people")
 	private int number_of_room;
 	private Date room_ordered_time;
 	private int room_number;
+	@Transient
+	private int room_id;
+	@Transient
+	private int rdate_id;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "room_id")
@@ -36,7 +42,7 @@ public class OrderedToRoom implements Serializable{
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "rdate_id")
-	private RDate rdate;
+	private Rdate rdate;
 	
 	public OrderedToRoom() {
 		

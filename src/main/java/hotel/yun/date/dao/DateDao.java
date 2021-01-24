@@ -1,11 +1,11 @@
 package hotel.yun.date.dao;
 
-import hotel.yun.date.model.RDate;
+import hotel.yun.date.model.Rdate;
 
 public interface DateDao {
 
-	public RDate insert(RDate r);
+	public Rdate insert(Rdate r);
 
-	RDate queryByRDNum(int date_id);
+	Rdate queryByRDNum(int date_id);
 
 }
