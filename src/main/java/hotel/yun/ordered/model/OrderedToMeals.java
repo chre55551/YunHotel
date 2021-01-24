@@ -17,7 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import hotel.yun.date.model.Mdate;
+import hotel.yun.date.model.MDate;
 import hotel.yun.meals.model.Meals;
 
 @Entity
@@ -35,7 +35,7 @@ public class OrderedToMeals implements Serializable {
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "mdate_id")
-	private Mdate mdate;
+	private MDate mdate;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "orderedToMeals_meals", joinColumns = {
@@ -114,11 +114,11 @@ public class OrderedToMeals implements Serializable {
 		this.mdate_id = mdate_id;
 	}
 
-	public Mdate getMdate() {
+	public MDate getMdate() {
 		return mdate;
 	}
 
-	public void setMdate(Mdate mdate) {
+	public void setMdate(MDate mdate) {
 		this.mdate = mdate;
 	}
 

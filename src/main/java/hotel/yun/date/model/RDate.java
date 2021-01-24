@@ -23,14 +23,14 @@ import hotel.yun.room.model.Room;
 
 @Entity
 @Table(name = "rdate")
-public class Rdate {
+public class RDate {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rdate_id;
 	private Date rdate;
 	
-	@OneToMany(mappedBy = "rdate",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "RDate",cascade = CascadeType.ALL)
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -42,11 +42,11 @@ public class Rdate {
     private Set<Room> rooms = new HashSet<Room>();
 	
     
-	public Rdate() {
+	public RDate() {
 		
 	}
 	
-	public Rdate(Date room_date) {
+	public RDate(Date room_date) {
 		this.rdate = room_date;
 	}
 	public int getDate_id() {

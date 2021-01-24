@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import hotel.yun.date.model.Rdate;
+import hotel.yun.date.model.RDate;
 import hotel.yun.room.model.Room;
 
 @Entity
@@ -36,7 +36,7 @@ public class OrderedToRoom implements Serializable{
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "rdate_id")
-	private Rdate rdate;
+	private RDate rdate;
 	
 	public OrderedToRoom() {
 		
