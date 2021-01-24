@@ -1,6 +1,7 @@
 package hotel.yun.date.dao.impl;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import hotel.yun.date.dao.DateDao;
+import hotel.yun.date.model.Mdate;
 import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.model.Ordered;
 
@@ -46,5 +48,14 @@ public class DateDaoImpl implements Serializable, DateDao {
 		return rd;
 	
 	}
+
+	@Override
+	public Mdate queryByDatePeriod(Date d,String tp) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM mdate md WHERE md.mdate = :dd and md.time_period = :tp";
+		Mdate md = (Mdate)session.createQuery(hql).setParameter("dd", d).setParameter("tp", tp).getSingleResult();
+		return md;	
+	}
+	
 	
 }

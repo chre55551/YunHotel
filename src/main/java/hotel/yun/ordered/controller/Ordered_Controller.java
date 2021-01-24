@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
+import hotel.yun.date.model.Mdate;
+import hotel.yun.date.service.Date_Service;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
@@ -44,6 +46,9 @@ public class Ordered_Controller {
 
 	@Autowired
 	CustomerService cser;
+	
+	@Autowired
+	Date_Service dser;
 	
 	
 //---------------------------------------------------------------
@@ -80,6 +85,7 @@ public class Ordered_Controller {
 			@RequestParam(value="mobile_phone") String mobile_phone,
 			@RequestParam(value="number_of_meals") int number_of_meals,
 			@RequestParam(value="meals_ordered_time") Date meals_ordered_time,
+			@RequestParam(value="time_period") String time_period,
 			Model model) {
 		//用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
 		//若是不存在就做以下這些事情
@@ -92,12 +98,34 @@ public class Ordered_Controller {
 			od.setCustomer(customer);	
 			e.printStackTrace();
 		}
-		OrderedToMeals otm = new OrderedToMeals(number_of_meals,meals_ordered_time);
-
+		OrderedToMeals otm = new OrderedToMeals();
+		otm.setNumber_of_meals(number_of_meals);// 這是人數
+		try {// 根據時間跟時段撈出 mdate 並把它放進 otm 裡
+			Mdate md = dser.queryByDatePeriod(meals_ordered_time, time_period);
+			otm.setMdate(md);
+		}catch(Exception e) {//若此時段不存在就建一個新的
+			Mdate md = new Mdate();
+			md.setMdate(meals_ordered_time);
+			md.setTime_period(time_period);
+			e.printStackTrace();
+			otm.setMdate(md);
+		}
+		if(number_of_meals<2) {
+			 Integer k = otm.getMdate().getTable_two_order();
+			 otm.getMdate().setTable_two_order(k++);
+		}else if(number_of_meals<4) {
+			Integer k = otm.getMdate().getTable_four_order();
+			otm.getMdate().setTable_four_order(k++);
+		}else if(number_of_meals<6) {
+			Integer k = otm.getMdate().getTable_six_order();
+			otm.getMdate().setTable_six_order(k++);
+		}
 		od.setOrderedToMeals(otm);
+		
 		Ordered odd = service.insert(od);
 		System.out.println("puipui");
 		model.addAttribute("odd", odd);
+
 //		return null;
 		return "ordered/customerMealsOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 		

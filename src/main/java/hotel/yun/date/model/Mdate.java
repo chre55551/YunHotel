@@ -23,12 +23,12 @@ public class Mdate {
 	private Integer mdate_id;
 	private Date mdate;
 	private String time_period;
-	private Integer table_two_order;
-	private Integer table_four_order;
-	private Integer table_six_order;
-	private Integer table_two_total;
-	private Integer table_four_total;
-	private Integer table_six_total;
+	private Integer table_two_order = 0;
+	private Integer table_four_order = 0;
+	private Integer table_six_order = 0;
+	private Integer table_two_total = 10;
+	private Integer table_four_total = 20;
+	private Integer table_six_total = 5;
 	
 	@OneToMany(mappedBy = "mdate", cascade = CascadeType.ALL)
 	private List<OrderedToMeals> orderedToMeals = new ArrayList<>();

@@ -36,6 +36,15 @@
 					type="date" />
 			</div>
 			<div>
+				<label>用餐時段</label> <select name="time_period">
+					<option value="11_13">上午十一點</option>
+					<option value="13_15">下午一點</option>
+					<option value="15_17">下午三點</option>
+					<option value="17_19">下午五點</option>
+					<option value="19_21">晚上七點</option>
+				</select>
+			</div>
+			<div>
 				<input value="新增" type="submit">
 				<input value="清除" type="reset">
 				<%-- <a href="<c:url value='indexOrdered'/> ">返回</a> --%>
