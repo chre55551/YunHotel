@@ -1,9 +1,7 @@
 package hotel.yun.ordered.service.impl;
 
-import java.util.Date;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,6 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	
 	@Autowired
 	private Ordered_Dao oDao;
-	private Date d = new Date();
 
 	public void setoDao(Ordered_Dao oDao) {
 		this.oDao = oDao;
@@ -30,6 +27,8 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	@Override
 	public Ordered insert(Ordered oBean) {	
 		OrderedStatus ods  = oDao.query(1);
+		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
+		oBean.setOrdered_date(c);
 		oBean.setOrderedStatus(ods);
 		return oDao.insert(oBean);
 	}
@@ -65,11 +64,11 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 
 	@Override
 	public void updateCustomerOd(Ordered odBean) {
-		Timestamp c = new java.sql.Timestamp(new Date().getTime());
 //		Date currentTime = new Date();
 //		DateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 //		String dateStr = sdf.format(currentTime); 
 //		Timestamp ts = Timestamp.valueOf(dateStr);
+		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		odBean.setOrdered_last_update(c);
 		oDao.updateCustomerOd(odBean);
 		

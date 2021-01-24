@@ -23,13 +23,13 @@ public class RDate {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer date_id;
+    private Integer rdate_id;
 	private Date rdate;
 	
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "room_date",
+    @JoinTable(name = "room_rdate",
     joinColumns = {
-            @JoinColumn(name = "fk_date_id", referencedColumnName = "date_id") },
+            @JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") },
     inverseJoinColumns = {
             @JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
     private Set<Room> rooms = new HashSet<Room>();
@@ -43,10 +43,10 @@ public class RDate {
 		this.rdate = room_date;
 	}
 	public int getDate_id() {
-		return date_id;
+		return rdate_id;
 	}
 	public void setDate_id(int date_id) {
-		this.date_id = date_id;
+		this.rdate_id = date_id;
 	}
 	public Date getRoom_date() {
 		return rdate;

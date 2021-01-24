@@ -68,7 +68,7 @@ public class Ordered_Controller {
 	//新增
 	// 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱
 	@GetMapping("/insertMealsOd")
-	public String ShowMealsOrdered( Model model) {
+	public String ShowMealsOrdered(Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/insertMealsOd";
@@ -83,20 +83,24 @@ public class Ordered_Controller {
 			Model model) {
 		//用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
 		//若是不存在就做以下這些事情
-		Customer customer = new Customer(chinese_name,mobile_phone);
-//		customer.setChinese_name(chinese_name);
-//		customer.setMobile_phone(mobile_phone);
-		OrderedToMeals otm = new OrderedToMeals(number_of_meals,meals_ordered_time);
-//		otm.setNumber_of_meals(number_of_meals);
-//		otm.setMeals_ordered_time(meals_ordered_time);
 		Ordered od = new Ordered();
-		od.setCustomer(customer);
+		Customer customer = new Customer(chinese_name,mobile_phone);
+		try {
+			Customer CExist = cser.query(customer);
+			od.setCustomer(CExist);
+		}catch(Exception e) {
+			od.setCustomer(customer);	
+			e.printStackTrace();
+		}
+		OrderedToMeals otm = new OrderedToMeals(number_of_meals,meals_ordered_time);
+
 		od.setOrderedToMeals(otm);
 		Ordered odd = service.insert(od);
 		System.out.println("puipui");
 		model.addAttribute("odd", odd);
 //		return null;
 		return "ordered/customerMealsOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+		
 	}
 	
 	// 送出空白的Bean來接訂房的屬性，Jsp input的name要對到DB的名稱
@@ -118,17 +122,26 @@ public class Ordered_Controller {
 			@RequestParam(value="room_number") int room_number,
 			@RequestParam(value="room_ordered_time") Date room_ordered_time,
 			Model model) {
-
-		Customer customer = new Customer(chinese_name,idcard_number,birthday,address,mobile_phone);
-		OrderedToRoom otr = new OrderedToRoom(room_ordered_time,room_number);
 		Ordered od = new Ordered();
-		od.setCustomer(customer);
+		Customer customer = new Customer(chinese_name,idcard_number,birthday,address,mobile_phone);
+		try {
+			Customer CExist = cser.query(customer);
+			CExist.setIdcard_number(idcard_number);
+			CExist.setAddress(address);
+			CExist.setBirthday(birthday);
+			od.setCustomer(CExist);
+		}catch(Exception e) {
+			od.setCustomer(customer);	
+			e.printStackTrace();
+		}
+		OrderedToRoom otr = new OrderedToRoom(room_ordered_time,room_number);
 		od.setOrderedToRoom(otr);
 		OrderedStatus os = new OrderedStatus();
 		os.setStatus_id(1);
 		od.setOrderedStatus(os);
 		Ordered odd = service.insert(od);
 		System.out.println("puipui");
+		System.out.println(birthday);
 		model.addAttribute("odd", odd);
 //		return null;
 		return "ordered/customerRoomOd";//將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)

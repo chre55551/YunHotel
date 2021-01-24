@@ -1,7 +1,6 @@
 package hotel.yun.ordered.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
@@ -39,7 +38,7 @@ public class Ordered implements Serializable{
 	private int payment_id;// 付款ID
 	
 	private int ordered_accounts;// 訂單總價
-	private Date ordered_date;// 訂單日期
+	private Timestamp ordered_date;// 訂單日期
 	private Timestamp ordered_last_update;//訂單最後修改時間
 	private Timestamp ordered_finish_date;//訂單完成時間
 	private String note;//註記
@@ -91,7 +90,7 @@ public class Ordered implements Serializable{
 		this.note = note;
 	}
 
-	public Ordered(int ordered_number, int ordered_accounts, Date ordered_date, String note,
+	public Ordered(int ordered_number, int ordered_accounts, Timestamp ordered_date, String note,
 			OrderedStatus orderedStatus, OrderedPayment orderedPayment, OrderedToMeals orderedToMeals,
 			OrderedToRoom orderedToRoom) {
 		this.ordered_number = ordered_number;
@@ -107,7 +106,7 @@ public class Ordered implements Serializable{
 	
 
 	public Ordered(int ordered_number, int customer_id, int ordered_tomeals_id, int ordered_toroom_id, int status_id,
-			int payment_id, int ordered_accounts, Date ordered_date, Timestamp ordered_last_update,
+			int payment_id, int ordered_accounts, Timestamp ordered_date, Timestamp ordered_last_update,
 			Timestamp ordered_finish_date, String note, Customer customer, OrderedStatus orderedStatus,
 			OrderedPayment orderedPayment, OrderedToMeals orderedToMeals, OrderedToRoom orderedToRoom) {
 		super();
@@ -146,12 +145,12 @@ public class Ordered implements Serializable{
 		this.ordered_accounts = ordered_accounts;
 	}
 
-	public Date getOrdered_date() {
+	public Timestamp getOrdered_date() {
 		return ordered_date;
 	}
 
-	public void setOrdered_date(Date ordered_date) {
-		this.ordered_date = ordered_date;
+	public void setOrdered_date(Timestamp c) {
+		this.ordered_date = c;
 	
 	}
 
