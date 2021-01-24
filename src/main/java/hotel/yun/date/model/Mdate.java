@@ -1,12 +1,18 @@
 package hotel.yun.date.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import hotel.yun.ordered.model.OrderedToMeals;
 
 @Entity
 @Table(name = "mdate")
@@ -23,6 +29,9 @@ public class Mdate {
 	private Integer table_two_total;
 	private Integer table_four_total;
 	private Integer table_six_total;
+	
+	@OneToMany(mappedBy = "Mdate", cascade = CascadeType.ALL)
+	private List<OrderedToMeals> orderedToMeals = new ArrayList<>();
 	
 	public Mdate() {
 		

@@ -14,8 +14,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import hotel.yun.date.model.Mdate;
 import hotel.yun.meals.model.Meals;
 
 @Entity
@@ -29,7 +31,12 @@ public class OrderedToMeals implements Serializable {
 	private int number_of_meals;// 用餐人數
 	private Date meals_ordered_time;// 餐點訂單時間
 	private int table_number;// 桌號
+	private int mdate_id;// 對到用餐時間
 
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "mdate_id")
+	private Mdate mdate;
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "orderedToMeals_meals", joinColumns = {
 			@JoinColumn(name = "fk_ordered_tomeals_id", referencedColumnName = "ordered_tomeals_id") }, inverseJoinColumns = {
@@ -53,6 +60,10 @@ public class OrderedToMeals implements Serializable {
 		this.number_of_meals = number_of_meals;
 		this.meals_ordered_time = meals_ordered_time;
 		this.table_number = table_number;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public int getOrdered_tomeals_id() {
@@ -93,6 +104,30 @@ public class OrderedToMeals implements Serializable {
 
 	public void setTable_number(int table_number) {
 		this.table_number = table_number;
+	}
+
+	public int getMdate_id() {
+		return mdate_id;
+	}
+
+	public void setMdate_id(int mdate_id) {
+		this.mdate_id = mdate_id;
+	}
+
+	public Mdate getMdate() {
+		return mdate;
+	}
+
+	public void setMdate(Mdate mdate) {
+		this.mdate = mdate;
+	}
+
+	public List<Meals> getMeals() {
+		return meals;
+	}
+
+	public void setMeals(List<Meals> meals) {
+		this.meals = meals;
 	}
 
 }
