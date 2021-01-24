@@ -22,7 +22,7 @@ import hotel.yun.date.model.RDate;
 @Table(name = "room")
 public class Room implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	//666
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int room_id;         //房間編號
