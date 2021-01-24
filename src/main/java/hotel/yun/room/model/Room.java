@@ -1,7 +1,9 @@
 package hotel.yun.room.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,10 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import hotel.yun.date.model.RDate;
+import hotel.yun.date.model.Rdate;
+import hotel.yun.ordered.model.OrderedToRoom;
 
 @Entity
 @Table(name = "room")
@@ -29,12 +33,16 @@ public class Room implements Serializable {
 	private String room_name;    //房間名稱
 	@Transient
 	private int room_typeid;     //房間類別編號
+	
+	@OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
+	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
+	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType;
 	
     @ManyToMany(mappedBy = "rooms")
-    private Set<RDate> date = new HashSet<RDate>();
+    private Set<Rdate> date = new HashSet<Rdate>();
 	
 	
 	public Room() {
@@ -93,11 +101,11 @@ public class Room implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<RDate> getDate() {
+	public Set<Rdate> getDate() {
 		return date;
 	}
 
-	public void setDate(Set<RDate> date) {
+	public void setDate(Set<Rdate> date) {
 		this.date = date;
 	}
 

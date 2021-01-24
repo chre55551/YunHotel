@@ -3,11 +3,18 @@ package hotel.yun.ordered.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import hotel.yun.date.model.Rdate;
+import hotel.yun.room.model.Room;
 
 @Entity
 @Table(name = "ordered_toroom")
@@ -22,6 +29,14 @@ public class OrderedToRoom implements Serializable{
 	private int number_of_room;
 	private Date room_ordered_time;
 	private int room_number;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "room_id")
+	private Room room;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "rdate_id")
+	private Rdate rdate;
 	
 	public OrderedToRoom() {
 		

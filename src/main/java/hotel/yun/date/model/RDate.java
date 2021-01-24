@@ -1,7 +1,9 @@
 package hotel.yun.date.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,18 +15,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.room.model.Room;
 
 @Entity
 @Table(name = "rdate")
-public class RDate {
+public class Rdate {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rdate_id;
 	private Date rdate;
+	
+	@OneToMany(mappedBy = "rdate",cascade = CascadeType.ALL)
+	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "room_rdate",
@@ -35,11 +42,11 @@ public class RDate {
     private Set<Room> rooms = new HashSet<Room>();
 	
     
-	public RDate() {
+	public Rdate() {
 		
 	}
 	
-	public RDate(Date room_date) {
+	public Rdate(Date room_date) {
 		this.rdate = room_date;
 	}
 	public int getDate_id() {
