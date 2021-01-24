@@ -116,6 +116,7 @@ public class RoomController {
 			Blob ri = new SerialBlob(img);
 			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
 			service.saveRoomType(rt);
+			model.addAttribute("roomType", rt);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
