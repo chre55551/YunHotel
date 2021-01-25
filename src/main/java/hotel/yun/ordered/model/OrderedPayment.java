@@ -22,8 +22,6 @@ public class OrderedPayment implements Serializable{
 	
 	private String bill_status;//付款方式
 	
-	private String payment_status;//付款狀態
-	
 	@OneToMany(mappedBy = "orderedPayment",cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
 	
@@ -31,10 +29,9 @@ public class OrderedPayment implements Serializable{
 		
 	}
 	
-	public OrderedPayment(int payment_id, String bill_status, String payment_status, Set<Ordered> ordered) {
+	public OrderedPayment(int payment_id, String bill_status, Set<Ordered> ordered) {
 		this.payment_id = payment_id;
 		this.bill_status = bill_status;
-		this.payment_status = payment_status;
 		this.ordered = ordered;
 	}
 
@@ -52,15 +49,6 @@ public class OrderedPayment implements Serializable{
 
 	public void setBill_status(String bill_status) {
 		this.bill_status = bill_status;
-	}
-
-	public String getPayment_status() {
-		return payment_status;
-	}
-
-	public void setPayment_status(String payment_status) {
-		this.payment_status = payment_status;
-	}
-	
+	}	
 	
 }

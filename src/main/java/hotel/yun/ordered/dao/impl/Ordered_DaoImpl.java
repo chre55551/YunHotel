@@ -147,12 +147,12 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 			}
 		}
 		//-------------------------
-		if(odBean.getOrderedPayment().getPayment_status()!=null) {
+		if(odBean.getOrderedPayment().getBill_status()!=null) {
 			if(customerOd.getOrderedPayment()!=null) {
-			customerOd.getOrderedPayment().setPayment_status(odBean.getOrderedPayment().getPayment_status());
+			customerOd.getOrderedPayment().setBill_status(odBean.getOrderedPayment().getBill_status());
 			}else {
 				customerOd.setOrderedPayment(new OrderedPayment());
-				customerOd.getOrderedPayment().setPayment_status(odBean.getOrderedPayment().getPayment_status());
+				customerOd.getOrderedPayment().setBill_status(odBean.getOrderedPayment().getBill_status());
 			}
 		}
 		//-------------------------

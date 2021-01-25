@@ -358,7 +358,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "table_number",required=false) Integer table_number,
 			@RequestParam(value = "room_number",required=false) Integer room_number,
 			@RequestParam(value = "ordered_status",required=false) String ordered_status,
-			@RequestParam(value = "payment_status",required=false) String payment_status,
+			@RequestParam(value = "bill_status",required=false) String bill_status,
 			@RequestParam(value = "ordered_accounts",required=false) Integer ordered_accounts,
 			@RequestParam(value = "note",required=false) String note,
 			Model model) 
@@ -369,7 +369,7 @@ public class Ordered_Controller {
 		System.out.println(table_number);
 		System.out.println(room_number);
 		System.out.println(ordered_status);
-		System.out.println(payment_status);
+		System.out.println(bill_status);
 		System.out.println(ordered_accounts);
 		System.out.println(note);
 		
@@ -401,10 +401,10 @@ public class Ordered_Controller {
 			ordered.setOrderedStatus(os);
 		}
 		if(ordered.getOrderedPayment()!=null) {
-		ordered.getOrderedPayment().setPayment_status(payment_status);
+		ordered.getOrderedPayment().setBill_status(bill_status);
 		}else {
 			 OrderedPayment op = new OrderedPayment();
-			 op.setPayment_status(payment_status);
+			 op.setBill_status(bill_status);
 			 ordered.setOrderedPayment(op);
 		}
 		ordered.setNote(note);
@@ -415,7 +415,7 @@ public class Ordered_Controller {
 		System.out.println(ordered.getOrderedToMeals().getTable_number());
 		System.out.println(ordered.getOrderedToRoom().getRoom_number());
 		System.out.println(ordered.getOrderedStatus().getOrdered_status());
-		System.out.println(ordered.getOrderedPayment().getPayment_status());
+		System.out.println(ordered.getOrderedPayment().getBill_status());
 		System.out.println(ordered.getOrdered_accounts());
 		System.out.println(ordered.getNote());
 		
@@ -428,7 +428,7 @@ public class Ordered_Controller {
 		System.out.println(odAfter.getCustomer().getMobile_phone());
 		System.out.println(odAfter.getOrderedToMeals().getTable_number());
 		System.out.println(odAfter.getOrderedStatus().getOrdered_status());
-//		System.out.println(odAfter.getOrderedPayment().getPayment_status());
+//		System.out.println(odAfter.getOrderedPayment().getBill_status());
 		System.out.println(odAfter.getOrdered_accounts());
 		System.out.println(odAfter.getNote());
 //		System.out.println(odAfter.getOrderedToRoom().getRoom_number());
