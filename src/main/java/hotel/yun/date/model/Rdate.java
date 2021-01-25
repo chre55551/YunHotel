@@ -28,38 +28,40 @@ import hotel.yun.room.model.Room;
 public class Rdate {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer rdate_id;
-	private Date rdate;
-	
-	@OneToMany(mappedBy = "rdate",cascade = CascadeType.ALL)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer rdate_id;
+	private Date room_date;
+
+	@OneToMany(mappedBy = "rdate", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
-	
+
 	@JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "room_rdate",
-    joinColumns = {
-            @JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") },
-    inverseJoinColumns = {
-            @JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
-    private Set<Room> rooms = new HashSet<Room>();
-	
-    
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "room_rdate", joinColumns = {
+			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
+	private Set<Room> rooms = new HashSet<Room>();
+
 	public Rdate() {
-		
+
 	}
-	
-	public Rdate(Date room_date) {
-		this.rdate = room_date;
+
+	public Date getRoom_date() {
+		return room_date;
 	}
+
+	public void setRoom_date(Date room_date) {
+		this.room_date = room_date;
+	}
+
 	public int getDate_id() {
 		return rdate_id;
 	}
+
 	public void setDate_id(int date_id) {
 		this.rdate_id = date_id;
 	}
-
 
 	public Integer getRdate_id() {
 		return rdate_id;
@@ -67,14 +69,6 @@ public class Rdate {
 
 	public void setRdate_id(Integer rdate_id) {
 		this.rdate_id = rdate_id;
-	}
-
-	public Date getRdate() {
-		return rdate;
-	}
-
-	public void setRdate(Date rdate) {
-		this.rdate = rdate;
 	}
 
 	public List<OrderedToRoom> getOrderedToRoom() {
@@ -92,6 +86,5 @@ public class Rdate {
 	public void setRooms(Set<Room> rooms) {
 		this.rooms = rooms;
 	}
-	
-	
+
 }

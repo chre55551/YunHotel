@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.service.Ordered_Service;
 
@@ -26,10 +27,14 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 
 	@Override
 	public Ordered insert(Ordered oBean)  throws Exception{	
-		OrderedStatus ods  = oDao.query(1);
+		OrderedStatus ods  = oDao.queryS(1);
+		oBean.setOrderedStatus(ods);
+		
+		OrderedPayment odp = oDao.queryP(1);
+		oBean.setOrderedPayment(odp);
+		
 		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		oBean.setOrdered_date(c);
-		oBean.setOrderedStatus(ods);
 		return oDao.insert(oBean);
 	}
 

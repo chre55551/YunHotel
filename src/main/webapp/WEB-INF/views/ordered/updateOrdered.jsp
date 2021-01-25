@@ -29,10 +29,10 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
 
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改訂單</h3>
-		<form action="../updatecheck/${updateOdered.ordered_number}" method="POST" id="container">
+		<form action="../updatecheck/${updateOdered.ordered_number}" method="POST" class="container">
 		<p>欲修改的訂單編號: ${updateOdered.ordered_number}</p>
 			<div>
 				<label>桌號: </label> <input name="table_number" id="requestTn"/>

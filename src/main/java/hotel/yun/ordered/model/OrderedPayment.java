@@ -14,21 +14,21 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordered_payment")
-public class OrderedPayment implements Serializable{
+public class OrderedPayment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
-	private int payment_id;//付款ID
-	
-	private String bill_status;//付款方式
-	
-	@OneToMany(mappedBy = "orderedPayment",cascade = CascadeType.ALL)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int payment_id;// 付款ID
+
+	private String bill_status;// 付款方式
+
+	@OneToMany(mappedBy = "orderedPayment", cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<Ordered>();
-	
+
 	public OrderedPayment() {
-		
+
 	}
-	
+
 	public OrderedPayment(int payment_id, String bill_status, Set<Ordered> ordered) {
 		this.payment_id = payment_id;
 		this.bill_status = bill_status;
@@ -49,6 +49,6 @@ public class OrderedPayment implements Serializable{
 
 	public void setBill_status(String bill_status) {
 		this.bill_status = bill_status;
-	}	
-	
+	}
+
 }

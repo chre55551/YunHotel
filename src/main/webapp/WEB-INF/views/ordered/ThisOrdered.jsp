@@ -23,17 +23,119 @@
 			<p>訂單編號: ${ordered.ordered_number}</p>
 			<p>姓名: ${ordered.customer.chinese_name}</p>
 			<p>電話: ${ordered.customer.mobile_phone}</p>
-			<p>桌號: ${ordered.orderedToMeals.table_number}</p>
-			<p>房號: ${ordered.orderedToRoom.room_number}</p>
-			<p>訂單狀態: ${ordered.orderedStatus.ordered_status}</p>
-			<p>付款方式: ${ordered.orderedPayment.payment_status}</p>
-			<p>訂單總價: ${ordered.ordered_accounts}</p>
-			<p>訂單成立時間: ${ordered.ordered_date}</p>
-			<p>備註: ${ordered.note}</p>
-			<br> <input type="button" value="修改" id="uuu"> 
-				<input type="button" value="刪除" id ="xxx">
-			<input type="button" value="回查詢"
-				onclick="location.href='../customerToOrdered'">
+
+			<c:choose>
+				<c:when test="${not empty ordered.orderedToMeals.table_number}">
+					<p>桌號: ${ordered.orderedToMeals.table_number}</p>
+				</c:when>
+				<c:otherwise>
+    				桌號: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.orderedStatus.ordered_status}">
+					<p>訂單狀態: ${ordered.orderedStatus.ordered_status}</p>
+				</c:when>
+				<c:otherwise>
+    				訂單狀態: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.orderedPayment.bill_status}">
+					<p>付款方式: ${ordered.orderedPayment.bill_status}</p>
+				</c:when>
+				<c:otherwise>
+    				付款方式: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when
+					test="${not empty ordered.orderedToMeals.mealsnum_of_people}">
+					<p>用餐人數: ${ordered.orderedToMeals.mealsnum_of_people}</p>
+				</c:when>
+				<c:otherwise>
+    				用餐人數: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty mdate.mdate}">
+					<p>用餐日期: ${mdate.mdate}</p>
+				</c:when>
+				<c:otherwise>
+    				用餐日期: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty mdate.time_period}">
+					<p>用餐時段: ${mdate.time_period}</p>
+				</c:when>
+				<c:otherwise>
+    				用餐時段: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty room.roomType.room_type}">
+					<p>房型: ${room.roomType.room_type}</p>
+				</c:when>
+				<c:otherwise>
+    				房型: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty rdate.room_datee}">
+					<p>訂房時間: ${rdate.room_date}</p>
+				</c:when>
+				<c:otherwise>
+    				訂房時間: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.ordered_accounts}">
+					<p>訂單總價: ${ordered.ordered_accounts}</p>
+				</c:when>
+				<c:otherwise>
+    				訂單總價: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.ordered_date}">
+					<p>訂單成立時間: ${ordered.ordered_date}</p>
+				</c:when>
+				<c:otherwise>
+    				訂單成立時間: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.ordered.last_update}">
+					<p>訂單修改時間: ${ordered.ordered.last_update}</p>
+				</c:when>
+				<c:otherwise>
+    				訂單修改時間: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.note}">
+					<p>備註: ${ordered.note}</p>
+				</c:when>
+				<c:otherwise>
+    				備註: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<br> <input type="button" value="修改" id="uuu"> <input
+				type="button" value="刪除" id="xxx"> <input type="button"
+				value="回查詢" onclick="location.href='../customerToOrdered'">
 			<%-- 			<a href="<c:url value='../customerToOrdered'/> ">回查詢</a> --%>
 
 		</div>
@@ -42,11 +144,17 @@
 
 	<script type="text/javascript">
 		$('#uuu').click(function() {
-			location.href = '../update/' + ${ordered.ordered_number}
+			location.href = '../update/' + $
+			{
+				ordered.ordered_number
+			}
 		})
-		
+
 		$('#xxx').click(function() {
-			location.href = '../DeleteOrdred/' + ${ordered.ordered_number}
+			location.href = '../DeleteOrdred/' + $
+			{
+				ordered.ordered_number
+			}
 		})
 	</script>
 </body>

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
 
 public interface Ordered_Dao {
@@ -16,5 +17,6 @@ public interface Ordered_Dao {
 	public Ordered update(Ordered oBean);//依照訂單編號即可修改整張訂單
 	public void updateCustomerOd(Ordered odBean);//依顧客尋找的詳細訂單，來做更新
 	public void delete(int ordered_number);//依照訂單編號來刪除整筆資料
-	public OrderedStatus query(int i);
+	public OrderedStatus queryS(int i);
+	OrderedPayment queryP(int i);
 }

@@ -32,17 +32,20 @@
 				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" />
 			</div>
 			<div>
-				<label>用餐日期</label> <input name="meals_ordered_time" id="requestMp"
+				<label>用餐日期</label> <input name="mdate" id="requestMp"
 					type="date" />
 			</div>
 			<div>
 				<label>用餐時段</label> <select name="time_period">
-					<option value="11_13">上午十一點</option>
-					<option value="13_15">下午一點</option>
-					<option value="15_17">下午三點</option>
-					<option value="17_19">下午五點</option>
-					<option value="19_21">晚上七點</option>
+					<option value="11:00~13:00">上午十一點</option>
+					<option value="13:00~15:00">下午一點</option>
+					<option value="15:00~17:00">下午三點</option>
+					<option value="17:00~19:00">下午五點</option>
+					<option value="19:00~21:00">晚上七點</option>
 				</select>
+			</div>
+			<div>
+				<label>備註</label> <input name="note" id="requestNote"/>
 			</div>
 			<div>
 				<input value="新增" type="submit">
