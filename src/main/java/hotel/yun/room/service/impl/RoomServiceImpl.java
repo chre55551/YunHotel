@@ -85,5 +85,9 @@ public class RoomServiceImpl implements RoomService {
 		return RDao.queryByRoomType(roomType);
 	}
 	
+	@Override
+	public List<Room> queryAllRoomByRoomType(String roomType){
+		return RDao.queryAllRoomByRoomType(roomType);
+	}
 
 }

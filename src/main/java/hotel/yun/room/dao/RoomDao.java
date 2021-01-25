@@ -29,6 +29,7 @@ public interface RoomDao {
 	
 	public Room queryByRoomNum(String num);
 	public RoomType queryByRoomType(String roomType);
+	public List<Room> queryAllRoomByRoomType(String roomType);
 	
 
 	

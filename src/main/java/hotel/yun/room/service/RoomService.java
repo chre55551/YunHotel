@@ -20,4 +20,5 @@ public interface RoomService {
 		public void deleteRoomType(int room_typeid);
 		public Room queryByRoomNum(String s);
 		public RoomType queryByRoomType(String roomType);
+		public List<Room> queryAllRoomByRoomType(String roomType);
 }

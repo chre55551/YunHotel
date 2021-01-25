@@ -175,4 +175,13 @@ public class RoomDaoImpl implements RoomDao{
 		session.delete(suite);
 	}
     
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Room> queryAllRoomByRoomType(String roomType){
+		Session session = factory.getCurrentSession();
+    	String hql  = "FROM RoomType rt WHERE rt.room_type = :name";
+		return session.createQuery(hql).setParameter("name",roomType).getResultList();
+		
+	}
 }
