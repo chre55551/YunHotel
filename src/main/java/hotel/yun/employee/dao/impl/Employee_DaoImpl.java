@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 import hotel.yun.employee.dao.Employee_Dao;
 import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.model.Employee_info;
+import hotel.yun.employee.model.Employee_status;
 import hotel.yun.employee.model.Employee_work;
+import hotel.yun.ordered.model.OrderedStatus;
 
 
 @Repository
@@ -39,6 +41,13 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 		Session session = factory.getCurrentSession();
 		session.save(emBean);
 		return emBean;
+	}
+	
+	@Override
+	public Employee_status queryS(int i) {
+		Session session = factory.getCurrentSession();
+		Employee_status ods = session.get(Employee_status.class, i);
+		return ods;
 	}
 	
 	//依照員工編號來查詢該員工資料

@@ -9,8 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import hotel.yun.employee.dao.Employee_Dao;
 import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.model.Employee_info;
+import hotel.yun.employee.model.Employee_status;
 import hotel.yun.employee.model.Employee_work;
 import hotel.yun.employee.service.Employee_Service;
+import hotel.yun.ordered.model.OrderedStatus;
 
 
 
@@ -27,7 +29,8 @@ public class Employee_ServiceImpl implements Employee_Service {
 	
 	@Override
 	public Employee_basic insert(Employee_basic emBean) {
-		
+		Employee_status ods  = emDao.queryS(1);
+		emBean.setEmployee_status(ods);
 		return emDao.insert(emBean);
 	}
 	
