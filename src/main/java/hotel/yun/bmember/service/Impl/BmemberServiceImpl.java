@@ -42,8 +42,8 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	}
 
 	@Override
-	public boolean delete(int bs_id) {
-		return bDao.delete(bs_id);
+	public boolean delete(int key) {
+		return bDao.delete(key);
 	}
 	public BmemberBean checkIdPassword(String account, String password) {
 		

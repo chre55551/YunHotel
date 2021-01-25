@@ -61,10 +61,10 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	}
 
 	@Override
-	public boolean delete(int bs_id) {
+	public boolean delete(int key) {
 		Session session = factory.getCurrentSession();
 		BmemberBean onemember = new BmemberBean();
-		onemember.setBs_id(bs_id);
+		onemember.setBs_id(key);
 		session.delete(onemember);
 		return false;
 	}
