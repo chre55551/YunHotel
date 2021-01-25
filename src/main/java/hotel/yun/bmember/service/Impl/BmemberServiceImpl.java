@@ -50,5 +50,9 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 		return bDao.checkIdPassword(account, password);
 		
 	}
-
+	@Override
+	public BmemberBean getCustomerById(int bs_id) {
+	
+		return bDao.getCustomerById(bs_id);
+	}
 }

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
+import hotel.yun.bmember.validate.BmemberValidator;
 
 @Controller
 @RequestMapping("/bmember")
@@ -109,23 +110,34 @@ public class BmemberController {
 		return "bmember/ShowBmember";
 	}
 
-//-----------------------------------------------------------------------------------------------------
-	// 修改
-	@PostMapping("/UpdateBmember/{Bs_id}")
-	public String update(@ModelAttribute("bb") BmemberBean bm,Model model) {
-		BmemberBean bb = service.queryMemberID(bm.getBs_id());
-		bb.setBs_id(bb.getBs_id());
-		bb.setBs_account(bb.getBs_account());
-		bb.setBs_password(bb.getBs_password());
-		bb.setBs_email(bb.getBs_email());
-		bb.setBs_account(bb.getBs_account());
-		bb.setAuthority(bb.getAuthority());
-		bb.setUser_id(bb.getUser_id());
-		
-		BmemberBean ubm = service.update(bb);
-		model.addAttribute("qbm", ubm);
-		return "/bmember/GetaBmember";
+//修改-----------------------------------------------------------------------------------------------------
+	@GetMapping("/modifyBmember/{id}")
+	public String editCustomerForm(Model model, @PathVariable Integer id) {
+		BmemberBean bean = service.getCustomerById(id);
+		model.addAttribute("BmemberBean", bean);
+		return "bmember/UpdateBmember";
 	}
+	@PostMapping("/modifyBmember/{id}")	
+	public String modifyCustomerData2(
+			@ModelAttribute("BmemberBean") BmemberBean bean ,
+			@PathVariable Integer id
+//			 BindingResult bindingResult 
+			) {
+//			new BmemberValidator().validate(bean, bindingResult);
+			System.out.println("修改會員(PUT, 11-05): " + bean);
+			    
+//			if (bindingResult.hasErrors()) {
+//
+//				return "bmember/UpdateBmember";
+//
+//			}
+			System.out.println(bean.getBs_id());
+			System.out.println("12345 bean==>" + bean);
+			System.out.println(bean.getUser_id());
+			service.update(bean);	
+			return "redirect:../ShowBmember";
+		}
+	
 //------------------------------------------------------------------------------------------------------
 
 	//依照ID查詢
