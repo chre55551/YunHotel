@@ -79,8 +79,7 @@
 						<td colspan='2' align='center'><input type='submit'
 							value='修改' name='updateBtn'
 							onclick="return confirmUpdate('${BmemberBean.bs_id}');">&nbsp;
-							<input type='submit' value='刪除' name='deleteBtn'
-							onclick="return confirmDelete('${BmemberBean.bs_id}');">
+							
 						</td>
 					</tr>
 

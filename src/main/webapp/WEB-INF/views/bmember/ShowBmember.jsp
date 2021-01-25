@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/backstage.css'
+	type="text/css" />
 <title>GetaBmember</title>
 </head>
 
@@ -22,6 +24,7 @@
 				<tr>
 					<th width='60'>編輯</th>
 					<th width='160'>客戶姓名</th>
+					<th width='60'>刪除</th>
 				</tr>
 				<c:choose>
 					<c:when test="${not empty sab}">
@@ -29,6 +32,7 @@
 							<tr>
 								<td align='center'><a href='modifyBmember/${c.bs_id}'>${c.bs_id}</a></td>
 								<td>${c.user_id}</td>
+								<td><a href="modifyBBmember/${c.bs_id}">刪除</a></td>
 							</tr>
 						</c:forEach>
 					</c:when>

@@ -86,10 +86,10 @@ public class BmemberController {
 	}
 
 //刪除------------------------------------------------------------------------------------------------
-	@DeleteMapping(value="/modifyCustomer/{id}")
-	public String deleteCustomerData(@PathVariable Integer id) {
+	@GetMapping("/modifyBBmember/{bs_id}")
+	public String deleteCustomerData(@PathVariable("bs_id") int bs_id) {
+		service.delete(bs_id);	
 		System.out.println(11122233);
-		service.delete(id);	
 		return "redirect:../ShowBmember";
 	}
 
