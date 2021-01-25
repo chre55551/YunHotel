@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -30,6 +32,7 @@ public class RoomType implements Serializable{
 	private Blob room_image;  //房間圖片
 	private String room_image_name;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roomType", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<Room> room = new HashSet<>();
 	
 	public RoomType() {

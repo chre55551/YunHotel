@@ -20,6 +20,7 @@ import hotel.yun.customer.service.CustomerService;
 import hotel.yun.date.service.Date_Service;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
+import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
 
 @Controller
@@ -49,7 +50,8 @@ public class Ordered_Controller_Ajax {
 	@PostMapping("/customerToOrdered/orderedCreated")
 	public @ResponseBody List<Ordered> orderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status, Model model, HttpSession session) {
+			@RequestParam(value = "ordered_status") String ordered_status,
+			Model model, HttpSession session) {
 		Customer c = new Customer(chinese_name, mobile_phone);
 		try {
 			Customer customer = cser.query(c);
@@ -71,7 +73,8 @@ public class Ordered_Controller_Ajax {
 	@PostMapping("/customerToOrdered/orderedFinished")
 	public @ResponseBody List<Ordered> orderedFinishedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status, Model model, HttpSession session) {
+			@RequestParam(value = "ordered_status") String ordered_status,
+			Model model, HttpSession session) {
 		Customer c = new Customer(chinese_name, mobile_phone);
 		try {
 			Customer customer = cser.query(c);
@@ -93,7 +96,8 @@ public class Ordered_Controller_Ajax {
 	@PostMapping("/customerToOrdered/orderedAll")
 	public @ResponseBody List<Ordered> orderedAllAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status, Model model, HttpSession session) {
+			@RequestParam(value = "ordered_status") String ordered_status,
+			Model model, HttpSession session) {
 		Customer c = new Customer(chinese_name, mobile_phone);
 		try {
 			Customer customer = cser.query(c);
@@ -104,5 +108,18 @@ public class Ordered_Controller_Ajax {
 		}
 		return null;
 	}
+	
+	// Ajax 根據房型查出所有房間
+	@PostMapping("/roomtype/to/allrooms")
+	public @ResponseBody List<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
+			Model model, HttpSession session) {
+		try {
+			return rser.queryAllRoomByRoomType(room_type);
+		} catch (Exception e) {
+
+		}
+		return null;
+	}
+	
 	
 }
