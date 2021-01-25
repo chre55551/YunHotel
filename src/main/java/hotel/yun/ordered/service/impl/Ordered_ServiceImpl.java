@@ -1,6 +1,7 @@
 package hotel.yun.ordered.service.impl;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Transactional
@@ -23,8 +25,11 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
-	public Ordered insert(Ordered oBean) {
-		
+	public Ordered insert(Ordered oBean)  throws Exception{	
+		OrderedStatus ods  = oDao.query(1);
+		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
+		oBean.setOrdered_date(c);
+		oBean.setOrderedStatus(ods);
 		return oDao.insert(oBean);
 	}
 
@@ -49,7 +54,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	@Override
 	public List<Ordered> queryDateToOrdered(Date ordered_date) {
 	
-		return oDao.queryDateToOrdered(ordered_date);
+		return oDao.queryDateToOrdered((java.sql.Date) ordered_date);
 	}
 
 	@Override
@@ -58,7 +63,32 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
+	public void updateCustomerOd(Ordered odBean) {
+//		Date currentTime = new Date();
+//		DateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+//		String dateStr = sdf.format(currentTime); 
+//		Timestamp ts = Timestamp.valueOf(dateStr);
+		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
+		odBean.setOrdered_last_update(c);
+		oDao.updateCustomerOd(odBean);
+		
+	}
+	
+	@Override
 	public void delete(int ordered_number) {
 		oDao.delete(ordered_number);
 	}
+
+	@Override
+	public List<Ordered> queryDateToOrdered(java.sql.Date ordered_date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ordered> queryDateToOrdered() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

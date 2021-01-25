@@ -1,17 +1,13 @@
 package hotel.yun.customer.model;
 
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,11 +22,11 @@ public class Member {
 	private String home_phone;
 	private String job;
 	private String email;
-	private Date register_date;
+	private Timestamp register_date;
 	private Date updated_date;
 
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
-			String email, Date register_date, Date updated_date) {
+			String email, Timestamp register_date, Date updated_date) {
 		super();
 		this.member_id = member_id;
 		this.account = account;
@@ -85,12 +81,13 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getRegister_date() {
+	public Timestamp getregister_Time() {
 		return register_date;
 	}
-	public void setRegister_date(Date register_date) {
+	public void setregister_Time(Timestamp register_date) {
 		this.register_date = register_date;
 	}
+	
 	public Date getUpdated_date() {
 		return updated_date;
 	}

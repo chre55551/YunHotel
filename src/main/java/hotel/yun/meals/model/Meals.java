@@ -4,6 +4,8 @@ package hotel.yun.meals.model;
 
 import java.io.Serializable;
 import java.sql.Blob;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,8 +14,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import hotel.yun.ordered.model.OrderedToMeals;
 
 @Entity
 @Table(name = "meals")
@@ -31,6 +36,8 @@ public class Meals implements Serializable{
 	@JoinColumn(name = "meals_typeid")
 	private MealsType meals_type;   
 	
+	@ManyToMany(mappedBy = "meals")
+	private List<OrderedToMeals> orderedToMeals = new ArrayList<>();
 	
 	public Meals() {
 		

@@ -1,6 +1,10 @@
 package hotel.yun.room.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,23 +13,40 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import hotel.yun.date.model.Rdate;
+import hotel.yun.ordered.model.OrderedToRoom;
 
 @Entity
 @Table(name = "room")
 public class Room implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	//666
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int room_id;         //房間編號
 	private String room_name;    //房間名稱
-	//private int room_typeid;     //房間類別編號
+	@Transient
+	private int room_typeid;     //房間類別編號
+	
+	@OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
+	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
-	private RoomType roomType; 
-			
+	private RoomType roomType;
+	
+	@JsonIgnore
+    @ManyToMany(mappedBy = "rooms")
+    private Set<Rdate> date = new HashSet<Rdate>();
 	
 	
 	public Room() {
@@ -82,6 +103,14 @@ public class Room implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Set<Rdate> getDate() {
+		return date;
+	}
+
+	public void setDate(Set<Rdate> date) {
+		this.date = date;
 	}
 
 

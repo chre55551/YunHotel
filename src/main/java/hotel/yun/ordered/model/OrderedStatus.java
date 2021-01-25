@@ -23,8 +23,6 @@ public class OrderedStatus implements Serializable{
 	
 	private String ordered_status;//訂單狀態
 	
-	private String ordered_type;//訂單類型
-	
 	@OneToMany(mappedBy = "orderedStatus", cascade = CascadeType.ALL)
 	private Set<Ordered> ordered = new HashSet<>();
 	
@@ -32,11 +30,10 @@ public class OrderedStatus implements Serializable{
 		
 	}
 
-	public OrderedStatus(int status_id, String ordered_status, String ordered_type, Set<Ordered> ordered) {
+	public OrderedStatus(int status_id, String ordered_status, Set<Ordered> ordered) {
 		super();
 		this.status_id = status_id;
 		this.ordered_status = ordered_status;
-		this.ordered_type = ordered_type;
 		this.ordered = ordered;
 	}
 
@@ -51,14 +48,6 @@ public class OrderedStatus implements Serializable{
 	}
 	public void setOrdered_status(String ordered_status) {
 		this.ordered_status = ordered_status;
-	}
-
-	public String getOrdered_type() {
-		return ordered_type;
-	}
-
-	public void setOrdered_type(String ordered_type) {
-		this.ordered_type = ordered_type;
 	}
 	
 }

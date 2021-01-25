@@ -19,6 +19,7 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 	@Autowired
 	SessionFactory factory;
 	
+	//新增員工資料
 	@Override
 	public Employee_basic insert(Employee_basic emBean) {
 		Session session = factory.getCurrentSession();
@@ -26,9 +27,9 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 		return emBean;
 	}
 	
+	//依照員工編號來查詢該員工資料
 	@Override
 	public Employee_basic query(int employee_id) {
-		
 		Employee_basic bean = null;
 		Session session = factory.getCurrentSession();
 		bean = session.get(Employee_basic.class, employee_id);
@@ -38,20 +39,34 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Employee_basic> queryAll() {
-		// 查詢所有紀錄
+	public List<Employee_basic> queryAll(int Employee_basic_id) {
+		//依照員工編號查詢所有紀錄
 
-			String hql = "FROM Employee_basic"; 
+			String hql = "FROM Employee_basic eb WHERE eb.Employee_basic_id = :ebi"; 
 			List<Employee_basic> allEmployees = null;
 			Session session = factory.getCurrentSession();
-			allEmployees = session.createQuery(hql).getResultList();
+			allEmployees = session.createQuery(hql).setParameter("ebi", Employee_basic_id).getResultList();
 			return allEmployees;
 		}
-
+	//依照員工編號即可修改員工資料
 	@Override
 	public Employee_basic update(Employee_basic emBean) {
 		Session session = factory.getCurrentSession();
-		session.update(emBean);
+		String hql = "UPDATE Employee_basic eb SET eb.employee_name  = :name "
+			+",eb.employee_department = :department"
+			+",eb.employee_position = :position"
+			+",eb.employee_work_id = :work"
+			+",eb.employee_info_id = :info"
+			+",eb.employee_status_id = :status_id"
+			+"WHERE eb.employee_id = :id";
+		session.createQuery(hql)
+				.setParameter("id",emBean.getEmployee_id())
+				.setParameter("name",emBean.getEmployee_name())
+				.setParameter("department",emBean.getEmployee_department() )
+				.setParameter("position",emBean.getEmployee_position() )
+				.setParameter("work",emBean.getEmployee_work())
+				.setParameter("info",emBean.getEmployee_info())
+				.executeUpdate();
 		return emBean;
 		
 	}
@@ -65,23 +80,5 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 		emBean.setEmployee_id(employee_id);
 		session.delete(emBean);
 	}
-//	public void delete(int employee_id,String employee_name,String employee_department,String employee_position)  {
-//		Session session = factory.getCurrentSession();
-//		Transaction tx =null;
-//		try {
-//			Employee_basic emBean = new Employee_basic(employee_id,employee_name,employee_department,employee_position);
-//			session.delete(emBean);   
-//		} catch(Exception e){
-//			String classname5 =  e.getCause().getClass().getName();
-//			String classname4 =  e.getClass().getName();
-//			if ( classname5.equalsIgnoreCase("org.hibernate.StaleStateException") || 
-//				classname4.equalsIgnoreCase("org.hibernate.StaleStateException")	
-//			) {
-//				throw new RecordNotFoundException("要刪除的紀錄不存在: 主鍵值為: " + employee_id);
-//			} else {
-//				throw new RecordNotFoundException("刪除紀錄時發生異常", e);
-//			}
-//		}
-//		return;
-//	}
+
 }

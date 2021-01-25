@@ -3,11 +3,20 @@ package hotel.yun.ordered.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import hotel.yun.date.model.Rdate;
+import hotel.yun.room.model.Room;
 
 @Entity
 @Table(name = "ordered_toroom")
@@ -17,22 +26,38 @@ public class OrderedToRoom implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_toroom_id;
 	
-	private int room_id;
 	private int room_accounts;
-	private int number_of_room;
+	private int roomnum_of_people;
 	private Date room_ordered_time;
 	private int room_number;
+	@Transient
+	private int room_id;
+	@Transient
+	private int rdate_id;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "room_id")
+	private Room room;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "rdate_id")
+	private Rdate rdate;
 	
 	public OrderedToRoom() {
 		
 	}
 	
-	public OrderedToRoom(int ordered_toroom_id, int room_id, int room_accounts, int number_of_room,
+	public OrderedToRoom(int ordered_toroom_id, int room_id, int room_accounts, int roomnum_of_people,
 			Date room_ordered_time, int room_number) {
 		this.ordered_toroom_id = ordered_toroom_id;
 		this.room_id = room_id;
 		this.room_accounts = room_accounts;
-		this.number_of_room = number_of_room;
+		this.roomnum_of_people = roomnum_of_people;
+		this.room_ordered_time = room_ordered_time;
+		this.room_number = room_number;
+	}
+
+	public OrderedToRoom(Date room_ordered_time, int room_number) {
 		this.room_ordered_time = room_ordered_time;
 		this.room_number = room_number;
 	}
@@ -61,12 +86,12 @@ public class OrderedToRoom implements Serializable{
 		this.room_accounts = room_accounts;
 	}
 
-	public int getNumber_of_room() {
-		return number_of_room;
+	public int getroomnum_of_people() {
+		return roomnum_of_people;
 	}
 
-	public void setNumber_of_room(int number_of_room) {
-		this.number_of_room = number_of_room;
+	public void setroomnum_of_people(int roomnum_of_people) {
+		this.roomnum_of_people = roomnum_of_people;
 	}
 
 	public Date getRoom_ordered_time() {
@@ -84,5 +109,22 @@ public class OrderedToRoom implements Serializable{
 	public void setRoom_number(int room_number) {
 		this.room_number = room_number;
 	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public Rdate getRdate() {
+		return rdate;
+	}
+
+	public void setRdate(Rdate rdate) {
+		this.rdate = rdate;
+	}
+	
 	
 }

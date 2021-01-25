@@ -1,6 +1,7 @@
 package hotel.yun.news.dao.impl;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class News_DaoImpl implements Serializable, News_Dao {
 		Session session = factory.getCurrentSession();
 		News bb=session.get(News.class,news_id);
 		if(bb==null)
-			System.out.println("消息編號"+news_id+"找不到");
+			System.out.println("找不到編號"+news_id+"的消息");
 		return bb;
 	}
 	
