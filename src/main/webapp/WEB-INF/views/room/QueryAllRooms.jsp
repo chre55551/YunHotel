@@ -11,9 +11,9 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
     
-		<table class="mytable" id="container">
+		<table class="mytable" class="container">
 			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 			<thead>
 				<c:forEach var="xx" items="rom" >

@@ -13,10 +13,10 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
           	<h3>新增房間</h3>
-		<form action="/YunHotel/room/InsertRoom" method="POST" id="container" enctype="multipart/form-data" >
+		<form action="/YunHotel/room/InsertRoom" method="POST" class="container" enctype="multipart/form-data" >
 			<div>
 				<label>房型名稱</label> <input name="room_type" id="requestRoomType" />
 			</div>

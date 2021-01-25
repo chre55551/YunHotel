@@ -27,7 +27,7 @@
                 <a href='DeleteNew' class="diamondtxt">刪除消息</a>
             </li>
             <li class="diamond">
-                <a href='UpdateNew' class="diamondtxt">修改消息</a>
+                <a href='queryNew' class="diamondtxt">修改消息</a>
             </li>
             <li class="diamond">
                 <a href='queryNew' class="diamondtxt">查詢消息</a>

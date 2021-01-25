@@ -11,27 +11,25 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">
+        <div class="container">
+            <ul class="ALLdiamond">
            
-          
-  
-            <li id="diamond">
+            <li class="diamond">
                 <a href="QueryAllRooms" class="diamondtxt">所有房型</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="ShowBlankInsertForm" class="diamondtxt">新增房型</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="ShowBlankQueryForm" class="diamondtxt">查詢房型</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="" class="diamondtxt">修改房型</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="" class="diamondtxt">刪除房型</a>
             </li>
             
