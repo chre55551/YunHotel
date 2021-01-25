@@ -5,21 +5,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/style.css' type="text/css" />
-<title>Insert title here</title>
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css' type="text/css" />
+<title>Employee</title>
 </head>
 <body>
-	<div align='center'>
-		<h3>員工資料</h3>
-		
-		<a href='employees'>查詢全部員工資料</a><br>
-		
-		<a href='thisEmployee'>查詢單筆員工資料</a><br>
-		
-		<a href='insertEmployee'>新增員工資料</a><br>
+<%@ include file="../CommonTemplates/header.jsp"%>
 
-		<hr>
-		<a href="<c:url value='/' />">首頁</a><br>
-	</div>
+    <div id="main">
+        	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+
+        <div id="container">
+            <ul id="ALLdiamond">             
+            <li id="diamond">
+              <a href="insertEmployee" class="diamondtxt">新增員工資料</a>
+            </li>
+            <li id="diamond">
+                 <a href="queryEmployee" class="diamondtxt">查詢員工資料</a>
+            </li>
+            <li id="diamond">
+                <div class="diamondtxt">修改員工資料</div>
+            </li>
+            <li id="diamond">
+                <div class="diamondtxt">刪除員工資料</div>
+            </li>
+            </ul>
+        </div>
+    </div>
+
+    <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

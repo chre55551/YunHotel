@@ -25,6 +25,7 @@ import hotel.yun.ordered.model.Ordered;
 
 
 @Controller
+@RequestMapping("/employee")
 @SessionAttributes({"employee_id", "employee_work_id","employee_info_id"})
 public class Employee_Controller {
 	
@@ -35,7 +36,7 @@ public class Employee_Controller {
 	
 
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
-	@GetMapping("/insertEmployee")
+	@GetMapping("/insertEmp")
 	public String ShowEmployee(Model model) {
 		Employee_basic beans = new Employee_basic();
 		model.addAttribute("pojo", beans);
@@ -89,11 +90,21 @@ public class Employee_Controller {
 		service.delete(employee_id);	
 		return "employee/employees";
 	}
-	
-	@RequestMapping("/employee/index")
-	public String home() {
+	//後台的進入點
+	@GetMapping("/empindex")
+	public String homeEmployee(Model model) {
 		return "employee/empindex";
 	}
 	
+	//新增的分流
+	@GetMapping("/insertEmployee")
+	public String insertEmployee(Model model){
+		return "employee/insert";
+	}
 	
+	//查詢的分流
+	@GetMapping("/queryEmployee")
+	public String queryEmployee(Model model){
+		return "employee/query";
+	}
 }
