@@ -11,21 +11,21 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">             
-            <li id="diamond">
+        <div class="container">
+            <ul class="ALLdiamond">             
+            <li class="diamond">
               <a href="insertEmployee" class="diamondtxt">新增員工資料</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                  <a href="queryEmployee" class="diamondtxt">查詢員工資料</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <div class="diamondtxt">修改員工資料</div>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <div class="diamondtxt">刪除員工資料</div>
             </li>
             </ul>

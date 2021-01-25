@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import hotel.yun.employee.dao.Employee_Dao;
 import hotel.yun.employee.model.Employee_basic;
+import hotel.yun.employee.model.Employee_info;
+import hotel.yun.employee.model.Employee_work;
 
 
 @Repository
@@ -22,6 +24,18 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 	//新增員工資料
 	@Override
 	public Employee_basic insert(Employee_basic emBean) {
+		Session session = factory.getCurrentSession();
+		session.save(emBean);
+		return emBean;
+	}
+	@Override
+	public Employee_work insert_work(Employee_work emBean) {
+		Session session = factory.getCurrentSession();
+		session.save(emBean);
+		return emBean;
+	}
+	@Override
+	public Employee_info insert_info(Employee_info emBean) {
 		Session session = factory.getCurrentSession();
 		session.save(emBean);
 		return emBean;

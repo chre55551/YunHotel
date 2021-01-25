@@ -35,15 +35,7 @@
 			<div>
 				<label>薪水</label> <input name="employee_salary" id="requestMp"
 					 />
-			</div>			
-			<div>
-				<label>工作時數</label> <input name="working_hours" id="requestMp"
-					 />
-			</div>			
-			<div>
-				<label>休假時數</label> <input name="holiday_hours" id="requestMp"
-					 />
-			</div>			
+			</div>					
 			<div>
 				<label>性別</label> <input name="employee_gender" id="requestMp"
 					 />
@@ -76,10 +68,7 @@
 				<label>大頭照</label> 
 				 <input type="file"name="employee_image" id="requestRoomImage" onchange="fileShow();" accept="image/*">
 			</div>		
-			<div>
-				<label>職位狀態</label> <input name="employee_status" id="requestMp"
-					 />
-			</div>
+
 			<div>
 				<input value="新增" type="submit">
 				<input value="清除" type="reset">

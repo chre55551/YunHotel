@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.employee.dao.Employee_Dao;
 import hotel.yun.employee.model.Employee_basic;
+import hotel.yun.employee.model.Employee_info;
+import hotel.yun.employee.model.Employee_work;
 import hotel.yun.employee.service.Employee_Service;
 
 
@@ -27,6 +29,18 @@ public class Employee_ServiceImpl implements Employee_Service {
 	public Employee_basic insert(Employee_basic emBean) {
 		
 		return emDao.insert(emBean);
+	}
+	
+	@Override
+	public Employee_work insert_work(Employee_work emBean) {
+		
+		return emDao.insert_work(emBean);
+	}
+	
+	@Override
+	public Employee_info insert_info(Employee_info emBean) {
+		
+		return emDao.insert_info(emBean);
 	}
 
 	@Override
