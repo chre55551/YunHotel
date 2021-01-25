@@ -11,28 +11,25 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">
-            
-            
-                
-  
-            <li id="diamond">
+        <div class="container">
+            <ul class="ALLdiamond">
+           
+            <li class="diamond">
                 <a href="" class="diamondtxt">所有餐點</a>
             </li>
-            <li id="diamond">
-                <a href="insertRoom" class="diamondtxt">新增餐點</a>
+            <li class="diamond">
+                <a href="" class="diamondtxt">新增餐點</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="" class="diamondtxt">查詢餐點</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="" class="diamondtxt">修改餐點</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="" class="diamondtxt">刪除餐點</a>
             </li>
             

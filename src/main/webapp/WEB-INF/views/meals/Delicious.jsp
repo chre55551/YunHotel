@@ -7,6 +7,6 @@
 <title>Delicious</title>
 </head>
 <body>
-  太 好 吃 了吧
+  三年三班手工薯條～超級好吃！
 </body>
 </html>
