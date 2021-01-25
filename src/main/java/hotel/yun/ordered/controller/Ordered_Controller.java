@@ -304,8 +304,16 @@ public class Ordered_Controller {
 	public String singleOrdered(@PathVariable(value = "ordered_number") int ordered_number, Model model) {
 		Ordered ordered = service.queryOrderNum(ordered_number);
 		model.addAttribute("ordered", ordered);
+		try {
 		model.addAttribute("rdate", ordered.getOrderedToRoom().getRdate());
+		}catch(Exception e) {
+			
+		}
+		try {
 		model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
+		}catch(Exception e) {
+			
+		}
 		return "ordered/thisOrdered";
 	}
 

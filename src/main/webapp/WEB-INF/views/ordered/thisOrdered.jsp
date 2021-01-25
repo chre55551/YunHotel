@@ -143,8 +143,8 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ordered.ordered.last_update}">
-					<p>訂單修改時間: ${ordered.ordered.last_update}</p>
+				<c:when test="${not empty ordered_last_update}">
+					<p>訂單修改時間: ${ordered.ordered_last_update}</p>
 				</c:when>
 				<c:otherwise>
     				訂單修改時間: 無
