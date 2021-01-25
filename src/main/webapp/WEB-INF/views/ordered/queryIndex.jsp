@@ -12,17 +12,17 @@
  
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">
+        <div class="container">
+            <ul class="ALLdiamond">
                 
-            <li id="diamond">
+            <li class="diamond">
 <!--                 <div class="diamondtxt">依顧客查詢</div> -->
                 <a href="customerToOrdered" class="diamondtxt">依顧客查詢</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
 <!--                 <div class="diamondtxt">依日期查詢</div> -->
                 <a href="dateToOrdered" class="diamondtxt">依日期查詢</a>
             </li>

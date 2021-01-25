@@ -15,16 +15,16 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">
+        <div class="container">
+            <ul class="ALLdiamond">
                 
-            <li id="diamond">
+            <li class="diamond">
                 <a href="insertMealsOd" class="diamondtxt">餐點訂單</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
               <a href="insertRoomOd" class="diamondtxt">房間訂單</a>
             </li>
             </ul>

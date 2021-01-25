@@ -15,9 +15,9 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 	
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div class="container">
 		<h2>新增成功</h2><hr/>
 		<h3>這是${odd.customer.chinese_name}的訂單</h3>
 		<p>姓名: ${odd.customer.chinese_name}</p>

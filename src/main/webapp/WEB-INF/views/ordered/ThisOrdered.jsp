@@ -16,9 +16,9 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
 
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div class="container">
 			<h3>詳細訂單</h3>
 			<p>訂單編號: ${ordered.ordered_number}</p>
 			<p>姓名: ${ordered.customer.chinese_name}</p>

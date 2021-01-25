@@ -15,9 +15,9 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 	
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div class="container">
 		<h2>${customer.chinese_name}，這是您的訂位資訊</h2><hr/>
 		<p>姓名: ${odd.customer.chinese_name}</p>
 		<p>手機: ${odd.customer.mobile_phone}</p>

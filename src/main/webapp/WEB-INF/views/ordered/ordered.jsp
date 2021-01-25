@@ -13,21 +13,21 @@
  
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">             
-            <li id="diamond">
+        <div class="container">
+            <ul class="ALLdiamond">             
+            <li class="diamond">
               <a href="insertIndex" class="diamondtxt">新增訂單</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                  <a href="queryIndex" class="diamondtxt">查詢訂單</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <div class="diamondtxt">修改訂單</div>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <div class="diamondtxt">刪除訂單</div>
             </li>
             </ul>

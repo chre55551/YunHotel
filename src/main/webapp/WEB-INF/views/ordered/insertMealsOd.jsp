@@ -17,11 +17,11 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
 
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>新增餐點訂單</h3>
 		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST"
-			id="container">
+			class="container">
 			<div>
 				<label>姓名</label> <input name="chinese_name" id="requestCn" />
 			</div>

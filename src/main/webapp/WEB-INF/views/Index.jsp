@@ -17,7 +17,7 @@
 
 <header> 
     <ul>
-        <li><img id="logo" src="image/logo.png"></li>
+        <li><img class="logo" src="image/logo.png"></li>
         <li>&emsp;&emsp;&emsp;&emsp;</li>
         <li><a href="#">關於我們</a></li>
         <li><a href="showNews">最新消息</a></li>
@@ -27,21 +27,21 @@
     </ul>
 </header>
 
-<div id="main">
-    <div id="container">
+<div class="main">
+    <div class="container">
         <div class="dateline">
             <div class="D1">
-                <p id="dateF">入住:</p><br>
+                <p class="dateF">入住:</p><br>
                 <!-- readonly:不讓使用者自行輸入日期 -->
-                <input type="text" id="from" class="datepicker" readonly> 
-                <img id="datepic" src="image/date1.png">
+                <input type="text" id="from" class="datepicker from" readonly> 
+                <img class="datepic" src="image/date1.png">
                 <button></button>
             </div>
 
             <div class="D1">
-                <p id="dateF">退房:</p><br>
-                <input type="text" id="to" class="datepicker" readonly>
-                <img id="datepic" src="image/date1.png">
+                <p class="dateF">退房:</p><br>
+                <input type="text" id="to" class="to datepicker" readonly>
+                <img class="datepic" src="image/date1.png">
                 <button></button>
             </div>
         </div>
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<div id="footer"> 
+<div class="footer"> 
     <p>© The Hotel. All Rights Reserved.</p>
 </div>
 

@@ -14,11 +14,11 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>您好，${customer.chinese_name}，想訂哪間房?</h3>
 		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
-			id="container">
+			class="container">
 			<div>
 				<label>房型</label> <input name="room_type" /> 
 <!-- 				從ordered到ordered_toroom到room再到room_type的bean裡取 -->

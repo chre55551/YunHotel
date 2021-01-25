@@ -14,11 +14,11 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>新增房間訂單</h3>
 		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
-			id="container">
+			class="container">
 			<div>
 				<label>姓名</label> <input name="chinese_name" />
 			</div>

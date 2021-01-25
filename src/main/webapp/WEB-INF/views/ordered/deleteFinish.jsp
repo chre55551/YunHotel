@@ -15,9 +15,9 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div class="container">
 		<h2>刪除成功</h2><br>
 		<input type="button" value="回首頁" onclick="location.href='../indexOrdered'" >
 		</div>
