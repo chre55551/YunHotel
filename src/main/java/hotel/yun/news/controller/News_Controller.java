@@ -74,9 +74,8 @@ public class News_Controller {
 	
 	@GetMapping("/showAllNews")
 	public String GetNews(Model model) {
-		model.addAttribute("NWS", service.queryAllNews());
-//		List<News> beans = service.queryAllNews();
-//		model.addAttribute(beans);      
+		List<News> beans = service.queryAllNews();
+		model.addAttribute(beans);      
 		return "news/ShowNews";
 	}
 //---------------------------------------------------------------
