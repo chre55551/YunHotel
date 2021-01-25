@@ -26,7 +26,7 @@ import hotel.yun.news.service.News_Service;
 
 @Controller
 @RequestMapping("/news")
-@SessionAttributes({ "news_id", "news_date", "news_updated_date", "news_content"})
+//@SessionAttributes({ "news_id", "news_date", "news_updated_date", "news_content"})
 public class News_Controller {
 	
 	@Autowired
@@ -74,30 +74,29 @@ public class News_Controller {
 	
 	@GetMapping("/showAllNews")
 	public String GetNews(Model model) {
-		model.addAttribute("NWS", service.queryAllNews());
-//		List<News> beans = service.queryAllNews();
-//		model.addAttribute(beans);      
+		List<News> beans = service.queryAllNews();
+		model.addAttribute(beans);      
 		return "news/ShowNews";
 	}
 //---------------------------------------------------------------
 	@GetMapping("/update/{news_id}")
 	public String update(
 			@PathVariable(value="news_id") int news_id,Model model) {
-		News GetaNew = service.queryNewID(news_id);
-		model.addAttribute("UpdateNew", GetaNew);
-		return "ordered/UpdateNew";
+//		News GetaNew = service.queryNewID(news_id);
+//		model.addAttribute("UpdateNew", GetaNew);
+		return "news/UpdateNew";
 	}
-	@PostMapping("/UpdateNew/{news_id}")
+	@PostMapping("/UpdateNew")
 	public String update(@ModelAttribute("nws") News nw,Model model) {
 		News thenew = service.queryNewID(nw.getNews_id());
-		thenew.setNews_id(thenew.getNews_id());
-		thenew.setNews_date(thenew.getNews_date());
+//		thenew.setNews_id(thenew.getNews_id());
+//		thenew.setNews_date(thenew.getNews_date());
 		thenew.setNews_updated_date(thenew.getNews_updated_date());
 		thenew.setNews_content(thenew.getNews_content());
 		
 		News afternew = service.update(thenew);
 		model.addAttribute("Updatenew", afternew);
-		return "/news/GetaNew";
+		return "redirect:/news/UpdateNew";
 	}
 
 //---------------------------------------------------------------	
@@ -106,12 +105,12 @@ public class News_Controller {
 //		return "/news/DeleteNew";
 //	}
 //	
-	//前端網頁按按鈕送出請求，()內是前端的東東
-	@DeleteMapping("/DeleteNew/{news_id}")
+
+	@GetMapping("/DeleteNew/{news_id}")
 	public String deleteNew(@PathVariable("news_id") int news_id) {
 		service.delete(news_id);	
 		System.out.println("delete sucess");
-		return "redirect:/news/ShowNews";
+		return "redirect:/news/showAllNews";
 	}
 	
 }

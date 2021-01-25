@@ -42,13 +42,17 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	}
 
 	@Override
-	public boolean delete(int bs_id) {
-		return bDao.delete(bs_id);
+	public boolean delete(int key) {
+		return bDao.delete(key);
 	}
 	public BmemberBean checkIdPassword(String account, String password) {
 		
 		return bDao.checkIdPassword(account, password);
 		
 	}
-
+	@Override
+	public BmemberBean getCustomerById(int bs_id) {
+	
+		return bDao.getCustomerById(bs_id);
+	}
 }

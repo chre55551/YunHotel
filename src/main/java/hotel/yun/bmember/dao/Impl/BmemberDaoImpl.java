@@ -50,7 +50,7 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 		list = session.createQuery(hql).getResultList();
 		System.out.println(list);
 		return list;
-		
+
 	}
 
 	@Override
@@ -61,10 +61,10 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	}
 
 	@Override
-	public boolean delete(int bs_id) {
+	public boolean delete(int key) {
 		Session session = factory.getCurrentSession();
 		BmemberBean onemember = new BmemberBean();
-		onemember.setBs_id(bs_id);
+		onemember.setBs_id(key);
 		session.delete(onemember);
 		return false;
 	}
@@ -74,12 +74,28 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 		String hql = "FROM BmemberBean m WHERE m.bs_account = :mid and m.bs_password = :pwsd";
 		Session session = factory.getCurrentSession();
 		try {
-			mb = (BmemberBean) session.createQuery(hql).setParameter("mid",account).setParameter("pwsd", password)
+			mb = (BmemberBean) session.createQuery(hql).setParameter("mid", account).setParameter("pwsd", password)
 					.getSingleResult();
 			return mb;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public BmemberBean getCustomerById(int bs_id) {
+
+		BmemberBean bean = null;
+		Session session = factory.getCurrentSession();
+		String hql = "FROM BmemberBean cb WHERE cb.bs_id = :id";
+		try {
+			bean = (BmemberBean) session.createQuery(hql).setParameter("id", bs_id).getSingleResult();
+		} catch (NoResultException e) {
+			; // 表示查無紀錄
+		}
+
+		return bean;
+
 	}
 }

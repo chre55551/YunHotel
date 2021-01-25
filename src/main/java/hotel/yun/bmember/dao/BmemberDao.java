@@ -11,7 +11,8 @@ public interface BmemberDao {
 	public BmemberBean queryMemberID(int bs_id);
 	public List<BmemberBean> queryAllMember();
 	public BmemberBean update(BmemberBean nbean);
-	public boolean delete(int bs_id);
+	public boolean delete(int key);
+	BmemberBean getCustomerById(int bs_id);
 
 	public BmemberBean checkIdPassword(String account, String password);	
 }
