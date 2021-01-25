@@ -22,8 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import hotel.yun.customer.model.Customer;
 import hotel.yun.news.model.News;
 import hotel.yun.news.service.News_Service;
-import hotel.yun.ordered.model.Ordered;
-import hotel.yun.ordered.model.OrderedToMeals;
+
 
 @Controller
 @RequestMapping("/news")
@@ -80,7 +79,14 @@ public class News_Controller {
 		return "news/ShowNews";
 	}
 //---------------------------------------------------------------
-	@PostMapping("/getaNew/{news_id}")
+	@GetMapping("/update/{news_id}")
+	public String update(
+			@PathVariable(value="news_id") int news_id,Model model) {
+		News GetaNew = service.queryNewID(news_id);
+		model.addAttribute("UpdateNew", GetaNew);
+		return "ordered/UpdateNew";
+	}
+	@PostMapping("/UpdateNew/{news_id}")
 	public String update(@ModelAttribute("nws") News nw,Model model) {
 		News thenew = service.queryNewID(nw.getNews_id());
 		thenew.setNews_id(thenew.getNews_id());
@@ -89,20 +95,21 @@ public class News_Controller {
 		thenew.setNews_content(thenew.getNews_content());
 		
 		News afternew = service.update(thenew);
-		model.addAttribute("updatenew", afternew);
+		model.addAttribute("Updatenew", afternew);
 		return "/news/GetaNew";
 	}
 
-	//---------------------------------------------------------------	
-	@GetMapping("/DeleteNew")
-	public String deleteNewPage(Model model,HttpSession session) {
+//---------------------------------------------------------------	
+	@GetMapping("/DeleteNew/{news_id}")
+	public String deleteNew(@PathVariable("news_id") int news_id) {
 		return "/news/DeleteNew";
 	}
 	
 	//前端網頁按按鈕送出請求，()內是前端的東東
 	@PostMapping("/DeleteNewOK")
-	public String deleteNew(@PathVariable int news_id) {
+	public String deleteNewOK(@PathVariable("news_id") int news_id) {
 		service.delete(news_id);	
+		System.out.println("delete sucess");
 		return "/news/DeleteNewOK";
 	}
 

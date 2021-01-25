@@ -23,6 +23,7 @@
 	<p>更新時間: ${NWS.news_updated_date}</p>
 	<p>消息內容: ${NWS.news_content}</p>
 		<a href="<c:url value='newsindex'/> ">回上一頁</a>
+		<a href="<c:url value='UpdateNew'/> ">修改消息</a>
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>

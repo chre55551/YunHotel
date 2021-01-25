@@ -18,7 +18,7 @@
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改消息</h3>
-		<form action="/YunHotel/news/GetaNNew" method="POST" class="container">
+		<form action="/YunHotel/news/updateNew" method="POST" class="container">
 			<div>
 				<label>編號：</label> <input name="news_id"/>
 			</div>
