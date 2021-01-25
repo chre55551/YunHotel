@@ -2,7 +2,6 @@ package hotel.yun.ordered.controller;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.customer.model.Customer;
@@ -414,6 +412,7 @@ public class Ordered_Controller {
 	public String update(@PathVariable(value = "id") int ordered_number, Model model) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		model.addAttribute("updateOdered", ThisOrdered);
+		System.out.println(ThisOrdered.getOrderedToRoom().getRdate().getRdate());
 		try {
 		model.addAttribute("roomType",ThisOrdered.getOrderedToRoom().getRoom().getRoomType());
 		}catch(Exception e){

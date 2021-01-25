@@ -34,24 +34,69 @@
 		<h3>修改訂單</h3>
 		<form action="../updatecheck/${updateOdered.ordered_number}"
 			method="POST" class="container">
-			<p>欲修改的訂單編號:  ${updateOdered.ordered_number}</p>
+			<p>欲修改的 ${updateOdered.customer.chinese_name}, 訂單編號:   ${updateOdered.ordered_number}</p>
+			<c:choose>
+				<c:when test="${not empty ${updateOdered.customer.birthday}}">
+					<div>
+						<label>生日: </label> <input name="birthday" type ="date" value="${updateOdered.customer.birthday}"/>
+					</div>
+				</c:when>
+				<c:otherwise>
+    				<label>生日: </label> <input name="birthday" type ="date" />
+   				</c:otherwise>
+			</c:choose>			
+
+			<c:choose>
+				<c:when test="${not empty ${updateOdered.customer.idcard_number}}">
+					<div>
+						<label>身分證字號: </label> <input name="idcard_number" type="text" value="${updateOdered.customer.idcard_number}"/>
+					</div>
+				</c:when>
+				<c:otherwise>
+    				<label>身分證字號: </label> <input name="idcard_number" type="text" />
+   				</c:otherwise>
+			</c:choose>	
+			
+			<c:choose>
+				<c:when test="${not empty ${updateOdered.customer.address}}">
+					<div>
+						<label>地址: </label> <input name="address"  type="text" value="${updateOdered.customer.address}"/>
+					</div>
+				</c:when>
+				<c:otherwise>
+    				<label>地址: </label> <input name="address"  type="text"/>
+   				</c:otherwise>
+			</c:choose>	
+			
+			<c:choose>
+				<c:when test="${not empty ${roomType}}">
+					<div>
+						<label>房型: </label>
+						<select name="room_type">
+							<option>請選擇用餐時間</option>
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
+					</div>
+				</c:when>
+				<c:otherwise>
+
+   				</c:otherwise>
+			</c:choose>	
+			
 			<div>
-				<label>生日: </label> <input name="birthday" type ="date" value="${updateOdered.customer.birthday}"/>
+				<label>房型: </label> <input name="room_type" />
 			</div>
-			<div>
-				<label>身分證字號: </label> <input name="idcard_number" type="text" value="${updateOdered.customer.idcard_number}"/>
-			</div>
-			<div>
-				<label>地址: </label> <input name="address"  type="text" value="${updateOdered.customer.address}"/>
-			</div>
-			<div>
-				<label>房型: </label> <input name="room_name" />
-			</div>
+			
 			<div>
 				<label>房號: </label> <input name="room_name" />
 			</div>
+			
 			<div>
-				<label>欲訂房日期: </label> <input name="rdate" type ="date"/>
+				<label>欲訂房日期: </label> <input name="rdate" type ="date" value="${updateOdered.customer.address}"/>
 			</div>
 			<div>
 				<label>用餐人數: </label> <input name="mealsnum_of_people" />
