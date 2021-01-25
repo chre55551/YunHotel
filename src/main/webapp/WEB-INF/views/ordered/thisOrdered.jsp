@@ -171,17 +171,11 @@
 
 	<script type="text/javascript">
 		$('#uuu').click(function() {
-			location.href = '../update/' + $
-			{
-				ordered.ordered_number
-			}
+			location.href = '../update/' + ${ordered.ordered_number}
 		})
 
 		$('#xxx').click(function() {
-			location.href = '../DeleteOrdred/' + $
-			{
-				ordered.ordered_number
-			}
+			location.href = '../DeleteOrdred/' + ${ordered.ordered_number}
 		})
 	</script>
 </body>

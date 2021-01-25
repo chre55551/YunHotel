@@ -36,7 +36,7 @@
 			method="POST" class="container">
 			<p>欲修改的訂單編號: ${updateOdered.ordered_number}</p>
 			<div>
-				<label>生日: </label> <input name="birthday" />
+				<label>生日: </label> <input name="birthday" type ="date"/>
 			</div>
 			<div>
 				<label>身分證字號: </label> <input name="idcard_number" />
@@ -48,13 +48,13 @@
 				<label>房號: </label> <input name="room_name" />
 			</div>
 			<div>
-				<label>欲訂房日期: </label> <input name="rdate" />
+				<label>欲訂房日期: </label> <input name="rdate" type ="date"/>
 			</div>
 			<div>
 				<label>用餐人數: </label> <input name="mealsnum_of_people" />
 			</div>
 			<div>
-				<label>用餐日期: </label> <input name="mdate" />
+				<label>用餐日期: </label> <input name="mdate" type ="date"/>
 			</div>
 			<div>
 				<label>用餐時段: </label> <select name="time_period">
@@ -64,9 +64,6 @@
 					<option value="17:00~19:00">下午五點</option>
 					<option value="19:00~21:00">晚上七點</option>
 				</select>
-			</div>
-			<div>
-				<label>總價: </label> <input name="ordered_accounts" />
 			</div>
 			<div>
 				<label>訂單狀態: </label>
@@ -83,10 +80,6 @@
 					<option value="現金">現金</option>
 					<option value="信用卡">信用卡</option>
 				</select>
-			</div>
-			<div>
-				<label>訂單最後修改時間</label> <input name="ordered_last_update"
-					id="requestOlu" type="date" />
 			</div>
 			<div>
 				<label>備註</label> <input name="note" id="requestNote" />
