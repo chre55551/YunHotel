@@ -14,9 +14,9 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 	
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div class="container">
 	<h3>查詢第${NWS.news_id}則的消息</h3>
 	<p>編號: ${NWS.news_id}</p>
 	<p>上傳時間: ${NWS.news_date}</p>

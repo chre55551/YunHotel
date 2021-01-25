@@ -15,10 +15,10 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 
-	<div id="main">
+	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>刪除消息</h3>
-		<form action="/YunHotel/news/DeleteNewOK" method="POST" id="container">
+		<form action="/YunHotel/news/DeleteNewOK" method="POST" class="container">
 			<div>
 				<label>消息編號</label> <input name="news_id"/>
 			</div>

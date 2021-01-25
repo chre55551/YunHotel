@@ -15,7 +15,7 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 
-	<div id="main">
+	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>新增消息</h3>
 		<form action="/YunHotel/news/insertNews" method="POST" id="container">

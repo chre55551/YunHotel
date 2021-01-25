@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<div id="footer">
+	<div class="footer">
 		<p>© The Hotel. All Rights Reserved.</p>
 	</div>
 </body>

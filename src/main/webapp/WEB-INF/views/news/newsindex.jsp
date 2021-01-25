@@ -12,24 +12,24 @@
  
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-<div id="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-        <div id="container">
-            <ul id="ALLdiamond">
+        <div class="container">
+            <ul class="ALLdiamond">
                 
-            <li id="diamond">
+            <li class="diamond">
                 <a href='showAllNews' class="diamondtxt">所有消息</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href='showinsertNews' class="diamondtxt">新增消息</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href='DeleteNew' class="diamondtxt">刪除消息</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href='UpdateNew' class="diamondtxt">修改消息</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href='queryNew' class="diamondtxt">查詢消息</a>
             </li>
             </ul>
