@@ -73,9 +73,10 @@ public class News_Controller {
 	}
 	
 	@GetMapping("/showAllNews")
-	public String GetNews(@ModelAttribute("nws") News nw,Model model) {
-		List<News> beans = service.queryAllNews();
-		model.addAttribute(beans);      
+	public String GetNews(Model model) {
+		model.addAttribute("NWS", service.queryAllNews());
+//		List<News> beans = service.queryAllNews();
+//		model.addAttribute(beans);      
 		return "news/ShowNews";
 	}
 //---------------------------------------------------------------
@@ -100,17 +101,17 @@ public class News_Controller {
 	}
 
 //---------------------------------------------------------------	
-	@GetMapping("/DeleteNew/{news_id}")
-	public String deleteNew(@PathVariable("news_id") int news_id) {
-		return "/news/DeleteNew";
-	}
-	
+//	@GetMapping("/DeleteNew/{news_id}")
+//	public String deleteNew(@PathVariable("news_id") int news_id) {
+//		return "/news/DeleteNew";
+//	}
+//	
 	//前端網頁按按鈕送出請求，()內是前端的東東
-	@PostMapping("/DeleteNewOK")
-	public String deleteNewOK(@PathVariable("news_id") int news_id) {
+	@DeleteMapping("/DeleteNew/{news_id}")
+	public String deleteNew(@PathVariable("news_id") int news_id) {
 		service.delete(news_id);	
 		System.out.println("delete sucess");
-		return "/news/DeleteNewOK";
+		return "redirect:/news/ShowNews";
 	}
-
+	
 }
