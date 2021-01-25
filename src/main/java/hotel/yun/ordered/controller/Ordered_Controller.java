@@ -473,6 +473,11 @@ public class Ordered_Controller {
 	public String update(@PathVariable(value = "id") int ordered_number, Model model) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		model.addAttribute("updateOdered", ThisOrdered);
+		try {
+		model.addAttribute("roomType",ThisOrdered.getOrderedToRoom().getRoom().getRoomType());
+		}catch(Exception e){
+			
+		}
 		return "ordered/updateOrdered";// 依訂單到查詢到的訂單，送出可修改的空白表單，再做修改
 	}
 
@@ -540,8 +545,8 @@ public class Ordered_Controller {
 			ordered.setOrderedPayment(op);
 		}
 		
-		ordered.setOrdered_accounts(ordered_accounts);
-		ordered.setOrdered_last_update(ordered_last_update);
+//		ordered.setOrdered_accounts(ordered_accounts);
+//		ordered.setOrdered_last_update(ordered_last_update);
 		ordered.setNote(note);
 
 		service.updateCustomerOd(ordered);

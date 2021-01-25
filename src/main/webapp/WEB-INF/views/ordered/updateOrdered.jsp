@@ -34,15 +34,18 @@
 		<h3>修改訂單</h3>
 		<form action="../updatecheck/${updateOdered.ordered_number}"
 			method="POST" class="container">
-			<p>欲修改的訂單編號: ${updateOdered.ordered_number}</p>
+			<p>欲修改的訂單編號:  ${updateOdered.ordered_number}</p>
 			<div>
-				<label>生日: </label> <input name="birthday" type ="date"/>
+				<label>生日: </label> <input name="birthday" type ="date" value="${updateOdered.customer.birthday}"/>
 			</div>
 			<div>
-				<label>身分證字號: </label> <input name="idcard_number" />
+				<label>身分證字號: </label> <input name="idcard_number" type="text" value="${updateOdered.customer.idcard_number}"/>
 			</div>
 			<div>
-				<label>地址: </label> <input name="birthday" />
+				<label>地址: </label> <input name="address"  type="text" value="${updateOdered.customer.address}"/>
+			</div>
+			<div>
+				<label>房型: </label> <input name="room_name" />
 			</div>
 			<div>
 				<label>房號: </label> <input name="room_name" />
@@ -58,6 +61,7 @@
 			</div>
 			<div>
 				<label>用餐時段: </label> <select name="time_period">
+					<option>請選擇用餐時間</option>
 					<option value="11:00~13:00">上午十一點</option>
 					<option value="13:00~15:00">下午一點</option>
 					<option value="15:00~17:00">下午三點</option>
@@ -70,14 +74,14 @@
 				<!-- 				<input name="ordered_status" id="requestMp" /> -->
 				<select name="ordered_status" id="requestOs">
 					<option value="">請選擇訂單狀態</option>
-					<option value="已成立">已成立</option>
+					<option value="已成立" selected>已成立</option>
 					<option value="已結單">已結單</option>
 				</select>
 			</div>
 			<div>
 				<label>付款方式: </label> <select name="payment_status" id="requestPS">
 					<option value="">請選擇付款方式</option>
-					<option value="現金">現金</option>
+					<option value="現金" selected>現金</option>
 					<option value="信用卡">信用卡</option>
 				</select>
 			</div>
