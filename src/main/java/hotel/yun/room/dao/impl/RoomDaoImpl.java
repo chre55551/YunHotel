@@ -4,8 +4,6 @@ package hotel.yun.room.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.NoResultException;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +34,14 @@ public class RoomDaoImpl implements RoomDao{
 		return session.save(rBean);
 		
 	}
+    
+	@Override
+    public RoomType queryByRoomType(String roomType) {
+    	Session session = factory.getCurrentSession();
+    	String hql  = "FROM room_type rt WHERE rt.room_type = :roomTp";
+    	RoomType rt = (RoomType)session.createQuery(hql).setParameter("roomTp", roomType).getSingleResult();
+    	return rt;
+    }
     
     @Override
 	public Room queryRoom_id(int room_id) {

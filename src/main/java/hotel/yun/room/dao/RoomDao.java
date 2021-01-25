@@ -24,9 +24,11 @@ public interface RoomDao {
 //	public Room query(int room_id);
 //	public List<Room> queryAll();
 //	public Room update(Room rBean );
-//	public boolean delete(int room_id);
+//	public boolean delete(int ro@Override
+//	om_id);
 	
 	public Room queryByRoomNum(String num);
+	public RoomType queryByRoomType(String roomType);
 	
 
 	

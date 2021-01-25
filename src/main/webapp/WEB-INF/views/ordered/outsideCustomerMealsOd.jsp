@@ -22,10 +22,9 @@
 		<p>姓名: ${odd.customer.chinese_name}</p>
 		<p>手機: ${odd.customer.mobile_phone}</p>
 		<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
-		<p>用餐日期: ${odd.orderedToMeals.meals_ordered_time}</p>
-		<a href="<c:url value='insertMealsOd'/> ">回訂餐</a>
-		<a href="<c:url value='/'/> ">回官網</a>
-		
+		<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
+		<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p><br>
+		<input type="button" value="回官網" onclick="location.href='http://localhost:8080/YunHotel/YunPage'" >
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>

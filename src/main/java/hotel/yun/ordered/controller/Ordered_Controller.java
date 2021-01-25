@@ -32,6 +32,7 @@ import hotel.yun.ordered.model.OrderedToMeals;
 import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
 import hotel.yun.room.model.Room;
+import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
 
 @Controller
@@ -55,7 +56,7 @@ public class Ordered_Controller {
 	@Autowired
 	Date_Service dser;
 
-//---------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 後台的進入點
 	@GetMapping("/indexOrdered")
 	public String indexOrdered(Model model) {
@@ -74,9 +75,9 @@ public class Ordered_Controller {
 		return "ordered/queryIndex";
 	}
 
-//---------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------
 	// 新增
-	// 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱
+	// 後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱 訂餐~~~~~~~~~
 	@GetMapping("/insertMealsOd")
 	public String ShowMealsOrdered(Model model) {
 		Ordered od = new Ordered();
@@ -137,8 +138,8 @@ public class Ordered_Controller {
 		return "ordered/customerMealsOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
 
 	}
-
-	// 送出空白的Bean來接訂房的屬性，Jsp input的name要對到DB的名稱
+//------------------------------------------------------------------------------------------------------------------
+	//   後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台   送出空白的Bean來接訂房的屬性，Jsp input的name要對到DB的名稱
 	@GetMapping("/insertRoomOd")
 	public String ShowRoomOrdered(Model model) {
 		Ordered od = new Ordered();
@@ -146,7 +147,7 @@ public class Ordered_Controller {
 		return "ordered/insertRoomOd";
 	}
 
-	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面(訂房)
+	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面   訂房~~~~~~~~~‵
 	@PostMapping("/insertRoomOrdered")
 	public String insertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
@@ -169,11 +170,9 @@ public class Ordered_Controller {
 		}
 		OrderedToRoom otr = new OrderedToRoom();
 		try {
-			System.out.println("666666666666666666666666666666");
 			Rdate rd = dser.queryByRoomDate(rdate);
 			otr.setRdate(rd);
 		}catch(Exception e) {
-			System.out.println("777777777777777777777777777777777777");
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
 			otr.setRdate(rd);
@@ -215,7 +214,150 @@ public class Ordered_Controller {
 //		return null;
 		return "ordered/customerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
-//--------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
+	//前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台的新增!!!!!!  
+	//送出空白的表單，來接住使用者輸入的值 訂位~~~~
+	@GetMapping("/outsideInsertMeals")
+	public String outsideShowMealsOrdered(Model model) {
+		Ordered od = new Ordered();
+		model.addAttribute("odd", od);
+		return "ordered/outsideinsertMeals";
+	}
+	
+	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面
+	@PostMapping("/outsideInsertMealsOrdered")
+	public String outsideinsertMealsOrdered(@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "mobile_phone") String mobile_phone,
+			@RequestParam(value = "mealsnum_of_people") int mealsnum_of_people,
+			@RequestParam(value = "mdate") Date mdate, @RequestParam(value = "time_period") String time_period,
+			@RequestParam(value = "note") String note, Model model) {
+		// 用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
+		// 若是不存在就做以下這些事情
+		Ordered od = new Ordered();
+		od.setNote(note);
+		Customer customer = new Customer(chinese_name, mobile_phone);
+		try {
+			Customer CExist = cser.query(customer);
+			od.setCustomer(CExist);
+		} catch (Exception e) {
+			od.setCustomer(customer);
+			e.printStackTrace();
+		}
+		OrderedToMeals otm = new OrderedToMeals();
+		otm.setmealsnum_of_people(mealsnum_of_people);// 這是人數
+		try {// 根據時間跟時段撈出 mdate 並把它放進 otm 裡
+			Mdate md = dser.queryByDatePeriod(mdate, time_period);
+			otm.setMdate(md);
+		} catch (Exception e) {// 若此時段不存在就建一個新的
+			Mdate md = new Mdate();
+			md.setMdate(mdate);
+			md.setTime_period(time_period);
+			e.printStackTrace();
+			otm.setMdate(md);
+		}
+		if (mealsnum_of_people < 2) {
+			Integer k = otm.getMdate().getTable_two_order();
+			otm.getMdate().setTable_two_order(k++);
+		} else if (mealsnum_of_people < 4) {
+			Integer k = otm.getMdate().getTable_four_order();
+			otm.getMdate().setTable_four_order(k++);
+		} else if (mealsnum_of_people < 6) {
+			Integer k = otm.getMdate().getTable_six_order();
+			otm.getMdate().setTable_six_order(k++);
+		}
+		od.setOrderedToMeals(otm);
+
+		Ordered odd;
+		try {
+			odd = service.insert(od);
+			model.addAttribute("odd", odd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "ordered/outsideCustomerMealsOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
+
+	}
+	
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	//前台的
+	@GetMapping("/outsideInsertRoomOd")
+	public String outsideShowRoomOrdered(Model model) {
+		Ordered od = new Ordered();
+		model.addAttribute("odd", od);
+		return "ordered/outsideInsertRoomOd";
+	}
+
+	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面   訂房~~~~~~~~~‵
+	@PostMapping("/outsideInsertRoomOrdered")
+	public String outsideinsertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "idcard_number") String idcard_number,
+			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
+			@RequestParam(value = "address") String address, @RequestParam(value = "room_type") String room_type,
+			@RequestParam(value = "rdate", required = false) Date rdate,
+			@RequestParam(value = "note") String note, Model model) {
+		Ordered od = new Ordered();
+		od.setNote(note);
+		Customer customer = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
+		try {
+			Customer CExist = cser.query(customer);
+			CExist.setIdcard_number(idcard_number);
+			CExist.setAddress(address);
+			CExist.setBirthday(birthday);
+			od.setCustomer(CExist);
+		} catch (Exception e) {
+			od.setCustomer(customer);
+			e.printStackTrace();
+		}
+		OrderedToRoom otr = new OrderedToRoom();
+		Room rm = new Room();
+		try {
+			Rdate rd = dser.queryByRoomDate(rdate);
+			otr.setRdate(rd);
+		}catch(Exception e) {
+			Rdate rd = new Rdate();
+			rd.setRdate(rdate);
+			otr.setRdate(rd);
+		}
+		try {
+			RoomType r = rser.queryByRoomType(room_type);
+			rm.setRoomType(r);
+			otr.setRoom(rm);
+		} catch (Exception e) {
+			RoomType r = new RoomType();
+			r.setRoom_type(room_type);
+			rm.setRoomType(r);
+			otr.setRoom(rm);
+		}
+		od.setOrderedToRoom(otr);
+		try {
+			Rdate rd = dser.queryByRoomDate(rdate);
+			otr.setRdate(rd);
+		} catch (Exception e) {
+			Rdate rd = new Rdate();
+			rd.setRdate(rdate);
+			e.printStackTrace();
+			otr.setRdate(rd);
+		}
+		od.setOrderedToRoom(otr);
+
+		OrderedStatus os = new OrderedStatus();
+		os.setStatus_id(1);
+		od.setOrderedStatus(os);
+
+		Ordered odd;
+		try {
+			odd = service.insert(od);
+			model.addAttribute("odd", odd);
+			model.addAttribute("rdate", odd.getOrderedToRoom().getRdate().getRdate());
+			model.addAttribute("mdate", odd.getOrderedToMeals().getMdate().getMdate());
+			model.addAttribute("roomname", odd.getOrderedToRoom().getRoom().getRoom_name());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		return null;
+		return "ordered/outsideCustomerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
+	}
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// 查詢
 //	@GetMapping("/thisOrdered")
 //	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
@@ -232,14 +374,14 @@ public class Ordered_Controller {
 		model.addAttribute("OrderedList", Ordered);
 		return "ordered/thisOrderedAll";// 進到查詢到的全部訂單，需再ThisOrdered裡設超連結進來
 	}
-
+	//------------------------------------------------------------------------------------------------------------------
 	// 寫在後台需要從顧客查詢到他的訂單
 	@GetMapping("/customerToOrdered")
 	public String getCustomerOrder(Model model, HttpSession session) {
 		return "ordered/customerToOrdered";
 	}
 
-	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立
+	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立~~~~~~~~~~~~~~~~~
 	@PostMapping("/customerToOrdered/orderedCreated")
 	public @ResponseBody List<Ordered> orderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
@@ -261,7 +403,7 @@ public class Ordered_Controller {
 		return null;
 	}
 
-	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單
+	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單~~~~~~~~~~~~~~~~~~~
 	@PostMapping("/customerToOrdered/orderedFinished")
 	public @ResponseBody List<Ordered> orderedFinishedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
@@ -283,7 +425,7 @@ public class Ordered_Controller {
 		return null;
 	}
 
-	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出全部訂單
+	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出      全部訂單~~~~~~~~~~~~~~~
 	@PostMapping("/customerToOrdered/orderedAll")
 	public @ResponseBody List<Ordered> orderedAllAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
@@ -318,11 +460,6 @@ public class Ordered_Controller {
 	}
 
 	// 寫在後台需要從日期查詢到他的訂單
-	@GetMapping("/dateToOrdered")
-	public String showDateToOrdered(@ModelAttribute("odd") Ordered odd, Model model) {
-		return "ordered/dateToOrdered";// 進到該日期的所有訂單
-	}
-
 //	@GetMapping("/dateToThisOrdered")
 //	public String DateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
 //		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
