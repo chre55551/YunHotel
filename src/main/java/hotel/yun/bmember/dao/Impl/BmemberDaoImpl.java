@@ -43,12 +43,14 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<BmemberBean> queryAllMember() {
-		String hql = "FROM bmemberbean";
 		Session session = null;
-		List<BmemberBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
+		String hql = "FROM BmemberBean";
+		List<BmemberBean> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();
+		System.out.println(list);
 		return list;
+		
 	}
 
 	@Override

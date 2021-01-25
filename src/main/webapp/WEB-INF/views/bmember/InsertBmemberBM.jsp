@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td>密碼</td>
-				<td><form:input path="bs_password" /></td>
+				<td><form:input type="password" path="bs_password" /></td>
 
 			</tr>
 			<tr>

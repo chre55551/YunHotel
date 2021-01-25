@@ -1,5 +1,7 @@
 package hotel.yun.bmember.controller;
 
+import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,12 +22,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
 
 @Controller
 @RequestMapping("/bmember")
-@SessionAttributes({ "bs_id", "bs_account", "bs_password", "bs_email", "authority", "user_id" })
+//@SessionAttributes({ "bs_id", "bs_account", "bs_password", "bs_email", "authority", "user_id" })
 public class BmemberController {
 
 	ServletContext context;
@@ -57,13 +60,13 @@ public class BmemberController {
 		String kk = (String)session.getAttribute("LoginOK");
 		String a = (String)session.getAttribute("Authority");//如果該功能有權限要求 可以用這個去判別
 		
-		if(kk!=null) {
+//		if(kk!=null) {
 		BmemberBean bm = new BmemberBean();
 		model.addAttribute("bb", bm);
 		return "bmember/InsertBmemberBM";
-		}else {
-			return "login/PleaseLoginInBS";
-		}
+//		}else {
+//			return "login/PleaseLoginInBS";
+//		}
 	}
 
 	@PostMapping("/insertbmemberbb")
@@ -76,25 +79,34 @@ public class BmemberController {
 		System.out.println(
 				bm.getBs_account() + bm.getBs_password() + bm.getBs_email() + bm.getAuthority() + bm.getUser_id());
 		service.insert(bm);
+		model.addAttribute("bb",bm);
 
 		return "bmember/InsertBmemberOK";//
 	}
 
 //------------------------------------------------------------------------------------------------
 	// 刪除
-	@DeleteMapping("/DeleteBmember/{bs_id}")
-	public String delete(@PathVariable("bs_id") int bs_id) {
-		service.delete(bs_id);
-		return "redirect:/GetaBmember";
-
+	@GetMapping("/DeleteBmember")
+	public String deleteNewPage(Model model,HttpSession session) {
+		return "/bmember/DeleteBmember";
+	}
+	
+	//前端網頁按按鈕送出請求，()內是前端的東東
+	@PostMapping("/DeleteOKBmember/{bs_id}")
+	public String deleteNew(@PathVariable int bs_id) {
+		service.delete(bs_id);	
+		return "/bmember/DeleteOKBmember";
 	}
 
 //----------------------------------------------------------------------------------------------------
 	// 顯示所有會員
-	@GetMapping("/showAllMembers")
-	public String list(Model model) {
-		model.addAttribute("members", service.queryAllMember());
-		return "/ShowBmember";
+	@GetMapping("/ShowBmember")
+	public String getCustomers(Model model) {
+		List<BmemberBean> sb = service.queryAllMember();
+		model.addAttribute("sab",sb);      
+	
+		System.out.println(" showAllMembers");
+		return "bmember/ShowBmember";
 	}
 
 //-----------------------------------------------------------------------------------------------------
@@ -116,7 +128,7 @@ public class BmemberController {
 	}
 //------------------------------------------------------------------------------------------------------
 
-	// 查詢
+	//依照ID查詢
 
 	@GetMapping("/QueryBmember")
 	public String QueryNew(Model model, HttpSession session) {
@@ -130,7 +142,8 @@ public class BmemberController {
 		model.addAttribute("qbm", bb);
 		return "/bmember/GetaBmember";
 	}
-	
+	//後臺會員登入
+	//---------------------------------------------------------------------------------------------
 	@GetMapping("/BLogin")
 	public String loginfromindex(Model model) {
 		BmemberBean bm = new BmemberBean();

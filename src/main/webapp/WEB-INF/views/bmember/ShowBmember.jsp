@@ -19,12 +19,12 @@
 				<th width='160'>客戶姓名</th>
 			</tr>
 			<c:choose>
-				<c:when test="${not empty customerBeanList}">
-					<c:forEach var='customer' items="${customerBeanList}">
+				<c:when test="${not empty sab}">
+					<c:forEach var='c' items="${sab}">
 						<tr>
 							<td align='center'><a
-								href='modifyCustomer/${customer.customerId}'>${customer.customerId}</a></td>
-							<td>${customer.name}</td>
+								href='modifyCustomer/${c.bs_id}'>${c.bs_id}</a></td>
+							<td>${c.user_id}</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -33,7 +33,7 @@
 			</c:otherwise>
 			</c:choose>
 		</table>
-		<br> <a href="<c:url value='/_01_customer/index' />">回首頁</a>
+		<br> <a href="<c:url value='/' />">回首頁</a>
 	</div>
 </body>
 </html>

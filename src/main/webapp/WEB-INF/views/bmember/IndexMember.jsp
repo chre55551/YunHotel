@@ -11,28 +11,28 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div id="main">
+    <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div id="container">
-            <ul id="ALLdiamond">
+        <div class="container">
+            <ul class="ALLdiamond">
             
             
                 
   
-            <li id="diamond">
+            <li class="diamond">
                 <a href="ShowBmember" class="diamondtxt">顯示所有會員</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="InsertBmemberBM" class="diamondtxt">新增會員</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="QueryBmember" class="diamondtxt">查詢會員</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="UpdateBmember" class="diamondtxt">修改會員</a>
             </li>
-            <li id="diamond">
+            <li class="diamond">
                 <a href="DeleteBmember" class="diamondtxt">刪除會員</a>
             </li>
             

@@ -14,9 +14,9 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 	
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div classz="container">
 	<h3>查詢第${qbm.bs_id}則的消息</h3>
 	<p>編號: ${qbm.bs_id}</p>
 	<p>帳號: ${qbm.bs_account}</p>
