@@ -381,65 +381,6 @@ public class Ordered_Controller {
 		return "ordered/customerToOrdered";
 	}
 
-	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立~~~~~~~~~~~~~~~~~
-	@PostMapping("/customerToOrdered/orderedCreated")
-	public @ResponseBody List<Ordered> orderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
-			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status, Model model, HttpSession session) {
-		Customer c = new Customer(chinese_name, mobile_phone);
-		try {
-			Customer customer = cser.query(c);
-			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
-			List<Ordered> returnlist = new ArrayList<Ordered>();
-			for (Ordered o : CustomerOrdered) {
-				if (o.getOrderedStatus().getStatus_id() == 1) {
-					returnlist.add(o);
-				}
-			}
-			return returnlist;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單~~~~~~~~~~~~~~~~~~~
-	@PostMapping("/customerToOrdered/orderedFinished")
-	public @ResponseBody List<Ordered> orderedFinishedAjax(@RequestParam(value = "chinese_name") String chinese_name,
-			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status, Model model, HttpSession session) {
-		Customer c = new Customer(chinese_name, mobile_phone);
-		try {
-			Customer customer = cser.query(c);
-			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
-			List<Ordered> returnlist = new ArrayList<Ordered>();
-			for (Ordered o : CustomerOrdered) {
-				if (o.getOrderedStatus().getOrdered_status() == "已結單") {
-					returnlist.add(o);
-				}
-			}
-			return returnlist;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出      全部訂單~~~~~~~~~~~~~~~
-	@PostMapping("/customerToOrdered/orderedAll")
-	public @ResponseBody List<Ordered> orderedAllAjax(@RequestParam(value = "chinese_name") String chinese_name,
-			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status, Model model, HttpSession session) {
-		Customer c = new Customer(chinese_name, mobile_phone);
-		try {
-			Customer customer = cser.query(c);
-			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
-			return CustomerOrdered;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 
 	// 查到我顧客訂單的詳細資料
 	@RequestMapping("/thisOrdered/{ordered_number}")
