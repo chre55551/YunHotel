@@ -6,9 +6,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>InsertBmember</title>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
+<title>GetaBmember</title>
 </head>
 <body>
+	<%@ include file="../CommonTemplates/header.jsp"%>
+	
+	
+	<div class="main">
+		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+		<div class="container">
 	<h3>新增會員</h3>
 	<a href="<c:url value='/'/> ">回首頁</a>
 	<table>

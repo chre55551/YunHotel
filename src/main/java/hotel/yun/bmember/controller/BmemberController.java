@@ -25,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.bmember.service.BmemberService;
-import hotel.yun.bmember.validate.BmemberValidator;
+
 
 @Controller
 @RequestMapping("/bmember")
@@ -77,26 +77,20 @@ public class BmemberController {
 		bm.getBs_email();
 		bm.getAuthority();
 		bm.getUser_id();
-		System.out.println(
-				bm.getBs_account() + bm.getBs_password() + bm.getBs_email() + bm.getAuthority() + bm.getUser_id());
+//		System.out.println(
+//				bm.getBs_account() + bm.getBs_password() + bm.getBs_email() + bm.getAuthority() + bm.getUser_id());
 		service.insert(bm);
 		model.addAttribute("bb",bm);
 
 		return "bmember/InsertBmemberOK";//
 	}
 
-//------------------------------------------------------------------------------------------------
-	// 刪除
-	@GetMapping("/DeleteBmember")
-	public String deleteNewPage(Model model,HttpSession session) {
-		return "/bmember/DeleteBmember";
-	}
-	
-	//前端網頁按按鈕送出請求，()內是前端的東東
-	@PostMapping("/DeleteOKBmember/{bs_id}")
-	public String deleteNew(@PathVariable int bs_id) {
+//刪除------------------------------------------------------------------------------------------------
+	@DeleteMapping(value="/modifyCustomer/{id}")
+	public String deleteCustomerData(@PathVariable Integer bs_id) {
+		System.out.println(11122233);
 		service.delete(bs_id);	
-		return "/bmember/DeleteOKBmember";
+		return "redirect:../ShowBmember";
 	}
 
 //----------------------------------------------------------------------------------------------------
@@ -106,7 +100,7 @@ public class BmemberController {
 		List<BmemberBean> sb = service.queryAllMember();
 		model.addAttribute("sab",sb);      
 	
-		System.out.println(" showAllMembers");
+//		System.out.println(" showAllMembers");
 		return "bmember/ShowBmember";
 	}
 
@@ -124,16 +118,16 @@ public class BmemberController {
 //			 BindingResult bindingResult 
 			) {
 //			new BmemberValidator().validate(bean, bindingResult);
-			System.out.println("修改會員(PUT, 11-05): " + bean);
+//			System.out.println("修改會員(PUT, 11-05): " + bean);
 			    
 //			if (bindingResult.hasErrors()) {
 //
 //				return "bmember/UpdateBmember";
 //
 //			}
-			System.out.println(bean.getBs_id());
-			System.out.println("12345 bean==>" + bean);
-			System.out.println(bean.getUser_id());
+//			System.out.println(bean.getBs_id());
+//			System.out.println("12345 bean==>" + bean);
+//			System.out.println(bean.getUser_id());
 			service.update(bean);	
 			return "redirect:../ShowBmember";
 		}
@@ -150,7 +144,7 @@ public class BmemberController {
 	@PostMapping("/GetaBmember")
 	public String GetaNew(@RequestParam("bs_account") int bs_account, Model model) {
 		BmemberBean bb = service.queryMemberID(bs_account);
-		System.out.println(bb.getBs_id());
+//		System.out.println(bb.getBs_id());
 		model.addAttribute("qbm", bb);
 		return "/bmember/GetaBmember";
 	}

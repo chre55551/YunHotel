@@ -8,16 +8,15 @@
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>customerMealsOrdered</title>
+<title>GetaBmember</title>
 </head>
 <body>
-
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 	
-	<div classs="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div id="container">
+		<div class="container">
 		<h2>新增成功</h2><hr/>
 		<p>帳號: ${bb.bs_account}</p>
 		<p>密碼: ${bb.bs_password}</p>

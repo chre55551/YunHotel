@@ -29,14 +29,7 @@
             <li class="diamond">
                 <a href="QueryBmember" class="diamondtxt">查詢會員</a>
             </li>
-            <li class="diamond">
-                <a href="UpdateBmember" class="diamondtxt">修改會員</a>
-            </li>
-            <li class="diamond">
-                <a href="DeleteBmember" class="diamondtxt">刪除會員</a>
-            </li>
-            
-            
+           
             
             
             
