@@ -32,9 +32,9 @@
 					<td style="text-align:center">${NWS.news_content}</td>
 					
 					 <td><a
-                        href="${pageContext.request.contextPath}/news/${news_id}">編輯</a></td>
-                    <td><a class='deletelink'
-                        href="${pageContext.request.contextPath}/news/${news_id}">刪除</a></td>
+                        href="${pageContext.request.contextPath}/news/update/${NWS.news_id}">編輯</a></td>
+                    <td><a
+                        href="${pageContext.request.contextPath}/news/DeleteNew/${NWS.news_id}">刪除</a></td>
 				</tr>
 			</c:forEach>
 		
@@ -44,7 +44,7 @@
 <script type='text/javascript'>
     $(document).ready(function() {
         $('.deletelink').click(function() {
-        	if (confirm('確定刪除此筆紀錄? ')) {
+        	if (confirm('確定刪除? ')) {
         		var href = $(this).attr('href');
                 $('form').attr('action', href).submit();
         	} 
