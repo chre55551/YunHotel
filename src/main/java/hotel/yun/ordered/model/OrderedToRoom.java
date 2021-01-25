@@ -35,11 +35,11 @@ public class OrderedToRoom implements Serializable{
 	@Transient
 	private int rdate_id;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "rdate_id")
 	private Rdate rdate;
 	

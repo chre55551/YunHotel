@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.ordered.model.OrderedToMeals;
 
 @Entity
@@ -31,6 +33,7 @@ public class Mdate {
 	private Integer table_six_total = 5;
 	
 	@OneToMany(mappedBy = "mdate", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<OrderedToMeals> orderedToMeals = new ArrayList<>();
 	
 	public Mdate() {

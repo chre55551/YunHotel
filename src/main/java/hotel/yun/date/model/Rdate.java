@@ -18,6 +18,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.room.model.Room;
 
@@ -31,8 +33,10 @@ public class Rdate {
 	private Date rdate;
 	
 	@OneToMany(mappedBy = "rdate",cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
+	@JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "room_rdate",
     joinColumns = {
@@ -55,11 +59,30 @@ public class Rdate {
 	public void setDate_id(int date_id) {
 		this.rdate_id = date_id;
 	}
-	public Date getRoom_date() {
+
+
+	public Integer getRdate_id() {
+		return rdate_id;
+	}
+
+	public void setRdate_id(Integer rdate_id) {
+		this.rdate_id = rdate_id;
+	}
+
+	public Date getRdate() {
 		return rdate;
 	}
-	public void setRoom_date(Date room_date) {
-		this.rdate = room_date;
+
+	public void setRdate(Date rdate) {
+		this.rdate = rdate;
+	}
+
+	public List<OrderedToRoom> getOrderedToRoom() {
+		return orderedToRoom;
+	}
+
+	public void setOrderedToRoom(List<OrderedToRoom> orderedToRoom) {
+		this.orderedToRoom = orderedToRoom;
 	}
 
 	public Set<Room> getRooms() {

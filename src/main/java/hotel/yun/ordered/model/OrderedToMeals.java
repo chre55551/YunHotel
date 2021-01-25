@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.date.model.Mdate;
 import hotel.yun.meals.model.Meals;
 
@@ -35,10 +37,11 @@ public class OrderedToMeals implements Serializable {
 	@Transient
 	private int mdate_id;// 對到用餐時間
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "mdate_id")
 	private Mdate mdate;
 	
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "orderedToMeals_meals", joinColumns = {
 			@JoinColumn(name = "fk_ordered_tomeals_id", referencedColumnName = "ordered_tomeals_id") }, inverseJoinColumns = {

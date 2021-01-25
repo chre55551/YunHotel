@@ -157,7 +157,7 @@ public class Ordered_Controller {
 			@RequestParam(value="birthday") Date birthday,
 			@RequestParam(value="address") String address,
 			@RequestParam(value="room_number") String room_name,
-			@RequestParam(value="room_date") Date room_date,
+			@RequestParam(value="room_date",required=false) Date room_date,
 			Model model) {
 		Ordered od = new Ordered();
 		Customer customer = new Customer(chinese_name,idcard_number,birthday,address,mobile_phone);
@@ -186,7 +186,7 @@ public class Ordered_Controller {
 			otr.setRdate(rd);
 		}catch(Exception e) {
 			Rdate rd = new Rdate();
-			rd.setRoom_date(room_date);
+			rd.setRdate(room_date);
 			e.printStackTrace();
 			otr.setRdate(rd);
 		}
@@ -200,6 +200,8 @@ public class Ordered_Controller {
 		try {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
+			model.addAttribute("rdate",odd.getOrderedToRoom().getRdate().getRdate());
+			model.addAttribute("mdate",odd.getOrderedToMeals().getMdate().getMdate());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -265,7 +267,7 @@ public class Ordered_Controller {
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
 			for(Ordered o :CustomerOrdered) {
-				if(o.getOrderedStatus().getOrdered_status()=="已完成") {
+				if(o.getOrderedStatus().getOrdered_status()=="已結單") {
 					returnlist.add(o);
 				}
 			}

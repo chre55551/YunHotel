@@ -22,11 +22,11 @@ public class Member {
 	private String home_phone;
 	private String job;
 	private String email;
-	private Timestamp register_Time;
+	private Timestamp register_date;
 	private Date updated_date;
 
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
-			String email, Timestamp register_Time, Date updated_date) {
+			String email, Timestamp register_date, Date updated_date) {
 		super();
 		this.member_id = member_id;
 		this.account = account;
@@ -35,7 +35,7 @@ public class Member {
 		this.home_phone = home_phone;
 		this.job = job;
 		this.email = email;
-		this.register_Time = register_Time;
+		this.register_date = register_date;
 		this.updated_date = updated_date;
 	}
 	
@@ -82,10 +82,10 @@ public class Member {
 		this.email = email;
 	}
 	public Timestamp getregister_Time() {
-		return register_Time;
+		return register_date;
 	}
-	public void setregister_Time(Timestamp registerTime) {
-		this.register_Time = registerTime;
+	public void setregister_Time(Timestamp register_date) {
+		this.register_date = register_date;
 	}
 	
 	public Date getUpdated_date() {

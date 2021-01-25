@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.model.OrderedToRoom;
 
@@ -35,12 +37,14 @@ public class Room implements Serializable {
 	private int room_typeid;     //房間類別編號
 	
 	@OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType;
 	
+	@JsonIgnore
     @ManyToMany(mappedBy = "rooms")
     private Set<Rdate> date = new HashSet<Rdate>();
 	
