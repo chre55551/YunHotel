@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
@@ -32,6 +33,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 		
 		OrderedPayment odp = oDao.queryP(1);
 		oBean.setOrderedPayment(odp);
+		
 		
 		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		oBean.setOrdered_date(c);
@@ -61,12 +63,6 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	
 		return oDao.queryDateToOrdered((java.sql.Date) ordered_date);
 	}
-
-	@Override
-	public Ordered update(Ordered oBean) {
-		return oDao.update(oBean);
-	}
-
 	@Override
 	public void updateCustomerOd(Ordered odBean) {
 //		Date currentTime = new Date();

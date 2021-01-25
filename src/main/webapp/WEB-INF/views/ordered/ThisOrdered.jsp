@@ -25,11 +25,29 @@
 			<p>電話: ${ordered.customer.mobile_phone}</p>
 
 			<c:choose>
-				<c:when test="${not empty ordered.orderedToMeals.table_number}">
-					<p>桌號: ${ordered.orderedToMeals.table_number}</p>
+				<c:when test="${not empty ordered.customer.birthday}">
+					<p>生日: ${ordered.customer.birthday}</p>
 				</c:when>
 				<c:otherwise>
-    				桌號: 無
+    				生日: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.customer.idcard_number}">
+					<p>身分證字號: ${ordered.customer.idcard_number}</p>
+				</c:when>
+				<c:otherwise>
+    				身分證字號: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ordered.customer.address}">
+					<p>地址: ${ordered.customer.address}</p>
+				</c:when>
+				<c:otherwise>
+    				地址: 無
    				</c:otherwise>
 			</c:choose>
 
@@ -80,6 +98,15 @@
 			</c:choose>
 
 			<c:choose>
+				<c:when test="${not empty room.roomType.room_name}">
+					<p>房號: ${room.roomType.room_name}</p>
+				</c:when>
+				<c:otherwise>
+    				房號: 無
+   				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
 				<c:when test="${not empty room.roomType.room_type}">
 					<p>房型: ${room.roomType.room_type}</p>
 				</c:when>
@@ -89,11 +116,11 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty rdate.room_datee}">
-					<p>訂房時間: ${rdate.room_date}</p>
+				<c:when test="${not empty rdate.rdate}">
+					<p>欲訂房時間: ${rdate.rdate}</p>
 				</c:when>
 				<c:otherwise>
-    				訂房時間: 無
+    				欲訂房時間: 無
    				</c:otherwise>
 			</c:choose>
 

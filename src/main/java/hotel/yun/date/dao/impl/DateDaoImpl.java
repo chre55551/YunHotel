@@ -37,8 +37,8 @@ public class DateDaoImpl implements Serializable, DateDao {
 		Rdate rd = null;
 		Session session = factory.getCurrentSession();
 		rd = session.get(Rdate.class, r.getDate_id());
-		if(r.getRoom_date()!=null) {
-		rd.setRoom_date(r.getRoom_date());
+		if(r.getRdate()!=null) {
+		rd.setRdate(r.getRdate());
 		}
 		if(r.getRooms()!= null) {
 			rd.setRooms(r.getRooms());
@@ -63,5 +63,12 @@ public class DateDaoImpl implements Serializable, DateDao {
 		Rdate md = (Rdate)session.createQuery(hql).setParameter("rrd", rod).getSingleResult();
 		return md;	
 	}
-	
+	//-----------------------------------------------------------------------------
+		//去資料庫撈rdate(訂房日期)，有的話就把他叫出來塞進去。
+		@Override
+		public Rdate queryRdate(Date i) {
+			Session session = factory.getCurrentSession();
+			Rdate rd = session.get(Rdate.class, i);
+			return rd;
+		}
 }

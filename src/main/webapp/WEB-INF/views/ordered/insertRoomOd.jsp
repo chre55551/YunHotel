@@ -35,15 +35,19 @@
 				<label>地址</label> <input name="address" />
 			</div>
 			<div>
-				<label>房號</label> <input name="room_number" />
+				<label>房號</label> <input name="room_name" />
 			</div>
 			<div>
-				<label>欲訂日期</label> <input name="room_date" type="date" />
+				<label>欲訂房日期</label> <input name="rdate" type="date" />
 			</div>
 			<div>
-				<input value="新增" type="submit"> 
-				<input value="清除" type="reset">
-<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
+				<label>備註</label> <input name="note" id="requestNote" />
+			</div>
+
+			<div>
+				<input value="新增" type="submit"> <input value="清除"
+					type="reset">
+				<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
 	</div>

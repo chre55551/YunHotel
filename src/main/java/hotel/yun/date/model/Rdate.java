@@ -30,7 +30,7 @@ public class Rdate {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer rdate_id;
-	private Date room_date;
+	private Date rdate;
 
 	@OneToMany(mappedBy = "rdate", cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -47,12 +47,12 @@ public class Rdate {
 
 	}
 
-	public Date getRoom_date() {
-		return room_date;
+	public Date getRdate() {
+		return rdate;
 	}
 
-	public void setRoom_date(Date room_date) {
-		this.room_date = room_date;
+	public void setRdate(Date rdate) {
+		this.rdate = rdate;
 	}
 
 	public int getDate_id() {

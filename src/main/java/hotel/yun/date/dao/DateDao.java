@@ -15,4 +15,6 @@ public interface DateDao {
 
 	public Rdate queryByRoomDate(Date rrd);
 
+	public Rdate queryRdate(Date i);
+
 }
