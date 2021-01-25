@@ -24,13 +24,13 @@
                 <a href='showinsertNews' class="diamondtxt">新增消息</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">刪除消息</div>
+                <a href='DeleteNew' class="diamondtxt">刪除消息</a>
             </li>
             <li id="diamond">
-                <div class="diamondtxt">修改消息</div>
+                <a href='UpdateNew' class="diamondtxt">修改消息</a>
             </li>
             <li id="diamond">
-                <a href='queryNew' class="diamondtxt">查詢消息</div>
+                <a href='queryNew' class="diamondtxt">查詢消息</a>
             </li>
             </ul>
         </div>

@@ -93,12 +93,17 @@ public class News_Controller {
 		return "/news/GetaNew";
 	}
 
+	//---------------------------------------------------------------	
+	@GetMapping("/DeleteNew")
+	public String deleteNewPage(Model model,HttpSession session) {
+		return "/news/DeleteNew";
+	}
 	
 	//前端網頁按按鈕送出請求，()內是前端的東東
-	@DeleteMapping("/DeleteNew/{news_id}")
+	@PostMapping("/DeleteNewOK")
 	public String deleteNew(@PathVariable int news_id) {
 		service.delete(news_id);	
-		return "redirect:news/GetAllNews";
+		return "/news/DeleteNewOK";
 	}
 
 }
