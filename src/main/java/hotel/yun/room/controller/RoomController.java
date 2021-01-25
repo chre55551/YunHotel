@@ -88,7 +88,7 @@ public class RoomController {
 	}
 	
 	
-    //送出空白表單
+    //送出空白新增表單
 	@GetMapping("/ShowBlankInsertForm")
 	public String ShowBlankInsertForm( Model model) {
 		RoomType rmt = new RoomType();
@@ -102,7 +102,7 @@ public class RoomController {
 	public String InsertRoom(
 			@RequestParam String room_type,
 			@RequestParam double room_price,
-			@RequestParam int room_stock,
+			@RequestParam int room_stock,		
 			@RequestParam(value="room_image",required=false) MultipartFile room_image,
 			 Model model,HttpServletRequest request) throws IOException {
 			System.out.println(room_type);
@@ -120,7 +120,7 @@ public class RoomController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return "room/QueryAllRooms";
+		return "room/ShowInsertRoom";
 	}
 	
 //	@PostMapping(value="/CompanyRegister")

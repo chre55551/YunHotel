@@ -34,17 +34,10 @@
 	
 			<div>
 				<input value="新增" type="submit">
-                 <input value="清除" type="reset" >
-
-            
-            
-            	</div>
-	</form>
-            
-            
-
-           
-        </div>
+                 <input value="清除" type="reset" >                       
+            </div>
+	   </form>                    
+            </div>
     
 
   <%@ include file="../CommonTemplates/footer.jsp"%>

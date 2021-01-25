@@ -18,7 +18,7 @@
 			<thead>
 				<c:forEach var="xx" items="rom" >
 				<tr>
-<%-- 　					<td>${xx.}</td> --%>
+　					<td>${xx.}</td>
 　					<td>這裡可以放表格內容</td>
 　					<td>這裡可以放表格內容</td>
 　					<td>這裡可以放表格內容</td>
