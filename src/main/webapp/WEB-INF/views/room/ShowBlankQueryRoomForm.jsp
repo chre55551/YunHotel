@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>Show Blank Query Form</title>
+<title>Show Blank Query Room Form</title>
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
