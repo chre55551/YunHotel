@@ -13,6 +13,7 @@ import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
+import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
 
 @Transactional
@@ -90,6 +91,11 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	public List<Ordered> queryDateToOrdered() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public OrderedToRoom insertOTR(OrderedToRoom otr) {	
+		return oDao.insertOTR(otr);
 	}
 
 }

@@ -11,4 +11,6 @@ import hotel.yun.date.model.Rdate;
 	
 	public Rdate queryByRoomDate(Date rrd);
 
+	public Rdate insert(Rdate rd);
+
 }

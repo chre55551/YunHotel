@@ -28,5 +28,9 @@ public class DateServiceImpl implements Date_Service {
 		Rdate rd = dDao.queryByRoomDate(rrd);
 		return rd;
 	}
+	@Override
+	public Rdate insert(Rdate rd) {
+		return dDao.insert(rd);	
+	}
 	 
 }

@@ -51,7 +51,7 @@ public class DateDaoImpl implements Serializable, DateDao {
 	@Override
 	public Mdate queryByDatePeriod(Date d,String tp) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM mdate md WHERE md.mdate = :dd and md.time_period = :tp";
+		String hql = "FROM Mdate md WHERE md.mdate = :dd and md.time_period = :tp";
 		Mdate md = (Mdate)session.createQuery(hql).setParameter("dd", d).setParameter("tp", tp).getSingleResult();
 		return md;	
 	}
@@ -59,7 +59,7 @@ public class DateDaoImpl implements Serializable, DateDao {
 	@Override
 	public Rdate queryByRoomDate(Date rod) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM rdate rd WHERE rd.room_date = :rrd";
+		String hql = "FROM Rdate rd WHERE rd.rdate = :rrd";
 		Rdate md = (Rdate)session.createQuery(hql).setParameter("rrd", rod).getSingleResult();
 		return md;	
 	}

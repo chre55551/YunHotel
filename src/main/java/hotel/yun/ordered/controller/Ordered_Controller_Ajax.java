@@ -59,6 +59,7 @@ public class Ordered_Controller_Ajax {
 			Customer customer = cser.query(c);
 			System.out.println(customer.getChinese_name());
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+//			System.out.println(CustomerOrdered.get(0).getOrderedToRoom().getRdates().get(0).getRdate());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
 			for (Ordered o : CustomerOrdered) {
 				if (o.getOrderedStatus().getStatus_id() == 1) {

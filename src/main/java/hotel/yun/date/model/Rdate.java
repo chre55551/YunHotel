@@ -33,20 +33,16 @@ public class Rdate {
 
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "room_rdate", joinColumns = {
+	@JoinTable(name = "room_rdate", 
+	    joinColumns = {
 			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
 					@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
 	private Set<Room> rooms = new HashSet<Room>();
 	
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "orderedToRoom_rdate", 
-		joinColumns = {
-			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, 
-		inverseJoinColumns = {
-					@JoinColumn(name = "fk_ordered_toroom_id", referencedColumnName = "ordered_toroom_id") })
-	private List<OrderedToRoom> orderedToRooms = new ArrayList<OrderedToRoom>();
-
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "rdates")
+	private Set<OrderedToRoom> orderedToRooms = new HashSet<OrderedToRoom>();
+	                            
 	public Rdate() {
 
 	}
@@ -85,3 +81,4 @@ public class Rdate {
 	}
 
 }
+

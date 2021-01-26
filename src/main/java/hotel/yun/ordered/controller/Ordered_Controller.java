@@ -3,11 +3,15 @@ package hotel.yun.ordered.controller;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -156,45 +160,72 @@ public class Ordered_Controller {
 			@RequestParam(value = "address") String address,
 			@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdate", required = false) Date rdate,
+			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
 			@RequestParam(value = "note") String note, Model model) {
+		DateTime rdateDT = DateToDateTime(rdate);
+		DateTime rdateEndDT = DateToDateTime(rdateEnd);
+		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);
+		
 		Ordered od = new Ordered();
 		od.setNote(note);
 		Customer customer = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
 		try {
-			Customer CExist = cser.query(customer);
+			Customer CExist = cser.query(customer);//根據姓名手機找顧客，若有此顧客，輸入資料設進去
 			CExist.setIdcard_number(idcard_number);
 			CExist.setAddress(address);
 			CExist.setBirthday(birthday);
 			od.setCustomer(CExist);
-		} catch (Exception e) {
+		} catch (Exception e) {//若無，則新增一個顧客塞進 OD
 			od.setCustomer(customer);
 			e.printStackTrace();
 		}
-		OrderedToRoom otr = new OrderedToRoom();
+		
+		OrderedToRoom otr = new OrderedToRoom();//新增房間訂單
+		OrderedToRoom otrr = new OrderedToRoom();
 		try {
-			Rdate rd = dser.queryByRoomDate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
-			list.add(rd);
-			otr.setRdates(list);
+			Rdate rd = dser.queryByRoomDate(rdate);//嘗試根據日期找出 Rdate 物件
+			System.out.println(rd.getRdate()+"try");
+			Set<Rdate> list = new HashSet();
+			list.add(rd); //將找出的 Rdate 物件放入 list 中
+			otr.setRdates(list); //將 list 物件設定進入房間訂單中
+			System.out.println("haha");
+				try {
+					Room r = rser.queryByRoomNum(room_name); //嘗試取出房號
+					otr.setRoom(r); //將取出的房號放入房間訂單
+					System.out.println("queryByRoomNum sucess!!!");
+				} catch (Exception eee) {
+					Room r = new Room();
+					r.setRoom_name(room_name);
+					otr.setRoom(r);
+					System.out.println("queryByRoomNum fail!!!");
+				}			
+			otrr = service.insertOTR(otr);
+			System.out.println("hahaha");
 			System.out.println("queryByRoomDate sucess!!!");
 		}catch(Exception e) {
+			e.printStackTrace();
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
-			list.add(rd);
-			otr.setRdates(list);
+			System.out.println(rd.getRdate()+"catch");
+			Rdate rda = dser.insert(rd);
+			Set<Rdate> list = new HashSet();
+			list.add(rda);
+			otr.setRdates(list);	
+				try {
+					Room r = rser.queryByRoomNum(room_name);
+					otr.setRoom(r);
+					System.out.println("queryByRoomNum sucess!!!");
+				} catch (Exception ee) {
+					Room r = new Room();
+					r.setRoom_name(room_name);
+					otr.setRoom(r);
+					System.out.println("queryByRoomNum fail!!!");
+				}		
+			otrr = service.insertOTR(otr);
 			System.out.println("queryByRoomDate fail!!!");
 		}
-		try {
-			Room r = rser.queryByRoomNum(room_name);
-			otr.setRoom(r);
-			System.out.println("queryByRoomNum sucess!!!");
-		} catch (Exception e) {
-			Room r = new Room();
-			r.setRoom_name(room_name);
-			otr.setRoom(r);
-			System.out.println("queryByRoomNum fail!!!");
-		}
+		
+
 		od.setOrderedToRoom(otr);
 //		try {
 //			Rdate rd = dser.queryByRoomDate(rdate);
@@ -326,13 +357,13 @@ public class Ordered_Controller {
 		Room rm = new Room();
 		try {
 			Rdate rd = dser.queryByRoomDate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
+			Set<Rdate> list = new HashSet();
 			list.add(rd);
 			otr.setRdates(list);
 		}catch(Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
+			Set<Rdate> list = new HashSet();
 			list.add(rd);
 			otr.setRdates(list);
 		}
@@ -349,13 +380,13 @@ public class Ordered_Controller {
 		od.setOrderedToRoom(otr);
 		try {
 			Rdate rd = dser.queryByRoomDate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
+			Set<Rdate> list = new HashSet();
 			list.add(rd);
 			otr.setRdates(list);
 		} catch (Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
+			Set<Rdate> list = new HashSet();
 			list.add(rd);
 			otr.setRdates(list);
 		}
@@ -539,4 +570,36 @@ public class Ordered_Controller {
 		service.delete(ordered_number);
 		return "ordered/deleteFinish";
 	}
+	
+	public DateTime DateToDateTime(Date d) {
+		String str = d.toString();
+		return DateTime.parse(str);
+	}
+	
+    public Set<DateTime> getDateRange(DateTime start, DateTime end) {
+        Set<DateTime> ret = new HashSet<DateTime>();
+        DateTime tmp = start;
+        while(tmp.isBefore(end) || tmp.equals(end)) {
+            ret.add(tmp);
+            tmp = tmp.plusDays(1);
+        }
+        return ret;
+    }
+    
+    public Date dateTimeToDate(DateTime d) {
+    	java.util.Date date = d.toDate();
+    	Date sd = new java.sql.Date(date.getTime());
+    	return sd;
+    }
+    
+    public Set<Rdate> dateTimeSetToRdateSet(Set<DateTime> sd){
+    	Set<Rdate> rdates = new HashSet<>();
+    	for(DateTime d:sd) {
+    		Rdate r = new Rdate();
+    		Date date = dateTimeToDate(d);
+    		r.setRdate(date);
+    		rdates.add(r);
+    	}
+    	return rdates;
+    }
 }

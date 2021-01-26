@@ -13,12 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import hotel.yun.date.model.Rdate;
 import hotel.yun.room.model.Room;
@@ -39,8 +38,16 @@ public class OrderedToRoom implements Serializable {
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
-    @ManyToMany(mappedBy = "orderedToRooms", fetch = FetchType.EAGER)
-    private List<Rdate> rdates = new ArrayList<Rdate>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "orderedToRoom_rdate", 
+		joinColumns = {
+				@JoinColumn(name = "fk_ordered_toroom_id")
+		 }, 
+		inverseJoinColumns = {
+				@JoinColumn(name = "fk_rdate_id")
+		}
+    )
+    private Set<Rdate> rdates = new HashSet<Rdate>();
 
 	public OrderedToRoom() {
 
@@ -96,11 +103,11 @@ public class OrderedToRoom implements Serializable {
 		this.roomnum_of_people = roomnum_of_people;
 	}
 
-	public List<Rdate> getRdates() {
+	public Set<Rdate> getRdates() {
 		return rdates;
 	}
 
-	public void setRdates(ArrayList<Rdate> list) {
+	public void setRdates(Set<Rdate> list) {
 		this.rdates = list;
 	}
 	

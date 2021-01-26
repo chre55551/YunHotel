@@ -14,6 +14,7 @@ import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
+import hotel.yun.ordered.model.OrderedToRoom;
 
 @Repository
 public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
@@ -157,6 +158,15 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		Ordered od = new Ordered();
 		od.setOrdered_number(ordered_number);
 		session.delete(od);
+	}
+	
+	@Override
+	public OrderedToRoom insertOTR(OrderedToRoom otr) {
+		Session session = factory.getCurrentSession();
+		System.out.println("pekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopekopeko");
+//		System.out.println(otr.getRdates().get(0).getRdate());
+		session.save(otr);
+		return otr;
 	}
 
 }
