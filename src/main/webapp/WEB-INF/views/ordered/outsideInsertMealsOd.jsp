@@ -5,19 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/backstage.css'
+	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
-<title>insertMealsOrdered</title>
+<title>訂位</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+<!-- Bootstrapt插件 -->
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增餐點訂單</h3>
+		<h3>想要訂餐的時間?</h3>
 		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST"
 			class="container">
 			<div>
