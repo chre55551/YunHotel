@@ -23,19 +23,18 @@
 
 	<header>
 		<ul>
-			<li><img class="logo" src="../image/logo.png"></li>
+			<li><a href="../YunPage"><img class="logo" src="../image/logo.png"></a></li>
 			<li>&emsp;&emsp;&emsp;&emsp;</li>
 			<li><a href="#">關於我們</a></li>
 			<li><a href="showNews">最新消息</a></li>
 			<li><a href="room/RoomIntroduction">房型介紹</a></li>
 			<li><a href="meals/Delicious">美食佳餚</a></li>
 			<li><a href="#">其他設施</a></li>
-			<li><a href="ordered/outsideInsertMealsOd">訂位</a></li>
 		</ul>
 	</header>
 
 	<div class="main">
-		<br> <br>
+		<br>
 
 		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST">
 			<h3>您好，${customer.chinese_name}，想訂哪間房?</h3>
@@ -66,6 +65,9 @@
 					type="reset">
 			</div>
 		</form>
+	</div>
+		<div class="footer">
+		<p>© The Hotel. All Rights Reserved.</p>
 	</div>
 </body>
 </html>
