@@ -25,7 +25,9 @@
 <body>
 
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
-
+			<div>
+			<img src="../steak.jpg">
+			
 	<div class="main">
 		<br>
 		<div class="orm">
@@ -66,7 +68,7 @@
 	<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
 	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
-	
+	</div>
 	
 	<script>	
 //隨捲軸移動訂位===============================================================		
