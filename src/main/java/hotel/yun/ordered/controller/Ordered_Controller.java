@@ -165,6 +165,7 @@ public class Ordered_Controller {
 		DateTime rdateDT = DateToDateTime(rdate);
 		DateTime rdateEndDT = DateToDateTime(rdateEnd);
 		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);
+		Set<Rdate> rdates = new HashSet<>();
 		
 		Ordered od = new Ordered();
 		od.setNote(note);
@@ -181,65 +182,33 @@ public class Ordered_Controller {
 		}
 		
 		OrderedToRoom otr = new OrderedToRoom();//新增房間訂單
-		OrderedToRoom otrr = new OrderedToRoom();
-		try {
-			Rdate rd = dser.queryByRoomDate(rdate);//嘗試根據日期找出 Rdate 物件
-			System.out.println(rd.getRdate()+"try");
-			Set<Rdate> list = new HashSet();
-			list.add(rd); //將找出的 Rdate 物件放入 list 中
-			otr.setRdates(list); //將 list 物件設定進入房間訂單中
-			System.out.println("haha");
-				try {
-					Room r = rser.queryByRoomNum(room_name); //嘗試取出房號
-					otr.setRoom(r); //將取出的房號放入房間訂單
-					System.out.println("queryByRoomNum sucess!!!");
-				} catch (Exception eee) {
-					Room r = new Room();
-					r.setRoom_name(room_name);
-					otr.setRoom(r);
-					System.out.println("queryByRoomNum fail!!!");
-				}			
-			otrr = service.insertOTR(otr);
-			System.out.println("hahaha");
-			System.out.println("queryByRoomDate sucess!!!");
-		}catch(Exception e) {
-			e.printStackTrace();
-			Rdate rd = new Rdate();
-			rd.setRdate(rdate);
-			System.out.println(rd.getRdate()+"catch");
-			Rdate rda = dser.insert(rd);
-			Set<Rdate> list = new HashSet();
-			list.add(rda);
-			otr.setRdates(list);	
-				try {
-					Room r = rser.queryByRoomNum(room_name);
-					otr.setRoom(r);
-					System.out.println("queryByRoomNum sucess!!!");
-				} catch (Exception ee) {
-					Room r = new Room();
-					r.setRoom_name(room_name);
-					otr.setRoom(r);
-					System.out.println("queryByRoomNum fail!!!");
-				}		
-			otrr = service.insertOTR(otr);
-			System.out.println("queryByRoomDate fail!!!");
-		}
 		
-
+		try {
+			Room r = rser.queryByRoomNum(room_name); //嘗試取出房號
+			otr.setRoom(r); //將取出的房號放入房間訂單
+			System.out.println("queryByRoomNum sucess!!!");
+		} catch (Exception eee) {
+			Room r = new Room();
+			r.setRoom_name(room_name);
+			otr.setRoom(r);
+			System.out.println("queryByRoomNum fail!!!");
+		}		
+		
+	    for(DateTime d:range) {
+	    	Date date = dateTimeToDate(d);
+	    	try {
+	    		Rdate rd = dser.queryByRoomDate(date);//嘗試根據日期找出 Rdate 物件
+	    		rdates.add(rd);//加到 set<Rdate>中
+	    	}catch(Exception e) {//若不存在此日期，new 一個加到資料庫
+	    		Rdate r = new Rdate();
+	    		dser.insert(r);
+	    		rdates.add(r);//加到 set<Rdate>中
+	    	}
+	    }
+	    otr.setRdates(rdates);
+	    service.insertOTR(otr);
+		
 		od.setOrderedToRoom(otr);
-//		try {
-//			Rdate rd = dser.queryByRoomDate(rdate);
-//			ArrayList<Rdate> list = new ArrayList();
-//			list.add(rd);
-//			otr.setRdates(list);
-//		} catch (Exception e) {
-//			Rdate rd = new Rdate();
-//			rd.setRdate(rdate);
-//			ArrayList<Rdate> list = new ArrayList();
-//			list.add(rd);
-//			otr.setRdates(list);
-//		}
-//		od.setOrderedToRoom(otr);
 
 		OrderedStatus os = new OrderedStatus();
 		os.setStatus_id(1);
@@ -255,7 +224,7 @@ public class Ordered_Controller {
 		} catch (Exception e) {
 			System.out.println("insert otr fail!!!");
 		}
-//		return null;
+
 		return "ordered/customerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
 	//------------------------------------------------------------------------------------------------------------------
