@@ -24,20 +24,9 @@
 </head>
 <body>
 
-	<header>
-		<ul>
-			<li><a href="../YunPage"><img class="logo"
-					src="../image/logo.png"></a></li>
-			<li>&emsp;&emsp;&emsp;&emsp;</li>
-			<li><a href="#">關於我們</a></li>
-			<li><a href="showNews">最新消息</a></li>
-			<li><a href="room/RoomIntroduction">房型介紹</a></li>
-			<li><a href="meals/Delicious">美食佳餚</a></li>
-			<li><a href="#">其他設施</a></li>
-		</ul>
-	</header>
+	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 
-	<div class="main	">
+	<div class="main">
 		<br>
 		<div class="orm">
 			<form action="/YunHotel/ordered/insertMealsOrdered" method="POST">
@@ -74,9 +63,39 @@
 				</div>
 			</form>
 		</div>
+	<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
 	</div>
-	<div class="footer">
-		<p>© The Hotel. All Rights Reserved.</p>
-	</div>
+	<%@ include file="../CommonTemplates/footer.jsp"%>
+	
+	
+	<script>	
+//隨捲軸移動訂位===============================================================		
+		$(function() {
+			var $win = $(window),
+			$ad = $('.abgne_float').css('opacity', 0).show(),	// 讓廣告區塊變透明且顯示出來
+			_width = $ad.width(),
+			_height = $ad.height(),
+			_diffY = 20, _diffX = 20,	// 距離右及下方邊距
+			_moveSpeed = 650;	// 移動的速度
+	 
+		// 先把 #abgne_float_ad 移動到定點
+		$ad.css({
+			top: $(document).height(),
+			left: $win.width() - _width - _diffX,
+			opacity: 1
+		});
+	 
+		// 幫網頁加上 scroll 及 resize 事件
+		$win.bind('scroll resize', function(){
+			var $this = $(this);
+	 
+			// 控制 #abgne_float_ad 的移動
+			$ad.stop().animate({
+				top: $this.scrollTop() + $this.height() - _height - _diffY,
+				left: $this.scrollLeft() + $this.width() - _width - _diffX
+			}, _moveSpeed);
+		}).scroll();	// 觸發一次 scroll()
+	});
+	</script>
 </body>
 </html>
