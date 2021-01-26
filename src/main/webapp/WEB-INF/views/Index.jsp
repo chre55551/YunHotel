@@ -60,8 +60,8 @@
 
 	<%@ include file="CommonTemplates/footer.jsp"%>
 
-<!-- 	<script src="js/plugin/jquery-3.5.1.min.js"></script> -->
-<!-- 	<script src="js/plugin/jquery-ui.js"></script> -->
+	<script src="js/plugin/jquery-3.5.1.min.js"></script>
+	<script src="js/plugin/jquery-ui.js"></script>
 	<script>	
 //隨捲軸移動訂位===============================================================		
 		$(function() {
