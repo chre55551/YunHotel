@@ -24,6 +24,9 @@ public class Member {
 	private String email;
 	private Timestamp register_date;
 	private Date updated_date;
+	public Member(){
+		
+	}
 
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
 			String email, Timestamp register_date, Date updated_date) {
