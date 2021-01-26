@@ -30,6 +30,7 @@
 			<li><a href="meals/Delicious">美食佳餚</a></li>
 			<li><a href="#">其他設施</a></li>
 			<li><a href="ordered/outsideInsertMealsOd">訂位</a></li>
+			<li><a href="test">測試用</a></li>
 		</ul>
 	</header>
 

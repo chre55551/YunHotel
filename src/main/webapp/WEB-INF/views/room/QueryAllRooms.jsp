@@ -1,34 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
 <title>Query All Rooms</title>
 </head>
 <body>
-<%@ include file="../CommonTemplates/header.jsp"%>
-
-    <div class="main">
-    
-		<table class="mytable" class="container">
-			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-			<thead>
-				<c:forEach var="xx" items="rom" >
+	<%@ include file="../CommonTemplates/header.jsp"%>
+	<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+<div align='center'>
+<h3>全部消息</h3>
+		<table class="container" border='1' cellpadding="3" cellspacing="1" >
+			<tr>
+			   <th width='56' height='20'>編號</th>
+			   <th width='130' height='20'>上傳時間</th>
+			   <th width='130' height='20'>更新時間</th>
+			   <th width='180' height='20'>消息內容</th>
+			   <th colspan='2' height='20'>維護</th>
+			</tr>
+			<c:forEach var='NWS' items='${newsList}'>
 				<tr>
-　					<td>${xx.}</td>
-　					<td>這裡可以放表格內容</td>
-　					<td>這裡可以放表格內容</td>
-　					<td>這裡可以放表格內容</td>
-　					<td>這裡可以放表格內容</td>
-　				</tr>
-				</c:forEach>
-			</thead>
+					<td style="text-align:center">${NWS.news_id}</td>
+					<td style="text-align:center">${NWS.news_date}</td>
+					<td style="text-align:center">${NWS.news_updated_date}</td>
+					<td style="text-align:center">${NWS.news_content}</td>
+					
+					 <td><a
+                        href="${pageContext.request.contextPath}/news/update/${NWS.news_id}">編輯</a></td>
+                    <td><a
+                        href="${pageContext.request.contextPath}/news/DeleteNew/${NWS.news_id}">刪除</a></td>
+				</tr>
+			</c:forEach>
+		
 		</table>
-    </div>
+<hr>
+</div>
+</div>
+<script type='text/javascript'>
 
-  <%@ include file="../CommonTemplates/footer.jsp"%>
+</script>
+
+	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>
