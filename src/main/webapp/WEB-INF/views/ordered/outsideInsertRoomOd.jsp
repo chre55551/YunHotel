@@ -5,21 +5,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/backstage.css'
+	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>訂房</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+<!-- Bootstrapt插件 -->
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="../CommonTemplates/header.jsp"%>
+
+	<header>
+		<ul>
+			<li><img class="logo" src="../image/logo.png"></li>
+			<li>&emsp;&emsp;&emsp;&emsp;</li>
+			<li><a href="#">關於我們</a></li>
+			<li><a href="showNews">最新消息</a></li>
+			<li><a href="room/RoomIntroduction">房型介紹</a></li>
+			<li><a href="meals/Delicious">美食佳餚</a></li>
+			<li><a href="#">其他設施</a></li>
+			<li><a href="ordered/outsideInsertMealsOd">訂位</a></li>
+		</ul>
+	</header>
+
 	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>您好，${customer.chinese_name}，想訂哪間房?</h3>
-		
-		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
-			class="container">
+		<br> <br>
+
+		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST">
+			<h3>您好，${customer.chinese_name}，想訂哪間房?</h3>
 			<div>
 				<label>姓名</label> <input name="chinese_name" />
 			</div>
@@ -51,7 +70,5 @@
 			</div>
 		</form>
 	</div>
-
-	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

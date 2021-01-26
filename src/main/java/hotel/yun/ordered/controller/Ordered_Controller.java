@@ -215,11 +215,11 @@ public class Ordered_Controller {
 	//------------------------------------------------------------------------------------------------------------------
 	//前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台的新增!!!!!!  
 	//送出空白的表單，來接住使用者輸入的值 訂位~~~~
-	@GetMapping("/outsideInsertMeals")
+	@GetMapping("/outsideInsertMealsOd")
 	public String outsideShowMealsOrdered(Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
-		return "ordered/outsideinsertMeals";
+		return "ordered/outsideinsertMealsOd";
 	}
 	
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面
