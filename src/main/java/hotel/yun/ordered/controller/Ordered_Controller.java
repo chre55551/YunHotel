@@ -418,6 +418,11 @@ public class Ordered_Controller {
 		}catch(Exception e){
 			
 		}
+		try {
+		model.addAttribute("mdate",ThisOrdered.getOrderedToMeals().getMdate().getMdate());
+		}catch(Exception e){
+			
+		}
 		return "ordered/updateOrdered";// 依訂單到查詢到的訂單，送出可修改的空白表單，再做修改
 	}
 
