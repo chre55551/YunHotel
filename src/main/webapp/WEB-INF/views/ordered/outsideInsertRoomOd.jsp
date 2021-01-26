@@ -39,26 +39,23 @@
 
 		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST">
 			<h3>您好，${customer.chinese_name}，想訂哪間房?</h3>
-			<div>
-				<label>姓名</label> <input name="chinese_name" />
-			</div>
-			<div>
-				<label>身分證</label> <input name="idcard_number" />
-			</div>
-			<div>
-				<label>手機</label> <input name="mobile_phone" />
-			</div>
-			<div>
-				<label>生日</label> <input name="birthday" type="date" />
-			</div>
-			<div>
-				<label>地址</label> <input name="address" />
-			</div>
+<!-- 			<div> -->
+<!-- 				<label>姓名</label> <input name="chinese_name" /> -->
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<label>身分證</label> <input name="idcard_number" /> -->
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<label>手機</label> <input name="mobile_phone" /> -->
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<label>生日</label> <input name="birthday" type="date" /> -->
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<label>地址</label> <input name="address" /> -->
+<!-- 			</div> -->
 			<div>
 				<label>房型</label> <input name="room_type" />
-			</div>
-			<div>
-				<label>欲訂房日期</label> <input name="rdate" type="date" />
 			</div>
 			<div>
 				<label>備註</label> <input name="note" id="requestNote" />
