@@ -8,15 +8,25 @@
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/backstage.css'
+	href='${pageContext.request.contextPath}/css/indexcss.css'
+	type="text/css" />
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
 	type="text/css" />
 <title>查詢訂單</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+<!-- Bootstrapt插件 -->
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="../CommonTemplates/header.jsp"%>
+	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 	<div class="main">
 		<table class="mytable container" id="container">
-			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 			<thead>
 				<tr>
 					<th>姓名</th>
@@ -38,6 +48,9 @@
 			</thead>
 		</table>
 	</div>
+	<div>
+		<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
+	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 
@@ -48,7 +61,7 @@
         $('#peko').click(function () {
           if($("input[name='r']:checked").val()== 1){
           $.ajax({
-            url: 'http://localhost:8080/YunHotel/ordered/customerToOrdered/orderedCreated',
+            url: 'http://localhost:8080/YunHotel/ordered/outsideCustomerToOrdered/orderedCreated',
             dataType: 'json',
             data: {chinese_name : $("#name").val(), 
                mobile_phone : $("#phone").val(),
@@ -75,7 +88,7 @@
                        	    this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
 //                          this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
 //                          this_data += '<td>' + ordered.note + '</td>';//備註
-    					    this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+    					    this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                             this_data += '</tr>';
                      	 };
                   $('#container').append(this_data);
@@ -94,7 +107,7 @@
 
          if($("input[name='r']:checked").val()== 2){
           $.ajax({
-            url: 'http://localhost:8080/YunHotel/ordered/customerToOrdered/orderedFinished',
+            url: 'http://localhost:8080/YunHotel/ordered/outsideCustomerToOrdered/orderedFinished',
             dataType: 'json',
             data: {chinese_name : $("#name").val(), 
           mobile_phone : $("#phone").val(),
@@ -122,7 +135,7 @@
 //                  		this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
 //                  		this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
 //                   		this_data += '<td>' + ordered.note + '</td>';//備註
-					  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+					  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                   			this_data += '</tr>';
                 		  };
            				 $('#container').append(this_data);
@@ -140,7 +153,7 @@
 
           if($("input[name='r']:checked").val()== 3){
           $.ajax({
-            url: 'http://localhost:8080/YunHotel/ordered/customerToOrdered/orderedAll',
+            url: 'http://localhost:8080/YunHotel/ordered/outsideCustomerToOrdered/orderedAll',
             dataType: 'json',
             data: {chinese_name : $("#name").val(), 
             mobile_phone : $("#phone").val(),
@@ -167,7 +180,7 @@
 	               		  this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
 //	               		   this_data += '<td>' + ordered.ordered_finish_date + '</td>';//訂單完成時間
 //	               		   this_data += '<td>' + ordered.note + '</td>';//備註
-	 						this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+	 						this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
 	              		   this_data += '</tr>';
 	              		  };
 	              			 $('#container').append(this_data);	

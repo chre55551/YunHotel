@@ -427,8 +427,34 @@ public class Ordered_Controller {
 //		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
 //		model.addAttribute("Ordered",Ordered);
 //		return "ordered/dateToOrdered";//進到該日期的所有訂單
-//	}
-//-----------------------------------------------------------	
+//	
+//---------------------------------------------------------------------------------------------------------------------------------------------
+	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
+	@GetMapping("/outsideCustomerToOrdered")
+	public String getCustomerOrderss(Model model, HttpSession session) {
+		return "ordered/outsideCustomerToOrdered";
+	}
+
+
+	// 查到顧客訂單的詳細資料
+	@RequestMapping("/outsidethisOrdered/{ordered_number}")
+	public String singleOrderedss(@PathVariable(value = "ordered_number") int ordered_number, Model model) {
+		Ordered ordered = service.queryOrderNum(ordered_number);
+		model.addAttribute("ordered", ordered);
+		try {
+		model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
+		}catch(Exception e) {
+			
+		}
+		try {
+		model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
+		}catch(Exception e) {
+			
+		}
+		return "ordered/outsidethisOrdered";
+	}
+	
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
 	// 更新
 	// 從查詢取值後，送出這個空白表單
 	@GetMapping("/update/{id}")

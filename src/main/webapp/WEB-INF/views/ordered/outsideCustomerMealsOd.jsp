@@ -1,32 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/backstage.css'
+	type="text/css" />
 <title>customerMealsOrdered</title>
 </head>
 <body>
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	
-	
+
+
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<div class="container">
-		<h2>${customer.chinese_name}，這是您的訂位資訊</h2><hr/>
-		<p>姓名: ${odd.customer.chinese_name}</p>
-		<p>手機: ${odd.customer.mobile_phone}</p>
-		<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
-		<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
-		<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p><br>
-		<input type="button" value="回官網" onclick="location.href='http://localhost:8080/YunHotel/YunPage'" >
+			<h2>${customer.chinese_name}，這是您的訂位資訊</h2>
+			<hr />
+			<p>姓名: ${odd.customer.chinese_name}</p>
+			<p>手機: ${odd.customer.mobile_phone}</p>
+			<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
+			<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
+			<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p>
+			<br> <input type="button" value="回官網"
+				onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
 		</div>
 	</div>
-<%@ include file="../CommonTemplates/footer.jsp"%>
+	<div>
+		<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
+	</div>
+	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

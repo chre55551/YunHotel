@@ -31,6 +31,9 @@
 			</thead>
 		</table>
 	</div>
+	<div>
+	<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
+	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 
