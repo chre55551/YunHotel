@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sogo Hotel by Colorlib.com</title>
+    <title>Room Introduction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -30,7 +30,7 @@
     <header class="site-header js-site-header">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Sogo Hotel</a></div>
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Yun Hotel</a></div>
           <div class="col-6 col-lg-8">
 
 
@@ -328,22 +328,22 @@
       </div>
     </footer>
     
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
     
     
-    <script src="js/aos.js"></script>
+    <script src="${pageContext.request.contextPath}/js/aos.js"></script>
     
-    <script src="js/bootstrap-datepicker.js"></script> 
-    <script src="js/jquery.timepicker.min.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/jquery.timepicker.min.js"></script> 
 
     
 
-    <script src="js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/main.js"></script>
   </body>
 </html>
