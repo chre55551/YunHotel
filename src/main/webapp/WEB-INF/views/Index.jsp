@@ -35,8 +35,8 @@
 	</header>
 
 	<div class="main">
-		<div class="container">
 			<div class="dateline">
+				<div class="dateline2">
 				<div class="D1">
 					<p class="dateF">入住:</p>
 					<br>
@@ -52,9 +52,11 @@
 					<img class="datepic" src="image/date1.png">
 					<button></button>
 				</div>
-				<div>
-					<input value="馬上訂房" type="button"
+				<div class="D1 ORbtnposition">
+					<button class="ORbtn"
 						onclick="location.href='ordered/outsideInsertRoomOd'">
+						<p>馬上訂房</p>
+					</button>
 				</div>
 			</div>
 

@@ -54,50 +54,115 @@ body{
 }
 /* 內容 */
 .container{
-    margin-top: 450px;
+    margin-top: 100px;
     width: 1000px;
     height: 600px;
     text-align: center;
-    /* background-color: rgb(212, 194, 160); */
 }
 /* Date標題字 */
 .dateF{
     float: left;
-    color: white;
-    font-size: 1.4em;
-    font-weight:bold; /* 粗體 */
+    color: #212e3d;
+    font-size: 1.3em;
+    font-weight: bold;
 }
 /* Date下面那整條 */
 .dateline{
+	margin-top: 500px;
+	padding-top:20px;
     float: left;
     display:block;
-    /* background-color: rgb(243, 176, 165); */
+    text-align: center;
+    background-color: rgb(255, 255, 255,0.4);
+    width: 100vw;
+    height: 150px;
+}
+/*調整整條內容位置用*/
+.dateline2{
+	margin-left: 450px;
+
 }
 .D1{
     float: left;
+    margin-right: 15px;
 }
 /* Date的input */
 .datepicker{
-    margin-top: -10px;
+    margin-top: -5px;
     padding-left: 15px;
     width: 200px;
     height: 70px;
-    background-color: #212e3d;
-    opacity: 0.6;
+    background-color: rgb(15, 37, 64,0.3);
     color: white;
     font-size: 1.4em;
     font-family:"Trebuchet MS";
-    border:2px solid white;
+    border:1px solid white;
     /* position:absolute; */
     z-index:-1; 
 }
 .datepic{
     margin-left: -40px;
-    margin-top: 10px;
+    margin-top: 15px;
     position:absolute;
     z-index:0; /* 讓日曆圖疊在輸入框上 */
 }
+/* 馬上訂房按鈕的位置 */
+.ORbtnposition{
+	margin-top: 25px;
+	margin-left: 20px;
+}
+/* 馬上訂房的按鈕 */
+/* .ORbtn{ */
+/* 	background-color: #102540; */
+/*     border: none; */
+/*     color: white; */
+/*     padding: 15px 32px; */
+/*     text-align: center; */
+/*     text-decoration: none; */
+/*     font-size: 16px; */
+/*     cursor: pointer; */
+/*     width: 200px; */
+/*     height: 120px; */
+/* } */
+.ORbtn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #577C8A;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.ORbtn p {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
+.ORbtn p:after {
+  content: '»';
+  margin-top:-2px;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.ORbtn:hover p {
+  padding-right: 25px;
+}
+
+.ORbtn:hover p:after {
+  opacity: 1;
+  right: 0;
+}
 /* 頁尾 */
 .footer{
     height: 20px;
