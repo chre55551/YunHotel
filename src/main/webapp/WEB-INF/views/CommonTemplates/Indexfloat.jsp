@@ -7,12 +7,15 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<div class="abgne_float" >
-		<div  class="abgne_OR">
-			<a href="ordered/outsideInsertMealsOd">訂位</a>
+	<div class="abgne_float">
+		<div class="abgne_OR">
+			<a href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd" style="color: white;">線上訂位</a>
 		</div>
-		<div  class="abgne_OR">
-			<a href="ordered/outsideInsertMealsOd">訂位</a>
+		<div class="abgne_OR">
+			<a href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd" style="color: white;">查詢訂位</a>
+		</div>
+		<div class="abgne_OR">
+			<a href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd" style="color: white;">查詢訂房</a>
 		</div>
 	</div>
 </body>
