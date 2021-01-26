@@ -1,5 +1,9 @@
 package hotel.yun.customer.Controller;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +22,14 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.yun.bmember.model.BmemberBean;
+import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.model.Member;
 import hotel.yun.customer.service.CustomerService;
+import hotel.yun.date.model.Rdate;
+import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedStatus;
+import hotel.yun.ordered.model.OrderedToRoom;
+import hotel.yun.room.model.Room;
 
 @Controller
 @RequestMapping("/customer")
@@ -87,12 +97,11 @@ public class CustomerController {
 		return "redirect:/";
 	}
 
-
 //------------------------------------------------------------------------------------------------
 //註冊
 
 	@GetMapping("/register")
-	public String InsertBmemberBM(Model model, HttpSession session) {
+	public String InserMember(Model model, HttpSession session) {
 		Member bm = new Member();
 		model.addAttribute("cr", bm);
 		return "customer/register";
@@ -100,17 +109,37 @@ public class CustomerController {
 	}
 
 	@PostMapping("/registerOK")
-	public String insert(@ModelAttribute("bb") BmemberBean bm, Model model, BindingResult result) {
-		bm.getBs_account();
-		bm.getBs_password();
-		bm.getBs_email();
-		bm.getAuthority();
-		bm.getUser_id();
-//	System.out.println(
-//			bm.getBs_account() + bm.getBs_password() + bm.getBs_email() + bm.getAuthority() + bm.getUser_id());
-//		service.insertM(bm);
-		model.addAttribute("bb", bm);
+	public String insertMember(@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "idcard_number") String idcard_number,
+			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
+			@RequestParam(value = "address") String address, @RequestParam(value = "account") String account,
+			@RequestParam(value = "password") String password, @RequestParam(value = "gender") String gender,
+			@RequestParam(value = "home_phone") String home_phone, @RequestParam(value = "job") String job,
+			@RequestParam(value = "email") String email, Model model) {
+				
+		Customer c = new Customer( chinese_name,  idcard_number,birthday, address, mobile_phone);
+		Member m = new Member(account,password,gender,home_phone,job,email);
+		c.setChinese_name(chinese_name);
+		c.setIdcard_number(idcard_number);
+		c.setBirthday(birthday);
+		c.setAddress(address);
+		c.setMobile_phone(mobile_phone);
+		Customer rc = service.insertC(c);
+		model.addAttribute("rcc", rc);
+		
+		m.setAccount(account);
+		m.setPassword(password);
+		m.setGender(gender);
+		m.setHome_phone(home_phone);
+		m.setJob(job);
+		m.setEmail(email);
+		Member rm = service.insertM(m);
+		model.addAttribute("rmm",rm);
+		
+		
+		
+		
+		return "customer/registerOK";
 
-		return "bmember/InsertBmemberOK";//
 	}
 }
