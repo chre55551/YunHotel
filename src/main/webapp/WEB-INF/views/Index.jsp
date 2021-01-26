@@ -22,7 +22,7 @@
 
 	<header>
 		<ul>
-			<li><img class="logo" src="image/logo.png"></li>
+			<li><img class="logo" src="image/logo.jpg"></li>
 			<li>&emsp;&emsp;&emsp;&emsp;</li>
 			<li><a href="#">關於我們</a></li>
 			<li><a href="showNews">最新消息</a></li>
