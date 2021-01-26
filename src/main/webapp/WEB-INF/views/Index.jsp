@@ -22,9 +22,11 @@
 
 	<%@ include file="CommonTemplates/Indexheader.jsp"%>
 
-	<div class="main">
-			<div class="dateline">
-				<div class="dateline2">
+<div class="main">
+	<div class="first">
+	<div class="firstDark">
+		<div class="dateline">
+			<div class="dateline2">
 				<div class="D1">
 					<p class="dateF">入住:</p>
 					<br>
@@ -38,25 +40,43 @@
 					<br> <input type="text" id="to" class="to datepicker" readonly>
 					<img class="datepic" src="image/date1.png">
 				</div>
+				
 				<div class="D1 ORbtnposition">
 					<button class="ORbtn"
 						onclick="location.href='ordered/outsideInsertRoomOd'">
 						<p>馬上訂房</p>
 					</button>
 				</div>
+				
 			</div>
-
+		</div>
+	</div>
+	</div>
 <!-- 			<iframe -->
 <!-- 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7229.995031787542!2d121.53984541484618!3d25.034158368927347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd3791a7bff%3A0xff4346aca2916a6!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5b6p6IiI5Y2X6Lev5LiA5q61Mzkw6Jmf6Jmf!5e0!3m2!1szh-TW!2stw!4v1611547527726!5m2!1szh-TW!2stw" -->
 <!-- 				width="600" height="450" frameborder="0" style="border: 0;" -->
 <!-- 				allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>	 -->	
-		</div>
+		
 	
+	<div class="middle">
+		<div class="middlepos">
+			<p class="middleF">澐Hotel</p>
+			<p class="middleF_introduce">
+			一個簡約又不失高雅的旅遊好去處，在繁忙的生活中，提供您閑靜愜意的環境，
+			遠離都市的塵囂，讓身心靈好好地充個電，望向藍天大海，享受著大自然帶來的寧靜，
+			讓來到這裡的每一個人有回到家的感覺，放鬆心情，享受旅遊，就在澐Hotel。
+			</p>
+		</div>
+	</div>
+	
+		
+	<div style="background-color:gray;height:300px;">
+	</div>
 	
  
 	<%@ include file="CommonTemplates/Indexfloat.jsp"%>
 	
-	</div>
+</div>
 
 	<%@ include file="CommonTemplates/footer.jsp"%>
 

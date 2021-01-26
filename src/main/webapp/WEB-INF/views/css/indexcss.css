@@ -38,11 +38,6 @@ header ul li a:hover{
     color: #8a97a5;
 }
 
-body{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
-}
 /* 主體 */
 .main{
     padding-top: 50px;
@@ -51,6 +46,16 @@ body{
     text-align: center;
     background: rgba(94, 73, 68, 0.5); /* 整個網頁壓暗的程度 */
     flex: 1 0 auto; /* 頁首頁尾剩的空間 */
+}
+/*有訂房的第一區塊*/
+.first{
+	min-height: 100vh;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
+}
+.firstDark{
+	background: rgba(94, 73, 68, 0.6); /* 整個網頁壓暗的程度 */
 }
 /* 內容 */
 .container{
@@ -163,14 +168,6 @@ body{
   opacity: 1;
   right: 0;
 }
-/* 頁尾 */
-.footer{
-    height: 20px;
-    width: 100vw;  /*寬度=網頁寬 */
-    text-align: center;
-    background-color: #0F2540;
-    color: white;
-}
 
 .abgne_float {
 	display: none;
@@ -185,5 +182,40 @@ body{
 	width: 50px;
 	height:50px;
 	background-color: #ffb7b7;
+}
+/*Yun Hotel介紹這塊*/
+.middle{
+	width:100vw;
+	height:270px;
+	background-color: white;
+}
+/*Yun Hotel介紹這塊的字_位置調整*/
+.middlepos{
+	padding-top:50px;
+	text-align: center;
+	width: 500px;
+}
+/*澐Hotel標題字*/
+.middleF{
+	font-weight: bold;
+	font-size: 1.8em;
+	text-align: center;
+	color: #0F2540;
+}
+/*澐Hotel介紹小字*/
+.middleF_introduce{
+	padding-top:5px;
+	font-size: 1.2em;
+	text-align: center;
+	color: #0F2540;
+}
+
+/* 頁尾 */
+.footer{
+    height: 20px;
+    width: 100vw;  /*寬度=網頁寬 */
+    text-align: center;
+    background-color: #0F2540;
+    color: white;
 }
 
