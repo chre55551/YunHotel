@@ -10,7 +10,7 @@
 	<h3>註冊帳號</h3>
 	<div class="container">
 		<table>
-			<form:form action="registerOK" method="post" modelAttribute="cr">
+			<form action="/YunHotel/customer/registerOK" method="POST" class="container">
 				<p>帳號:</p>
 				<input type="text" name="account"></input>
 				<br>
@@ -50,7 +50,7 @@
 				</li>
 
 
-			</form:form>
+			</form>
 		</table>
 	</div>
 
