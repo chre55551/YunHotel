@@ -55,6 +55,7 @@ header ul li a:hover{
     background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
 }
 .firstDark{
+	min-height: 100vh;
 	background: rgba(94, 73, 68, 0.6); /* 整個網頁壓暗的程度 */
 }
 /* 內容 */
