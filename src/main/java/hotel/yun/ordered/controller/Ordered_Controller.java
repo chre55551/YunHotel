@@ -2,6 +2,7 @@ package hotel.yun.ordered.controller;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -146,6 +147,7 @@ public class Ordered_Controller {
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面   訂房~~~~~~~~~‵
+	@SuppressWarnings("unchecked")
 	@PostMapping("/insertRoomOrdered")
 	public String insertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
@@ -169,11 +171,15 @@ public class Ordered_Controller {
 		OrderedToRoom otr = new OrderedToRoom();
 		try {
 			Rdate rd = dser.queryByRoomDate(rdate);
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		}catch(Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		}
 		try {
 			Room r = rser.queryByRoomNum(room_name);
@@ -186,12 +192,15 @@ public class Ordered_Controller {
 		od.setOrderedToRoom(otr);
 		try {
 			Rdate rd = dser.queryByRoomDate(rdate);
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		} catch (Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			e.printStackTrace();
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		}
 		od.setOrderedToRoom(otr);
 
@@ -203,7 +212,7 @@ public class Ordered_Controller {
 		try {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
-			model.addAttribute("rdate", odd.getOrderedToRoom().getRdate().getRdate());
+			model.addAttribute("rdates", odd.getOrderedToRoom().getRdates());
 			model.addAttribute("mdate", odd.getOrderedToMeals().getMdate().getMdate());
 			model.addAttribute("roomname", odd.getOrderedToRoom().getRoom().getRoom_name());
 		} catch (Exception e) {
@@ -286,6 +295,7 @@ public class Ordered_Controller {
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面   訂房~~~~~~~~~‵
+	@SuppressWarnings("rawtypes")
 	@PostMapping("/outsideInsertRoomOrdered")
 	public String outsideinsertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
@@ -310,11 +320,15 @@ public class Ordered_Controller {
 		Room rm = new Room();
 		try {
 			Rdate rd = dser.queryByRoomDate(rdate);
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		}catch(Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		}
 		try {
 			RoomType r = rser.queryByRoomType(room_type);
@@ -329,12 +343,15 @@ public class Ordered_Controller {
 		od.setOrderedToRoom(otr);
 		try {
 			Rdate rd = dser.queryByRoomDate(rdate);
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		} catch (Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
-			e.printStackTrace();
-			otr.setRdate(rd);
+			ArrayList<Rdate> list = new ArrayList();
+			list.add(rd);
+			otr.setRdates(list);
 		}
 		od.setOrderedToRoom(otr);
 
@@ -346,7 +363,7 @@ public class Ordered_Controller {
 		try {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
-			model.addAttribute("rdate", odd.getOrderedToRoom().getRdate().getRdate());
+			model.addAttribute("rdates", odd.getOrderedToRoom().getRdates());
 			model.addAttribute("mdate", odd.getOrderedToMeals().getMdate().getMdate());
 			model.addAttribute("roomname", odd.getOrderedToRoom().getRoom().getRoom_name());
 		} catch (Exception e) {
@@ -386,7 +403,7 @@ public class Ordered_Controller {
 		Ordered ordered = service.queryOrderNum(ordered_number);
 		model.addAttribute("ordered", ordered);
 		try {
-		model.addAttribute("rdate", ordered.getOrderedToRoom().getRdate());
+		model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
 		}catch(Exception e) {
 			
 		}
@@ -412,7 +429,7 @@ public class Ordered_Controller {
 	public String update(@PathVariable(value = "id") int ordered_number, Model model) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		model.addAttribute("updateOdered", ThisOrdered);
-		System.out.println(ThisOrdered.getOrderedToRoom().getRdate().getRdate());
+		System.out.println(ThisOrdered.getOrderedToRoom().getRdates());
 		try {
 		model.addAttribute("roomType",ThisOrdered.getOrderedToRoom().getRoom().getRoomType());
 		}catch(Exception e){
@@ -462,8 +479,15 @@ public class Ordered_Controller {
 //			}
 		}
 		
-		if(ordered.getOrderedToRoom().getRdate()!=null) {
-			ordered.getOrderedToRoom().getRdate().setRdate(rdate);
+		if(ordered.getOrderedToRoom().getRdates()!=null) {
+			try {
+			Rdate rd = dser.queryByRoomDate(rdate);
+			ordered.getOrderedToRoom().getRdates().add(rd);
+			}catch(Exception e) {
+				Rdate rd = new Rdate();
+				rd.setRdate(rdate);
+				ordered.getOrderedToRoom().getRdates().add(rd);
+			}
 		}
 		
 		if(ordered.getOrderedToMeals()!=null) {

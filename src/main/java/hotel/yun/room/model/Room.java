@@ -46,7 +46,7 @@ public class Room implements Serializable {
 	
 	@JsonIgnore
     @ManyToMany(mappedBy = "rooms")
-    private Set<Rdate> date = new HashSet<Rdate>();
+    private Set<Rdate> rdates = new HashSet<Rdate>();
 	
 	
 	public Room() {
@@ -106,11 +106,11 @@ public class Room implements Serializable {
 	}
 
 	public Set<Rdate> getDate() {
-		return date;
+		return rdates;
 	}
 
 	public void setDate(Set<Rdate> date) {
-		this.date = date;
+		this.rdates = date;
 	}
 
 

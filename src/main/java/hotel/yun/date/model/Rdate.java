@@ -32,16 +32,19 @@ public class Rdate {
 	private Integer rdate_id;
 	private Date rdate;
 
-	@OneToMany(mappedBy = "rdate", cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
-
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "room_rdate", joinColumns = {
 			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
 					@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
 	private Set<Room> rooms = new HashSet<Room>();
+	
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "OrderedToRoom_rdate", joinColumns = {
+			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "fk_ordered_toroom_id", referencedColumnName = "ordered_toroom_id") })
+	private List<OrderedToRoom> orderedToRooms = new ArrayList<OrderedToRoom>();
 
 	public Rdate() {
 
@@ -71,13 +74,6 @@ public class Rdate {
 		this.rdate_id = rdate_id;
 	}
 
-	public List<OrderedToRoom> getOrderedToRoom() {
-		return orderedToRoom;
-	}
-
-	public void setOrderedToRoom(List<OrderedToRoom> orderedToRoom) {
-		this.orderedToRoom = orderedToRoom;
-	}
 
 	public Set<Room> getRooms() {
 		return rooms;
