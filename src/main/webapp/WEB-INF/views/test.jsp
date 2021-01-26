@@ -1,4 +1,5 @@
-
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=GB2312" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
   <head>
