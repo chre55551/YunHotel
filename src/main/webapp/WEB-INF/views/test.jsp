@@ -1,29 +1,30 @@
-
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=GB2312" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>澐YunHotel酒店.首頁</title>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>YunHotel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/fancybox.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/aos.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fancybox.min.css">
     
-    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/fontawesome/css/font-awesome.min.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
   </head>
   <body>
     
@@ -150,9 +151,9 @@
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
             <figure class="img-absolute">
-              <img src="images/food-1.jpg" alt="Image" class="img-fluid">
+              <img src="image/food-1.jpg" alt="Image" class="img-fluid">
             </figure>
-            <img src="images/img_1.jpg" alt="Image" class="img-fluid rounded">
+            <img src="image/img_1.jpg" alt="Image" class="img-fluid rounded">
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
@@ -176,7 +177,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="images/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="image/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -188,7 +189,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="images/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="image/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -200,7 +201,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="images/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="image/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>
@@ -227,25 +228,25 @@
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               <div class="slider-item">
-                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
             </div>
             <!-- END slider -->
@@ -414,7 +415,7 @@
             
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -425,7 +426,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="images/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
@@ -435,7 +436,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="images/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -447,7 +448,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -458,7 +459,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="images/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
@@ -468,7 +469,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="images/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -497,7 +498,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
 
             <div class="media media-custom d-block mb-4 h-100">
-              <a href="#" class="mb-4 d-block"><img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#" class="mb-4 d-block"><img src="image/img_1.jpg" alt="Image placeholder" class="img-fluid"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">Travel Hacks to Make Your Flight More Comfortable</a></h2>
@@ -508,7 +509,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
             <div class="media media-custom d-block mb-4 h-100">
-              <a href="#" class="mb-4 d-block"><img src="images/img_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#" class="mb-4 d-block"><img src="image/img_2.jpg" alt="Image placeholder" class="img-fluid"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">5 Job Types That Aallow You To Earn As You Travel The World</a></h2>
@@ -518,7 +519,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
             <div class="media media-custom d-block mb-4 h-100">
-              <a href="#" class="mb-4 d-block"><img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#" class="mb-4 d-block"><img src="image/img_3.jpg" alt="Image placeholder" class="img-fluid"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">30 Great Ideas On Gifts For Travelers</a></h2>
@@ -530,7 +531,7 @@
       </div>
     </section>
 
-    <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
+    <section class="section bg-image overlay" style="background-image: url('image/hero_4.jpg');">
         <div class="container" >
           <div class="row align-items-center">
             <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
@@ -596,22 +597,22 @@
       </div>
     </footer>
     
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
     
     
-    <script src="js/aos.js"></script>
+    <script src="${pageContext.request.contextPath}/js/aos.js"></script>
     
-    <script src="js/bootstrap-datepicker.js"></script> 
-    <script src="js/jquery.timepicker.min.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/jquery.timepicker.min.js"></script> 
 
     
 
-    <script src="js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/main.js"></script>
   </body>
 </html>

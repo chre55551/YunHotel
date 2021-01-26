@@ -31,6 +31,7 @@
 			<li><a href="#">其他設施</a></li>
 			<li><a href="ordered/outsideInsertMealsOd">訂位</a></li>
 			<li><a href="test">測試用</a></li>
+			<li><a href="customer/Login">登入</a></li>
 		</ul>
 	</header>
 
@@ -43,14 +44,12 @@
 					<!-- readonly:不讓使用者自行輸入日期 -->
 					<input type="text" id="from" class="datepicker from" readonly>
 					<img class="datepic" src="image/date1.png">
-					<button></button>
 				</div>
 
 				<div class="D1">
 					<p class="dateF">退房:</p>
 					<br> <input type="text" id="to" class="to datepicker" readonly>
 					<img class="datepic" src="image/date1.png">
-					<button></button>
 				</div>
 				<div class="D1 ORbtnposition">
 					<button class="ORbtn"

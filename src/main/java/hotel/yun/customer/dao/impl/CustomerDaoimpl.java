@@ -8,8 +8,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.customer.dao.CustomerDao;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 
 
 @Repository
@@ -21,10 +23,16 @@ public class CustomerDaoimpl implements Serializable,CustomerDao {
 	
 	
 	@Override
-	public Customer insert(Customer cBean) {
+	public Customer insertC(Customer cBean) {
 		Session session = factory.getCurrentSession();
 		session.save(cBean);
 		return cBean;
+	}
+	@Override
+	public Member insertM(Member mBean) {
+		Session session = factory.getCurrentSession();
+		session.save(mBean);
+		return mBean;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -64,6 +72,18 @@ public class CustomerDaoimpl implements Serializable,CustomerDao {
 		return customer;
 	}
 
-
+	public Member checkIdPassword(String account, String password) {
+		Member mb = null;
+		String hql = "FROM Member m WHERE m.account = :mid and m.password = :pwsd";
+		Session session = factory.getCurrentSession();
+		try {
+			mb = (Member) session.createQuery(hql).setParameter("mid", account).setParameter("pwsd", password)
+					.getSingleResult();
+			return mb;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

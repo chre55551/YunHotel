@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.customer.dao.CustomerDao;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 import hotel.yun.customer.service.CustomerService;
 
 @Transactional
@@ -22,8 +24,15 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer insert(Customer cBean) {
-		return cDao.insert(cBean);
+	public Customer insertC(Customer cBean) {
+		return cDao.insertC(cBean);
+		
+	}
+
+	@Override
+	public Member insertM(Member mBean) {
+		return cDao.insertM(mBean);
+		
 	}
 
 	@Override
@@ -46,5 +55,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer query(Customer c) {
 		return cDao.query(c);
 
+	}
+
+	@Override
+	public Member checkIdPassword(String account, String password) {
+
+		return cDao.checkIdPassword(account, password);
 	}
 }
