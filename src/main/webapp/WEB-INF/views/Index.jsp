@@ -20,20 +20,7 @@
 </head>
 <body>
 
-	<header>
-		<ul>
-			<li><img class="logo" src="image/yunlogo.jpg"></li>
-			<li>&emsp;&emsp;&emsp;&emsp;</li>
-			<li><a href="#">關於我們</a></li>
-			<li><a href="showNews">最新消息</a></li>
-			<li><a href="room/RoomIntroduction">房型介紹</a></li>
-			<li><a href="meals/Delicious">美食佳餚</a></li>
-			<li><a href="#">其他設施</a></li>
-			<li><a href="ordered/outsideInsertMealsOd">訂位</a></li>
-			<li><a href="test">測試用</a></li>
-			<li><a href="customer/Login">登入</a></li>
-		</ul>
-	</header>
+	<%@ include file="CommonTemplates/Indexheader.jsp"%>
 
 	<div class="main">
 			<div class="dateline">
@@ -63,20 +50,51 @@
 <!-- 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7229.995031787542!2d121.53984541484618!3d25.034158368927347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd3791a7bff%3A0xff4346aca2916a6!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5b6p6IiI5Y2X6Lev5LiA5q61Mzkw6Jmf6Jmf!5e0!3m2!1szh-TW!2stw!4v1611547527726!5m2!1szh-TW!2stw" -->
 <!-- 				width="600" height="450" frameborder="0" style="border: 0;" -->
 <!-- 				allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>	 -->	
-</div>
+		</div>
+	
+	
+ 
+	<%@ include file="CommonTemplates/Indexfloat.jsp"%>
+	
 	</div>
 
 
 
-	<div class="footer">
-		<p>© The Hotel. All Rights Reserved.</p>
-	</div>
+	<%@ include file="CommonTemplates/footer.jsp"%>
 
 
 	<script src="js/plugin/jquery-3.5.1.min.js"></script>
 	<script src="js/plugin/jquery-ui.js"></script>
-	<script>
+	<script>	
+//隨捲軸移動訂位===============================================================		
 		$(function() {
+			var $win = $(window),
+			$ad = $('.abgne_float').css('opacity', 0).show(),	// 讓廣告區塊變透明且顯示出來
+			_width = $ad.width(),
+			_height = $ad.height(),
+			_diffY = 20, _diffX = 20,	// 距離右及下方邊距
+			_moveSpeed = 650;	// 移動的速度
+	 
+		// 先把 #abgne_float_ad 移動到定點
+		$ad.css({
+			top: $(document).height(),
+			left: $win.width() - _width - _diffX,
+			opacity: 1
+		});
+	 
+		// 幫網頁加上 scroll 及 resize 事件
+		$win.bind('scroll resize', function(){
+			var $this = $(this);
+	 
+			// 控制 #abgne_float_ad 的移動
+			$ad.stop().animate({
+				top: $this.scrollTop() + $this.height() - _height - _diffY,
+				left: $this.scrollLeft() + $this.width() - _width - _diffX
+			}, _moveSpeed);
+		}).scroll();	// 觸發一次 scroll()
+		
+//訂房日歷===============================================================			
+			
 			$("#from").datepicker(
 					{
 						changeMonth : true, //顯示月份列表供選擇
