@@ -25,34 +25,40 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
-	<div class="main">
-		<table class="mytable container" id="container">
-			<thead>
-				<tr>
-					<th>姓名</th>
-					<td><input id="name" type="text">
-					<th>電話</th>
-					<td><input id="phone" type="text">
-						<button></button></td>
-					<td><input type="radio" name="r" id="status1" value="1">
-						<label for="status1"> 已成立 </label> <input type="radio" name="r"
-						id="status2" value="2"> <label for="status2"> 已結單
-					</label> <input type="radio" name="r" id="status3" value="3"> <label
-						for="status3"> 全部 </label></td>
-					<td>
-						<div class="mycenter">
-							<button id="peko">查詢</button>
-						</div>
-					</td>
-				</tr>
-			</thead>
-		</table>
+	<div class="queryODBG">
+		<div class="main">
+			<br>
+			<div class="odq">
+				<table class="mytable">
+					<thead>
+						<tr class="odin">
+							<th class="odfz">姓名:&nbsp;&nbsp;</th>
+							<td><input id="name" type="text" 
+								class="odsm"> &nbsp;&nbsp;
+							<th class="odfz">電話:&nbsp;&nbsp;</th>
+							<td><input id="phone" type="text" 
+								class="odsm"></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td><input type="radio" name="r" id="status1" value="1">
+								<label for="status1" > 已成立 </label> <input
+								type="radio" name="r" id="status2" value="2"> <label
+								for="status2" > 已結單 </label> <input type="radio"
+								name="r" id="status3" value="3"> <label for="status3"
+								> 全部 </label></td>
+							<td>
+								<div class="mycenter">
+									<button id="peko" class="ormBtn">查詢</button>
+								</div>
+							</td>
+					</thead>
+				</table>
+			</div>
+		</div>
+		<div>
+			<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
+		</div>
+		<%@ include file="../CommonTemplates/footer.jsp"%>
 	</div>
-	<div>
-		<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
-	</div>
-	<%@ include file="../CommonTemplates/footer.jsp"%>
-
 
 	<script>
     

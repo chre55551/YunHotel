@@ -25,9 +25,7 @@
 <body>
 
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
-			<div>
-			<img src="../steak.jpg">
-			
+		<div class="steakBG">
 	<div class="main">
 		<br>
 		<div class="orm">
@@ -45,10 +43,10 @@
 				<!-- 				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" /> -->
 				<!-- 			</div> -->
 				<div class="ormt">
-					<label>用餐日期:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="mdate" id="requestMp" type="date" />
+					<label>用餐日期:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="mdate" id="requestMp" type="date" class="odsm" />
 				</div>
 				<div class="ormt">
-					<label>用餐時段:</label>&nbsp;&nbsp;&nbsp;&nbsp;<select name="time_period">
+					<label>用餐時段:</label>&nbsp;&nbsp;&nbsp;&nbsp;<select name="time_period" class="odsm">
 						<option value="11:00~13:00">上午十一點</option>
 						<option value="13:00~15:00">下午一點</option>
 						<option value="15:00~17:00">下午三點</option>
@@ -57,7 +55,7 @@
 					</select>
 				</div>
 				<div class="ormt">
-					<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="note" id="requestNote" />
+					<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="note" id="requestNote" class="odsm"/>
 				</div>
 				<div>
 					<input value="預訂" type="submit" class="ormBtn"> <input value="清除"
@@ -69,7 +67,6 @@
 	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 	</div>
-	
 	<script>	
 //隨捲軸移動訂位===============================================================		
 		$(function() {
