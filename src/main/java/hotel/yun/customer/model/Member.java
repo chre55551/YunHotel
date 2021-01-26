@@ -42,6 +42,31 @@ public class Member {
 		this.updated_date = updated_date;
 	}
 	
+	
+	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
+			String email) {
+		super();
+		this.member_id = member_id;
+		this.account = account;
+		this.password = password;
+		this.gender = gender;
+		this.home_phone = home_phone;
+		this.job = job;
+		this.email = email;
+	}
+
+	
+	
+	public Member(String account, String password, String gender, String home_phone, String job, String email) {
+		super();
+		this.account = account;
+		this.password = password;
+		this.gender = gender;
+		this.home_phone = home_phone;
+		this.job = job;
+		this.email = email;
+	}
+
 	public int getMember_id() {
 		return member_id;
 	}
