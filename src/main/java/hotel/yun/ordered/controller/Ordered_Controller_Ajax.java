@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,14 +48,16 @@ public class Ordered_Controller_Ajax {
 	//-----------------以上是屬性--------------------
 
 	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立~~~~~~~~~~~~~~~~~
-	@PostMapping("/customerToOrdered/orderedCreated")
+	@GetMapping("/customerToOrdered/orderedCreated")
 	public @ResponseBody List<Ordered> orderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "ordered_status") String ordered_status,
 			Model model, HttpSession session) {
 		Customer c = new Customer(chinese_name, mobile_phone);
+		System.out.println(c.getChinese_name());
 		try {
 			Customer customer = cser.query(c);
+			System.out.println(customer.getChinese_name());
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
 			for (Ordered o : CustomerOrdered) {
@@ -70,7 +73,7 @@ public class Ordered_Controller_Ajax {
 	}
 
 	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單~~~~~~~~~~~~~~~~~~~
-	@PostMapping("/customerToOrdered/orderedFinished")
+	@GetMapping("/customerToOrdered/orderedFinished")
 	public @ResponseBody List<Ordered> orderedFinishedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "ordered_status") String ordered_status,
@@ -93,7 +96,7 @@ public class Ordered_Controller_Ajax {
 	}
 
 	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出      全部訂單~~~~~~~~~~~~~~~
-	@PostMapping("/customerToOrdered/orderedAll")
+	@GetMapping("/customerToOrdered/orderedAll")
 	public @ResponseBody List<Ordered> orderedAllAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "ordered_status") String ordered_status,

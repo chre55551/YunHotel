@@ -45,7 +45,7 @@ public class Room implements Serializable {
 	private RoomType roomType;
 	
 	@JsonIgnore
-    @ManyToMany(mappedBy = "rooms")
+    @ManyToMany(mappedBy = "rooms", fetch = FetchType.EAGER)
     private Set<Rdate> rdates = new HashSet<Rdate>();
 	
 	

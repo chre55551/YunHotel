@@ -39,8 +39,7 @@ public class OrderedToRoom implements Serializable {
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
-	@JsonIgnore
-    @ManyToMany(mappedBy = "orderedToRooms")
+    @ManyToMany(mappedBy = "orderedToRooms", fetch = FetchType.EAGER)
     private List<Rdate> rdates = new ArrayList<Rdate>();
 
 	public OrderedToRoom() {
@@ -79,13 +78,7 @@ public class OrderedToRoom implements Serializable {
 		this.room_accounts = room_accounts;
 	}
 
-	public int getroomnum_of_people() {
-		return roomnum_of_people;
-	}
 
-	public void setroomnum_of_people(int roomnum_of_people) {
-		this.roomnum_of_people = roomnum_of_people;
-	}
 
 	public Room getRoom() {
 		return room;

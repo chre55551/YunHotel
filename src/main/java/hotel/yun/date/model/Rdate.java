@@ -15,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,16 +32,18 @@ public class Rdate {
 	private Date rdate;
 
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "room_rdate", joinColumns = {
 			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
 					@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
 	private Set<Room> rooms = new HashSet<Room>();
 	
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "OrderedToRoom_rdate", joinColumns = {
-			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "orderedToRoom_rdate", 
+		joinColumns = {
+			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, 
+		inverseJoinColumns = {
 					@JoinColumn(name = "fk_ordered_toroom_id", referencedColumnName = "ordered_toroom_id") })
 	private List<OrderedToRoom> orderedToRooms = new ArrayList<OrderedToRoom>();
 

@@ -151,8 +151,10 @@ public class Ordered_Controller {
 	@PostMapping("/insertRoomOrdered")
 	public String insertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
-			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
-			@RequestParam(value = "address") String address, @RequestParam(value = "room_name") String room_name,
+			@RequestParam(value = "mobile_phone") String mobile_phone,
+			@RequestParam(value = "birthday") Date birthday,
+			@RequestParam(value = "address") String address,
+			@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "note") String note, Model model) {
 		Ordered od = new Ordered();
@@ -174,35 +176,39 @@ public class Ordered_Controller {
 			ArrayList<Rdate> list = new ArrayList();
 			list.add(rd);
 			otr.setRdates(list);
+			System.out.println("queryByRoomDate sucess!!!");
 		}catch(Exception e) {
 			Rdate rd = new Rdate();
 			rd.setRdate(rdate);
 			ArrayList<Rdate> list = new ArrayList();
 			list.add(rd);
 			otr.setRdates(list);
+			System.out.println("queryByRoomDate fail!!!");
 		}
 		try {
 			Room r = rser.queryByRoomNum(room_name);
 			otr.setRoom(r);
+			System.out.println("queryByRoomNum sucess!!!");
 		} catch (Exception e) {
 			Room r = new Room();
 			r.setRoom_name(room_name);
 			otr.setRoom(r);
+			System.out.println("queryByRoomNum fail!!!");
 		}
 		od.setOrderedToRoom(otr);
-		try {
-			Rdate rd = dser.queryByRoomDate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
-			list.add(rd);
-			otr.setRdates(list);
-		} catch (Exception e) {
-			Rdate rd = new Rdate();
-			rd.setRdate(rdate);
-			ArrayList<Rdate> list = new ArrayList();
-			list.add(rd);
-			otr.setRdates(list);
-		}
-		od.setOrderedToRoom(otr);
+//		try {
+//			Rdate rd = dser.queryByRoomDate(rdate);
+//			ArrayList<Rdate> list = new ArrayList();
+//			list.add(rd);
+//			otr.setRdates(list);
+//		} catch (Exception e) {
+//			Rdate rd = new Rdate();
+//			rd.setRdate(rdate);
+//			ArrayList<Rdate> list = new ArrayList();
+//			list.add(rd);
+//			otr.setRdates(list);
+//		}
+//		od.setOrderedToRoom(otr);
 
 		OrderedStatus os = new OrderedStatus();
 		os.setStatus_id(1);
@@ -213,10 +219,10 @@ public class Ordered_Controller {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
 			model.addAttribute("rdates", odd.getOrderedToRoom().getRdates());
-			model.addAttribute("mdate", odd.getOrderedToMeals().getMdate().getMdate());
 			model.addAttribute("roomname", odd.getOrderedToRoom().getRoom().getRoom_name());
+			System.out.println("insert otr success!!!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("insert otr fail!!!");
 		}
 //		return null;
 		return "ordered/customerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
@@ -228,7 +234,7 @@ public class Ordered_Controller {
 	public String outsideShowMealsOrdered(Model model) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
-		return "ordered/outsideinsertMealsOd";
+		return "ordered/outsideInsertMealsOd";
 	}
 	
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面

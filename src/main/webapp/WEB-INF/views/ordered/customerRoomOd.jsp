@@ -27,7 +27,11 @@
 		<p>生日: ${odd.customer.birthday}</p>
 		<p>地址: ${odd.customer.address}</p>
 		<p>房號: ${roomname}</p>
-		<p>訂房日期: ${rdate}</p><br>
+		<p>
+		<c:forEach var="rdate"   items="${rdates}" >
+		訂房日期: ${rdate.rdate}  
+		</c:forEach>
+		</p><br>
 		<input type="button" value="回新增" onclick="location.href='insertMealsOd'" >
 		</div>
 	</div>
