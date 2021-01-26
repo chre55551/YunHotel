@@ -42,7 +42,7 @@
 		<div class="orm">
 			<form action="/YunHotel/ordered/insertMealsOrdered" method="POST">
 				<div class="ormt">
-					<h4>想要訂餐的時間?</h4>
+					<h4>想要訂餐的時間</h4>
 				</div>
 				<!-- 			<div> -->
 				<!-- 				<label>姓名</label> <input name="chinese_name" id="requestCn" /> -->
@@ -69,8 +69,8 @@
 					<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="note" id="requestNote" />
 				</div>
 				<div>
-					<input value="預訂" type="submit"> <input value="清除"
-						type="reset">
+					<input value="預訂" type="submit" class="ormBtn"> <input value="清除"
+						type="reset" class="ormBtn">
 				</div>
 			</form>
 		</div>
