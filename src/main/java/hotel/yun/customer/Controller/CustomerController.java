@@ -3,6 +3,7 @@ package hotel.yun.customer.Controller;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -33,6 +35,7 @@ import hotel.yun.room.model.Room;
 
 @Controller
 @RequestMapping("/customer")
+@SessionAttributes({"LoginOK"}) 
 public class CustomerController {
 	ServletContext context;
 
@@ -75,16 +78,18 @@ public class CustomerController {
 		return "redirect: " + request.getContextPath() + "/YunPage";
 	}
 
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session, Model model, SessionStatus status, RedirectAttributes redirectAtt) {
 		String name = "";
 		System.out.println("Logout");
-		Member mb = (Member) session.getAttribute("LoginOK");
-		if (mb != null) {
-			name = mb.getAccount();
-		} else {
-			name = "訪客";
-		}
+		
+//		Member mb = (Member) session.getAttribute("LoginOK");
+//		if (mb != null) {
+//			name = mb.getAccount();
+//		} else {
+//			name = "訪客";
+//		}
 		String farewellMessage = name + "已登出，期待您再次蒞臨本網站";
 		redirectAtt.addFlashAttribute("logoutmessage", farewellMessage);
 		// 登出時執行下列兩敘述
@@ -94,7 +99,7 @@ public class CustomerController {
 		session.invalidate();
 
 		// 此敘述不能省略
-		return "redirect:/";
+		return "redirect:../YunPage";
 	}
 
 //------------------------------------------------------------------------------------------------
@@ -126,4 +131,25 @@ public class CustomerController {
 		return "customer/registerOK";
 
 	}
+//////----------------------------------------------------------------------------------------------------
+		// 顯示所有會員
+		@GetMapping("/ShowMember")
+		public String getCustomers(@RequestParam(value = "chinese_name") String chinese_name,
+				@RequestParam(value = "idcard_number") String idcard_number,
+				@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
+				@RequestParam(value = "address") String address, @RequestParam(value = "account") String account,
+				@RequestParam(value = "password") String password, @RequestParam(value = "gender") String gender,
+				@RequestParam(value = "home_phone") String home_phone, @RequestParam(value = "job") String job,
+				@RequestParam(value = "email") String email, Model model) {
+			Customer c = new Customer(chinese_name,idcard_number,birthday, address, mobile_phone);
+			Member m = new Member(account,password,gender,home_phone,job,email);
+			c.setMember(m);
+			model.addAttribute("rcc", c);
+			model.addAttribute("rmm",m);
+//			List<BmemberBean> sb = service.queryAllMember();
+		    
+		
+//			System.out.println(" showAllMembers");
+			return "bmember/ShowBmember";
+		}
 }

@@ -115,19 +115,9 @@ public class BmemberController {
 	public String modifyCustomerData2(
 			@ModelAttribute("BmemberBean") BmemberBean bean ,
 			@PathVariable Integer id
-//			 BindingResult bindingResult 
+
 			) {
-//			new BmemberValidator().validate(bean, bindingResult);
-//			System.out.println("修改會員(PUT, 11-05): " + bean);
-			    
-//			if (bindingResult.hasErrors()) {
-//
-//				return "bmember/UpdateBmember";
-//
-//			}
-//			System.out.println(bean.getBs_id());
-//			System.out.println("12345 bean==>" + bean);
-//			System.out.println(bean.getUser_id());
+
 			service.update(bean);	
 			return "redirect:../ShowBmember";
 		}

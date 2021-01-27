@@ -8,16 +8,30 @@
 </head>
 <body>
 	<header>
+
 		<ul>
-			<li><a href="http://localhost:8080/YunHotel/YunPage"><img class="logo" src="${pageContext.request.contextPath}/image/yunlogo.jpg"></a></li>
+			<li><a href="http://localhost:8080/YunHotel/YunPage"><img
+					class="logo"
+					src="${pageContext.request.contextPath}/image/yunlogo.jpg"></a></li>
 			<li>&emsp;&emsp;&emsp;&emsp;</li>
 			<li><a href="#">關於我們</a></li>
 			<li><a href="showNews">最新消息</a></li>
 			<li><a href="room/RoomIntroduction">房型介紹</a></li>
 			<li><a href="meals/Delicious">美食佳餚</a></li>
 			<li><a href="#">其他設施</a></li>
-			<li><a href="customer/Login">登入</a></li>
+
 			<li><a href="test">測試用</a></li>
+		<c:choose>
+			<c:when test="${not empty LoginOK}">
+			
+				<li><a href="customer/Login">會員中心</a></li>
+				<li><a href="customer/logout">登出</a></li>
+			</c:when>
+
+			<c:otherwise>
+				<li><a href="customer/Login">登入</a></li>
+			</c:otherwise>
+		</c:choose>
 		</ul>
 	</header>
 </body>
