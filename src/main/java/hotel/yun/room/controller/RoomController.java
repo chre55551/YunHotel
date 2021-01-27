@@ -189,7 +189,7 @@ public class RoomController {
 	}
 
 	@DeleteMapping("/DeleteRoom")
-	public String DeleteRoom(@PathVariable Integer room_typeid) {
+	public String DeleteRoom(@PathVariable int room_typeid) {
 		System.out.println("刪除成功");
 		service.deleteRoomType(room_typeid);
 		return "room/ShowDeleteRoom";

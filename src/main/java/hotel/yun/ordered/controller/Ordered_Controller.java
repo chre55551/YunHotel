@@ -63,20 +63,19 @@ public class Ordered_Controller {
 	public String indexOrdered(Model model) {
 		return "ordered/ordered";
 	}
-
+	
 	// 新增的分流
 	@GetMapping("/insertIndex")
 	public String insertIndex(Model model) {
 		return "ordered/insertIndex";
 	}
-
+	
 	// 查詢的分流
 	@GetMapping("/queryIndex")
 	public String queryIndex(Model model) {
 		return "ordered/queryIndex";
 	}
-
-//------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 新增
 	// 後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱 訂餐~~~~~~~~~
 	@GetMapping("/insertMealsOd")
@@ -137,9 +136,8 @@ public class Ordered_Controller {
 			e.printStackTrace();
 		}
 		return "ordered/customerMealsOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp
-
 	}
-//------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	//   後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台   送出空白的Bean來接訂房的屬性，Jsp input的name要對到DB的名稱
 	@GetMapping("/insertRoomOd")
 	public String ShowRoomOrdered(Model model) {
@@ -232,7 +230,7 @@ public class Ordered_Controller {
 
 		return "ordered/customerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
-	//------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	//前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台的新增!!!!!!  
 	//送出空白的表單，來接住使用者輸入的值 訂位~~~~
 	@GetMapping("/outsideInsertMealsOd")
@@ -296,7 +294,7 @@ public class Ordered_Controller {
 
 	}
 	
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	//前台的
 	@GetMapping("/outsideInsertRoomOd")
 	public String outsideShowRoomOrdered(Model model) {
@@ -383,7 +381,7 @@ public class Ordered_Controller {
 //		return null;
 		return "ordered/outsideCustomerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
-	//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 查詢
 //	@GetMapping("/thisOrdered")
 //	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
@@ -400,7 +398,7 @@ public class Ordered_Controller {
 		model.addAttribute("OrderedList", Ordered);
 		return "ordered/thisOrderedAll";// 進到查詢到的全部訂單，需再ThisOrdered裡設超連結進來
 	}
-	//------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 寫在後台需要從顧客查詢到他的訂單
 	@GetMapping("/customerToOrdered")
 	public String getCustomerOrder(Model model, HttpSession session) {
@@ -433,7 +431,7 @@ public class Ordered_Controller {
 //		model.addAttribute("Ordered",Ordered);
 //		return "ordered/dateToOrdered";//進到該日期的所有訂單
 //	
-//---------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
 	@GetMapping("/outsideCustomerToOrdered")
 	public String getCustomerOrderss(Model model, HttpSession session) {
@@ -459,7 +457,7 @@ public class Ordered_Controller {
 		return "ordered/outsidethisOrdered";
 	}
 	
-//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 更新
 	// 從查詢取值後，送出這個空白表單
 	@GetMapping("/update/{id}")
@@ -562,7 +560,7 @@ public class Ordered_Controller {
 		return "ordered/thisOrdered";
 	}
 
-//---------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	// 刪除
 	// 從訂單編號刪除一筆訂單
 	@GetMapping("/DeleteOrdred/{ordered_number}")
@@ -570,7 +568,7 @@ public class Ordered_Controller {
 		service.delete(ordered_number);
 		return "ordered/deleteFinish";
 	}
-	
+//-----------------------------------------------------------------------------------------------------
 	public DateTime DateToDateTime(Date d) {
 		String str = d.toString();
 		return DateTime.parse(str);
