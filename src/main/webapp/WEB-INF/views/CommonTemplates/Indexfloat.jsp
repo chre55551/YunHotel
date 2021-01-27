@@ -8,10 +8,10 @@
 </head>
 <body>
 	<div class="abgne_float">
-		<div class="abgne_OR">
+		<div class="abgne_OR OR_pos">
 			<a href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd" style="color: white;">餐廳訂位</a>
 		</div>
-		<div class="abgne_OR">
+		<div class="abgne_OR OR_pos">
 			<a href="http://localhost:8080/YunHotel/ordered/outsideCustomerToOrdered" style="color: white;">查詢訂單</a>
 		</div>
 	</div>

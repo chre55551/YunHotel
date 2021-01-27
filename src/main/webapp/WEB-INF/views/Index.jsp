@@ -28,21 +28,19 @@
 	
 		<img class="title" src="image/headertitle.png">
 	
-	
-	
 		<div class="dateline">
 			<div class="dateline2">
 				<div class="D1">
 					<p class="dateF">入住:</p>
 					<br>
 					<!-- readonly:不讓使用者自行輸入日期 -->
-					<input type="text" id="from" class="datepicker from" readonly>
+					<input type="date" id="from" class="datepicker from" readonly>
 					<img class="datepic" src="image/date1.png">
 				</div>
 
 				<div class="D1">
 					<p class="dateF">退房:</p>
-					<br> <input type="text" id="to" class="to datepicker" readonly>
+					<br> <input type="date" id="to" class="to datepicker" readonly>
 					<img class="datepic" src="image/date1.png">
 				</div>
 				
@@ -145,7 +143,6 @@
 			}
 
 			$("#to").datepicker({
-
 				changeMonth : true,
 				firstDay : 1,
 				minDate : "+1", //最小日期只能選隔天(退房)

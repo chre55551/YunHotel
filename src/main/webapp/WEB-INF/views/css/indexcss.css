@@ -118,8 +118,8 @@ header ul li a:hover{
 }
 .datepic{
     margin-left: -40px;
-    margin-top: 15px;
-    position:absolute;
+    margin-top: -5px;
+/*     position:absolute; */
     z-index:0; /* 讓日曆圖疊在輸入框上 */
 }
 /*====================================================*/
@@ -145,7 +145,6 @@ header ul li a:hover{
 .ORbtn p {
   cursor: pointer;
   display: inline-block;
-  position: relative;
   transition: 0.5s;
 }
 
@@ -172,23 +171,27 @@ header ul li a:hover{
 .abgne_float {
 	display: none;
 	position: absolute;
-	width: 125px;
-	height:125px;
-	border-radius:60px;
+	width: 160px;
+	height:160px;
+	border-radius:5px;
 	padding-top: 11px;
 	padding-left: 9px;
 /* 	background-color:rgba(165,222,268,0.4); */
 /*	background-color:rgba(15,37,64,0.8);*/
-	background-color: rgba(165,222,221,0.7);
+/* 	background-color: rgba(165,222,221,0.7); */
+	background-color: white;
 }
 .abgne_OR{
-	margin:10px;
+	margin:0 auto;
 	width: 90px;
 	height:35px;
 	background-color:rgba(15,37,64,0.7);
 	padding-top: 8px;
-	border-radius:20px;
+	border-radius:5px;
 	color: white;
+}
+.OR_pos{
+	margin-top:20px;
 }
 /*====================================================*/
 /*Yun Hotel介紹這塊*/

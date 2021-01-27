@@ -1,10 +1,10 @@
 //隨捲軸移動訂位===============================================================		
-		$(function() {
+
 			var $win = $(window),
 			$ad = $('.abgne_float').css('opacity', 0).show(),	// 讓廣告區塊變透明且顯示出來
 			_width = $ad.width(),
 			_height = $ad.height(),
-			_diffY = 30, _diffX = 20,	// 距離右及下方邊距
+			_diffY = 45, _diffX = 32,	// 距離右及下方邊距
 			_moveSpeed = 650;	// 移動的速度
 	 
 		// 先把 #abgne_float_ad 移動到定點
@@ -24,4 +24,3 @@
 				left: $this.scrollLeft() + $this.width() - _width - _diffX
 			}, _moveSpeed);
 		}).scroll();	// 觸發一次 scroll()
-	});
