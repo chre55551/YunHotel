@@ -216,6 +216,7 @@ header ul li a:hover{
 	height:1000px;
 	background-color: #d6d9d7;
 }
+/*房型介紹的div，用來調位置*/
 .rintro_div{
 	float:left;
 	margin-top:100px;
@@ -223,17 +224,47 @@ header ul li a:hover{
 	width: 600px;
 	height:500px;
 }
+/*房型介紹*/
 .room_introduce{
 	width: 600px;
 	height:500px;
 	background-size:cover;
 	background-image: url('http://localhost:8080/YunHotel/image/test/img_4.jpg');
 }
+/*遮罩*/
+.thirdDark{
+	width: 600px;
+	height:500px;
+	background-size:cover;
+	transition: 1s; 
+}
+/*滑鼠滑過_遮罩*/
+.thirdDark:hover{
+	transition: 1s; /*1秒後才完全遮罩*/
+	background: rgba(67, 67, 67, 0.7); 
+}
+/*滑鼠滑過_不顯示超連結底線*/
+.thirdDark:hover a{
+	text-decoration:none;
+}
+/*標題字*/
 .thirdF{
 	margin-top:220px;
 	color:#fff;
 	font-size: 2.4em;
 	font-weight: bold;
+}
+/*查看更多_先隱藏*/
+.thirdmin{
+	display:none; /*隱藏*/
+	transition: 0.5s;
+}
+/*查看更多_滑鼠滑過才顯示小字*/
+.thirdDark:hover .thirdmin{
+	font-size:1.2em;
+	color:white;
+	display:block; /*顯示(佔個區塊)*/
+	transition: 0.8s;
 }
 /*====================================================*/
 /* 頁尾 */
