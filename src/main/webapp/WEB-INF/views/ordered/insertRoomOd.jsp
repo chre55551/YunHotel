@@ -54,7 +54,9 @@
 				<label>欲退房日期</label> <input name="rdateEnd" type="date" id="rdateEnd"/>
 			</div>
 			<div>
-			<div id="roomnum"></div>
+			<div>
+				<div id="roomnum"></div>
+			</div>
 				<button id="zzz">查詢</button>
 			</div>
 			<div>
@@ -71,6 +73,7 @@
 
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 	<script>
+// 	' + room.room_name + '
 		$('#room_type').change(function(){
 			$.ajax({
 					url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/allrooms',
@@ -80,45 +83,43 @@
 					},
 					type:'Get',
 					success: function (data){
-						let fk = data;
+						let fk = data
 						var this_data = '';
-						this_data += '<div id='roomnum'>';
 						this_data += '<label>房號</label>';
 						for(let room of fk){
-							this_data += '<input type="radio" name="r" id="' + room.room_name + '" value="'+ room.room_name + '">';
-						}
-						this_data += '</div>'
+							this_data += '<input type="radio" name="r" id="' + room.room_name + '" value="'+ room.room_name + '">' ;
+						};
 						$('#roomnum').html(this_data);
 					},
 					error: function (d) {
 			              alert('查無資料');
-			            }
+			            },
 			})
 			
 		})
 		
-		$('#zzz').click(function(){
-			$.ajax({
-				url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/availablerooms',
-				dataType: 'json',
-				type : 'POST',
-				data:{
-					room_type : $("#room_type").val(),
-					rdate : $("#rdate").val(),
-					rdateEnd : $("#rdateEnd").val()
- 					},
-					success: function (data){
-						let fk = data
-						var this_data = '';
-						this_data += '<div><label>房號</label>'
-						for(let room of fk){
-							this_data += '<input type="radio" name="r" id="'+${room.room_name}+'" value="'+ ${room.room_name} +'">';
-						}
-						this_data += '</div>'
-					},
+// 		$('#zzz').click(function(){
+// 			$.ajax({
+// 				url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/availablerooms',
+// 				dataType: 'json',
+// 				type : 'POST',
+// 				data:{
+// 					room_type : $("#room_type").val(),
+// 					rdate : $("#rdate").val(),
+// 					rdateEnd : $("#rdateEnd").val()
+//  					},
+// 					success: function (data){
+// 						let fk = data
+// 						var this_data = '';
+// 						this_data += '<div><label>房號</label>'
+// 						for(let room of fk){
+// 							this_data += '<input type="radio" name="r" id="'+${room.room_name}+'" value="'+ ${room.room_name} +'">';
+// 						}
+// 						this_data += '</div>'
+// 					},
 				
-			})
-		})
+// 			})
+// 		})
 		
 //     	$('#QQQ').blur(function () {
 //     		 $.ajax({
