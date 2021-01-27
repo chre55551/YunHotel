@@ -33,7 +33,6 @@
 			</div>
 			<div>
 				<label>訂單狀態: </label>
-				<!-- 				<input name="ordered_status" id="requestMp" /> -->
 				<select name="ordered_status" id="requestOs">
 					<option value="">請選擇訂單狀態</option>
 					<option value="已成立">已成立</option>
