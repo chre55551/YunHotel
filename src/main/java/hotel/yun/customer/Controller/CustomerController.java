@@ -72,16 +72,16 @@ public class CustomerController {
 			return "loginForm";
 		}
 
-		return "redirect: " + request.getContextPath();
+		return "redirect: " + request.getContextPath() + "/YunPage";
 	}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session, Model model, SessionStatus status, RedirectAttributes redirectAtt) {
 		String name = "";
 		System.out.println("Logout");
-		BmemberBean memberBean = (BmemberBean) session.getAttribute("LoginOK");
-		if (memberBean != null) {
-			name = memberBean.getBs_account();
+		Member mb = (Member) session.getAttribute("LoginOK");
+		if (mb != null) {
+			name = mb.getAccount();
 		} else {
 			name = "訪客";
 		}
@@ -120,27 +120,9 @@ public class CustomerController {
 		Customer c = new Customer(chinese_name,idcard_number,birthday, address, mobile_phone);
 		Member m = new Member(account,password,gender,home_phone,job,email);
 		c.setMember(m);
-//		c.setChinese_name(chinese_name);
-//		c.setIdcard_number(idcard_number);
-//		c.setBirthday(birthday);
-//		c.setAddress(address);
-//		c.setMobile_phone(mobile_phone);
-		
 		model.addAttribute("rcc", c);
 		model.addAttribute("rmm",m);
-		
-//		m.setAccount(account);
-//		m.setPassword(password);
-//		m.setGender(gender);
-//		m.setHome_phone(home_phone);
-//		m.setJob(job);
-//		m.setEmail(email);
 		service.insertC(c);
-//		Member rm = service.insertM(m);
-		
-		
-		
-		
 		return "customer/registerOK";
 
 	}
