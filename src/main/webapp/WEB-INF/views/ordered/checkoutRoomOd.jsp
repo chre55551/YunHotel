@@ -6,6 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/backstage.css'
+	type="text/css" />
 <title>輸入退房結帳資訊</title>
 </head>
 <body>
@@ -87,6 +91,7 @@
 				<c:otherwise>
 				</c:otherwise>
 			</c:choose>
+			
 			<c:choose>
 				<c:when test="${not empty ${ordered_status}">
 					<div>

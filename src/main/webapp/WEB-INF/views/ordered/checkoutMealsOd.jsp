@@ -10,7 +10,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
-<title>checkoutMealsOrdered</title>
+<title>確認餐點結帳內容</title>
 </head>
 <body>
 
@@ -19,45 +19,49 @@
 
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>修改訂單</h3>
-		<form action="../updatecheck/${updateOdered.ordered_number}"
+		<form action="../checkoutMealsOd/${updateOdered.ordered_number}"
 			method="POST" class="container">
-			<p>欲修改的訂單編號: ${updateOdered.ordered_number}</p>
-			<div>
-				<label>桌號: </label> <input name="table_number" id="requestTn" />
-				<%-- 				value="${updateOdered.table_number}" --%>
-			</div>
-			<div>
-				<label>房號: </label> <input name="room_number"
-					id="requestRn.table_number" />
-			</div>
-			<div>
-				<label>訂單狀態: </label>
-				<select name="ordered_status" id="requestOs">
-					<option value="">請選擇訂單狀態</option>
-					<option value="已成立">已成立</option>
-					<option value="已結單">已結單</option>
-				</select>
-			</div>
-			<div>
-				<label>付款方式: </label> <select name="payment_status" id="requestPS">
-					<option value="">請選擇付款方式</option>
-					<option value="現金">現金</option>
-					<option value="信用卡">信用卡</option>
-				</select>
-			</div>
-			<div>
-				<label>訂單最後修改時間</label> <input name="ordered_last_update"
-					id="requestOlu" type="date" />
-			</div>
-			<div>
-				<label>備註</label> <input name="note" id="requestNote" />
-			</div>
-			<div>
-				<input type="submit" value="修改"> <input value="清除"
-					type="reset">
-				<%-- <a href="<c:url value='indexOrdered'/> ">返回</a> --%>
-			</div>
+
+			<c:choose>
+				<c:when test="${not empty ${meals_accounts}">
+					<div>
+						<label>總價: </label> <input name="meals_accounts " type="text"
+							value="${room_accounts}" />
+					</div>
+				</c:when>
+				<c:otherwise>
+					<label>總價: </label>
+					<input name="meals_accounts " type="text" />
+				</c:otherwise>
+			</c:choose>
+			
+			<c:choose>
+				<c:when test="${not empty ${payment_status}">
+					<div>
+						<label>付款方式: </label> <select name="payment_status">
+							<option disabled>請選擇付款方式</option>
+							<option value="現金">現金</option>
+							<option value="信用卡">信用卡</option>
+						</select>
+					</div>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${not empty ${ordered_status}">
+					<div>
+						<label>訂單狀態: </label> <select name="ordered_status">
+							<option disabled>請選擇訂單狀態</option>
+							<option value="已成立">已成立</option>
+							<option value="已結單">已結單</option>
+						</select>
+					</div>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
 		</form>
 	</div>
 
