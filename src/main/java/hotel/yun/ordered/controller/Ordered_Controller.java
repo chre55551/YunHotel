@@ -154,14 +154,14 @@ public class Ordered_Controller {
 			@RequestParam(value = "birthday") Date birthday,
 			@RequestParam(value = "address") String address,
 			@RequestParam(value = "room_name") String room_name,
-			@RequestParam(value = "room_type") String room_type,
+			@RequestParam(value = "room_type",required = false) String room_type,//可以不用
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
 			@RequestParam(value = "note") String note, 
 			Model model) {
 		DateTime rdateDT = DateToDateTime(rdate);
 		DateTime rdateEndDT = DateToDateTime(rdateEnd);
-		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);
+		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);//產生 入住日期至退房日期的所有日期
 		Set<Rdate> rdates = new HashSet<>();
 		
 		Ordered od = new Ordered();
@@ -577,7 +577,8 @@ public class Ordered_Controller {
     public Set<DateTime> getDateRange(DateTime start, DateTime end) {
         Set<DateTime> ret = new HashSet<DateTime>();
         DateTime tmp = start;
-        while(tmp.isBefore(end) || tmp.equals(end)) {
+        DateTime tmpend = end.plusDays(-1);
+        while(tmp.isBefore(tmpend) || tmp.equals(tmpend)) {
             ret.add(tmp);
             tmp = tmp.plusDays(1);
         }
