@@ -85,10 +85,11 @@
 					success: function (data){
 						let fk = data
 						var this_data = '';
-						this_data += '<label>房號</label>';
+						this_data += '<label>房號</label> <select name="room_name"><option disabled>請選擇房號</option>';
 						for(let room of fk){
-							this_data += '<input type="radio" name="r" id="' + room.room_name + '" value="'+ room.room_name + '">' ;
+							this_data += '<option value="">' + room.room_name + '</option>' ;
 						};
+						this_data += '</select>';
 						$('#roomnum').html(this_data);
 					},
 					error: function (d) {
