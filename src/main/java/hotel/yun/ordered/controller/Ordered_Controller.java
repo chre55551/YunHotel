@@ -149,7 +149,6 @@ public class Ordered_Controller {
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面   訂房~~~~~~~~~‵
-	@SuppressWarnings("unchecked")
 	@PostMapping("/insertRoomOrdered")
 	public String insertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,

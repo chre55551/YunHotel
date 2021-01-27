@@ -1,7 +1,9 @@
 package hotel.yun.ordered.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
+import hotel.yun.date.model.Rdate;
 import hotel.yun.date.service.Date_Service;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
@@ -113,17 +116,34 @@ public class Ordered_Controller_Ajax {
 		return null;
 	}
 	
-	// Ajax 根據房型查出所有房間
+	// Ajax 根據日期房型查出所有可用的房間
 	@PostMapping("/roomtype/to/allrooms")
 	public @ResponseBody List<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
+			@RequestParam(value = "rdate") Date rdate,
 			Model model, HttpSession session) {
 		try {
-			return rser.queryAllRoomByRoomType(room_type);
+			List<Room> list = new ArrayList<>();//先創一個空的 list 後續會用於儲存可使用的房間
+			List<Room> rooms = rser.queryAllRoomByRoomType(room_type);//根據輸入的房型去撈出所有房間
+			for(Room room:rooms) {//每一間房間
+				boolean room_is_space = true;//預設此房間為空
+				Set<Rdate> room_rdates = room.getRdates();//單間房間撈出的所有已經訂房的時段
+				for(Rdate rd:room_rdates) {//那間房間的每個已定的時段
+					if(rd.getRdate()==rdate) {//判斷該時段是否有人訂房
+						room_is_space = false;//若有 room_is_space 為 false
+					}
+				}
+				if(room_is_space) {//若該房間為空 將其加入list
+					list.add(room);
+				}
+			}
+			model.addAttribute("can_use_room",list);
+			model.addAttribute("all_rooms",rooms);
 		} catch (Exception e) {
 
 		}
 		return null;
 	}
 	
+	// 
 	
 }
