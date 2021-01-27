@@ -117,24 +117,26 @@ public class CustomerController {
 			@RequestParam(value = "home_phone") String home_phone, @RequestParam(value = "job") String job,
 			@RequestParam(value = "email") String email, Model model) {
 				
-		Customer c = new Customer( chinese_name,  idcard_number,birthday, address, mobile_phone);
+		Customer c = new Customer(chinese_name,idcard_number,birthday, address, mobile_phone);
 		Member m = new Member(account,password,gender,home_phone,job,email);
-		c.setChinese_name(chinese_name);
-		c.setIdcard_number(idcard_number);
-		c.setBirthday(birthday);
-		c.setAddress(address);
-		c.setMobile_phone(mobile_phone);
-		Customer rc = service.insertC(c);
-		model.addAttribute("rcc", rc);
+		c.setMember(m);
+//		c.setChinese_name(chinese_name);
+//		c.setIdcard_number(idcard_number);
+//		c.setBirthday(birthday);
+//		c.setAddress(address);
+//		c.setMobile_phone(mobile_phone);
 		
-		m.setAccount(account);
-		m.setPassword(password);
-		m.setGender(gender);
-		m.setHome_phone(home_phone);
-		m.setJob(job);
-		m.setEmail(email);
-		Member rm = service.insertM(m);
-		model.addAttribute("rmm",rm);
+		model.addAttribute("rcc", c);
+		model.addAttribute("rmm",m);
+		
+//		m.setAccount(account);
+//		m.setPassword(password);
+//		m.setGender(gender);
+//		m.setHome_phone(home_phone);
+//		m.setJob(job);
+//		m.setEmail(email);
+		service.insertC(c);
+//		Member rm = service.insertM(m);
 		
 		
 		

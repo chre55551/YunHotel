@@ -1,5 +1,6 @@
 package hotel.yun.customer.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer insertC(Customer cBean) {
+		Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());	
+		cBean.getMember().setregister_Time(ts);
 		return cDao.insertC(cBean);
 		
 	}
