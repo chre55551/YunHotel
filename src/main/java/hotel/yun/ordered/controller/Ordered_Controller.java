@@ -2,6 +2,7 @@ package hotel.yun.ordered.controller;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -467,13 +468,25 @@ public class Ordered_Controller {
 		System.out.println(ThisOrdered.getOrderedToRoom().getRdates());
 		try {
 			model.addAttribute("OTR",ThisOrdered.getOrderedToRoom());
-			model.addAttribute("Rdates",ThisOrdered.getOrderedToRoom().getRdates());
+			model.addAttribute("room",ThisOrdered.getOrderedToRoom().getRoom());
 			model.addAttribute("roomType",ThisOrdered.getOrderedToRoom().getRoom().getRoomType());
+			List<Date> dateList = new ArrayList<Date>();
+			for(Rdate rdate:ThisOrdered.getOrderedToRoom().getRdates()) {
+				dateList.add(rdate.getRdate());
+			}
+			dateList.sort((a1, a2) -> {
+				return a1.compareTo(a2);
+			});
+			model.addAttribute("firstDay",dateList.get(0));
+			model.addAttribute("lastDay",dateList.get(dateList.size()-1));
+			model.addAttribute("Rdates",ThisOrdered.getOrderedToRoom().getRdates());
 		}catch(Exception e){
 			
 		}
 		try {
-		model.addAttribute("mdate",ThisOrdered.getOrderedToMeals().getMdate().getMdate());
+			model.addAttribute("OTM",ThisOrdered.getOrderedToMeals());
+			model.addAttribute("Meals",ThisOrdered.getOrderedToMeals().getMeals());
+			model.addAttribute("Mdate",ThisOrdered.getOrderedToMeals().getMdate());
 		}catch(Exception e){
 			
 		}

@@ -76,58 +76,121 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ${roomType}}">
+				<c:when test="${${roomType}=='豪華兩人房'}">
 					<div>
-						<label>房型: </label> <select name="room_type">
-							<option disabled>請選擇用餐時間</option>
-							<option></option>
-							<option></option>
-							<option></option>
-							<option></option>
-							<option></option>
+						<label>房型</label> 
+						<select name="room_type" id="room_type" >
+   							<option disabled>請選擇欲訂的房型</option>
+   							<option>普通兩人房</option>
+   							<option selected>豪華兩人房</option>
+   							<option>普通四人房</option>
+ 							<option>豪華四人房</option>
+    						<option>副總統套房</option>
+    						<option>總統套房</option>
 						</select>
 					</div>
 				</c:when>
-				<c:otherwise>
+				<c:when test="${${roomType}=='普通四人房'}">
+					<div>
+						<label>房型</label> 
+						<select name="room_type" id="room_type" >
+   							<option disabled>請選擇欲訂的房型</option>
+   							<option>普通兩人房</option>
+   							<option>豪華兩人房</option>
+   							<option selected>普通四人房</option>
+ 							<option>豪華四人房</option>
+    						<option>副總統套房</option>
+    						<option>總統套房</option>
+						</select>
+					</div>
+				</c:when>
+				<c:when test="${${roomType}=='豪華四人房'}">
+					<div>
+						<label>房型</label> 
+						<select name="room_type" id="room_type" >
+   							<option disabled>請選擇欲訂的房型</option>
+   							<option>普通兩人房</option>
+   							<option>豪華兩人房</option>
+   							<option>普通四人房</option>
+ 							<option selected>豪華四人房</option>
+    						<option>副總統套房</option>
+    						<option>總統套房</option>
+						</select>
+					</div>
+				</c:when>
+				<c:when test="${${roomType}=='副總統套房'}">
+					<div>
+						<label>房型</label> 
+						<select name="room_type" id="room_type" >
+   							<option disabled>請選擇欲訂的房型</option>
+   							<option>普通兩人房</option>
+   							<option>豪華兩人房</option>
+   							<option>普通四人房</option>
+ 							<option>豪華四人房</option>
+    						<option selected>副總統套房</option>
+    						<option>總統套房</option>
+						</select>
+					</div>
+				</c:when>
+				<c:when test="${${roomType}=='總統套房'}">
+					<div>
+						<label>房型</label> 
+						<select name="room_type" id="room_type" >
+   							<option disabled>請選擇欲訂的房型</option>
+   							<option>普通兩人房</option>
+   							<option>豪華兩人房</option>
+   							<option>普通四人房</option>
+ 							<option>豪華四人房</option>
+    						<option>副總統套房</option>
+    						<option selected>總統套房</option>
+						</select>
+					</div>
+				</c:when>
 
+				<c:otherwise>
 				</c:otherwise>
 			</c:choose>
 
-			<!-- 			<div> -->
-			<!-- 				<label>房號: </label> <input name="room_name" /> -->
-			<!-- 			</div> -->
 			<c:choose>
-				<c:when test="">
-					<label>欲訂房日期: </label>
+				<c:when test="${not empty ${OTR}}">
+					<label>欲入住日期: </label>
 					<div>
 						<input name="rdate" type="date"
-							value="${updateOdered.customer.address}" />
+							value="${firstDay}" />
 					</div>
 				</c:when>
 				<c:otherwise>
-					<label>欲訂房日期: </label>
-					<input name="rdate" type="date" />
+				</c:otherwise>
+			</c:choose>
+			
+			<c:choose>
+				<c:when test="${not empty ${OTR}}">
+					<label>欲退房日期: </label>
+					<div>
+						<input name="rdateEnd" type="date"
+							value="${lastDay}" />
+					</div>
+				</c:when>
+				<c:otherwise>
 				</c:otherwise>
 			</c:choose>
 
 			<c:choose>
-				<c:when test="">
+				<c:when test="${not empty ${OTM}}">
 					<div>
 						<label>用餐人數: </label> <input name="mealsnum_of_people"
 							value="${updateOdered.orderedToMeals.mealsnum_of_people}" />
 					</div>
 				</c:when>
 				<c:otherwise>
-					<label>用餐人數: </label>
-					<input name="mealsnum_of_people" />
 				</c:otherwise>
 			</c:choose>
 
 			<c:choose>
-				<c:when test="">
+				<c:when test="${not empty ${OTM}}">
 					<div>
 						<label>用餐日期: </label> <input name="mdate" type="date"
-							value="${mdate}" />
+							value="${Mdate.mdate}" />
 					</div>
 				</c:when>
 				<c:otherwise>
