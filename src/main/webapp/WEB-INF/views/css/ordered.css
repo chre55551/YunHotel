@@ -42,6 +42,13 @@
 	background-image:
 		url('http://localhost:8080/YunHotel/image/queryOd2.jpg');
 }
+/*查詢的背景*/
+.ckeckinBG {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image:
+		url('http://localhost:8080/YunHotel/image/hotelroom.jpg');
+}
 /*訂單的透明邊框*/
 .odq {
 	text-align: center;

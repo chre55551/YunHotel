@@ -240,7 +240,7 @@ public class Ordered_Controller {
 	}
 	
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面
-	@PostMapping("/outsideInsertMealsOrdered")
+	@GetMapping("/outsideInsertMealsOrdered")
 	public String outsideinsertMealsOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "mealsnum_of_people") int mealsnum_of_people,
