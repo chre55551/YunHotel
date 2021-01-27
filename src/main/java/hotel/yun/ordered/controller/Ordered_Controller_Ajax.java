@@ -117,6 +117,7 @@ public class Ordered_Controller_Ajax {
 		return null;
 	}
 	
+	// Ajax 根據房型找出所有房間
 	@GetMapping("/roomtype/to/allrooms")
 	public @ResponseBody Set<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
 			Model model, HttpSession session) {
@@ -126,7 +127,7 @@ public class Ordered_Controller_Ajax {
 	
 	
 	// Ajax 根據日期房型查出所有可用的房間
-	@GetMapping("/roomtype/to/availablerooms")
+	@PostMapping("/roomtype/to/availablerooms")
 	public @ResponseBody Set<Room> roomTypeToAvailableRooms(@RequestParam(value = "room_type") String room_type,
 			@RequestParam(value = "rdate") Date rdate,
 			Model model, HttpSession session) {
