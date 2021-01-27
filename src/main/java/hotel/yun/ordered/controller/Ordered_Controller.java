@@ -2,7 +2,6 @@ package hotel.yun.ordered.controller;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +10,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -183,17 +181,6 @@ public class Ordered_Controller {
 		
 		OrderedToRoom otr = new OrderedToRoom();//新增房間訂單
 		
-		try {
-			Room r = rser.queryByRoomNum(room_name); //嘗試取出房號
-			otr.setRoom(r); //將取出的房號放入房間訂單
-			System.out.println("queryByRoomNum sucess!!!");
-		} catch (Exception eee) {
-			Room r = new Room();
-			r.setRoom_name(room_name);
-			otr.setRoom(r);
-			System.out.println("queryByRoomNum fail!!!");
-		}		
-		
 	    for(DateTime d:range) {
 	    	Date date = dateTimeToDate(d);
 	    	try {
@@ -205,7 +192,23 @@ public class Ordered_Controller {
 	    		rdates.add(r);//加到 set<Rdate>中
 	    	}
 	    }
+	    
 	    otr.setRdates(rdates);
+	    
+	    Room room = new Room();//新增空的房間
+	    
+	    try {
+	    	room = rser.queryByRoomNum(room_name); //嘗試取出房號
+	    	otr.setRoom(room); //將取出的房號放入房間訂單
+	    	System.out.println("queryByRoomNum sucess!!!");
+	    } catch (Exception eee) {
+	    	room.setRoom_name(room_name);
+	    	otr.setRoom(room);
+	    	System.out.println("queryByRoomNum fail!!!");
+	    }		
+	    room.setRdates(rdates);//房間跟日期的多對多關係
+	    rser.save(room);//存入資料庫
+	    
 	    service.insertOTR(otr);
 		
 		od.setOrderedToRoom(otr);

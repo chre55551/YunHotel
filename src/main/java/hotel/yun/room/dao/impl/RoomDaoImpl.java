@@ -29,9 +29,9 @@ public class RoomDaoImpl implements RoomDao{
     }
     
     @Override
-	public Object save(Room rBean) {
+	public Room save(Room rBean) {
 		Session session = factory.getCurrentSession();
-		return session.save(rBean);
+		return (Room) session.save(rBean);
 		
 	}
     
