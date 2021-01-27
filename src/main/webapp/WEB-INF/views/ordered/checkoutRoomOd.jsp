@@ -24,14 +24,8 @@
 			<c:choose>
 				<c:when test="${not empty ${room_name}">
 					<div>
-						<label>房號: </label> <select name="room_name">
-							<option disabled>請選擇房號</option>
-							<option value="">room.room_name</option>
-							<option value="">room.room_name</option>
-							<option value="">room.room_name</option>
-							<option value="">room.room_name</option>
-							<option value="">room.room_name</option>
-						</select>
+						<label>房號 : </label> <input name="room_name" type="text"
+							value="${room_name}" />
 					</div>
 				</c:when>
 				<c:otherwise>
