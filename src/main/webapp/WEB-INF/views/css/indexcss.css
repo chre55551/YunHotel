@@ -213,8 +213,27 @@ header ul li a:hover{
 }
 /*====================================================*/
 .third{
-	height:600px;
-	background: rgba(94, 73, 68, 0.6);
+	height:1000px;
+	background-color: #d6d9d7;
+}
+.rintro_div{
+	float:left;
+	margin-top:100px;
+	margin-left:100px;
+	width: 600px;
+	height:500px;
+}
+.room_introduce{
+	width: 600px;
+	height:500px;
+	background-size:cover;
+	background-image: url('http://localhost:8080/YunHotel/image/test/img_4.jpg');
+}
+.thirdF{
+	margin-top:220px;
+	color:#fff;
+	font-size: 2.4em;
+	font-weight: bold;
 }
 /*====================================================*/
 /* 頁尾 */
