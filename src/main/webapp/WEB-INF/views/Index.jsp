@@ -73,8 +73,9 @@
 	<div class="third">
 		<div class="rintro_div">
 			<div class="room_introduce">
+				<div class="thirdDark">
 				<p class="thirdF">房 型 介 紹</p>
-			</div>
+			</div></div>
 		</div>
 	</div>
 	

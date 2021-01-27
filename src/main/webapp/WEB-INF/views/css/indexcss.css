@@ -223,11 +223,24 @@ header ul li a:hover{
 	width: 600px;
 	height:500px;
 }
+
 .room_introduce{
 	width: 600px;
 	height:500px;
 	background-size:cover;
 	background-image: url('http://localhost:8080/YunHotel/image/test/img_4.jpg');
+}
+.room_introduce:hover{
+	background-size: 110%;
+	background-repeat: no-repeat;
+}
+.thirdDark{
+	width: 600px;
+	height:500px;
+	background-size:cover;
+}
+.thirdDark:hover{
+	background: rgba(67, 67, 67, 0.6); 
 }
 .thirdF{
 	margin-top:220px;
