@@ -2,6 +2,8 @@ package hotel.yun.ordered.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,6 +29,7 @@ import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
+import hotel.yun.room.util.RoomSort;
 
 @Controller
 @RequestMapping("/ordered")
@@ -119,9 +122,15 @@ public class Ordered_Controller_Ajax {
 	
 	// Ajax 根據房型找出所有房間
 	@GetMapping("/roomtype/to/allrooms")
-	public @ResponseBody Set<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
+	public @ResponseBody List<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
 			Model model, HttpSession session) {
-		return rser.queryAllRoomByRoomType(room_type);
+			Set<Room> ugly = rser.queryAllRoomByRoomType(room_type);
+			List<Room> beauty= new ArrayList<Room>();
+			for(Room r:ugly) {
+				beauty.add(r);
+			}
+			Collections.sort(beauty,new RoomSort());
+		return beauty;
 	}
 	
 	
