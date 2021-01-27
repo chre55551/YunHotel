@@ -74,7 +74,10 @@
 		<div class="rintro_div">
 			<div class="room_introduce">
 				<div class="thirdDark">
-				<p class="thirdF">房 型 介 紹</p>
+				<a href="room/RoomIntroduction">
+					<p class="thirdF">房 型 介 紹</p>
+					<p class="thirdmin">查看更多</p>
+				</a>
 			</div></div>
 		</div>
 	</div>
