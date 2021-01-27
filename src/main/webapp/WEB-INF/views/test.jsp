@@ -12,19 +12,19 @@
     <meta name="author" content="" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/aos.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fancybox.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/aos.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/jquery.timepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/fancybox.min.css">
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/fontawesome/css/font-awesome.min.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/style.css">
   </head>
   <body>
     
@@ -66,7 +66,7 @@
     </header>
     <!-- END head -->
 
-    <section class="site-hero overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <section class="site-hero overlay" style="background-image: url(image/test/hero_4.jpg)" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade-up">
@@ -81,6 +81,7 @@
           <span class="mouse-wheel"></span>
         </div>
       </a>
+     
     </section>
     <!-- END section -->
 
@@ -151,9 +152,9 @@
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
             <figure class="img-absolute">
-              <img src="image/food-1.jpg" alt="Image" class="img-fluid">
+              <img src="image/test/food-1.jpg" alt="Image" class="img-fluid">
             </figure>
-            <img src="image/img_1.jpg" alt="Image" class="img-fluid rounded">
+            <img src="image/test/img_1.jpg" alt="Image" class="img-fluid rounded">
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
             <h2 class="heading">Welcome!</h2>
@@ -177,7 +178,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="image/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="image/test/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -189,7 +190,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="image/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="image/test/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -201,7 +202,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="image/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="image/test/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>
@@ -228,25 +229,25 @@
           <div class="col-md-12">
             <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
               <div class="slider-item">
-                <a href="image/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="image/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="image/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="image/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-4.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="image/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-5.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="image/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-6.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
               <div class="slider-item">
-                <a href="image/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
+                <a href="image/test/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="image/test/slider-7.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
             </div>
             <!-- END slider -->
@@ -257,7 +258,7 @@
     </section>
     <!-- END section -->
     
-    <section class="section bg-image overlay" style="background-image: url('images/hero_3.jpg');">
+    <section class="section bg-image overlay" style="background-image: url('image/test/hero_3.jpg');">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
@@ -415,7 +416,7 @@
             
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="image/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/test/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -426,7 +427,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="image/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/test/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
@@ -436,7 +437,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="image/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/test/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -448,7 +449,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="image/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/test/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -459,7 +460,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="image/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/test/person_2.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
                 <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
@@ -469,7 +470,7 @@
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
-                <img src="image/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
+                <img src="image/test/person_3.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
               </div>
               <blockquote>
 
@@ -498,7 +499,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
 
             <div class="media media-custom d-block mb-4 h-100">
-              <a href="#" class="mb-4 d-block"><img src="image/img_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#" class="mb-4 d-block"><img src="image/test/img_1.jpg" alt="Image placeholder" class="img-fluid"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">Travel Hacks to Make Your Flight More Comfortable</a></h2>
@@ -509,7 +510,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
             <div class="media media-custom d-block mb-4 h-100">
-              <a href="#" class="mb-4 d-block"><img src="image/img_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#" class="mb-4 d-block"><img src="image/test/img_2.jpg" alt="Image placeholder" class="img-fluid"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">5 Job Types That Aallow You To Earn As You Travel The World</a></h2>
@@ -519,7 +520,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
             <div class="media media-custom d-block mb-4 h-100">
-              <a href="#" class="mb-4 d-block"><img src="image/img_3.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#" class="mb-4 d-block"><img src="image/test/img_3.jpg" alt="Image placeholder" class="img-fluid"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">30 Great Ideas On Gifts For Travelers</a></h2>
@@ -531,7 +532,7 @@
       </div>
     </section>
 
-    <section class="section bg-image overlay" style="background-image: url('image/hero_4.jpg');">
+    <section class="section bg-image overlay" style="background-image: url('image/test/hero_4.jpg');">
         <div class="container" >
           <div class="row align-items-center">
             <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
@@ -597,22 +598,22 @@
       </div>
     </footer>
     
-    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery-migrate-3.0.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/owl.carousel.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery.stellar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery.fancybox.min.js"></script>
     
     
-    <script src="${pageContext.request.contextPath}/js/aos.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/aos.js"></script>
     
-    <script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script> 
-    <script src="${pageContext.request.contextPath}/js/jquery.timepicker.min.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/test/bootstrap-datepicker.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/test/jquery.timepicker.min.js"></script> 
 
     
 
-    <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/main.js"></script>
   </body>
 </html>

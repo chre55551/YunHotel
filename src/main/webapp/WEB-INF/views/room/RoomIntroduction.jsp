@@ -3,8 +3,8 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Room Introduction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
@@ -12,19 +12,19 @@
     <meta name="author" content="" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/aos.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fancybox.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/aos.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/jquery.timepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/fancybox.min.css">
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/fontawesome/css/font-awesome.min.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/style.css">
   </head>
   <body>
     
@@ -66,7 +66,7 @@
     </header>
     <!-- END head -->
 
-    <section class="site-hero inner-page overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <section class="site-hero inner-page overlay" style="background-image: url(image/test/hero_4.jpg)" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade">
@@ -158,7 +158,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="../image/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="../image/test/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -170,7 +170,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="../image/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="../image/test/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -182,7 +182,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="../image/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="../image/test/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>
@@ -194,7 +194,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="../image/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="../image/test/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Single Room</h2>
@@ -206,7 +206,7 @@
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="../image/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="../image/test/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Family Room</h2>
@@ -214,11 +214,11 @@
               </div>
             </a>
           </div>
-
+ 
           <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="../image/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="../image/test/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>Presidential Room</h2>
@@ -242,7 +242,7 @@
         </div>
       
         <div class="site-block-half d-block d-lg-flex bg-white" data-aos="fade" data-aos-delay="100">
-          <a href="#" class="image d-block bg-image-2" style="background-image: url('images/img_1.jpg');"></a>
+          <a href="#" class="image d-block bg-image-2" style="background-image: url('image/test/img_1.jpg');"></a>
           <div class="text">
             <span class="d-block mb-4"><span class="display-4 text-primary">$199</span> <span class="text-uppercase letter-spacing-2">/ per night</span> </span>
             <h2 class="mb-4">Family Room</h2>
@@ -251,7 +251,7 @@
           </div>
         </div>
         <div class="site-block-half d-block d-lg-flex bg-white" data-aos="fade" data-aos-delay="200">
-          <a href="#" class="image d-block bg-image-2 order-2" style="background-image: url('images/img_2.jpg');"></a>
+          <a href="#" class="image d-block bg-image-2 order-2" style="background-image: url('image/test/img_2.jpg');"></a>
           <div class="text order-1">
             <span class="d-block mb-4"><span class="display-4 text-primary">$299</span> <span class="text-uppercase letter-spacing-2">/ per night</span> </span>
             <h2 class="mb-4">Presidential Room</h2>
@@ -263,7 +263,7 @@
       </div>
     </section>
 
-    <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
+    <section class="section bg-image overlay" style="background-image: url('image/test/hero_4.jpg');">
       <div class="container" >
         <div class="row align-items-center">
           <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
@@ -329,22 +329,22 @@
       </div>
     </footer>
     
-    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery.fancybox.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery-migrate-3.0.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/owl.carousel.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery.stellar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery.fancybox.min.js"></script>
     
     
-    <script src="${pageContext.request.contextPath}/js/aos.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/aos.js"></script>
     
-    <script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script> 
-    <script src="${pageContext.request.contextPath}/js/jquery.timepicker.min.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/test/bootstrap-datepicker.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/test/jquery.timepicker.min.js"></script> 
 
     
 
-    <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/main.js"></script>
   </body>
 </html>

@@ -15,35 +15,45 @@
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 <div align='center'>
-<h3>全部消息</h3>
+
 		<table class="container" border='1' cellpadding="3" cellspacing="1" >
 			<tr>
-			   <th width='56' height='20'>編號</th>
-			   <th width='130' height='20'>上傳時間</th>
-			   <th width='130' height='20'>更新時間</th>
-			   <th width='180' height='20'>消息內容</th>
+			   
+			   <th width='130' height='20'>房型名稱</th>
+			   <th width='130' height='20'>房價</th>
+			   <th width='130' height='20'>房型總數</th>
+			   <th width='180' height='20'>房型圖片</th>
 			   <th colspan='2' height='20'>維護</th>
 			</tr>
-			<c:forEach var='NWS' items='${newsList}'>
+			<c:forEach var='rom' items='${roomTypeList}'>
 				<tr>
-					<td style="text-align:center">${NWS.news_id}</td>
-					<td style="text-align:center">${NWS.news_date}</td>
-					<td style="text-align:center">${NWS.news_updated_date}</td>
-					<td style="text-align:center">${NWS.news_content}</td>
+					
+					<td style="text-align:center">${rom.room_type}</td>
+					<td style="text-align:center">${rom.room_price}</td>
+					<td style="text-align:center">${rom.room_stock}</td>
+					<td style="text-align:center">${rom.room_image}</td>
 					
 					 <td><a
-                        href="${pageContext.request.contextPath}/news/update/${NWS.news_id}">編輯</a></td>
+                        href="${pageContext.request.contextPath}/room/update/${rom.room_typeid}">編輯</a></td>
                     <td><a
-                        href="${pageContext.request.contextPath}/news/DeleteNew/${NWS.news_id}">刪除</a></td>
+                        href="${pageContext.request.contextPath}/room/DeleteNew/${rom.room_typeid}">刪除</a></td>
 				</tr>
 			</c:forEach>
 		
 		</table>
 <hr>
 </div>
-</div>
 <script type='text/javascript'>
-
+    $(document).ready(function() {
+        $('.deletelink').click(function() {
+        	if (confirm('確定刪除? ')) {
+        		var href = $(this).attr('href');
+                $('form').attr('action', href).submit();
+        	} 
+        	return false;
+            
+        });
+    })
 </script>
 
 	<%@ include file="../CommonTemplates/footer.jsp"%>

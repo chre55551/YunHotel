@@ -1,11 +1,7 @@
 
-
-
-
-        
-
-
-
+<%@ page contentType="text/html; charset=gb2312" language="java" import="java.sql.*"
+errorPage="err.jsp" %>
+<%@ page contentType="text/html; charset=gb2312"%>
 <!doctype html>
 
 <!--[if IE]><![endif]-->

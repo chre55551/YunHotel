@@ -64,7 +64,8 @@ public class RoomController {
 	@GetMapping("/QueryAllRooms")
 	public String QueryAllRooms(Model model) {
 		List<RoomType> rm = service.queryAllRoomType();
-		model.addAttribute("rom", rm);
+		model.addAttribute(rm);
+//		model.addAttribute("rom", rm);
 		return "room/QueryAllRooms";
 	}
 
