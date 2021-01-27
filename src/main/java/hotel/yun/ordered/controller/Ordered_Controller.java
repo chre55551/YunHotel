@@ -156,9 +156,11 @@ public class Ordered_Controller {
 			@RequestParam(value = "birthday") Date birthday,
 			@RequestParam(value = "address") String address,
 			@RequestParam(value = "room_name") String room_name,
+			@RequestParam(value = "room_type") String room_type,
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
-			@RequestParam(value = "note") String note, Model model) {
+			@RequestParam(value = "note") String note, 
+			Model model) {
 		DateTime rdateDT = DateToDateTime(rdate);
 		DateTime rdateEndDT = DateToDateTime(rdateEnd);
 		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);
@@ -187,6 +189,7 @@ public class Ordered_Controller {
 	    		rdates.add(rd);//加到 set<Rdate>中
 	    	}catch(Exception e) {//若不存在此日期，new 一個加到資料庫
 	    		Rdate r = new Rdate();
+	    		r.setRdate(date);
 	    		dser.insert(r);
 	    		rdates.add(r);//加到 set<Rdate>中
 	    	}
@@ -221,7 +224,7 @@ public class Ordered_Controller {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
 			model.addAttribute("rdates", odd.getOrderedToRoom().getRdates());
-			model.addAttribute("roomname", odd.getOrderedToRoom().getRoom().getRoom_name());
+			model.addAttribute("room", odd.getOrderedToRoom().getRoom());
 			System.out.println("insert otr success!!!");
 		} catch (Exception e) {
 			System.out.println("insert otr fail!!!");

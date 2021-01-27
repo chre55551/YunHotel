@@ -26,9 +26,10 @@
 		<p>手機: ${odd.customer.mobile_phone}</p>
 		<p>生日: ${odd.customer.birthday}</p>
 		<p>地址: ${odd.customer.address}</p>
-		<p>房號: ${roomname}</p>
+		<p>房號: ${room.room_name}</p>
+		<p>房型: ${room.roomType.room_type}
 		<p>
-		<c:forEach var="rdate"   items="${rdates}" >
+		<c:forEach var="rdate" items="${rdates}" >
 		訂房日期: ${rdate.rdate}  
 		</c:forEach>
 		</p><br>

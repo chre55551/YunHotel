@@ -24,11 +24,13 @@
 					<th>電話</th>
 					<td><input id="phone" type="text">
 						<button></button></td>
-					<td><input type="radio" name="r" id="status1" value="1">
-						<label for="status1"> 已成立 </label> <input type="radio" name="r"
-						id="status2" value="2"> <label for="status2"> 已結單
-					</label> <input type="radio" name="r" id="status3" value="3"> <label
-						for="status3"> 全部 </label></td>
+					<td>
+						<input type="radio" name="r" id="status1" value="1">
+						<label for="status1"> 已成立 </label> 
+						<input type="radio" name="r"id="status2" value="2">
+						<label for="status2"> 已結單</label> 
+						<input type="radio" name="r" id="status3" value="3"> 
+						<label for="status3"> 全部 </label></td>
 					<td>
 						<div class="mycenter">
 							<button id="peko">查詢</button>

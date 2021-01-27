@@ -34,14 +34,16 @@
 			<div>
 				<label>地址</label> <input name="address" />
 			</div>
+			<div >
+				<label>房型</label> <input id="www" name="room_type" />
+			</div>
+			<div id="QQQ">
+				<label>欲入住日期</label> <input name="rdate" type="date"  />
+				<br/>
+				<label>欲退房日期</label> <input name="rdateEnd" type="date" />
+			</div>
 			<div>
 				<label>房號</label> <input name="room_name" />
-			</div>
-			<div>
-				<label>欲入住日期</label> <input name="rdate" type="date" />
-			</div>
-			<div>
-				<label>欲退房日期</label> <input name="rdateEnd" type="date" />
 			</div>
 			<div>
 				<label>備註</label> <input name="note" id="requestNote" />
@@ -56,5 +58,42 @@
 	</div>
 
 	<%@ include file="../CommonTemplates/footer.jsp"%>
+	<script>
+		$('#www').change(function(){
+			$.ajax({
+					url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/allrooms',
+					dataType: 'json',
+					data:{room_type :$("room_type").val()
+					},
+					type:'Get',
+					success: function (data){
+						let fk = data
+						var this_data = '';
+						this_data += '<div><label>房號</label>'
+						for(let room of fk){
+							this_data += '<input type="radio" name="r" id="'+${room.room_name}+'" value="'+ ${room.room_name} +'">';
+						}
+						this_data += '</div>'
+					},
+					error: function (d) {
+			              /*console.log("error");*/
+			              alert('查無資料');
+			            }
+			})
+			
+		})
+    	$('#QQQ').blur(function () {
+    		 $.ajax({
+    	            url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/availablerooms',
+    	            dataType: 'json',
+    	            data: {chinese_name : $("#name").val(), 
+    	               mobile_phone : $("#phone").val(),
+    	               ordered_status : "已成立",
+    	            },
+    	            success:
+    		}
+    	}
+	
+	</script>
 </body>
 </html>

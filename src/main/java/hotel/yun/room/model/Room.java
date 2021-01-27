@@ -42,7 +42,7 @@ public class Room implements Serializable {
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType;
 	

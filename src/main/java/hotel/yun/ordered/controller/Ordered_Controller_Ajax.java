@@ -117,9 +117,17 @@ public class Ordered_Controller_Ajax {
 		return null;
 	}
 	
+	@GetMapping("/roomtype/to/allrooms")
+	public @ResponseBody Set<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
+			Model model, HttpSession session) {
+		return rser.queryAllRoomByRoomType(room_type);
+	}
+	
+	
+	
 	// Ajax 根據日期房型查出所有可用的房間
-	@GetMapping("/roomtypeToRooms")
-	public @ResponseBody Set<Room>[] roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,
+	@GetMapping("/roomtype/to/availablerooms")
+	public @ResponseBody Set<Room> roomTypeToAvailableRooms(@RequestParam(value = "room_type") String room_type,
 			@RequestParam(value = "rdate") Date rdate,
 			Model model, HttpSession session) {
 		try {
@@ -141,7 +149,7 @@ public class Ordered_Controller_Ajax {
 				}
 			}
 			
-			return array;
+			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
