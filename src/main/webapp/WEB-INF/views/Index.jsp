@@ -25,6 +25,11 @@
 <div class="main">
 	<div class="first">
 	<div class="firstDark">
+	
+		<img class="title" src="image/headertitle.png">
+	
+	
+	
 		<div class="dateline">
 			<div class="dateline2">
 				<div class="D1">
@@ -93,16 +98,16 @@
 			</div>
 		</div>
 		
-		<div class="restaurant_intro_div">
-			<div class="restaurant_introduce">
-				<div class="thirdDark_right">
-				<a href="room/RoomIntroduction">
-					<p class="thirdF_right">美 食 饗 宴</p>
-					<p class="thirdmin">查看更多</p>
-				</a>
-				</div>
-			</div>
-		</div>
+<!-- 		<div class="restaurant_intro_div"> -->
+<!-- 			<div class="restaurant_introduce"> -->
+<!-- 				<div class="thirdDark_right"> -->
+<!-- 				<a href="room/RoomIntroduction"> -->
+<!-- 					<p class="thirdF_right">美 食 饗 宴</p> -->
+<!-- 					<p class="thirdmin">查看更多</p> -->
+<!-- 				</a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 		
 	</div>
 	
