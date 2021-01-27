@@ -21,4 +21,7 @@ public interface Ordered_Dao {
 	public void updateCustomerOd(Ordered odBean);//依顧客尋找的詳細訂單，來做更新
 	public void delete(int ordered_number);//依照訂單編號來刪除整筆資料
 	public OrderedToRoom insertOTR(OrderedToRoom otr);
+	public void updateOTR(OrderedToRoom orderedToRoom);
+	public OrderedStatus queryStatusByS(String ordered_status);
+	public OrderedPayment queryPaymentBys(String bill_status);
 }

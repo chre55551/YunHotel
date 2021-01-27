@@ -168,5 +168,39 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		session.save(otr);
 		return otr;
 	}
+	@Override
+	public void updateOTR(OrderedToRoom orderedToRoom) {
+		Session session = factory.getCurrentSession();
+		OrderedToRoom otr = new OrderedToRoom();
+		otr = (OrderedToRoom)session.get(OrderedToRoom.class, otr.getOrdered_toroom_id());
+		if(orderedToRoom.getRdates()!=null) {
+			otr.setRdates(orderedToRoom.getRdates());
+		}
+		if(orderedToRoom.getRoom()!=null) {
+			otr.setRoom(orderedToRoom.getRoom());
+		}
+		if(orderedToRoom.getRoom_accounts()!=0) {
+			otr.setRoom_accounts(orderedToRoom.getRoom_accounts());
+		}
+		if(orderedToRoom.getRoomnum_of_people()!=0) {
+			otr.setRoomnum_of_people(orderedToRoom.getRoomnum_of_people());
+		}
+		session.update(otr);
+	}
+	
+	@Override
+	public OrderedStatus queryStatusByS(String ordered_status) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM OrderedStatus os WHERE os.ordered_status = :oos";
+		OrderedStatus os = (OrderedStatus)session.createQuery(hql).setParameter("oos", ordered_status).getSingleResult();
+		return os;
+	}
+	@Override
+	public OrderedPayment queryPaymentBys(String bill_status) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM OrderedPayment op WHERE op.bill_status = :obs";
+		OrderedPayment op = (OrderedPayment)session.createQuery(hql).setParameter("obs", bill_status).getSingleResult();
+		return op;
+	}
 
 }

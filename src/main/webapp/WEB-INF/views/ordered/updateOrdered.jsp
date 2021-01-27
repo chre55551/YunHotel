@@ -174,6 +174,19 @@
 				<c:otherwise>
 				</c:otherwise>
 			</c:choose>
+			
+			<c:choose>
+				<c:when test="${not empty ${OTR}}">
+					<div>
+						<div>
+							<div id="roomnum"></div>
+						</div>
+						<button id="zzz">查詢</button>
+					</div>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
 
 			<c:choose>
 				<c:when test="${not empty ${OTM}}">
@@ -310,5 +323,31 @@
 	</div>
 
 	<%@ include file="../CommonTemplates/footer.jsp"%>
+	<script>
+	$('#room_type').change(function(){
+		$.ajax({
+				url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/allrooms',
+				dataType: 'json',
+				data:{
+					room_type :$("#room_type").val()
+				},
+				type:'Get',
+				success: function (data){
+					let fk = data
+					var this_data = '';
+					this_data += '<label>房號</label> <select name="room_name"><option disabled>請選擇房號</option>';
+					for(let room of fk){
+						this_data += '<option value="">' + room.room_name + '</option>' ;
+					};
+					this_data += '</select>';
+					$('#roomnum').html(this_data);
+				},
+				error: function (d) {
+		              alert('查無資料');
+		            },
+		})
+		
+	})
+	</script>
 </body>
 </html>

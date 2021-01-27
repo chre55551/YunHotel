@@ -98,4 +98,18 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 		return oDao.insertOTR(otr);
 	}
 
+	@Override
+	public void updateOTR(OrderedToRoom orderedToRoom) {
+		oDao.updateOTR(orderedToRoom);
+	}
+
+	@Override
+	public OrderedStatus queryStatusByS(String ordered_status) {
+		return oDao.queryStatusByS(ordered_status);
+	}
+
+	@Override
+	public OrderedPayment queryPaymentBys(String bill_status) {
+		return oDao.queryPaymentBys(bill_status);
+	}
 }

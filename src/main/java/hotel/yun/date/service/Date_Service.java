@@ -13,4 +13,6 @@ import hotel.yun.date.model.Rdate;
 
 	public Rdate insert(Rdate rd);
 
+	public Mdate queryByMealDate(Date mmd);
+
 }
