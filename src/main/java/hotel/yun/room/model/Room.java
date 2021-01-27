@@ -41,11 +41,12 @@ public class Room implements Serializable {
 	@JsonIgnore
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType;
 	
-	@JsonIgnore
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "room_rdate", 
 	    joinColumns = {

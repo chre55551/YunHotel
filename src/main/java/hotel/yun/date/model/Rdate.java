@@ -31,11 +31,9 @@ public class Rdate {
 	private Integer rdate_id;
 	private Date rdate;
 
-	@JsonIgnore
     @ManyToMany(mappedBy = "rdates_to_rooms", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Room> rooms = new HashSet<Room>();
 	
-	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "rdates")
 	private Set<OrderedToRoom> orderedToRooms = new HashSet<OrderedToRoom>();
 	                            

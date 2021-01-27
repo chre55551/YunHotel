@@ -31,7 +31,7 @@ public class RoomType implements Serializable{
 	private int room_stock;//庫存
 	private Blob room_image;  //房間圖片
 	private String room_image_name;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roomType", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "roomType", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<Room> room = new HashSet<>();
 	

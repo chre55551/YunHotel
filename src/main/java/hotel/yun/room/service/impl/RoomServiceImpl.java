@@ -1,6 +1,7 @@
 package hotel.yun.room.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -86,7 +87,7 @@ public class RoomServiceImpl implements RoomService {
 	}
 	
 	@Override
-	public List<Room> queryAllRoomByRoomType(String roomType){
+	public Set<Room> queryAllRoomByRoomType(String roomType){
 		return RDao.queryAllRoomByRoomType(roomType);
 	}
 

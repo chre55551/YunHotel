@@ -3,6 +3,7 @@ package hotel.yun.room.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -31,7 +32,8 @@ public class RoomDaoImpl implements RoomDao{
     @Override
 	public Room save(Room rBean) {
 		Session session = factory.getCurrentSession();
-		return (Room) session.save(rBean);
+		session.save(rBean);
+		return rBean;
 		
 	}
     
@@ -178,10 +180,12 @@ public class RoomDaoImpl implements RoomDao{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Room> queryAllRoomByRoomType(String roomType){
+	public Set<Room> queryAllRoomByRoomType(String roomType){
 		Session session = factory.getCurrentSession();
     	String hql  = "FROM RoomType rt WHERE rt.room_type = :name";
-		return session.createQuery(hql).setParameter("name",roomType).getResultList();
+		RoomType roomtypeAfter = (RoomType)session.createQuery(hql).setParameter("name",roomType).getSingleResult();
+		Set<Room> rooms = roomtypeAfter.getRoom();
+		return rooms;
 		
 	}
 }

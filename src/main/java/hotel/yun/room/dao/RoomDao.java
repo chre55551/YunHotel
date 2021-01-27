@@ -5,6 +5,7 @@ import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
 
 import java.util.List;
+import java.util.Set;
 
 public interface RoomDao {
 	
@@ -29,7 +30,7 @@ public interface RoomDao {
 	
 	public Room queryByRoomNum(String num);
 	public RoomType queryByRoomType(String roomType);
-	public List<Room> queryAllRoomByRoomType(String roomType);
+	public Set<Room> queryAllRoomByRoomType(String roomType);
 	
 
 	

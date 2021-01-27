@@ -1,6 +1,7 @@
 package hotel.yun.room.service;
 
 import java.util.List;
+import java.util.Set;
 
 import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
@@ -20,5 +21,5 @@ public interface RoomService {
 		public void deleteRoomType(int room_typeid);
 		public Room queryByRoomNum(String s);
 		public RoomType queryByRoomType(String roomType);
-		public List<Room> queryAllRoomByRoomType(String roomType);
+		public Set<Room> queryAllRoomByRoomType(String roomType);
 }
