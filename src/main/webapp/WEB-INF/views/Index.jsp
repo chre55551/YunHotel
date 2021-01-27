@@ -71,15 +71,39 @@
 	
 		
 	<div class="third">
-		<div class="rintro_div">
+		<div class="room_intro_div">
 			<div class="room_introduce">
-				<div class="thirdDark">
+				<div class="thirdDark_left">
 				<a href="room/RoomIntroduction">
-					<p class="thirdF">房 型 介 紹</p>
+					<p class="thirdF_left">房 型 介 紹</p>
 					<p class="thirdmin">查看更多</p>
 				</a>
-			</div></div>
+				</div>
+			</div>
 		</div>
+		
+		<div class="food_intro_div">
+			<div class="food_introduce">
+				<div class="thirdDark_right">
+				<a href="room/RoomIntroduction">
+					<p class="thirdF_right">美 食 饗 宴</p>
+					<p class="thirdmin">查看更多</p>
+				</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="restaurant_intro_div">
+			<div class="restaurant_introduce">
+				<div class="thirdDark_right">
+				<a href="room/RoomIntroduction">
+					<p class="thirdF_right">美 食 饗 宴</p>
+					<p class="thirdmin">查看更多</p>
+				</a>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	
  

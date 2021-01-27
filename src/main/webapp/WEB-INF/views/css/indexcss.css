@@ -216,40 +216,84 @@ header ul li a:hover{
 	height:1000px;
 	background-color: #d6d9d7;
 }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*房型介紹的div，用來調位置*/
-.rintro_div{
+.room_intro_div{
 	float:left;
 	margin-top:100px;
 	margin-left:100px;
 	width: 600px;
 	height:500px;
 }
-/*房型介紹*/
+
+/*房間介紹*/
 .room_introduce{
 	width: 600px;
 	height:500px;
 	background-size:cover;
 	background-image: url('http://localhost:8080/YunHotel/image/test/img_4.jpg');
 }
-/*遮罩*/
-.thirdDark{
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*食物介紹的div，用來調位置*/
+.food_intro_div{
+	float:right;
+	margin-top:100px;
+	margin-right:100px;
+	width: 600px;
+	height:300px;
+}
+
+/*食物介紹*/
+.food_introduce{
+	width: 600px;
+	height:300px;
+	background-size:cover;
+	background-image: url('http://localhost:8080/YunHotel/image/steak.jpg');
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*左遮罩*/
+.thirdDark_left{
 	width: 600px;
 	height:500px;
 	background-size:cover;
 	transition: 1s; 
 }
 /*滑鼠滑過_遮罩*/
-.thirdDark:hover{
-	transition: 1s; /*1秒後才完全遮罩*/
+.thirdDark_left:hover{
+	transition: 0.8s; /*1秒後才完全遮罩*/
 	background: rgba(67, 67, 67, 0.7); 
 }
 /*滑鼠滑過_不顯示超連結底線*/
-.thirdDark:hover a{
+.thirdDark_left:hover a{
 	text-decoration:none;
 }
-/*標題字*/
-.thirdF{
+/*右遮罩*/
+.thirdDark_right{
+	width: 600px;
+	height:300px;
+	background-size:cover;
+	transition: 1s; 
+}
+/*滑鼠滑過_遮罩*/
+.thirdDark_right:hover{
+	transition: 0.8s; /*1秒後才完全遮罩*/
+	background: rgba(67, 67, 67, 0.7); 
+}
+/*滑鼠滑過_不顯示超連結底線*/
+.thirdDark_right:hover a{
+	text-decoration:none;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*左標題字*/
+.thirdF_left{
 	margin-top:220px;
+	color:#fff;
+	font-size: 2.4em;
+	font-weight: bold;
+}
+/*右標題字*/
+.thirdF_right{
+	margin-top:120px;
 	color:#fff;
 	font-size: 2.4em;
 	font-weight: bold;
@@ -260,7 +304,7 @@ header ul li a:hover{
 	transition: 0.5s;
 }
 /*查看更多_滑鼠滑過才顯示小字*/
-.thirdDark:hover .thirdmin{
+.thirdDark_left:hover .thirdmin,.thirdDark_right:hover .thirdmin{
 	font-size:1.2em;
 	color:white;
 	display:block; /*顯示(佔個區塊)*/
