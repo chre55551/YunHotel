@@ -88,8 +88,8 @@ public class RoomDaoImpl implements RoomDao{
 		if(rBean.getRoomType()!=null) {
 			room.setRoomType(rBean.getRoomType());
 		}
-		if(rBean.getDate()!=null) {
-			room.setDate(rBean.getDate());
+		if(rBean.getRdates()!=null) {
+			room.setRdates(rBean.getRdates());
 		}
 		session.update(room);
 		

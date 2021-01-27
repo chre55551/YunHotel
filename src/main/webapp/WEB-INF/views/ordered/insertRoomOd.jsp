@@ -38,7 +38,10 @@
 				<label>房號</label> <input name="room_name" />
 			</div>
 			<div>
-				<label>欲訂房日期</label> <input name="rdate" type="date" />
+				<label>欲入住日期</label> <input name="rdate" type="date" />
+			</div>
+			<div>
+				<label>欲退房日期</label> <input name="rdateEnd" type="date" />
 			</div>
 			<div>
 				<label>備註</label> <input name="note" id="requestNote" />

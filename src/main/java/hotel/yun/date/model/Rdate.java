@@ -32,11 +32,7 @@ public class Rdate {
 	private Date rdate;
 
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "room_rdate", 
-	    joinColumns = {
-			@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") }, inverseJoinColumns = {
-					@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
+    @ManyToMany(mappedBy = "rdates_to_rooms", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Room> rooms = new HashSet<Room>();
 	
 	@JsonIgnore

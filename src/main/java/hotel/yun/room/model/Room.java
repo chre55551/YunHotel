@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -45,8 +46,12 @@ public class Room implements Serializable {
 	private RoomType roomType;
 	
 	@JsonIgnore
-    @ManyToMany(mappedBy = "rooms", fetch = FetchType.EAGER)
-    private Set<Rdate> rdates = new HashSet<Rdate>();
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "room_rdate", 
+	    joinColumns = {
+			@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") })
+    private Set<Rdate> rdates_to_rooms = new HashSet<Rdate>();
 	
 	
 	public Room() {
@@ -105,12 +110,12 @@ public class Room implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<Rdate> getDate() {
-		return rdates;
+	public Set<Rdate> getRdates() {
+		return rdates_to_rooms;
 	}
 
-	public void setDate(Set<Rdate> date) {
-		this.rdates = date;
+	public void setRdates(Set<Rdate> date) {
+		this.rdates_to_rooms = date;
 	}
 
 
