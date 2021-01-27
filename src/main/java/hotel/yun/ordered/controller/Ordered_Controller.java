@@ -487,6 +487,7 @@ public class Ordered_Controller {
 			model.addAttribute("OTM",ThisOrdered.getOrderedToMeals());
 			model.addAttribute("Meals",ThisOrdered.getOrderedToMeals().getMeals());
 			model.addAttribute("Mdate",ThisOrdered.getOrderedToMeals().getMdate());
+			model.addAttribute("time_period",ThisOrdered.getOrderedToMeals().getMdate().getTime_period());
 		}catch(Exception e){
 			
 		}

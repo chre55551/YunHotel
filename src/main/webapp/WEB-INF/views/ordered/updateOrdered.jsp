@@ -201,25 +201,72 @@
 
 
 			<c:choose>
-				<c:when test="">
+				<c:when test="${${time_period}=='11:00~13:00'}">
 					<div>
 						<label>用餐時段: </label> <select name="time_period">
-							<option>請選擇用餐時間</option>
-							<option value="11:00~13:00">上午十一點</option>
-							<option value="13:00~15:00">下午一點</option>
-							<option value="15:00~17:00">下午三點</option>
-							<option value="17:00~19:00">下午五點</option>
-							<option value="19:00~21:00">晚上七點</option>
+							<option disabled="disabled">請選擇用餐時段</option>
+							<option value="11:00~13:00" selected="selected">11:00~13:00</option>
+							<option value="13:00~15:00">13:00~15:00</option>
+							<option value="15:00~17:00">15:00~17:00</option>
+							<option value="17:00~19:00">17:00~19:00</option>
+							<option value="19:00~21:00">19:00~21:00</option>
 						</select>
 					</div>
 				</c:when>
+				<c:when test="${${time_period}=='13:00~15:00'}">
+					<div>
+						<label>用餐時段: </label> <select name="time_period">
+							<option disabled="disabled">請選擇用餐時段</option>
+							<option value="11:00~13:00">11:00~13:00</option>
+							<option value="13:00~15:00" selected="selected">13:00~15:00</option>
+							<option value="15:00~17:00">15:00~17:00</option>
+							<option value="17:00~19:00">17:00~19:00</option>
+							<option value="19:00~21:00">19:00~21:00</option>
+						</select>
+					</div>
+				</c:when>
+				<c:when test="${${time_period}=='15:00~17:00'}">
+					<div>
+						<label>用餐時段: </label> <select name="time_period">
+							<option disabled="disabled">請選擇用餐時段</option>
+							<option value="11:00~13:00">11:00~13:00</option>
+							<option value="13:00~15:00">13:00~15:00</option>
+							<option value="15:00~17:00" selected="selected">15:00~17:00</option>
+							<option value="17:00~19:00">17:00~19:00</option>
+							<option value="19:00~21:00">19:00~21:00</option>
+						</select>
+					</div>
+				</c:when>
+				<c:when test="${${time_period}=='17:00~19:00'}">
+					<div>
+						<label>用餐時段: </label> <select name="time_period">
+							<option disabled="disabled">請選擇用餐時段</option>
+							<option value="11:00~13:00">11:00~13:00</option>
+							<option value="13:00~15:00">13:00~15:00</option>
+							<option value="15:00~17:00">15:00~17:00</option>
+							<option value="17:00~19:00" selected="selected">17:00~19:00</option>
+							<option value="19:00~21:00">19:00~21:00</option>
+						</select>
+					</div>
+				</c:when>
+				<c:when test="${${time_period}=='19:00~21:00'}">
+					<div>
+						<label>用餐時段: </label> <select name="time_period">
+							<option disabled="disabled">請選擇用餐時段</option>
+							<option value="11:00~13:00">11:00~13:00</option>
+							<option value="13:00~15:00">13:00~15:00</option>
+							<option value="15:00~17:00">15:00~17:00</option>
+							<option value="17:00~19:00">17:00~19:00</option>
+							<option value="19:00~21:00" selected="selected">19:00~21:00</option>
+						</select>
+					</div>
+				</c:when>
+				
 				<c:otherwise>
-
 				</c:otherwise>
 			</c:choose>
 
-			<c:choose>
-				<c:when test="">
+
 					<div>
 						<label>訂單狀態: </label>
 						<!-- 				<input name="ordered_status" id="requestMp" /> -->
@@ -227,16 +274,11 @@
 							<option disabled>請選擇訂單狀態</option>
 							<option value="已成立" selected>已成立</option>
 							<option value="已結單">已結單</option>
+							<option>已取消</option>
 						</select>
 					</div>
-				</c:when>
-				<c:otherwise>
 
-				</c:otherwise>
-			</c:choose>
 
-			<c:choose>
-				<c:when test="">
 					<div>
 						<label>付款方式: </label> <select name="payment_status" id="requestPS">
 							<option disabled>請選擇付款方式</option>
@@ -244,14 +286,10 @@
 							<option value="信用卡">信用卡</option>
 						</select>
 					</div>
-				</c:when>
-				<c:otherwise>
 
-				</c:otherwise>
-			</c:choose>
 
 			<c:choose>
-				<c:when test="">
+				<c:when test="${not empty ${updateOdered.note}}">
 					<div>
 						<label>備註</label> <input name="note" id="requestNote" type="text"
 							${updateOdered.note} />

@@ -37,11 +37,12 @@
 			</div>
 			<div>
 				<label>用餐時段</label> <select name="time_period">
-					<option value="11:00~13:00">上午十一點</option>
-					<option value="13:00~15:00">下午一點</option>
-					<option value="15:00~17:00">下午三點</option>
-					<option value="17:00~19:00">下午五點</option>
-					<option value="19:00~21:00">晚上七點</option>
+					<option disabled="disabled">請選擇用餐時段</option>
+					<option value="11:00~13:00">11:00~13:00</option>
+					<option value="13:00~15:00">13:00~15:00</option>
+					<option value="15:00~17:00">15:00~17:00</option>
+					<option value="17:00~19:00">17:00~19:00</option>
+					<option value="19:00~21:00">19:00~21:00</option>
 				</select>
 			</div>
 			<div>
