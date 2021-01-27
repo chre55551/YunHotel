@@ -79,12 +79,12 @@
 				<c:when test="${not empty ${roomType}}">
 					<div>
 						<label>房型: </label> <select name="room_type">
-							<option>請選擇用餐時間</option>
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+							<option disabled>請選擇用餐時間</option>
+							<option></option>
+							<option></option>
+							<option></option>
+							<option></option>
+							<option></option>
 						</select>
 					</div>
 				</c:when>
@@ -161,7 +161,7 @@
 						<label>訂單狀態: </label>
 						<!-- 				<input name="ordered_status" id="requestMp" /> -->
 						<select name="ordered_status" id="requestOs">
-							<option value="">請選擇訂單狀態</option>
+							<option disabled>請選擇訂單狀態</option>
 							<option value="已成立" selected>已成立</option>
 							<option value="已結單">已結單</option>
 						</select>
@@ -176,7 +176,7 @@
 				<c:when test="">
 					<div>
 						<label>付款方式: </label> <select name="payment_status" id="requestPS">
-							<option value="">請選擇付款方式</option>
+							<option disabled>請選擇付款方式</option>
 							<option value="現金" selected>現金</option>
 							<option value="信用卡">信用卡</option>
 						</select>

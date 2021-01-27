@@ -466,7 +466,9 @@ public class Ordered_Controller {
 		model.addAttribute("updateOdered", ThisOrdered);
 		System.out.println(ThisOrdered.getOrderedToRoom().getRdates());
 		try {
-		model.addAttribute("roomType",ThisOrdered.getOrderedToRoom().getRoom().getRoomType());
+			model.addAttribute("OTR",ThisOrdered.getOrderedToRoom());
+			model.addAttribute("Rdates",ThisOrdered.getOrderedToRoom().getRdates());
+			model.addAttribute("roomType",ThisOrdered.getOrderedToRoom().getRoom().getRoomType());
 		}catch(Exception e){
 			
 		}
@@ -488,13 +490,14 @@ public class Ordered_Controller {
 			@RequestParam(value = "address", required = false) String address,
 			@RequestParam(value = "room_name", required = false) String room_name,
 			@RequestParam(value = "rdate", required = false) Date rdate,
+			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
 			@RequestParam(value = "mealsnum_of_people", required = false) Integer mealsnum_of_people,
 			@RequestParam(value = "mdate", required = false) Date mdate,
 			@RequestParam(value = "time_period", required = false) String time_period,
 			@RequestParam(value = "ordered_accounts", required = false) Integer ordered_accounts,
 			@RequestParam(value = "ordered_status", required = false) String ordered_status,
 			@RequestParam(value = "bill_status", required = false) String bill_status,
-			@RequestParam(value = "ordered_last_update", required = false) Timestamp ordered_last_update,
+//			@RequestParam(value = "ordered_last_update", required = false) Timestamp ordered_last_update,
 			@RequestParam(value = "note", required = false) String note, Model model) {
 
 		Ordered ordered = service.queryOrderNum(ordered_number.intValue());
