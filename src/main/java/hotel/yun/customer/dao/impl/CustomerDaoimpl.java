@@ -86,4 +86,16 @@ public class CustomerDaoimpl implements Serializable, CustomerDao {
 		return null;
 	}
 
+	@Override
+	public Customer queryByAc(String s) {
+		Member mn = null;
+		String hql = "FROM Member m WHERE m.account = :mid";
+		Session session = factory.getCurrentSession();
+		mn = (Member) session.createQuery(hql).setParameter("mid", s).getSingleResult();
+		
+		String hql1 = "FROM Customer c WHERE c.member_id = :mmd";
+		Customer c = (Customer)session.createQuery(hql1).setParameter("mmd", mn.getMember_id()).getSingleResult();
+		return c;
+	}
+
 }

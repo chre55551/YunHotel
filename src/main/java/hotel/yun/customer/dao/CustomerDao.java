@@ -18,5 +18,6 @@ public interface CustomerDao {
 	public void delete(int customer_id);//依照顧客編號來刪除整筆資料
 	public Customer query(Customer c);	//依照顧客姓名和電話來查詢資料
 	public Member checkIdPassword(String account, String password);
+	public Customer queryByAc(String s);
 }
 

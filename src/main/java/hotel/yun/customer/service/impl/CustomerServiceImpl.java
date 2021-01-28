@@ -65,4 +65,10 @@ public class CustomerServiceImpl implements CustomerService {
 
 		return cDao.checkIdPassword(account, password);
 	}
+
+	@Override
+	public Customer queryByAc(String s) {
+		Customer c = cDao.queryByAc(s);
+		return c;
+	}
 }
