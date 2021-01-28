@@ -18,7 +18,7 @@
             <ul class="ALLdiamond">
            
             <li class="diamond">
-                <a href="" class="diamondtxt">所有餐點</a>
+                <a href="QueryAllMeals" class="diamondtxt">所有餐點</a>
             </li>
             <li class="diamond">
                 <a href="" class="diamondtxt">新增餐點</a>

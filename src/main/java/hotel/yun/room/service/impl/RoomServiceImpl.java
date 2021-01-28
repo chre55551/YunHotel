@@ -17,7 +17,8 @@ import hotel.yun.room.service.RoomService;
 @Transactional
 @Service
 public class RoomServiceImpl implements RoomService {
-   
+	private static final long serialVersionUID = 1L;
+	
 	RoomDao RDao;
 	
 	@Autowired
@@ -73,7 +74,7 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void deleteRoomType(int room_typeid) {
-		RDao.delete(room_typeid);
+		RDao.deleteRoomType(room_typeid);
 	}
 
 	@Override

@@ -8,24 +8,39 @@
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>Show Delete Room</title>
+<title>Insert Meals</title>
 </head>
 <body>
+
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 	
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<div class="container">
-	<h3>刪除第${rom.room_typeid}的房型</h3>
-	<p>編號: ${rom.room_typeid}</p>
-	<p>房價: ${rom.room_price}</p>
-	<p>庫存: ${rom.room_stock}</p>
-	<p>房間圖片: ${rom.room_image}</p>
-	<p>房間圖片名稱: ${rom.room_image_name}</p>
-		<a href="<c:url value='IndexRoom'/> ">回房務</a>
+		<h2>新增完成</h2><hr/>
+		<h3>餐點名稱：${mes.room_type}</h3>
+		<h3>餐點價格: ${mes.room_price}</h3>
+		<h3 id="myImg">房間圖片:</h3>
+		<h3>餐點圖片名稱: ${mes.room_image_name}</h3>
+		<a href="<c:url value='IndexMeals'/> ">回餐點</a>
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
+
+	<script>
+	fetch('http://localhost:8080/YunHotel/meals/getImg?meals_id=${mes.meals_id}')
+	  .then(function(response) {
+	    return response.blob();
+	  })
+	  .then(function(data) {
+		  let img = document.createElement('IMG')
+			img.src = URL.createObjectURL(data); //創立一個暫時的圖片路徑
+
+			document.querySelector('#myImg').appendChild(img);
+	  });
+
+	
+	</script>
 </body>
 </html>

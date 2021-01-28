@@ -180,8 +180,8 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public void deleteRoomType(int room_typeid) {
 		Session session = factory.getCurrentSession();
-		RoomType suite = new RoomType();
-		suite.setRoom_typeid(room_typeid);
+		RoomType suite = (RoomType)session.get(RoomType.class, room_typeid);
+//		suite.setRoom_typeid(room_typeid);
 		session.delete(suite);
 	}
     

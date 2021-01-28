@@ -16,7 +16,7 @@
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 <div align='center'>
 
-		<table class="container" border='1' cellpadding="3" cellspacing="1" >
+		<table class="container" border='1'  >
 			<tr>
 			   
 			   <th width='130' height='20'>房型名稱</th>
@@ -31,19 +31,33 @@
 					<td style="text-align:center">${rom.room_type}</td>
 					<td style="text-align:center">${rom.room_price}</td>
 					<td style="text-align:center">${rom.room_stock}</td>
-					<td style="text-align:center">${rom.room_image}</td>
+					<td style="text-align:center"  id="myImg"></td>
 					
 					 <td><a
                         href="${pageContext.request.contextPath}/room/update/${rom.room_typeid}">編輯</a></td>
                     <td><a
-                        href="${pageContext.request.contextPath}/room/DeleteNew/${rom.room_typeid}">刪除</a></td>
+                        href="${pageContext.request.contextPath}/room/DeleteRoom/${rom.room_typeid}">刪除</a></td>
 				</tr>
 			</c:forEach>
 		
 		</table>
 <hr>
+	</div>
 </div>
 <script type='text/javascript'>
+
+fetch('http://localhost:8080/YunHotel/room/getImg?room_typeid=${rom.room_typeid}')
+.then(function(response) {
+  return response.blob();
+})
+.then(function(data) {
+	  let img = document.createElement('IMG')
+		img.src = URL.createObjectURL(data); //創立一個暫時的圖片路徑
+
+		document.querySelector('#myImg').appendChild(img);
+});
+
+
     $(document).ready(function() {
         $('.deletelink').click(function() {
         	if (confirm('確定刪除? ')) {

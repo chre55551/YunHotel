@@ -30,6 +30,7 @@ public class Meals implements Serializable {
 	private double meals_price; // 餐點價格
 	private String meals_stock; // 庫存
 	private Blob meals_image; // 餐點圖片
+	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "meals_typeid")
 	private MealsType meals_type;
@@ -128,6 +129,9 @@ public class Meals implements Serializable {
 	public void setOrderedToMeals(List<OrderedToMeals> orderedToMeals) {
 		this.orderedToMeals = orderedToMeals;
 	}
+
+
+	
 
 }
 

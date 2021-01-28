@@ -13,6 +13,7 @@ import javax.sql.rowset.serial.SerialBlob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -127,13 +128,19 @@ public class RoomController {
 			Blob ri = new SerialBlob(img);
 			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
 			service.saveRoomType(rt);
-			model.addAttribute("roomType", rt);
+			model.addAttribute("rom", rt);
+			model.addAttribute("img",rt.getRoom_image().getBytes(1l, (int)rt.getRoom_image().length()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "room/ShowInsertRoom";
 	}
 
+	
+
+
+	
+	
 //	@PostMapping(value="/CompanyRegister")
 //	 public String companyRegister(
 //	   @RequestParam String companyName,
@@ -182,23 +189,22 @@ public class RoomController {
 //	  
 //	  
 //	 }
-	// 送出空白刪除表單
-	@GetMapping("/ShowBlankDeleteRoomForm")
-	public String ShowBlankDeleteRoomForm(Model model, HttpSession session) {
-		return "room/ShowBlankDeleteRoomForm";
-	}
+	
+//	// 送出空白刪除表單
+//	@GetMapping("/ShowBlankDeleteRoomForm")
+//	public String ShowBlankDeleteRoomForm(Model model, HttpSession session) {
+//		return "room/ShowBlankDeleteRoomForm";
+//	}
 
-	@DeleteMapping("/DeleteRoom")
-	public String DeleteRoom(@PathVariable int room_typeid) {
-		System.out.println("刪除成功");
-		service.deleteRoomType(room_typeid);
-		return "room/ShowDeleteRoom";
+
+	@GetMapping("/DeleteRoom/{room_typeid}")
+	public String DeleteRoom(@PathVariable("room_typeid") int room_typeid) {
+		service.deleteRoomType(room_typeid);	
+		System.out.println("delete sucess");
+		return "redirect:/room/QueryAllRooms";
 	}
+	 
+
 }
 
-//	@DeleteMapping("/mem/{id}")
-//	public String delete(@PathVariable("id") Integer id) {
-//		memberService.delete(id);
-//		return "redirect:/crm/showAllMembers";
-//	}
-//}
+

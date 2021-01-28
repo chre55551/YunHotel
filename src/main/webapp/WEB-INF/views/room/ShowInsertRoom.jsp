@@ -19,13 +19,28 @@
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<div class="container">
 		<h2>新增完成</h2><hr/>
-		<h3>房型名稱：${roomType.room_type}</h3>
-		<h3>房價: ${roomType.room_price}</h3>
-		<h3>房間圖片: ${roomType.room_image}</h3>
-		<h3>房間圖片名稱: ${roomType.room_image_name}</h3>
+		<h3>房型名稱：${rom.room_type}</h3>
+		<h3>房價: ${rom.room_price}</h3>
+		<h3 id="myImg">房間圖片:</h3>
+		<h3>房間圖片名稱: ${rom.room_image_name}</h3>
 		<a href="<c:url value='IndexRoom'/> ">回房務</a>
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
+
+	<script>
+	fetch('http://localhost:8080/YunHotel/room/getImg?room_typeid=${rom.room_typeid}')
+	  .then(function(response) {
+	    return response.blob();
+	  })
+	  .then(function(data) {
+		  let img = document.createElement('IMG')
+			img.src = URL.createObjectURL(data); //創立一個暫時的圖片路徑
+
+			document.querySelector('#myImg').appendChild(img);
+	  });
+
+	
+	</script>
 </body>
 </html>
