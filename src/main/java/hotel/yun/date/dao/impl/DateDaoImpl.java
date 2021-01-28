@@ -63,6 +63,14 @@ public class DateDaoImpl implements Serializable, DateDao {
 		Rdate md = (Rdate)session.createQuery(hql).setParameter("rrd", rod).getSingleResult();
 		return md;	
 	}
+	
+	@Override
+	public Mdate queryByMealDate(Date mod) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Mdate md WHERE md.mdate = :mmd";
+		Mdate md = (Mdate)session.createQuery(hql).setParameter("mmd", mod).getSingleResult();
+		return md;	
+	}
 	//-----------------------------------------------------------------------------
 		//去資料庫撈rdate(訂房日期)，有的話就把他叫出來塞進去。
 		@Override

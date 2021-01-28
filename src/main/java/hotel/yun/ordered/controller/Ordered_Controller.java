@@ -487,6 +487,7 @@ public class Ordered_Controller {
 			model.addAttribute("OTM",ThisOrdered.getOrderedToMeals());
 			model.addAttribute("Meals",ThisOrdered.getOrderedToMeals().getMeals());
 			model.addAttribute("Mdate",ThisOrdered.getOrderedToMeals().getMdate());
+			model.addAttribute("time_period",ThisOrdered.getOrderedToMeals().getMdate().getTime_period());
 		}catch(Exception e){
 			
 		}
@@ -514,59 +515,68 @@ public class Ordered_Controller {
 			@RequestParam(value = "note", required = false) String note, Model model) {
 
 		Ordered ordered = service.queryOrderNum(ordered_number.intValue());
-
+		
 		if (ordered.getCustomer() != null) {
 			ordered.getCustomer().setBirthday(birthday);
 			ordered.getCustomer().setIdcard_number(idcard_number);
 			ordered.getCustomer().setAddress(address);
 		}
+
+		DateTime rdateDT = DateToDateTime(rdate);
+		DateTime rdateEndDT = DateToDateTime(rdateEnd);
+		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);//產生 入住日期至退房日期的所有日期
+		Set<Rdate> rdates = new HashSet<>();
+		
+	    for(DateTime d:range) {
+	    	Date date = dateTimeToDate(d);
+	    	try {
+	    		Rdate rd = dser.queryByRoomDate(date);//嘗試根據日期找出 Rdate 物件
+	    		rdates.add(rd);//加到 set<Rdate>中
+	    	}catch(Exception e) {//若不存在此日期，new 一個加到資料庫
+	    		Rdate r = new Rdate();
+	    		r.setRdate(date);
+	    		dser.insert(r);
+	    		rdates.add(r);//加到 set<Rdate>中
+	    	}
+	    }		
 		
 		if (ordered.getOrderedToRoom() != null) {
-			ordered.getOrderedToRoom().getRoom().setRoom_name(room_name);
-//			else {
-////				OrderedToRoom otr = new OrderedToRoom();
-////				otr.setRoom_number(room_number.intValue());
-////				ordered.setOrderedToRoom(otr);
-//			}
+			Room room = rser.queryByRoomNum(room_name);
+			ordered.getOrderedToRoom().setRoom(room);
+			ordered.getOrderedToRoom().setRdates(rdates);
 		}
 		
 		if(ordered.getOrderedToRoom().getRdates()!=null) {
-			try {
-			Rdate rd = dser.queryByRoomDate(rdate);
-			ordered.getOrderedToRoom().getRdates().add(rd);
-			}catch(Exception e) {
-				Rdate rd = new Rdate();
-				rd.setRdate(rdate);
-				ordered.getOrderedToRoom().getRdates().add(rd);
-			}
+			ordered.getOrderedToRoom().setRdates(rdates);
 		}
+		
+		try {
+			service.updateOTR(ordered.getOrderedToRoom());
+			rser.update(ordered.getOrderedToRoom().getRoom());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		if(ordered.getOrderedToMeals()!=null) {
 			ordered.getOrderedToMeals().setmealsnum_of_people(mealsnum_of_people);
 		}
 		
 		if(ordered.getOrderedToMeals().getMdate()!=null) {
-			ordered.getOrderedToMeals().getMdate().setMdate(mdate);
-			ordered.getOrderedToMeals().getMdate().setTime_period(time_period);
+			Mdate md = dser.queryByMealDate(mdate);
+			ordered.getOrderedToMeals().setMdate(md);
 		}
 		
 		if (ordered.getOrderedStatus() != null) {
-			ordered.getOrderedStatus().setOrdered_status(ordered_status);
-		} else {
-			OrderedStatus os = new OrderedStatus();
-			os.setOrdered_status(ordered_status);
+			OrderedStatus os = service.queryStatusByS(ordered_status);
 			ordered.setOrderedStatus(os);
 		}
+		
 		if (ordered.getOrderedPayment() != null) {
-			ordered.getOrderedPayment().setBill_status(bill_status);
-		} else {
-			OrderedPayment op = new OrderedPayment();
-			op.setBill_status(bill_status);
+			OrderedPayment op = service.queryPaymentBys(bill_status);
 			ordered.setOrderedPayment(op);
 		}
 		
-//		ordered.setOrdered_accounts(ordered_accounts);
-//		ordered.setOrdered_last_update(ordered_last_update);
 		ordered.setNote(note);
 
 		service.updateCustomerOd(ordered);

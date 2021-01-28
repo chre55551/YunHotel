@@ -17,4 +17,6 @@ public interface DateDao {
 
 	public Rdate queryRdate(Date i);
 
+	public Mdate queryByMealDate(Date mod);
+
 }
