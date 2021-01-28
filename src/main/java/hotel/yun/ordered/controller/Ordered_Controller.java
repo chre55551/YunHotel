@@ -442,12 +442,15 @@ public class Ordered_Controller {
 		Ordered ordered = service.queryOrderNum(ordered_number);
 		model.addAttribute("ordered", ordered);
 		try {
+			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
+			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
 			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
 		} catch (Exception e) {
 
 		}
 		try {
 			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
+			model.addAttribute("mdate", ordered.getOrderedToMeals().getMeals());
 		} catch (Exception e) {
 
 		}

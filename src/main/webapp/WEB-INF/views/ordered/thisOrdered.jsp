@@ -75,7 +75,6 @@
 					<p>用餐人數: ${ordered.orderedToMeals.mealsnum_of_people}</p>
 				</c:when>
 				<c:otherwise>
-    				用餐人數: 無
    				</c:otherwise>
 			</c:choose>
 
@@ -84,7 +83,6 @@
 					<p>用餐日期: ${mdate.mdate}</p>
 				</c:when>
 				<c:otherwise>
-    				用餐日期: 無
    				</c:otherwise>
 			</c:choose>
 
@@ -93,7 +91,6 @@
 					<p>用餐時段: ${mdate.time_period}</p>
 				</c:when>
 				<c:otherwise>
-    				用餐時段: 無
    				</c:otherwise>
 			</c:choose>
 
