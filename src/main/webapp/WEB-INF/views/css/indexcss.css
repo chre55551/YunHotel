@@ -222,7 +222,7 @@ header ul li a:hover{
 }
 /*====================================================*/
 .third{
-	height:1000px;
+	height:1200px;
 	background-color: #d6d9d7;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -231,14 +231,14 @@ header ul li a:hover{
 	float:left;
 	margin-top:100px;
 	margin-left:100px;
-	width: 600px;
-	height:500px;
+	width: 700px;
+	height:720px;
 }
 
 /*房間介紹*/
 .room_introduce{
-	width: 600px;
-	height:500px;
+	width: 700px;
+	height:720px;
 	background-size:cover;
 	background-image: url('http://localhost:8080/YunHotel/image/test/img_4.jpg');
 }
@@ -249,21 +249,38 @@ header ul li a:hover{
 	margin-top:100px;
 	margin-right:100px;
 	width: 600px;
-	height:300px;
+	height:350px;
 }
 
 /*食物介紹*/
 .food_introduce{
 	width: 600px;
-	height:300px;
+	height:350px;
 	background-size:cover;
 	background-image: url('http://localhost:8080/YunHotel/image/steak.jpg');
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*SPA介紹的div，用來調位置*/
+.spa_intro_div{
+	float:right;
+	margin-top:20px;
+	margin-right:100px;
+	width: 600px;
+	height:350px;
+}
+
+/*SPA介紹*/
+.spa_introduce{
+	width: 600px;
+	height:350px;
+	background-size:cover;
+	background-image: url('http://localhost:8080/YunHotel/image/spa.jpg');
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*左遮罩*/
 .thirdDark_left{
-	width: 600px;
-	height:500px;
+	width: 700px;
+	height:720px;
 	background-size:cover;
 	transition: 1s; 
 }
@@ -279,7 +296,7 @@ header ul li a:hover{
 /*右遮罩*/
 .thirdDark_right{
 	width: 600px;
-	height:300px;
+	height:350px;
 	background-size:cover;
 	transition: 1s; 
 }
@@ -295,7 +312,7 @@ header ul li a:hover{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*左標題字*/
 .thirdF_left{
-	margin-top:220px;
+	margin-top:290px;
 	color:#fff;
 	font-size: 2.4em;
 	font-weight: bold;
@@ -322,11 +339,14 @@ header ul li a:hover{
 /*====================================================*/
 /* 頁尾 */
 .footer{
-    height: 20px;
+    height: 50px;
     width: 100vw;  /*寬度=網頁寬 */
     text-align: center;
     background-color: #0F2540;
     color: white;
 }
-
+.CoF{
+	padding-top: 20px;
+	background-color: #ffff80;
+}
 

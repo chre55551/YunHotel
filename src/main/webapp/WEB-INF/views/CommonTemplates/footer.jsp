@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="footer">
-		<p>© The Hotel. All Rights Reserved.</p>
+		<p clasdd="CoF">© Copyright 澐酒店 Yun Hotel. All rights reserved. 2021</p>
 	</div>
 </body>
 </html>

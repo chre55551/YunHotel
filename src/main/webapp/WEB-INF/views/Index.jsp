@@ -96,16 +96,16 @@
 			</div>
 		</div>
 		
-<!-- 		<div class="restaurant_intro_div"> -->
-<!-- 			<div class="restaurant_introduce"> -->
-<!-- 				<div class="thirdDark_right"> -->
-<!-- 				<a href="room/RoomIntroduction"> -->
-<!-- 					<p class="thirdF_right">美 食 饗 宴</p> -->
-<!-- 					<p class="thirdmin">查看更多</p> -->
-<!-- 				</a> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div class="spa_intro_div">
+			<div class="spa_introduce">
+				<div class="thirdDark_right">
+				<a href="room/RoomIntroduction">
+					<p class="thirdF_right">S P A</p>
+					<p class="thirdmin">查看更多</p>
+				</a>
+				</div>
+			</div>
+		</div>
 		
 	</div>
 	
