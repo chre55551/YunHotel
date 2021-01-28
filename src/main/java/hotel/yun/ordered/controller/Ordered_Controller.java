@@ -203,6 +203,7 @@ public class Ordered_Controller {
 	    otr.setRdates(rdates);
 	    
 	    Room room = new Room();//新增空的房間
+	    room = rser.queryRoomByName(room_name);//根據房名撈出該房間
 	    
 //	    try {
 //	    	room = rser.queryByRoomNum(room_name); //嘗試取出房號
@@ -214,8 +215,9 @@ public class Ordered_Controller {
 //	    	System.out.println("queryByRoomNum fail!!!");
 //	    }		
 	    room.setRdates(rdates);//房間跟日期的多對多關係
-	    rser.save(room);//存入資料庫
+	    rser.save(room);//房間跟日期關係存入資料庫
 	    
+	    otr.setRoom(room);//將房間放入訂單
 	    service.insertOTR(otr);
 		
 		od.setOrderedToRoom(otr);

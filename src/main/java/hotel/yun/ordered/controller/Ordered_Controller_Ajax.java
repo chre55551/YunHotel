@@ -170,6 +170,7 @@ public class Ordered_Controller_Ajax {
 					list.add(room);
 				}
 			}
+			Collections.sort(list,new RoomSort());
 			
 			return list;
 		} catch (Exception e) {

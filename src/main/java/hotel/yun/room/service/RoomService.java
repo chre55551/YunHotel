@@ -22,4 +22,5 @@ public interface RoomService {
 		public Room queryByRoomNum(String s);
 		public RoomType queryByRoomType(String roomType);
 		public Set<Room> queryAllRoomByRoomType(String roomType);
+		public Room queryRoomByName(String room_name);
 }

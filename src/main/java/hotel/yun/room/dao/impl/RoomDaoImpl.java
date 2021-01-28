@@ -188,4 +188,14 @@ public class RoomDaoImpl implements RoomDao{
 		return rooms;
 		
 	}
+
+
+
+	@Override
+	public Room queryRoomByName(String room_name) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Room r WHERE r.room_name = :rn";
+		Room r = (Room)session.createQuery(hql).setParameter("rn",room_name).getSingleResult();
+		return r;
+	}
 }
