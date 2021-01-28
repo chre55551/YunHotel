@@ -35,7 +35,7 @@ public class Rdate {
     @ManyToMany(mappedBy = "rdates_to_rooms", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Room> rooms = new HashSet<Room>();
 	
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "rdates")
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, mappedBy = "rdates")
 	private Set<OrderedToRoom> orderedToRooms = new HashSet<OrderedToRoom>();
 	                            
 	public Rdate() {

@@ -34,7 +34,7 @@ public class Meals implements Serializable {
 	@JoinColumn(name = "meals_typeid")
 	private MealsType meals_type;
 
-	@ManyToMany(mappedBy = "meals")
+	@ManyToMany(mappedBy = "meals",cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	private List<OrderedToMeals> orderedToMeals = new ArrayList<>();
 
 	public Meals() {

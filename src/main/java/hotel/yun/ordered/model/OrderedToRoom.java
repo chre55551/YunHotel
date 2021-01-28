@@ -40,7 +40,7 @@ public class OrderedToRoom implements Serializable {
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     @JoinTable(name = "orderedToRoom_rdate", 
 		joinColumns = {
 				@JoinColumn(name = "fk_ordered_toroom_id")

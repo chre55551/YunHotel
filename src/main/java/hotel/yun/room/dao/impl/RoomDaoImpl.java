@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import hotel.yun.date.model.Rdate;
 import hotel.yun.room.dao.RoomDao;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
@@ -83,17 +84,25 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public void update(Room rBean) {
 		Session session = factory.getCurrentSession();
-		Room room = session.get(Room.class, rBean.getRoom_id());
-		if(rBean.getRoom_name()!=null) {
-			room.setRoom_name(rBean.getRoom_name());
-		}
-		if(rBean.getRoomType()!=null) {
-			room.setRoomType(rBean.getRoomType());
-		}
+		session.clear();
+
+//		Room room = session.get(Room.class, rBean.getRoom_id());
+//		if(rBean.getRoom_name()!=null) {
+//			room.setRoom_name(rBean.getRoom_name());
+//		}
+//		if(rBean.getRoomType()!=null) {
+//			room.setRoomType(rBean.getRoomType());
+//		}
 		if(rBean.getRdates()!=null) {
-			room.setRdates(rBean.getRdates());
+			Set<Rdate> rdates = rBean.getRdates();
+			for(Rdate rdate : rdates) {
+				session.merge(rdate);
+			}
+//			room.setRdates(rBean.getRdates());
 		}
-		session.update(room);
+//		session.update(room);
+		session.merge(rBean);
+		session.update(rBean);
 		
 	}
 	
