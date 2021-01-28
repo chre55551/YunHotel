@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.date.model.Rdate;
+import hotel.yun.meals.model.Meals;
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
@@ -38,6 +39,41 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 		
 		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		oBean.setOrdered_date(c);
+		
+		try {
+			double p = oBean.getOrderedToRoom().getRoom().getRoomType().getRoom_price();
+			int days = oBean.getOrderedToRoom().getRdates().size();
+			oBean.getOrderedToRoom().setRoom_accounts((int)p*days);
+			oBean.setOrdered_accounts((int)p*days);
+		}catch(Exception er) {
+				int zero = 0;
+				int mp = 0;
+				List<Meals> ml = oBean.getOrderedToMeals().getMeals();
+				for(Meals meal:ml) {
+					int singleMeal = (int)meal.getMeals_price();
+					mp = zero + singleMeal;
+				}
+				oBean.getOrderedToMeals().setMeals_accounts(mp);
+				oBean.setOrdered_accounts(mp);
+		}
+		
+		try {
+			double p = oBean.getOrderedToRoom().getRoom().getRoomType().getRoom_price();
+			int days = oBean.getOrderedToRoom().getRdates().size();
+			oBean.getOrderedToRoom().setRoom_accounts((int)p*days);
+			int zero = 0;
+			int mp = 0;
+			List<Meals> ml = oBean.getOrderedToMeals().getMeals();
+			for(Meals meal:ml) {
+				int singleMeal = (int)meal.getMeals_price();
+				mp = zero + singleMeal;
+			}
+			oBean.getOrderedToMeals().setMeals_accounts(mp);
+			oBean.setOrdered_accounts(oBean.getOrderedToMeals().getMeals_accounts()+oBean.getOrderedToRoom().getRoom_accounts());
+		}catch(Exception e) {
+			
+		}
+		
 		return oDao.insert(oBean);
 	}
 
