@@ -11,6 +11,7 @@ import java.util.Set;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -137,26 +138,36 @@ public class Ordered_Controller_Ajax {
 	
 	// Ajax 根據日期房型查出所有可用的房間
 	@PostMapping("/roomtype/to/availablerooms")
-	public @ResponseBody Set<Room> roomTypeToAvailableRooms(@RequestParam(value = "room_type") String room_type,
+	public @ResponseBody List<Room> roomTypeToAvailableRooms(@RequestParam(value = "room_type") String room_type,
 			@RequestParam(value = "rdate") Date rdate,
 			@RequestParam(value = "rdateEnd") Date rdateEnd,
 			Model model, HttpSession session) {
+		DateTime rdateDT = DateToDateTime(rdate);
+		DateTime rdateEndDT = DateToDateTime(rdateEnd);
+		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);//產生 入住日期至退房日期的所有日期
+		Set<Rdate> rdates = dateTimeSetToRdateSet(range);
+		
+
 		try {
-			Set<Room>[] array = new Set[2];
-			Set<Room> list = new HashSet<>();//先創一個空的 list 後續會用於儲存可使用的房間
+//			Set<Room>[] array = new Set[2];
+			List<Room> list = new ArrayList<>();//先創一個空的 list 後續會用於儲存可使用的房間
 			Set<Room> rooms = rser.queryAllRoomByRoomType(room_type);//根據輸入的房型去撈出所有房間
 			for(Room room:rooms) {//每一間房間
-				boolean room_is_space = true;//預設此房間為空
+				boolean room_is_space = true;//預設此房間為可以使用
 				Set<Rdate> room_rdates = room.getRdates();//單間房間撈出的所有已經訂房的時段
 				for(Rdate rd:room_rdates) {//那間房間的每個已定的時段
-					if(rd.getRdate()==rdate) {//判斷該時段是否有人訂房
-						room_is_space = false;//若有 room_is_space 為 false
-					}
+					for(Rdate rda:rdates) {//撈出他要訂的每一天
+						if(rd.getRdate()==rda.getRdate()) {//若是有欲訂的任何一天與房間的已訂時間重覆，則房間不能使用
+							room_is_space = false;
+						}
+					}				
+//					if(rd.getRdate()==rdate) {//判斷該時段是否有人訂房
+//						room_is_space = false;//若有 room_is_space 為 false
+//						
+//					}
 				}
-				if(room_is_space) {//若該房間為空 將其加入list
+				if(room_is_space) {//若該房間可以使用 將其加入list
 					list.add(room);
-					array[0]=rooms;
-					array[1]=list;
 				}
 			}
 			
@@ -167,6 +178,37 @@ public class Ordered_Controller_Ajax {
 		return null;
 	}
 	
-	// 
+	// ------------------------------------
+	public DateTime DateToDateTime(Date d) {
+		String str = d.toString();
+		return DateTime.parse(str);
+	}
+    public Set<DateTime> getDateRange(DateTime start, DateTime end) {
+        Set<DateTime> ret = new HashSet<DateTime>();
+        DateTime tmp = start;
+        DateTime tmpend = end.plusDays(-1);
+        while(tmp.isBefore(tmpend) || tmp.equals(tmpend)) {
+            ret.add(tmp);
+            tmp = tmp.plusDays(1);
+        }
+        return ret;
+    }
+    
+    public Date dateTimeToDate(DateTime d) {
+    	java.util.Date date = d.toDate();
+    	Date sd = new java.sql.Date(date.getTime());
+    	return sd;
+    }
+    
+    public Set<Rdate> dateTimeSetToRdateSet(Set<DateTime> sd){
+    	Set<Rdate> rdates = new HashSet<>();
+    	for(DateTime d:sd) {
+    		Rdate r = new Rdate();
+    		Date date = dateTimeToDate(d);
+    		r.setRdate(date);
+    		rdates.add(r);
+    	}
+    	return rdates;
+    }
 	
 }
