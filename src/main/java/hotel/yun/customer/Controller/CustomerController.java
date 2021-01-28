@@ -152,15 +152,15 @@ public class CustomerController {
 //			System.out.println(" showAllMembers");
 		return "bmember/ShowBmember";
 	}
-	
-	
-	@GetMapping("/ShowMember")
-	public String getCustomer(Model model,HttpSession session) {
-		String account = (String) session.getAttribute("LoginOK");
-		Customer c = service.query(null);
-		model.addAttribute("rcc", c);
-		return "bmember/ShowBmember";
-	}
-	
+//	
+//	
+//	@GetMapping("/ShowMember")
+//	public String getCustomer(Model model,HttpSession session) {
+//		String account = (String) session.getAttribute("LoginOK");
+//		Customer c = service.query(null);
+//		model.addAttribute("rcc", c);
+//		return "customer/ShowMember";
+//	}
+//	
 	
 }
