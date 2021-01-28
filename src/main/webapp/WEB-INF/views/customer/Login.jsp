@@ -5,30 +5,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/backstage.css'
+	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
-<title>會員登入</title>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
+<title>訂位</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+<!-- Bootstrapt插件 -->
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<h3>會員登入</h3>
-	<div class="container">
-		<form action="../customer/login" method="post">
-			<p>帳號:</p>
-			<input type="text" name="account"></input> <br>
-			<p>密碼:</p>
-			<input type="password" name="password"></input> <br> <input
-				type="submit" value="登入"> 
-				
-                <a href="register" class="diamondtxt">新增會員</a>
 
-				<a href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
-		</form>
+	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
+	<div class="steakBG">
+		<div class="main">
+			<br>
+			<div class="orm">
+				<form action="../customer/login" method="post">
+					<p>帳號:</p>
+					<input type="text" name="account"></input> <br>
+					<p>密碼:</p>
+					<input type="password" name="password"></input> <br> <input
+						type="submit" value="登入"> <a href="register"
+						class="diamondtxt">新增會員</a> <a
+						href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
+				</form>
 
 
-	</div>
+			</div>
 </body>
 </html>
