@@ -6,7 +6,7 @@ import hotel.yun.room.model.Room;
 
 public class RoomSort implements Comparator<Room> {
 
-
+//hehe
 
 	@Override
 	public int compare(Room o1, Room o2) {
