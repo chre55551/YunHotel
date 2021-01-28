@@ -254,6 +254,9 @@ public class Ordered_Controller {
 			@RequestParam(value = "mealsnum_of_people") int mealsnum_of_people,
 			@RequestParam(value = "mdate") Date mdate, @RequestParam(value = "time_period") String time_period,
 			@RequestParam(value = "note") String note, Model model, HttpSession session) {
+		
+		String ac = (String) session.getAttribute("LoginOK");
+		
 		// 用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
 		// 若是不存在就做以下這些事情
 		Ordered od = new Ordered();
