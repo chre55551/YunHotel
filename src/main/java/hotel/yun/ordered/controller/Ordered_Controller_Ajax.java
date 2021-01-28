@@ -139,6 +139,7 @@ public class Ordered_Controller_Ajax {
 	@PostMapping("/roomtype/to/availablerooms")
 	public @ResponseBody Set<Room> roomTypeToAvailableRooms(@RequestParam(value = "room_type") String room_type,
 			@RequestParam(value = "rdate") Date rdate,
+			@RequestParam(value = "rdateEnd") Date rdateEnd,
 			Model model, HttpSession session) {
 		try {
 			Set<Room>[] array = new Set[2];

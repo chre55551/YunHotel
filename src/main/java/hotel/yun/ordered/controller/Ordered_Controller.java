@@ -160,7 +160,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "birthday") Date birthday,
 			@RequestParam(value = "address") String address,
-//			@RequestParam(value = "room_name") String room_name,
+			@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "room_type",required = false) String room_type,//可以不用
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
