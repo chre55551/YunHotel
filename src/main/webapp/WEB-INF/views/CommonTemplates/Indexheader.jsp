@@ -22,7 +22,7 @@
 		<c:choose>
 			<c:when test="${not empty LoginOK}">
 			
-				<li><a href="customer/Login">會員中心</a></li>
+				<li><a href="customer/ShowMember">會員中心</a></li>
 				<li><a href="customer/logout">登出</a></li>
 			</c:when>
 

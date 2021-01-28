@@ -8,5 +8,6 @@
 </head>
 <body>
 <h3>新增成功</h3>
+<a href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
 </body>
 </html>
