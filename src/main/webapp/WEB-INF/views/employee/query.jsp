@@ -20,7 +20,7 @@
                 
             <li class="diamond">
 <!--                 <div class="diamondtxt">依顧客查詢</div> -->
-                <a href="queryAll" class="diamondtxt">查詢所有</a>
+                <a href="showAllemployees" class="diamondtxt">查詢所有</a>
             </li>
             <li class="diamond">
 <!--                 <div class="diamondtxt">依日期查詢</div> -->

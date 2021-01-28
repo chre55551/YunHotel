@@ -1,6 +1,7 @@
 package hotel.yun.employee.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -72,6 +73,10 @@ public class Employee_basic implements Serializable {
 	
 	
 	
+	public Employee_basic(Blob ri) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Employee_info getEmployee_info() {
 		return employee_info;
 	}

@@ -21,16 +21,16 @@
 		<p>姓名：${NBbeans.employee_name}</p>
 		<p>部門: ${NBbeans.employee_department}</p>
 		<p>職位: ${NBbeans.employee_position}</p>
-		<p>年資: ${NWbeans.employee_workyears}</p>
-		<p>薪水: ${NWbeans.employee_salary}</p>
-		<p>性別: ${NIbeans.employee_gender}</p>
-		<p>年齡: ${NIbeans.employee_age}</p>
-		<p>地址: ${NIbeans.employee_address}</p>
-		<p>手機: ${NIbeans.employee_mobile}</p>
-		<p>電話: ${NIbeans.employee_phone}</p>
-		<p>電子信箱: ${NIbeans.employee_email}</p>
-		<p>緊急聯絡人: ${NIbeans.emergency_contact}</p>
-		<p>大頭照: ${NIbeans.employee_image}</p>
+		<p>年資: ${NBbeans.employee_work.employee_workyears}</p>
+		<p>薪水: ${NBbeans.employee_work.employee_salary}</p>
+		<p>性別: ${NBbeans.employee_info.employee_gender}</p>
+		<p>年齡: ${NBbeans.employee_info.employee_age}</p>
+		<p>地址: ${NBbeans.employee_info.employee_address}</p>
+		<p>手機: ${NBbeans.employee_info.employee_mobile}</p>
+		<p>電話: ${NBbeans.employee_info.employee_phone}</p>
+		<p>電子信箱: ${NBbeans.employee_info.employee_email}</p>
+		<p>緊急聯絡人: ${NBbeans.employee_info.emergency_contact}</p>
+		<p>大頭照: ${NBbeans.employee_info.employee_image}</p>
 
 		<a href="<c:url value='insertEmp'/> ">回新增</a>
 		</div>

@@ -51,11 +51,41 @@ public class Employee_ServiceImpl implements Employee_Service {
 		
 		return emDao.query(employee_id);	
 	}
+	@Override
+	public Employee_work query_work(int employee_work_id) {
+		
+		return emDao.query_work(employee_work_id);	
+	}
+	@Override
+	public Employee_info query_info(int employee_info_id) {
+		
+		return emDao.query_info(employee_info_id);	
+	}
+	@Override
+	public Employee_status query_status(int employee_status_id) {
+		
+		return emDao.query_status(employee_status_id);	
+	}
 
 	@Override
-	public List<Employee_basic> queryAll(int employee_id) {
+	public List<Employee_basic> queryAll() {
 		
-		return emDao.queryAll(employee_id);
+		return emDao.queryAll();
+	}
+	@Override
+	public List<Employee_work> queryAll_work() {
+		
+		return emDao.queryAll_work();
+	}
+	@Override
+	public List<Employee_info> queryAll_info() {
+		
+		return emDao.queryAll_info();
+	}
+	@Override
+	public List<Employee_status> queryAll_status() {
+		
+		return emDao.queryAll_status();
 	}
 	
 	@Override
@@ -66,5 +96,17 @@ public class Employee_ServiceImpl implements Employee_Service {
 	@Override
 	public void delete(int employee_id) {
 		emDao.delete(employee_id);
+	}
+	@Override
+	public void delete_work(int employee_work_id) {
+		emDao.delete_work(employee_work_id);
+	}
+	@Override
+	public void delete_info(int employee_info_id) {
+		emDao.delete_info(employee_info_id);
+	}
+	@Override
+	public void delete_status(int employee_status_id) {
+		emDao.delete_status(employee_status_id);
 	}
 }

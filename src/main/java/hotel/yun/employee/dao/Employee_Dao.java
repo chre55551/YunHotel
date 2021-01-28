@@ -14,8 +14,17 @@ public interface Employee_Dao {
 	public Employee_info insert_info(Employee_info emBean);
 	public Employee_status queryS(int i);
 	public Employee_basic query(int employee_id);
-	public List<Employee_basic> queryAll(int Employee_basic_id);
+	public Employee_work query_work(int employee_work_id);
+	public Employee_info query_info(int employee_info_id);
+	public Employee_status query_status(int employee_status_id);
+	public List<Employee_basic> queryAll();
+	public List<Employee_work> queryAll_work();
+	public List<Employee_info> queryAll_info();
+	public List<Employee_status> queryAll_status();
 	public Employee_basic update(Employee_basic embean);
 	public void delete(int employee_id) ;
+	public void delete_work(int employee_work_id) ;
+	public void delete_info(int employee_info_id) ;
+	public void delete_status(int employee_status_id) ;
 	
 }
