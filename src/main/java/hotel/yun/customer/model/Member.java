@@ -31,6 +31,14 @@ public class Member {
 	  @OneToOne(mappedBy = "member")
 	private Customer Customer;
 	
+	public Customer getCustomer() {
+		return Customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		Customer = customer;
+	}
+
 	public Member(){
 		
 	}
