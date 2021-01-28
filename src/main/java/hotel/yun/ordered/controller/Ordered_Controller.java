@@ -154,7 +154,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "birthday") Date birthday,
 			@RequestParam(value = "address") String address,
-			@RequestParam(value = "room_name") String room_name,
+//			@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "room_type",required = false) String room_type,//可以不用
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
@@ -198,15 +198,15 @@ public class Ordered_Controller {
 	    
 	    Room room = new Room();//新增空的房間
 	    
-	    try {
-	    	room = rser.queryByRoomNum(room_name); //嘗試取出房號
-	    	otr.setRoom(room); //將取出的房號放入房間訂單
-	    	System.out.println("queryByRoomNum sucess!!!");
-	    } catch (Exception eee) {
-	    	room.setRoom_name(room_name);
-	    	otr.setRoom(room);
-	    	System.out.println("queryByRoomNum fail!!!");
-	    }		
+//	    try {
+//	    	room = rser.queryByRoomNum(room_name); //嘗試取出房號
+//	    	otr.setRoom(room); //將取出的房號放入房間訂單
+//	    	System.out.println("queryByRoomNum sucess!!!");
+//	    } catch (Exception eee) {
+//	    	room.setRoom_name(room_name);
+//	    	otr.setRoom(room);
+//	    	System.out.println("queryByRoomNum fail!!!");
+//	    }		
 	    room.setRdates(rdates);//房間跟日期的多對多關係
 	    rser.save(room);//存入資料庫
 	    
