@@ -6,30 +6,34 @@
     overflow-x:hidden;
     overflow-y:auto;
 }
+/* ========================================================== */
 /* 頁首 */
 header{
 margin:0 auto;
 padding-top: 25px;  
 padding-left:25px;
-height: 30px;
+height: 50px;
 width: 100vw; /* 寬度=網頁寬 */
 background-color: #0F2540;
 color: white;
-font-size: 1.1em;
+font-size: 1.6em;
 flex: 0 0 auto; 
 position: fixed;/* 固定頁首 */
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .logo{
     margin-top:-18px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: fixed;
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* 後台這串字 */
 .backstage{
     margin-top:-10px;
     margin-left: 50px;
 }
+/* ========================================================== */
 /* 登出字 */
 .logout{
     float: right;
@@ -40,21 +44,23 @@ position: fixed;/* 固定頁首 */
 .logout:hover{
     color: #8a97a5;
 }
+/* ========================================================== */
 /* 左側連結 */
 .leftmenu{
-    width: 150px;
+    width: 200px;
     min-height: 100vh;
-    background-color: #0F2540;
+    background-color: #415469;
     float: left;
 }
 .leftmenu ul{/* 用來調整連結整體 */
-    padding-top: 100px;
+    padding-top: 105px;
 }
 .leftmenu ul li{/* 單個連結細項 */
-	padding-left:30px;
+	padding-top:10px;
+	padding-left:55px;
     width:100vh;
     height:50px;
-    font-size: 1em;
+    font-size: 1.3em;
     color: white;
 /*     text-align:center; */
 }
@@ -68,15 +74,31 @@ position: fixed;/* 固定頁首 */
 .leftmenu ul li a:visited{
     color: white;
 }
-.leftmenu ul li a:hover{
+.leftmenu ul li:hover a{
     color: #004080;
 /*     background-color: rgba(206, 229, 236, 0.6); */
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*左側連結字的設定*/
 .menutxt{
  	line-height:50px;/* =單個連結的height */
    	margin: auto;/* 利用行高來垂直置中 */
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*左側小圖標*/
+.pic{
+	margin-top:10px;
+	width: 20px;
+	height: 20px;
+}
+/*右側小圖標*/
+.Rpic{
+	margin-top:10px;
+	margin-left:10px;
+	width: 20px;
+	height: 20px;
+}
+/* ========================================================== */
 body{
     background-color: gainsboro;
 }
@@ -86,6 +108,70 @@ body{
     width: 100vw;  /*寬度=網頁寬 */
     flex: 1 0 auto; /* 頁首頁尾剩的空間 */
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* 右邊整體內容 */
+.right{
+	margin-top: 100px;
+	margin-left: 300px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* 右邊大標題字 */
+.title{
+	font-size: 1.8em;
+	font-weight: bold;
+	color:  #0F2540;
+}
+/* 右邊標題下橫線 */
+.hr{
+	margin-top:20px;
+	float:left;
+	width:1000px;
+	height:2px;
+	background-color:#546c87;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*灰頭區塊*/
+.litletitle{
+	float:left;
+	width:1000px;
+	height:50px;
+	background-color:#b5b5b6;
+}
+/*小連結們*/
+.ltF_div{
+	margin-left:20px;
+	margin-top:5px;
+	float:left;
+	width:150px;
+	height:40px;
+	background-color:#415469;
+	border-radius: 7px;
+}
+.ltF_div:hover{
+	background-color:#8194a9;
+}
+/*小連結們的字*/
+.ltF{
+	padding-top:-10px;
+	padding-left:10px;
+	color:white;
+	font-size: 1.3em;
+	text-decoration: none;
+	text-align:center;
+	line-height:40px;
+}
+/* .ltF_div:hover .ltF{ */
+/* 	color:#384e63; */
+/* } */
+/*白色區塊*/
+.allcontent{
+	margin-top:50px;
+	float:left;
+	width:1000px;
+	height:500px;
+	background-color:white;
+}
+/* ========================================================== */
 /* 內容 */
 .container{
     margin-top: 100px;
@@ -110,20 +196,17 @@ body{
     display: inline-block;
     text-align: center;
 }
-.pic{
-	margin-top:10px;
-	width: 20px;
-	height: 20px;
-}
+
+/* ========================================================== */
 /* 頁尾 */
 .footer{
-    height: 20px;
+    height: 50px;
     width: 100vw;  /*寬度=網頁寬 */
     text-align: center;
     background-color: #0F2540;
     color: white;
 }
-
-.mycenter{
-	text-align:center
+/* 頁尾字位置 */
+.CoF{
+	padding-top: 15px;
 }

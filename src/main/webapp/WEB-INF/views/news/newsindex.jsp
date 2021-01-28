@@ -14,25 +14,24 @@
 
 <div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-        <div class="container">
-            <ul class="ALLdiamond">
-                
-            <li class="diamond">
-                <a href='showAllNews' class="diamondtxt">所有消息</a>
-            </li>
-            <li class="diamond">
-                <a href='showinsertNews' class="diamondtxt">新增消息</a>
-            </li>
-            <li class="diamond">
-                <a href='queryNew' class="diamondtxt">修改消息</a>
-            </li>
-            <li class="diamond">
-                <a href='queryNew' class="diamondtxt">查詢消息</a>
-            </li>
-            </ul>
+	
+    <div class="right">
+        <p class="title">消息</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent">
+        	<div class="litletitle">	
+        		<div class="ltF_div">
+        			<img class="Rpic" src="${pageContext.request.contextPath}/image/add.png">
+        			<a class="ltF" href='showinsertNews'>新增消息</a>
+        		</div>
+        	</div>
         </div>
+        	
+     </div>
+
 </div>
-<div></div>
+
 <%@ include file="../CommonTemplates/footer.jsp"%>
 
 </body>
