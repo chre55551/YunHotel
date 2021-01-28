@@ -436,7 +436,7 @@ public class Ordered_Controller {
 	}
 
 	// 查到我顧客訂單的詳細資料
-	@RequestMapping("/thisOrdered/{ordered_number}")
+	@GetMapping("/thisOrdered/{ordered_number}")
 	public String singleOrdered(@PathVariable(value = "ordered_number") int ordered_number, Model model,
 			HttpSession session) {
 		Ordered ordered = service.queryOrderNum(ordered_number);
@@ -444,7 +444,14 @@ public class Ordered_Controller {
 		try {
 			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
 			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
+			//Set<Rdate> rdates = ordered.getOrderedToRoom().getRdates();
 			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
+//			for(Rdate rdate:rdates) {
+//				rdate.getRdate();
+//			}
+//			for(int i = 0; i <= rdates.size(); i++) {
+//				rdates.
+//			}
 		} catch (Exception e) {
 
 		}

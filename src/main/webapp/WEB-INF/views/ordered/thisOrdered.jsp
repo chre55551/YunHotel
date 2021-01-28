@@ -95,8 +95,8 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty room.roomType.room_name}">
-					<p>房號: ${room.roomType.room_name}</p>
+				<c:when test="${not empty room.room_name}">
+					<p>房號: ${room.room_name}</p>
 				</c:when>
 				<c:otherwise>
     				房號: 無
@@ -104,8 +104,8 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty room.roomType.room_type}">
-					<p>房型: ${room.roomType.room_type}</p>
+				<c:when test="${not empty roomType.room_type}">
+					<p>房型: ${roomType.room_type}</p>
 				</c:when>
 				<c:otherwise>
     				房型: 無
@@ -113,11 +113,12 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty rdate.rdate}">
+				<c:when test="${not empty rdates}">
+				<c:forEach var="rdate" items="${rdates}">
 					<p>欲訂房時間: ${rdate.rdate}</p>
+				</c:forEach>
 				</c:when>
 				<c:otherwise>
-    				欲訂房時間: 無
    				</c:otherwise>
 			</c:choose>
 
@@ -135,7 +136,7 @@
 					<p>訂單成立時間: ${ordered.ordered_date}</p>
 				</c:when>
 				<c:otherwise>
-    				訂單成立時間: 無
+<!--     				訂單成立時間: 無 -->
    				</c:otherwise>
 			</c:choose>
 
@@ -144,7 +145,7 @@
 					<p>訂單修改時間: ${ordered.ordered_last_update}</p>
 				</c:when>
 				<c:otherwise>
-    				訂單修改時間: 無
+<!--     				訂單修改時間: 無 -->
    				</c:otherwise>
 			</c:choose>
 
