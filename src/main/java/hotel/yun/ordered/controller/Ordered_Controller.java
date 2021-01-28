@@ -76,6 +76,12 @@ public class Ordered_Controller {
 	public String queryIndex(Model model) {
 		return "ordered/queryIndex";
 	}
+	
+	//結帳分流
+	@GetMapping("/checkoutIndex")
+	public String checkoutIndex(Model model) {
+		return "ordered/checkoutIndex";
+	}
 //-----------------------------------------------------------------------------------------------------
 	// 新增
 	// 後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱 訂餐~~~~~~~~~
