@@ -5,8 +5,8 @@
 	text-align: center;
 	margin-top: 100px;
 	background-color: rgba(189, 192, 186, 0.5);
-	width: 400px;
-	height: 385px;
+	width: 600px;
+	height: 300px;
 	border-radius: 30px;
 }
 /*訂位的字體*/
@@ -29,11 +29,11 @@
 	cursor: pointer;
 	margin: 10px;
 }
-/*會員的登入背景*/
-.steakbb {
+/*會員註冊背景*/
+.steakRR {
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url('http://localhost:8080/YunHotel/image/customer1.jpeg');
+	background-image: url('http://localhost:8080/YunHotel/image/register.jpg');
 }
 /*查詢的背景*/
 .queryODBG {

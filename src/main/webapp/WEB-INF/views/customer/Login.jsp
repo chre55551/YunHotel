@@ -10,9 +10,9 @@
 	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/ordered.css'
+	href='${pageContext.request.contextPath}/css/customer.css'
 	type="text/css" />
-<title>訂位</title>
+<title>登入</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
 <!-- Bootstrapt插件 -->
@@ -26,7 +26,7 @@
 
 
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
-	<div class="steakBG">
+	<div class="steakbb">
 		<div class="main">
 			<br>
 			<div class="orm">

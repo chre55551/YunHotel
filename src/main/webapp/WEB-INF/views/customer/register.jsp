@@ -8,7 +8,7 @@
 	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/ordered.css'
+	href='${pageContext.request.contextPath}/css/register.css'
 	type="text/css" />
 <title>註冊</title>
 <link rel="stylesheet"
@@ -23,14 +23,14 @@
 <body>
 
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
-	<div class="steakBG">
+	<div class="steakRR">
 		<div class="main">
 			<br>
 			<div class="orm">
 				<h3>註冊帳號</h3>
 				<div class="container">
 
-					<form action="/YunHotel/customer/registerOK" method="POST"
+					<form action="/YunHotel/customer/Login" method="POST"
 						class="container">
 						<p>帳號:</p>
 						<input type="text" name="account"></input> <br>
