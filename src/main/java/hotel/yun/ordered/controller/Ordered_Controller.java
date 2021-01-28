@@ -216,7 +216,7 @@ public class Ordered_Controller {
 //	    	System.out.println("queryByRoomNum fail!!!");
 //	    }		
 		room.setRdates(rdates);// 房間跟日期的多對多關係
-		rser.save(room);// 房間跟日期關係存入資料庫
+		rser.update(room);// 房間跟日期關係存入資料庫
 
 		otr.setRoom(room);// 將房間放入訂單
 		service.insertOTR(otr);
