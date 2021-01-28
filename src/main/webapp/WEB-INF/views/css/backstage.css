@@ -110,6 +110,11 @@ body{
     display: inline-block;
     text-align: center;
 }
+.pic{
+	margin-top:10px;
+	width: 20px;
+	height: 20px;
+}
 /* 頁尾 */
 .footer{
     height: 20px;
