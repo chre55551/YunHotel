@@ -30,10 +30,10 @@
 
 	<div class="main">
 		<div class="container">
-<%-- 			//<h2>${customer.chinese_name}，這是您的訂位資訊</h2> --%>
-<!-- 			<hr /> -->
-<%-- 			<p>姓名: ${customer.chinese_name}</p> --%>
-<%-- 			<p>手機: ${customer.mobile_phone}</p> --%>
+			<h4>${ct.chinese_name}，這是您的訂位資訊</h4>
+			<hr />
+			<p>姓名: ${ct.chinese_name}</p>
+			<p>手機: ${ct.mobile_phone}</p>
 			<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
 			<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
 			<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p>
