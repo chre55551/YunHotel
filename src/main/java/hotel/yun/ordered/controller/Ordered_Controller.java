@@ -86,7 +86,7 @@ public class Ordered_Controller {
 	// 新增
 	// 後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台後台 送出空白的Bean來接訂餐的屬性，Jsp input的name要對到DB的名稱 訂餐~~~~~~~~~
 	@GetMapping("/insertMealsOd")
-	public String ShowMealsOrdered(Model model) {
+	public String ShowMealsOrdered(Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/insertMealsOd";
@@ -98,7 +98,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "mealsnum_of_people") int mealsnum_of_people,
 			@RequestParam(value = "mdate") Date mdate, @RequestParam(value = "time_period") String time_period,
-			@RequestParam(value = "note") String note, Model model) {
+			@RequestParam(value = "note") String note, Model model, HttpSession session) {
 		// 用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
 		// 若是不存在就做以下這些事情
 		Ordered od = new Ordered();
@@ -165,7 +165,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
 			@RequestParam(value = "note") String note, 
-			Model model) {
+			Model model, HttpSession session) {
 		DateTime rdateDT = DateToDateTime(rdate);
 		DateTime rdateEndDT = DateToDateTime(rdateEnd);
 		Set<DateTime> range = getDateRange(rdateDT,rdateEndDT);//產生 入住日期至退房日期的所有日期
@@ -241,7 +241,7 @@ public class Ordered_Controller {
 	//前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台前台的新增!!!!!!  
 	//送出空白的表單，來接住使用者輸入的值 訂位~~~~
 	@GetMapping("/outsideInsertMealsOd")
-	public String outsideShowMealsOrdered(Model model) {
+	public String outsideShowMealsOrdered(Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/outsideInsertMealsOd";
@@ -253,7 +253,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "mobile_phone",required = false) String mobile_phone,
 			@RequestParam(value = "mealsnum_of_people") int mealsnum_of_people,
 			@RequestParam(value = "mdate") Date mdate, @RequestParam(value = "time_period") String time_period,
-			@RequestParam(value = "note") String note, Model model) {
+			@RequestParam(value = "note") String note, Model model, HttpSession session) {
 		// 用姓名手機撈顧客，若是存在此顧客就將撈出來的Customer塞進 od.setCustomer(customer);
 		// 若是不存在就做以下這些事情
 		Ordered od = new Ordered();
@@ -304,7 +304,7 @@ public class Ordered_Controller {
 //-----------------------------------------------------------------------------------------------------
 	//前台的
 	@GetMapping("/outsideInsertRoomOd")
-	public String outsideShowRoomOrdered(Model model) {
+	public String outsideShowRoomOrdered(Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/outsideInsertRoomOd";
@@ -318,7 +318,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
 			@RequestParam(value = "address") String address, @RequestParam(value = "room_type") String room_type,
 			@RequestParam(value = "rdate", required = false) Date rdate,
-			@RequestParam(value = "note") String note, Model model) {
+			@RequestParam(value = "note") String note, Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		od.setNote(note);
 		Customer customer = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
@@ -400,7 +400,7 @@ public class Ordered_Controller {
 //	}
 
 	@GetMapping("/showAllOrdered")
-	public String OrderedList(@ModelAttribute("odd") Ordered odd, Model model) {
+	public String OrderedList(@ModelAttribute("odd") Ordered odd, Model model, HttpSession session) {
 		List<Ordered> Ordered = service.queryAll(odd.getOrdered_number());
 		model.addAttribute("OrderedList", Ordered);
 		return "ordered/thisOrderedAll";// 進到查詢到的全部訂單，需再ThisOrdered裡設超連結進來
@@ -415,7 +415,7 @@ public class Ordered_Controller {
 
 	// 查到我顧客訂單的詳細資料
 	@RequestMapping("/thisOrdered/{ordered_number}")
-	public String singleOrdered(@PathVariable(value = "ordered_number") int ordered_number, Model model) {
+	public String singleOrdered(@PathVariable(value = "ordered_number") int ordered_number, Model model, HttpSession session) {
 		Ordered ordered = service.queryOrderNum(ordered_number);
 		model.addAttribute("ordered", ordered);
 		try {
@@ -448,7 +448,7 @@ public class Ordered_Controller {
 
 	// 查到顧客訂單的詳細資料
 	@RequestMapping("/outsidethisOrdered/{ordered_number}")
-	public String singleOrderedss(@PathVariable(value = "ordered_number") int ordered_number, Model model) {
+	public String singleOrderedss(@PathVariable(value = "ordered_number") int ordered_number, Model model, HttpSession session) {
 		Ordered ordered = service.queryOrderNum(ordered_number);
 		model.addAttribute("ordered", ordered);
 		try {
@@ -468,7 +468,7 @@ public class Ordered_Controller {
 	// 更新
 	// 從查詢取值後，送出這個空白表單
 	@GetMapping("/update/{id}")
-	public String update(@PathVariable(value = "id") int ordered_number, Model model) {
+	public String update(@PathVariable(value = "id") int ordered_number, Model model, HttpSession session) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		model.addAttribute("updateOdered", ThisOrdered);
 		System.out.println(ThisOrdered.getOrderedToRoom().getRdates());
@@ -518,7 +518,7 @@ public class Ordered_Controller {
 			@RequestParam(value = "ordered_status", required = false) String ordered_status,
 			@RequestParam(value = "bill_status", required = false) String bill_status,
 //			@RequestParam(value = "ordered_last_update", required = false) Timestamp ordered_last_update,
-			@RequestParam(value = "note", required = false) String note, Model model) {
+			@RequestParam(value = "note", required = false) String note, Model model, HttpSession session) {
 
 		Ordered ordered = service.queryOrderNum(ordered_number.intValue());
 		
@@ -596,7 +596,7 @@ public class Ordered_Controller {
 	// 刪除
 	// 從訂單編號刪除一筆訂單
 	@GetMapping("/DeleteOrdred/{ordered_number}")
-	public String delete(@PathVariable("ordered_number") int ordered_number) {
+	public String delete(@PathVariable("ordered_number") int ordered_number, HttpSession session) {
 		service.delete(ordered_number);
 		return "ordered/deleteFinish";
 	}

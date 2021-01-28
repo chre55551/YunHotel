@@ -67,7 +67,7 @@
 					</div>
 
 					<div class="ormt">
-						<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="note"
+						<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="note"
 							id="requestNote" class="odsm" />
 					</div>
 					<div>
