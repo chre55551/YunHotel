@@ -25,7 +25,7 @@
 		<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
 		<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
 		<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p><br>
-		<input type="button" value="回官網" onclick="location.href='http://localhost:8080/YunHotel/YunPage'" >
+		<input type="button" value="回新增" onclick="location.href='http://localhost:8080/YunHotel/insertIndex'" >
 <%-- 		<a href="<c:url value='insertMealsOd'/> ">回新增</a> --%>
 		</div>
 	</div>

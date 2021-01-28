@@ -33,7 +33,7 @@
 		訂房日期: ${rdate.rdate}  
 		</c:forEach>
 		</p><br>
-		<input type="button" value="回新增" onclick="location.href='insertMealsOd'" >
+		<input type="button" value="回新增" onclick="location.href='http://localhost:8080/YunHotel/insertIndex'" >
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>

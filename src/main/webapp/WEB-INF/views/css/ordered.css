@@ -9,11 +9,28 @@
 	height: 385px;
 	border-radius: 30px;
 }
+/* 新增訂單的透明白邊框 透明度較低 */
+.orm2 {
+	text-align: center;
+	margin-top: 100px;
+	background-color: rgba(189, 192, 186, 0.88);
+	width: 400px;
+	height: 385px;
+	border-radius: 30px;
+}
 /*訂位的字體*/
 .ormt {
 	margin: 25px;
 	color: rgba(15, 37, 64, 0.7);
 }
+
+/*定位成功的字體*/
+.ormt2{
+	margin: 25px;
+	color: rgba(15, 37, 64, 0.7);
+	font-size: 1.3em;
+}
+
 /*訂位的按鈕*/
 .ormBtn {
 	display: inline-block;
@@ -85,6 +102,8 @@
 	background-color:rgba(15, 37, 64, 0.7);
 	color: #fff;
 }
+
+
 
 
 

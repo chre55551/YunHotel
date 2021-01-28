@@ -27,18 +27,17 @@
 
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 
-
-	<div class="main">
-		<div class="container">
-			<h4>${ct.chinese_name}，這是您的訂位資訊</h4>
-			<hr />
-			<p>姓名: ${ct.chinese_name}</p>
-			<p>手機: ${ct.mobile_phone}</p>
-			<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
-			<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
-			<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p>
-			<br> <input type="button" value="回官網"
-				onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
+	<div class="steakBG">
+		<div class="main">
+			<div class="orm2">
+				<h4 class="ormt2">${ct.chinese_name}，這是您的訂位資訊</h4>
+				<p class="ormt2">姓名: ${ct.chinese_name}</p>
+				<p class="ormt2">手機: ${ct.mobile_phone}</p>
+				<p class="ormt2">人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
+				<p class="ormt2">用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
+				<p class="ormt2">用餐時段: ${odd.orderedToMeals.mdate.time_period }</p>
+				<br> <input class="ormBtn" type="button" value="回官網" 	onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
+			</div>
 		</div>
 	</div>
 	<div>
