@@ -40,7 +40,7 @@ public class OrderedToMeals implements Serializable {
 	private Mdate mdate;
 
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinTable(name = "orderedToMeals_meals", joinColumns = {
 			@JoinColumn(name = "fk_ordered_tomeals_id", referencedColumnName = "ordered_tomeals_id") }, inverseJoinColumns = {
 					@JoinColumn(name = "fk_meals_id", referencedColumnName = "meals_id") })

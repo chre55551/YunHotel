@@ -29,7 +29,7 @@
 		<div class="main">
 			<br>
 			<div class="orm">
-				<form action="/YunHotel/ordered/insertMealsOrdered" method="POST">
+				<form action="/YunHotel/ordered/outsideCustomerMealsOd" method="POST">
 					<div class="ormt">
 						<h4>請輸入訂位的時間</h4>
 					</div>

@@ -47,7 +47,7 @@ public class Room implements Serializable {
 	private RoomType roomType;
 	
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinTable(name = "room_rdate", 
 	    joinColumns = {
 			@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") }, inverseJoinColumns = {

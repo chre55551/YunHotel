@@ -87,7 +87,7 @@
 						var this_data = '';
 						this_data += '<label>房號</label> <select name="room_name"><option selected>請選擇房號</option>';
 						for(let room of fk){
-							this_data += '<option value="">' + room.room_name + '</option>' ;
+							this_data += '<option>' + room.room_name + '</option>' ;
 						};
 						this_data += '</select>';
 						$('#roomnum').html(this_data);
@@ -114,7 +114,7 @@
 						var this_data = '';
 						this_data += '<label>房號</label> <select name="room_name"><option selected>請選擇房號</option>';
 						for(let room of fk){
-							this_data += '<option value="">' + room.room_name + '</option>' ;
+							this_data += '<option>' + room.room_name + '</option>' ;
 						};
 						this_data += '</select>';
 						$('#roomnum').html(this_data);
