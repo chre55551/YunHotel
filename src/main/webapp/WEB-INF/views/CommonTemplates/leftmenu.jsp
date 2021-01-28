@@ -9,7 +9,7 @@
 <body>
 	    <div class="leftmenu">
 			<ul>
-				<li><a href="#" class="menutxt">後台首頁</a></li>
+				<li><a href="http://localhost:8080/YunHotel" class="menutxt">後台首頁</a></li>
 				<li>
 					<img class="pic" src="${pageContext.request.contextPath}/image/member.png">
 					<a href="${pageContext.request.contextPath}/bmember/IndexMember" class="menutxt">會員</a>

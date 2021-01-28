@@ -19,9 +19,9 @@
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>新增消息</h3>
 		<form action="/YunHotel/news/insertNews" method="POST" class="container">
-			<div>
-				<label>編號：</label> <input name="news_id"/>
-			</div>
+<!-- 			<div> -->
+<!-- 				<label>編號：</label> <input name="news_id"/> -->
+<!-- 			</div> -->
 			<div>
 				<label>消息上傳時間：</label> <input name="news_date" type="date"/>
 			</div>
