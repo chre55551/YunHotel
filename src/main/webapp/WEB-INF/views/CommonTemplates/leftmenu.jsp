@@ -17,6 +17,7 @@
 				<li><a href="${pageContext.request.contextPath}/room/IndexRoom" class="menutxt">房務</a></li>
 				<li><a href="${pageContext.request.contextPath}/news/newsindex" class="menutxt">消息</a></li>
 				<li><a href="${pageContext.request.contextPath}/bmember/BLogin" class="menutxt">登入</a></li>
+				<li><a href="${pageContext.request.contextPath}/ordered/checkoutIndex" class="menutxt">結帳</a></li>
 				<li><a href="http://localhost:8080/YunHotel/YunPage" class="menutxt">回到官網</a></li>
 			</ul>
 		</div>

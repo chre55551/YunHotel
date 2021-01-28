@@ -24,9 +24,6 @@
             <li class="diamond">
                  <a href="queryIndex" class="diamondtxt">查詢訂單</a>
             </li>
-            <li class="diamond">
-                 <a href="checkoutIndex" class="diamondtxt">結帳</a>
-            </li>
             </ul>
         </div>
     </div>
