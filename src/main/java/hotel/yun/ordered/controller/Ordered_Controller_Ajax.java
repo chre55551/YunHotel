@@ -56,7 +56,7 @@ public class Ordered_Controller_Ajax {
 	//-----------------以上是屬性--------------------
 
 	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已成立~~~~~~~~~~~~~~~~~
-	@GetMapping("/customerToOrdered/orderedCreated")
+	@PostMapping("/customerToOrdered/orderedCreated")
 	public @ResponseBody List<Ordered> orderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "ordered_status") String ordered_status,
@@ -82,7 +82,7 @@ public class Ordered_Controller_Ajax {
 	}
 
 	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單~~~~~~~~~~~~~~~~~~~
-	@GetMapping("/customerToOrdered/orderedFinished")
+	@PostMapping("/customerToOrdered/orderedFinished")
 	public @ResponseBody List<Ordered> orderedFinishedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "ordered_status") String ordered_status,
@@ -105,7 +105,7 @@ public class Ordered_Controller_Ajax {
 	}
 
 	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出      全部訂單~~~~~~~~~~~~~~~
-	@GetMapping("/customerToOrdered/orderedAll")
+	@PostMapping("/customerToOrdered/orderedAll")
 	public @ResponseBody List<Ordered> orderedAllAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
 			@RequestParam(value = "ordered_status") String ordered_status,
@@ -153,11 +153,19 @@ public class Ordered_Controller_Ajax {
 			List<Room> list = new ArrayList<>();//先創一個空的 list 後續會用於儲存可使用的房間
 			Set<Room> rooms = rser.queryAllRoomByRoomType(room_type);//根據輸入的房型去撈出所有房間
 			for(Room room:rooms) {//每一間房間
+				System.out.println(room.getRoom_name());
+				System.out.println("puipui");
+				System.out.println(room.getRoom_name());
+				System.out.println("puipui");
+				System.out.println(room.getRoom_name());
+				System.out.println("puipui");
+				System.out.println(room.getRoom_name());
 				boolean room_is_space = true;//預設此房間為可以使用
 				Set<Rdate> room_rdates = room.getRdates();//單間房間撈出的所有已經訂房的時段
 				for(Rdate rd:room_rdates) {//那間房間的每個已定的時段
 					for(Rdate rda:rdates) {//撈出他要訂的每一天
-						if(rd.getRdate()==rda.getRdate()) {//若是有欲訂的任何一天與房間的已訂時間重覆，則房間不能使用
+						int i = rd.getRdate().compareTo(rda.getRdate());
+						if(i==0) {//若是有欲訂的任何一天與房間的已訂時間重覆，則房間不能使用
 							room_is_space = false;
 						}
 					}				
