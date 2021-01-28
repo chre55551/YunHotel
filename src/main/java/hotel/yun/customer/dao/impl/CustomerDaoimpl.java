@@ -1,6 +1,7 @@
 package hotel.yun.customer.dao.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -36,14 +37,16 @@ public class CustomerDaoimpl implements Serializable, CustomerDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Customer> queryAll(int customer_id) {
-		List<Customer> list = null;
-		Session session = factory.getCurrentSession();
-		String hql = "FROM Customer cu WHERE cu.customer_id = :onb";
-		list = session.createQuery(hql).setParameter("onb", customer_id).getResultList();
+	public List<Customer> queryAll() {
+		Session session = null;
+		session = factory.getCurrentSession();
+		String hql = "FROM Customer and Member";
+		List<Customer> list = new ArrayList<>();
+		list = session.createQuery(hql).getResultList();
+		System.out.println(list);
 		return list;
-	}
 
+	}
 	@Override
 	public Customer update(Customer cBean) {
 		Session session = factory.getCurrentSession();

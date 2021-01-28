@@ -10,7 +10,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
-<title>GetaBmember</title>
+<title>顯示會員</title>
 </head>
 
 <body>

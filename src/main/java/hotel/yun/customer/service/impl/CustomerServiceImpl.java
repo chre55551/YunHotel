@@ -39,8 +39,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> queryAll(int customer_id) {
-		return cDao.queryAll(customer_id);
+	public List<Customer> queryAll() {
+		return cDao.queryAll();
 	}
 
 	@Override
