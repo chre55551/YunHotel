@@ -161,9 +161,10 @@ public class CustomerController {
 		Customer ct = new Customer();
 		String account = (String) session.getAttribute("LoginOK");
 		ct = service.queryByAc(account);
-		me.setCustomer(ct);
+		me = ct.getMember();
 //		Customer c = service.queryByAc(null);
-		model.addAttribute("rcc",me);
+		model.addAttribute("rcm",me);
+		model.addAttribute("rcc",ct);
 		return "customer/ShowMember";
 	}
 	

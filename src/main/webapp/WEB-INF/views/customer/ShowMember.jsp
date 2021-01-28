@@ -5,35 +5,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/backstage.css'
+	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
-<title>顯示會員</title>
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/customer.css'
+	type="text/css" />
+<title>顯示所有會員</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+<!-- Bootstrapt插件 -->
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="../CommonTemplates/header.jsp"%>
 
 
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
+	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
+	<div class="steakbb">
+		<div class="main">
+			<br>
+			<div class="orm">
 
-			<p>帳號: ${rcc.account}</p>
-			<p>密碼: ${rcc.password}</p>
-			<p>性別: ${rcc.gender}</p>
-			<p>家裡電話: ${rcc.home_phone}</p>
+			<p>帳號: ${rcm.account}</p>
+			<p>密碼: ${rcm.password}</p>
+			<p>性別: ${rcm.gender}</p>
+			<p>家裡電話: ${rcm.home_phone}</p>
 			<p>手機電話: ${rcc.mobile_phone}</p>
-			<p>工作: ${rcc.job}</p>
-			<p>信箱: ${rcc.email}</p>
-			<p>密碼: ${rcc.password}</p>
-			<p>信箱: ${rcc.email}</p>
+			<p>工作: ${rcm.job}</p>
+			<p>信箱: ${rcm.email}</p>
 			<p>真實姓名: ${rcc.chinese_name}</p>
 			<p>身分證字號: ${rcc.idcard_number}</p>
 			<p>生日: ${rcc.birthday}</p>
 			<p>地址: ${rcc.address}</p>
-			<a href="<c:url value='IndexMember'/> ">回上一頁</a>
+			<br> <input class="ormBtn" type="button" value="回官網" 	onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
 		</div>
 	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
