@@ -10,7 +10,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
-<title>GetaBmember</title>
+<title>顯示會員</title>
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
@@ -19,10 +19,20 @@
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<div class="container">
-			
-			<p>帳號: ${rcc.bs_account}</p>
-			<p>密碼: ${rcc.bs_password}</p>
-			<p>信箱: ${rcc.bs_email}</p>
+
+			<p>帳號: ${rcc.account}</p>
+			<p>密碼: ${rcc.password}</p>
+			<p>性別: ${rcc.gender}</p>
+			<p>家裡電話: ${rcc.home_phone}</p>
+			<p>手機電話: ${rcc.mobile_phone}</p>
+			<p>工作: ${rcc.job}</p>
+			<p>信箱: ${rcc.email}</p>
+			<p>密碼: ${rcc.password}</p>
+			<p>信箱: ${rcc.email}</p>
+			<p>真實姓名: ${rcc.chinese_name}</p>
+			<p>身分證字號: ${rcc.idcard_number}</p>
+			<p>生日: ${rcc.birthday}</p>
+			<p>地址: ${rcc.address}</p>
 			<a href="<c:url value='IndexMember'/> ">回上一頁</a>
 		</div>
 	</div>
