@@ -59,7 +59,7 @@ public class Ordered_Controller_Ajax {
 	@PostMapping("/customerToOrdered/orderedCreated")
 	public @ResponseBody List<Ordered> orderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "mobile_phone") String mobile_phone,
-			@RequestParam(value = "ordered_status") String ordered_status,
+			@RequestParam(value = "ordered_status" ,required = false) String ordered_status,
 			Model model, HttpSession session) {
 		Customer c = new Customer(chinese_name, mobile_phone);
 		System.out.println(c.getChinese_name());
@@ -70,7 +70,8 @@ public class Ordered_Controller_Ajax {
 //			System.out.println(CustomerOrdered.get(0).getOrderedToRoom().getRdates().get(0).getRdate());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
 			for (Ordered o : CustomerOrdered) {
-				if (o.getOrderedStatus().getStatus_id() == 1) {
+//				if (o.getOrderedStatus().getOrdered_status() == "已成立") 
+				{
 					returnlist.add(o);
 				}
 			}
