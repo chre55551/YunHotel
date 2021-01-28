@@ -334,7 +334,7 @@ public class Ordered_Controller {
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面 訂房~~~~~~~~~‵
 	@SuppressWarnings("rawtypes")
-	@PostMapping("/outsideInsertRoomOrdered")
+	@PostMapping("/outsideCustomerRoomOd")
 	public String outsideinsertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
 			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,

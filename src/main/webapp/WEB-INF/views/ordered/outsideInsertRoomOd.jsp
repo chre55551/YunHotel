@@ -29,7 +29,7 @@
 	<div class="ckeckinBG">
 		<div class="main">
 			<br>
-			<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
+			<form action="/YunHotel/ordered/outsideCustomerRoomOd" method="POST"
 				class="orm">
 				<h4 class="odfz">
 					您好  
