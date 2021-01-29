@@ -34,7 +34,8 @@ import hotel.yun.room.service.RoomService;
 @RequestMapping("/room")
 @SessionAttributes({ "room_id", "room_name", "room_typeid" })
 public class RoomController {
-
+    
+	@Autowired
 	ServletContext context;
 
 	@Autowired
@@ -191,11 +192,11 @@ public class RoomController {
 //	  
 //	  
 //	 }
-	@GetMapping("/update/{room_typeid}")
+	@GetMapping("/UpdateRoom/{room_typeid}")
 	public String UpdateRoom(Model model, @PathVariable int room_typeid) {
 		RoomType rm = service.queryRoomType_id(room_typeid);
 		model.addAttribute("UpdateRoom", rm);
-//model.addAttribute("Rid",rm.getRoom_typeid());
+      //  model.addAttribute("Rid",rm.getRoom_typeid());
 		model.addAttribute("Rtype",rm.getRoom_type());
 		model.addAttribute("Rprice",rm.getRoom_price());
 		model.addAttribute("Rstock",rm.getRoom_stock());
@@ -203,37 +204,23 @@ public class RoomController {
 		return "room/UpdateRoom";
 	}
 	
-	@PostMapping("/update/{room_typeid}")
+	@PostMapping("/UpdateRoom/{room_typeid}")
 	public String update2(
 			@ModelAttribute("UpdateRoom") RoomType rm,
 			@PathVariable(value = "room_typeid", required = false) int room_typeid,
 			@RequestParam(value = "room_type", required = false) String room_type,
 			@RequestParam(value = "room_price", required = false) Double room_price,
 			@RequestParam(value = "room_stock", required = false) int room_stock,
-			@RequestParam(value = "room_image", required = false) int room_image,
+			@RequestParam(value = "room_image", required = false) Blob room_image,
 			Model model
 				) {
 
 			service.updateRoomType(rm);	
-			return "redirect:../showAllNews";
+			return "redirect:../QueryAllRooms";
 		}
 	
 	
-//	@PostMapping("/UpdateRoom/{room_typeid}")
-//	public String UpdateRoom(
-//		@ModelAttribute("UpdateRoom") RoomType rm,
-//		@PathVariable(value = "room_typeid", required = false) int room_typeid,
-//		@RequestParam(value = "room_type", required = false) String room_type,
-//		@RequestParam(value = "room_price", required = false) Double room_price,
-//		@RequestParam(value = "room_stock", required = false) int room_stock,
-//		@RequestParam(value = "room_image", required = false) Blob room_image,
-//		Model model) 
-//			
-//	{
-//
-//		service.updateRoomType(rm);	
-//		return "redirect:/room/QueryAllRooms";
-//	}
+
 	
 
 

@@ -18,7 +18,7 @@
 
 		<table class="container" border='1'  >
 			<tr>
-			   
+			   <th width='130' height='20'>房型ID</th>
 			   <th width='130' height='20'>房型名稱</th>
 			   <th width='130' height='20'>房價</th>
 			   <th width='130' height='20'>房型總數</th>
@@ -27,7 +27,7 @@
 			</tr>
 			<c:forEach var='rom' items='${roomTypeList}'>
 				<tr>
-					
+					<td style="text-align:center">${rom.room_typeid}</td>
 					<td style="text-align:center">${rom.room_type}</td>
 					<td style="text-align:center">${rom.room_price}</td>
 					<td style="text-align:center">${rom.room_stock}</td>

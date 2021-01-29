@@ -19,6 +19,10 @@
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改房型</h3>
 		<form modelAttribute="UpdateRoom" method="POST" class="container">
+		
+		
+		
+		
 			<div>
 				<label>房型名稱：</label> <input name="room_type_room_type" />
 			</div>
@@ -29,7 +33,8 @@
 				<label>房型總數：</label> <input name="room_type_room_stock"/>
 			</div>
 			<div>
-				<label>房型圖片：</label> <input name="room_type_room_image"/>
+				<label>房型圖片</label> 
+				 <input type="file" name="room_image" id="room_type_room_Image" onchange="">
 			</div>
 			<div>
 				<input value="修改" type="submit">
