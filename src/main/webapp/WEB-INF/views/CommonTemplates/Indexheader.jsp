@@ -22,12 +22,12 @@
 		<c:choose>
 			<c:when test="${not empty LoginOK}">
 			
-				<li><a href="customer/ShowMember">會員中心</a></li>
-				<li><a href="customer/logout">登出</a></li>
+				<li><a href="http://localhost:8080/YunHotel/customer/ShowMember">會員中心</a></li>
+				<li><a href="http://localhost:8080/YunHotel/customer/logout">登出</a></li>
 			</c:when>
 
 			<c:otherwise>
-				<li><a href="customer/Login">登入</a></li>
+				<li><a href="http://localhost:8080/YunHotel/customer/Login">登入</a></li>
 			</c:otherwise>
 		</c:choose>
 		</ul>

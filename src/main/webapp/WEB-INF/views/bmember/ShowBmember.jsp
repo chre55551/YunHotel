@@ -18,7 +18,7 @@
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<div class="container">
-			<h3>客戶資料</h3>
+			<h3>後台會員資料</h3>
 			<hr>
 			<table border='1'>
 				<tr>
