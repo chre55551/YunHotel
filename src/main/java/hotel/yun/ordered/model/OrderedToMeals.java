@@ -36,7 +36,7 @@ public class OrderedToMeals implements Serializable {
 	@Transient
 	private int mdate_id;// 對到用餐時間
 
-	@OneToOne(mappedBy = "OrderedToMeals")
+	@OneToOne(mappedBy = "orderedToMeals")
 	private Ordered ordered;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
