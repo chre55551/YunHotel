@@ -226,6 +226,8 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 				right = otr;
 			}
 		}
+//		session.get(Ordered.class, 1);
+		String hqll= "from Ordered od where od.orderedToRoom =";
 		
 //		return right.getOrdered();
 		return null;
