@@ -170,8 +170,7 @@ public class Ordered_Controller {
 		DateTime rdateDT = DateToDateTime(rdate);
 		DateTime rdateEndDT = DateToDateTime(rdateEnd);
 		Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
-		Room room = new Room();// 新增空的房間
-		room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
+		Room room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
 		Room room1 = rser.queryRoomByName(room_name);// 根據房名撈出該房間
 		Set<Rdate> rdates = room.getRdates() ; //根據房間取出所有 rdate
 		Set<Rdate> rdates1 = room1.getRdates() ; //根據房間取出所有 rdate
@@ -197,6 +196,7 @@ public class Ordered_Controller {
 			try {
 				Rdate rd = dser.queryByRoomDate(date);// 嘗試根據日期找出 Rdate 物件
 				rdates.add(rd);// 加到 set<Rdate>中
+				rdates1.add(rd);// 加到 set<Rdate>中
 			} catch (Exception e) {// 若不存在此日期，new 一個加到資料庫
 				Rdate r = new Rdate();
 				r.setRdate(date);
@@ -330,7 +330,7 @@ public class Ordered_Controller {
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面 訂房~~~~~~~~~‵
-	@SuppressWarnings("rawtypes")
+//	@SuppressWarnings("rawtypes")
 	@PostMapping("/outsideCustomerRoomOd")
 	public String outsideinsertRoomOrdered(/*@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
@@ -373,17 +373,7 @@ public class Ordered_Controller {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		Customer customer = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
-//		try {
-//			Customer CExist = cser.query(customer);
-//			CExist.setIdcard_number(idcard_number);
-//			CExist.setAddress(address);
-//			CExist.setBirthday(birthday);
-//			od.setCustomer(CExist);
-//		} catch (Exception e) {
-//			od.setCustomer(customer);
-//			e.printStackTrace();
-//		}
+		
 		OrderedToRoom otr = new OrderedToRoom();
 		Room room = new Room();
 		
@@ -414,24 +404,6 @@ public class Ordered_Controller {
 
 		return "ordered/outsideCustomerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
-//-----------------------------------------------------------------------------------------------------
-	// 查詢
-//	@GetMapping("/thisOrdered")
-//	public String ThisOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-//		Ordered ordered = service.queryOrderNum(odd.getOrdered_number());
-//		model.addAttribute("ordered_status", ordered.getOrderedStatus().getOrdered_status());
-//		model.addAttribute("payment_status",ordered.getOrderedPayment().getPayment_status());
-//		model.addAttribute("ordered", ordered);
-//		return "ordered/thisOrdered";//依訂單號查到他的訂單
-//	}
-
-	@GetMapping("/showAllOrdered")
-	public String OrderedList(@ModelAttribute("odd") Ordered odd, Model model, HttpSession session) {
-		List<Ordered> Ordered = service.queryAll(odd.getOrdered_number());
-		model.addAttribute("OrderedList", Ordered);
-		return "ordered/thisOrderedAll";// 進到查詢到的全部訂單，需再ThisOrdered裡設超連結進來
-	}
-
 //-----------------------------------------------------------------------------------------------------
 	// 寫在後台需要從顧客查詢到他的訂單
 	@GetMapping("/customerToOrdered")
