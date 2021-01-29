@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.List;
 
 import hotel.yun.ordered.model.OrderedToRoom;
+import hotel.yun.room.model.Room;
+import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
@@ -23,4 +25,5 @@ public interface Ordered_Service {
 	public void updateOTR(OrderedToRoom orderedToRoom);
 	public OrderedStatus queryStatusByS(String ordered_status);
 	public OrderedPayment queryPaymentBys(String bill_status);
+	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate);
 }
