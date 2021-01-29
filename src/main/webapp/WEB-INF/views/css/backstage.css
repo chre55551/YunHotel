@@ -91,16 +91,16 @@ position: fixed;/* 固定頁首 */
 	width: 20px;
 	height: 20px;
 }
-/*右側小圖標*/
-.Rpic{
-	margin-top:10px;
-	margin-left:10px;
-	width: 20px;
-	height: 20px;
-}
+/* /*右側小圖標*/ */
+/* .Rpic{ */
+/* 	margin-top:10px; */
+/* 	margin-left:10px; */
+/* 	width: 20px; */
+/* 	height: 20px; */
+/* } */
 /* ========================================================== */
 body{
-    background-color: gainsboro;
+	background-color: #FAD689;
 }
 /* 主體 */
 .main{
@@ -142,7 +142,7 @@ body{
 	margin-left:20px;
 	margin-top:5px;
 	float:left;
-	width:150px;
+	width:120px;
 	height:40px;
 	background-color:#415469;
 	border-radius: 7px;
@@ -152,8 +152,8 @@ body{
 }
 /*小連結們的字*/
 .ltF{
-	padding-top:-10px;
-	padding-left:10px;
+	padding-top:-5px;
+	padding-left:18px;
 	color:white;
 	font-size: 1.3em;
 	text-decoration: none;

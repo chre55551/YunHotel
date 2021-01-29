@@ -22,7 +22,6 @@
         <div class="allcontent">
         	<div class="litletitle">	
         		<div class="ltF_div">
-        			<img class="Rpic" src="${pageContext.request.contextPath}/image/add.png">
         			<a class="ltF" href='showinsertNews'>新增消息</a>
         		</div>
         	</div>
