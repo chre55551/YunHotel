@@ -208,16 +208,33 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	@Override
 	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate) {
 		Session session = factory.getCurrentSession();
-		Ordered od = new Ordered();
+		Date rd0 = rdate.getRdate();
+		OrderedToRoom right = new OrderedToRoom ();
 		String hql = "from OrderedToRoom otr where otr.room in (from Room rm  where rm.room_name = :rmn)";
-		Room room_result = (Room)session.createQuery(hql).setParameter("rmn", room.getRoom_name()).getSingleResult();
+		@SuppressWarnings("unchecked")
+		List<OrderedToRoom> otrlist = session.createQuery(hql).setParameter("rmn", room.getRoom_name()).getResultList();
+		for(OrderedToRoom otr:otrlist) {		
+			Set<Rdate> rdates = otr.getRdates();
+			boolean kk = false;
+			for(Rdate rdateQQ:rdates) {
+				Date rd1 = rdateQQ.getRdate();
+				if(rd1.compareTo(rd0)==0) {
+					kk = true;
+				}	
+			}
+			if(kk==true) {
+				right = otr;
+			}
+		}
+		
+//		return right.getOrdered();
+		return null;
 //		Set<Rdate> rdates = od.getOrderedToRoom().getRdates();
 //		for(Rdate rdateqq:rdates) {
 //			
 //		}
 //		od.getOrderedToRoom().getRoom();
 //		String hql = "from OrderedToRoom otr where otr.room in (from Room rm  where rm.room_name = :rmn ) and otr.rdates ";
-		return null;
 	}
 
 }
