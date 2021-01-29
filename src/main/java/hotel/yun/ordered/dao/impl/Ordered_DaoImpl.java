@@ -3,6 +3,7 @@ package hotel.yun.ordered.dao.impl;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,11 +11,13 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import hotel.yun.date.model.Rdate;
 import hotel.yun.ordered.dao.Ordered_Dao;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.model.OrderedToRoom;
+import hotel.yun.room.model.Room;
 
 @Repository
 public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
@@ -201,6 +204,20 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		String hql = "FROM OrderedPayment op WHERE op.bill_status = :obs";
 		OrderedPayment op = (OrderedPayment)session.createQuery(hql).setParameter("obs", bill_status).getSingleResult();
 		return op;
+	}
+	@Override
+	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate) {
+		Session session = factory.getCurrentSession();
+		Ordered od = new Ordered();
+		String hql = "from OrderedToRoom otr where otr.room in (from Room rm  where rm.room_name = :rmn)";
+		Room room_result = (Room)session.createQuery(hql).setParameter("rmn", room.getRoom_name()).getSingleResult();
+//		Set<Rdate> rdates = od.getOrderedToRoom().getRdates();
+//		for(Rdate rdateqq:rdates) {
+//			
+//		}
+//		od.getOrderedToRoom().getRoom();
+//		String hql = "from OrderedToRoom otr where otr.room in (from Room rm  where rm.room_name = :rmn ) and otr.rdates ";
+		return null;
 	}
 
 }

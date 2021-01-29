@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import hotel.yun.customer.service.CustomerService;
 import hotel.yun.date.model.Rdate;
 import hotel.yun.date.service.Date_Service;
+import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.service.Ordered_Service;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
@@ -58,7 +59,7 @@ public class Checkout_Controller {
 		Date lastUseDay = (Date) c.getTime();
 		Rdate rdate = dser.queryByRoomDate(lastUseDay);
 		
-		
+		Ordered od = oser.queryOdByRoomAndRdate(room,rdate);
 		
 				return null;
 	}

@@ -152,7 +152,6 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 
 	@Override
 	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate) {
-		// TODO Auto-generated method stub
-		return null;
+		return oDao.queryOdByRoomAndRdate(room, rdate);
 	}
 }

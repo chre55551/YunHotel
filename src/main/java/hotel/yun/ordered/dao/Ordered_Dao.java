@@ -8,6 +8,7 @@ import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.model.OrderedToRoom;
+import hotel.yun.room.model.Room;
 
 public interface Ordered_Dao {
 
@@ -24,4 +25,5 @@ public interface Ordered_Dao {
 	public void updateOTR(OrderedToRoom orderedToRoom);
 	public OrderedStatus queryStatusByS(String ordered_status);
 	public OrderedPayment queryPaymentBys(String bill_status);
+	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate);
 }
