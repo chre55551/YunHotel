@@ -326,7 +326,9 @@ public class Ordered_Controller {
 //-----------------------------------------------------------------------------------------------------
 	// 前台的
 	@GetMapping("/outsideInsertRoomOd")
-	public String outsideShowRoomOrdered(Model model, HttpSession session) {
+	public String outsideShowRoomOrdered(@RequestParam(value = "rdate", required = false) Date rdate,
+			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
+			Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/outsideInsertRoomOd";

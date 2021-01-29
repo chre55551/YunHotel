@@ -30,26 +30,27 @@
 	
 		<div class="dateline">
 			<div class="dateline2">
+			<form action="http://localhost:8080/YunHotel/ordered/outsideInsertRoomOd">
 				<div class="D1">
 					<p class="dateF">入住:</p>
 					<br>
 					<!-- readonly:不讓使用者自行輸入日期 -->
-					<input type="date" id="from" class="datepicker from" readonly>
+					<input name="rdate" type="date" id="from" class="datepicker from" readonly>
 					<img class="datepic" src="image/date1.png">
 				</div>
 
 				<div class="D1">
 					<p class="dateF">退房:</p>
-					<br> <input type="date" id="to" class="to datepicker" readonly>
+					<br> <input name="rdateEnd" type="date" id="to" class="to datepicker" readonly>
 					<img class="datepic" src="image/date1.png">
 				</div>
 				
 				<div class="D1 ORbtnposition">
-					<button class="ORbtn"
-						onclick="location.href='ordered/outsideInsertRoomOd'">
+					<button class="ORbtn" type="submit">
 						<p>馬上訂房</p>
 					</button>
 				</div>
+			</form>
 				
 			</div>
 		</div>
