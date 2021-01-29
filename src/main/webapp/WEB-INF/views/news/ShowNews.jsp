@@ -10,13 +10,25 @@
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
 <title>ShowNews</title>
 </head>
-<body>
-	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
+<body><%@ include file="../CommonTemplates/header.jsp"%>
+
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-<div align='center'>
-<h3>全部消息</h3>
-		<table class="container" border='1' cellpadding="3" cellspacing="1" >
+	
+    <div class="right">
+        <p class="title">消息</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+<!--         		<div class="ltF_div"> 按鈕	 -->
+<!--         			<a class="ltF" href='showinsertNews'>新增消息</a> -->
+<!--         		</div> -->
+        	</div>
+        		<div class="listtitle">
+        		
+        		
+		<table border='1' cellpadding="3" cellspacing="1" >
 			<tr>
 			   <th width='56' height='20'>編號</th>
 			   <th width='130' height='20'>上傳時間</th>
@@ -39,8 +51,15 @@
 			</c:forEach>
 		
 		</table>
-<hr>
+				</div>
+        </div>
+        	
+     </div>
+
 </div>
+
+
+
 <script type='text/javascript'>
     $(document).ready(function() {
         $('.deletelink').click(function() {
