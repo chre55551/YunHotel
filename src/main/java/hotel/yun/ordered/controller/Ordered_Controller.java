@@ -172,7 +172,9 @@ public class Ordered_Controller {
 		Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
 		Room room = new Room();// 新增空的房間
 		room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
-		Set<Rdate> rdates = room.getRdates() ;//根據房間取出所有 rdate
+		Room room1 = rser.queryRoomByName(room_name);// 根據房名撈出該房間
+		Set<Rdate> rdates = room.getRdates() ; //根據房間取出所有 rdate
+		Set<Rdate> rdates1 = room1.getRdates() ; //根據房間取出所有 rdate
 
 		Ordered od = new Ordered();
 		od.setNote(note);
@@ -200,21 +202,12 @@ public class Ordered_Controller {
 				r.setRdate(date);
 				dser.insert(r);
 				rdates.add(r);// 加到 set<Rdate>中
+				rdates1.add(r);// 加到 set<Rdate>中
 			}
 		}
 
-		otr.setRdates(rdates);
-
-
-//	    try {
-//	    	room = rser.queryByRoomNum(room_name); //嘗試取出房號
-//	    	otr.setRoom(room); //將取出的房號放入房間訂單
-//	    	System.out.println("queryByRoomNum sucess!!!");
-//	    } catch (Exception eee) {
-//	    	room.setRoom_name(room_name);
-//	    	otr.setRoom(room);
-//	    	System.out.println("queryByRoomNum fail!!!");
-//	    }		
+		otr.setRdates(rdates1);
+	
 		room.setRdates(rdates);// 房間跟日期的多對多關係
 		rser.update(room);// 房間跟日期關係存入資料庫
 
