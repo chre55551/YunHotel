@@ -474,6 +474,21 @@ public class Ordered_Controller {
 			Customer customer = cser.queryByAc(ac);
 			List<Ordered> od = customer.getOrdered();
 			model.addAttribute("od",od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
+			System.out.println(od);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
