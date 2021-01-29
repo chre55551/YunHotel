@@ -34,7 +34,7 @@
 					<td style="text-align:center"  id="myImg"></td>
 					
 					 <td><a
-                        href="${pageContext.request.contextPath}/room/update/${rom.room_typeid}">編輯</a></td>
+                        href="${pageContext.request.contextPath}/room/UpdateRoom/${rom.room_typeid}">編輯</a></td>
                     <td><a
                         href="${pageContext.request.contextPath}/room/DeleteRoom/${rom.room_typeid}">刪除</a></td>
 				</tr>

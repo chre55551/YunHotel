@@ -2,6 +2,7 @@ package hotel.yun.room.controller;
 
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import hotel.yun.news.model.News;
 import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
 
@@ -189,12 +191,51 @@ public class RoomController {
 //	  
 //	  
 //	 }
+	@GetMapping("/update/{room_typeid}")
+	public String UpdateRoom(Model model, @PathVariable int room_typeid) {
+		RoomType rm = service.queryRoomType_id(room_typeid);
+		model.addAttribute("UpdateRoom", rm);
+//model.addAttribute("Rid",rm.getRoom_typeid());
+		model.addAttribute("Rtype",rm.getRoom_type());
+		model.addAttribute("Rprice",rm.getRoom_price());
+		model.addAttribute("Rstock",rm.getRoom_stock());
+		model.addAttribute("Rimage",rm.getRoom_image());
+		return "room/UpdateRoom";
+	}
 	
-//	// 送出空白刪除表單
-//	@GetMapping("/ShowBlankDeleteRoomForm")
-//	public String ShowBlankDeleteRoomForm(Model model, HttpSession session) {
-//		return "room/ShowBlankDeleteRoomForm";
+	@PostMapping("/update/{room_typeid}")
+	public String update2(
+			@ModelAttribute("UpdateRoom") RoomType rm,
+			@PathVariable(value = "room_typeid", required = false) int room_typeid,
+			@RequestParam(value = "room_type", required = false) String room_type,
+			@RequestParam(value = "room_price", required = false) Double room_price,
+			@RequestParam(value = "room_stock", required = false) int room_stock,
+			@RequestParam(value = "room_image", required = false) int room_image,
+			Model model
+				) {
+
+			service.updateRoomType(rm);	
+			return "redirect:../showAllNews";
+		}
+	
+	
+//	@PostMapping("/UpdateRoom/{room_typeid}")
+//	public String UpdateRoom(
+//		@ModelAttribute("UpdateRoom") RoomType rm,
+//		@PathVariable(value = "room_typeid", required = false) int room_typeid,
+//		@RequestParam(value = "room_type", required = false) String room_type,
+//		@RequestParam(value = "room_price", required = false) Double room_price,
+//		@RequestParam(value = "room_stock", required = false) int room_stock,
+//		@RequestParam(value = "room_image", required = false) Blob room_image,
+//		Model model) 
+//			
+//	{
+//
+//		service.updateRoomType(rm);	
+//		return "redirect:/room/QueryAllRooms";
 //	}
+	
+
 
 
 	@GetMapping("/DeleteRoom/{room_typeid}")
