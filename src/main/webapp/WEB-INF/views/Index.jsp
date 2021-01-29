@@ -35,14 +35,14 @@
 					<p class="dateF">入住:</p>
 					<br>
 					<!-- readonly:不讓使用者自行輸入日期 -->
-					<input name="rdate" type="date" id="from" class="datepicker from" />
-					<img class="datepic" src="image/date1.png">
+					<input name="rdate" type="date" id="from" class="datepicker"/>
+<!-- 					<img class="datepic" src="image/date1.png"> -->
 				</div>
 
 				<div class="D1">
 					<p class="dateF">退房:</p>
-					<br> <input name="rdateEnd" type="date" id="to" class="to datepicker" />
-					<img class="datepic" src="image/date1.png">
+					<br> <input name="rdateEnd" type="date" id="to" class="datepicker"/>
+<!-- 					<img class="datepic" src="image/date1.png"> -->
 				</div>
 				
 				<div class="D1 ORbtnposition">
@@ -124,18 +124,16 @@
 
 	<script>	
 //訂房日歷===============================================================			
-			
-			$("#from").datepicker(
-					{
-						changeMonth : true, //顯示月份列表供選擇
-						firstDay : 1, //星期一開始
-						minDate : 0, //最小日期只能選今天
-						dateFormat : "yy-mm-dd",
-						onClose : function(selectedDate) {
-							$('#to').datepicker('option', 'minDate',
-									new Date(selectedDate).addDays(1));
-						}
-					});
+			 $( "#from" ).datepicker({
+			      firstDay : 1, //星期一開始
+			      changeMonth: true,
+			      minDate : 0, //最小日期只能選今天
+			      dateFormat : "yy-mm-dd"
+			      onClose: function( selectedDate ) {
+			        $( "#to" ).datepicker( "minDate", selectedDate );
+			      }
+			    });
+
 
 			function addDays(date, days) {
 				var dat = date;
@@ -143,15 +141,15 @@
 				return dat;
 			}
 
-			$("#to").datepicker({
-				changeMonth : true,
-				firstDay : 1,
+		    $( "#to" ).datepicker({
+		    	firstDay : 1, //星期一開始
+		        changeMonth: true,
 				minDate : "+1", //最小日期只能選隔天(退房)
 				dateFormat : "yy-mm-dd",
-				onClose : function(selectedDate) {
-					$("#from").datepicker("option", "maxDate", selectedDate);
-				}
-			});
+		        onClose: function( selectedDate ) {
+		          $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+		        }
+		      });
 		});
 	</script>
 
