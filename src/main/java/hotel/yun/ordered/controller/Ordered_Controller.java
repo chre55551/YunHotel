@@ -331,6 +331,8 @@ public class Ordered_Controller {
 			Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
+		model.addAttribute("rdate",rdate);
+		model.addAttribute("rdateEnd",rdateEnd);
 		return "ordered/outsideInsertRoomOd";
 	}
 
@@ -375,6 +377,11 @@ public class Ordered_Controller {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
 			od.setCustomer(ct);
+			System.out.println("我有撈到顧客資料");
+			System.out.println("我有撈到顧客資料");
+			System.out.println("我有撈到顧客資料");
+			System.out.println("我有撈到顧客資料");
+			System.out.println("我有撈到顧客資料");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -409,6 +416,7 @@ public class Ordered_Controller {
 		try {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
+			model.addAttribute("ct", odd.getCustomer());
 			model.addAttribute("rdates", odd.getOrderedToRoom().getRdates());
 			model.addAttribute("room", odd.getOrderedToRoom().getRoom());
 			System.out.println("insert otr success!!!");

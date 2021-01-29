@@ -16,6 +16,7 @@ import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
+import hotel.yun.room.model.Room;
 
 @Transactional
 @Service
@@ -147,5 +148,11 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	@Override
 	public OrderedPayment queryPaymentBys(String bill_status) {
 		return oDao.queryPaymentBys(bill_status);
+	}
+
+	@Override
+	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

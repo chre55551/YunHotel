@@ -27,11 +27,12 @@
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 	<div class="ckeckinBG">
 		<div class="main">
-			<div class="orm">
+			<div class="orm3">
 				<form action="/YunHotel/ordered/insertRoomOrdered" method="POST">
 					<h4 class="ormt">新增房間訂單</h4>
 					<div class="ormt">
-						<label>房型</label> <select name="room_type" id="room_type" class="odsm">
+						<label>房型</label> <select name="room_type" id="room_type"
+							class="odsm">
 							<option selected>請選擇欲訂的房型</option>
 							<option>普通兩人房</option>
 							<option>豪華兩人房</option>
@@ -41,11 +42,11 @@
 							<option>總統套房</option>
 						</select>
 					</div>
-					<!-- 				<div id="QQQ"> -->
-					<!-- 					<label>欲入住日期</label> <input name="rdate" type="date" id="rdate" /> -->
-					<!-- 					<br /> <label>欲退房日期</label> <input name="rdateEnd" type="date" -->
-					<!-- 						id="rdateEnd" /> -->
-					<!-- 				</div> -->
+					<div id="QQQ">
+						<label>欲入住日期</label> <input name="rdate" type="date" id="rdate" value="${rdate}"/>
+						<br /> <label>欲退房日期</label> <input name="rdateEnd" type="date" value="${rdateEnd}"
+							id="rdateEnd" />
+					</div>
 					<div>
 						<div class="ormt">
 							<div id="roomnum" class="odsm"></div>
@@ -53,12 +54,12 @@
 						<button id="zzz" type="button" class="ormBtn">查詢</button>
 					</div>
 					<div class="ormt">
-						<label>備註</label> <input name="note" id="requestNote" class="odsm"/>
+						<label>備註</label> <input name="note" id="requestNote" class="odsm" />
 					</div>
 
 					<div>
-						<input value="新增" type="submit" class="ormBtn">
-						 <input value="清除" type="reset" class="ormBtn">
+						<input value="新增" type="submit" class="ormBtn"> <input
+							value="清除" type="reset" class="ormBtn">
 					</div>
 				</form>
 			</div>
