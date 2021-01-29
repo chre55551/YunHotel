@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -35,6 +36,9 @@ public class OrderedToMeals implements Serializable {
 	@Transient
 	private int mdate_id;// 對到用餐時間
 
+	@OneToOne(mappedBy = "OrderedToMeals")
+	private Ordered ordered;
+	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "mdate_id")
 	private Mdate mdate;
@@ -120,6 +124,14 @@ public class OrderedToMeals implements Serializable {
 
 	public void setMeals(List<Meals> meals) {
 		this.meals = meals;
+	}
+
+	public Ordered getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Ordered ordered) {
+		this.ordered = ordered;
 	}
 
 }

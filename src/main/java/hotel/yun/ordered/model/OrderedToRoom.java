@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -35,6 +36,9 @@ public class OrderedToRoom implements Serializable {
 	private int roomnum_of_people;
 	@Transient
 	private int room_id;
+	
+	@OneToOne(mappedBy = "OrderedToRoom")
+	private Ordered ordered;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "room_id")
@@ -112,7 +116,13 @@ public class OrderedToRoom implements Serializable {
 	public void setRdates(Set<Rdate> list) {
 		this.rdates = list;
 	}
-	
-	
+
+	public Ordered getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Ordered ordered) {
+		this.ordered = ordered;
+	}
 
 }

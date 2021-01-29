@@ -18,9 +18,9 @@
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改消息</h3>
-		<form modelAttribute="UpdateNew" method="POST" class="container">
+		<form  method="POST" class="container">
 			<div>
-				<label>消息更新時間：</label> <input name="news_update_date" type="date"/>
+				<label>消息更新時間：</label> <input name="news_updated_date" type="date"/>
 			</div>
 			<div>
 				<label>消息內容：</label> <input name="news_content"/>

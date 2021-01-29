@@ -43,7 +43,9 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 		
 		try {
 			double p = oBean.getOrderedToRoom().getRoom().getRoomType().getRoom_price();
+			System.out.println(p);
 			int days = oBean.getOrderedToRoom().getRdates().size();
+			System.out.println(days);
 			oBean.getOrderedToRoom().setRoom_accounts((int)p*days);
 			oBean.setOrdered_accounts((int)p*days);
 		}catch(Exception er) {
@@ -54,8 +56,10 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 					int singleMeal = (int)meal.getMeals_price();
 					mp = zero + singleMeal;
 				}
+				System.out.println(mp);
 				oBean.getOrderedToMeals().setMeals_accounts(mp);
 				oBean.setOrdered_accounts(mp);
+				er.printStackTrace();
 		}
 		
 		try {
@@ -72,7 +76,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 			oBean.getOrderedToMeals().setMeals_accounts(mp);
 			oBean.setOrdered_accounts(oBean.getOrderedToMeals().getMeals_accounts()+oBean.getOrderedToRoom().getRoom_accounts());
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return oDao.insert(oBean);

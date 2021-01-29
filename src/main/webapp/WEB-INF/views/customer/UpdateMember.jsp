@@ -10,7 +10,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/register.css'
 	type="text/css" />
-<title>註冊</title>
+<title>修改會員</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
 <!-- Bootstrapt插件 -->
@@ -27,10 +27,10 @@
 		<div class="main">
 			<br>
 
-			<h3>註冊帳號</h3>
+			<h3>修改會員</h3>
 			<div class="container">
 
-				<form action="/YunHotel/customer/registerOK" method="POST"
+				<form action="/YunHotel/customer/UpdateMemberOK" method="POST"
 					class="container">
 					<p>帳號:</p>
 					<input type="text" name="account"></input> <br>
@@ -53,9 +53,10 @@
 					<p>生日:</p>
 					<input type="date" name="birthday"></input> <br>
 					<p>地址:</p>
-					<input type="text" name="address"></input> <br> <br> <input
-						class="ormBtn" type="submit" value="註冊"
-						onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
+					 <input type="text" name="address"></input> <br> <br> 
+					 <input
+						class="ormBtn" type="submit" value="修改">
+<!-- 						onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
 
 				</form>
 
