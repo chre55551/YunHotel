@@ -43,6 +43,8 @@ import hotel.yun.room.service.RoomService;
 		"payment_id" })
 public class Ordered_Controller {
 
+	private static final String String = null;
+
 	@Autowired
 	ServletContext context;
 
@@ -457,44 +459,48 @@ public class Ordered_Controller {
 
 	// 查到顧客訂單的詳細資料
 	@RequestMapping("/outsidethisOrdered")
-	public String outsidesingleOrderedss(@PathVariable(value = "ordered_number") int ordered_number, Model model,
+	public String outsidesingleOrderedss(
+//			@PathVariable(value = "chinese_name") String chinese_name,
+//			@PathVariable(value = "mobile_phone") String mobile_phone,
+			Model model,
 			HttpSession session) {
 
-		Ordered ordered = service.queryOrderNum(ordered_number);
-		model.addAttribute("ordered", ordered);
+//		Ordered ordered = service.queryOrderNum(ordered_number);
+//		model.addAttribute("ordered", ordered);
+		
 
-		Customer customer = new Customer();
 		try {
 			String ac = (String) session.getAttribute("LoginOK");
-			customer = cser.queryByAc(ac);
-			ordered.setCustomer(customer);
-			model.addAttribute("customer", ordered.getCustomer());
+			Customer customer = cser.queryByAc(ac);
+			List<Ordered> od = customer.getOrdered();
+			model.addAttribute("od",od);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		try {
-			model.addAttribute("status", ordered.getOrderedStatus());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		try {
-			model.addAttribute("payment", ordered.getOrderedPayment());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		try {
-			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
-			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
-			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		try {
-			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
-			model.addAttribute("mdate", ordered.getOrderedToMeals().getMeals());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+				
+//		try {
+//			model.addAttribute("status", od.getOrderedStatus());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			model.addAttribute("payment", ordered.getOrderedPayment());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
+//			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
+//			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
+//			model.addAttribute("mdate", ordered.getOrderedToMeals().getMeals());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		return "ordered/outsidethisOrdered";
 	}
 
