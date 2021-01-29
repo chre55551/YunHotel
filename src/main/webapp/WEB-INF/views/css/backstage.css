@@ -100,13 +100,14 @@ position: fixed;/* 固定頁首 */
 /* } */
 /* ========================================================== */
 body{
-	background-color: #FAD689;
+
 }
 /* 主體 */
 .main{
     min-height: 100vh;
     width: 100vw;  /*寬度=網頁寬 */
     flex: 1 0 auto; /* 頁首頁尾剩的空間 */
+    background-color: gainsboro;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* 右邊整體內容 */
@@ -163,6 +164,14 @@ body{
 /* .ltF_div:hover .ltF{ */
 /* 	color:#384e63; */
 /* } */
+.litlte_allcontent{
+	margin-top:50px;
+	float:left;
+	width:1000px;
+	height:250px;
+	background-color:white;
+	overflow-y:hidden; 
+}
 /*白色區塊*/
 .allcontent{
 	margin-top:50px;
@@ -170,6 +179,21 @@ body{
 	width:1000px;
 	height:500px;
 	background-color:white;
+	overflow-y:hidden; 
+}
+.listtitle{
+	margin-top: 70px;
+	margin-left: 30px;
+} 
+.listtitle ul li{
+	margin-right:30px;
+	display:inline;
+	color: #0F2540;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+.space_lt{
+	padding-left:70px;
 }
 /* ========================================================== */
 /* 內容 */
@@ -181,20 +205,24 @@ body{
     background-color: rgb(212, 194, 160);
 }
 .ALLdiamond{
-    margin-top: 50px;
+    margin-top: 80px;
 }
 .diamond{
-    border:2px rgb(194, 187, 187) solid;
+	margin-left:40px;
+	padding-top: 47px;
+/*     border:2px rgb(193, 184, 180) solid; */
     border-radius:10px;
-    width:100px;
-    height:100px;
+    width:120px;
+    height:80px;
     display: inline-block;
-    background-color:#eee;
+    background-color:#fcefc3;
 }
 .diamondtxt{
-    margin-top: 40px;
-    display: inline-block;
+    margin-left: 20px;
     text-align: center;
+    color: #1a3f6c;
+    font-size: 1.3em;
+    text-decoration: none;
 }
 
 /* ========================================================== */
