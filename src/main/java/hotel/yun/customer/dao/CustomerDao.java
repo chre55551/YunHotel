@@ -19,6 +19,7 @@ public interface CustomerDao {
 	public Customer query(Customer c);	//依照顧客姓名和電話來查詢資料
 	public Member checkIdPassword(String account, String password);
 	public Customer queryByAc(String s);
-	Customer update(String u);
+	public Customer update(String u);
+	public Customer memquerycut(Customer c);
 }
 

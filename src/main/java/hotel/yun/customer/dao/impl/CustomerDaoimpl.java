@@ -93,7 +93,17 @@ public class CustomerDaoimpl implements Serializable, CustomerDao {
 				.setParameter("mp", c.getMobile_phone()).getSingleResult();
 		return customer;
 	}
+	
+	@Override
+	public Customer memquerycut(Customer c) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Customer cu WHERE cu.member_id = :md" ;
 
+		Customer customer = (Customer) session.createQuery(hql).setParameter("md", c.getChinese_name()).getSingleResult();
+		return customer;
+	}
+	
+	@Override
 	public Member checkIdPassword(String account, String password) {
 		Member mb = null;
 		String hql = "FROM Member m WHERE m.account = :mid and m.password = :pwsd";

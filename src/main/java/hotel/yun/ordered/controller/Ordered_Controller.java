@@ -468,30 +468,23 @@ public class Ordered_Controller {
 //		Ordered ordered = service.queryOrderNum(ordered_number);
 //		model.addAttribute("ordered", ordered);
 		
-
+		Ordered od = new Ordered();
+		Customer ct = new Customer();
 		try {
 			String ac = (String) session.getAttribute("LoginOK");
-			Customer customer = cser.queryByAc(ac);
-			List<Ordered> od = customer.getOrdered();
-			model.addAttribute("od",od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
-			System.out.println(od);
+			ct = cser.queryByAc(ac);
+			Customer havecus = cser.memquerycut(ct);
+			System.out.println(havecus);
+			System.out.println(havecus);
+			System.out.println(havecus);
+			System.out.println(havecus);
+			System.out.println(havecus);
+			od.setCustomer(ct);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+	
 				
 //		try {
 //			model.addAttribute("status", od.getOrderedStatus());

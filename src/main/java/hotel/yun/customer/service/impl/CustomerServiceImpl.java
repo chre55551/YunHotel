@@ -70,4 +70,10 @@ public class CustomerServiceImpl implements CustomerService {
 		Customer c = cDao.queryByAc(s);
 		return c;
 	}
+
+	@Override
+	public Customer memquerycut(Customer c) {
+		
+		return cDao.memquerycut(c);
+	}
 }

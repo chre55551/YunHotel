@@ -16,4 +16,5 @@ public interface CustomerService {
 	public Member checkIdPassword(String account, String password);
 	public Customer queryByAc(String s);
 	Customer update(String u);
+	public Customer memquerycut(Customer c);
 }
