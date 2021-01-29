@@ -28,7 +28,7 @@
 	<div class="ckeckinBG">
 		<div class="main">
 			<div class="orm3">
-				<form action="/YunHotel/ordered/insertRoomOrdered" method="POST">
+				<form action="/YunHotel/ordered/outsideCustomerRoomOd" method="POST">
 					<h4 class="ormt">新增房間訂單</h4>
 					<div class="ormt">
 						<label>房型</label> <select name="room_type" id="room_type"

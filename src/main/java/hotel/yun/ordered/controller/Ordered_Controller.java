@@ -377,11 +377,6 @@ public class Ordered_Controller {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
 			od.setCustomer(ct);
-			System.out.println("我有撈到顧客資料");
-			System.out.println("我有撈到顧客資料");
-			System.out.println("我有撈到顧客資料");
-			System.out.println("我有撈到顧客資料");
-			System.out.println("我有撈到顧客資料");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
