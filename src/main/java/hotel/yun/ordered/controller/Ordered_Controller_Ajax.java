@@ -187,8 +187,78 @@ public class Ordered_Controller_Ajax {
 		}
 		return null;
 	}
+//---------------------------------------------------------------------------------------------------------------------
 	
-	// ------------------------------------
+	// 寫在前台需要從顧客查詢到他的訂單 AJAX 取出已成立~~~~~~~~~~~~~~~~~
+	@PostMapping("/outsideCustomerToOrdered/orderedCreated")
+	public @ResponseBody List<Ordered> outsideOrderedCreatedAjax(@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "mobile_phone") String mobile_phone,
+			@RequestParam(value = "ordered_status" ,required = false) String ordered_status,
+			Model model, HttpSession session) {
+		Customer c = new Customer(chinese_name, mobile_phone);
+		System.out.println(c.getChinese_name());
+		try {
+			Customer customer = cser.query(c);
+			System.out.println(customer.getChinese_name());
+			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+//			System.out.println(CustomerOrdered.get(0).getOrderedToRoom().getRdates().get(0).getRdate());
+			List<Ordered> returnlist = new ArrayList<Ordered>();
+			for (Ordered o : CustomerOrdered) {
+//				if (o.getOrderedStatus().getOrdered_status() == "已成立") 
+		//		{
+					returnlist.add(o);
+		//		}
+			}
+			return returnlist;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出已結單~~~~~~~~~~~~~~~~~~~
+	@PostMapping("/outsideCustomerToOrdered/orderedFinished")
+	public @ResponseBody List<Ordered> outsideOrderedFinishedAjax(
+			@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "mobile_phone") String mobile_phone,
+			@RequestParam(value = "ordered_status") String ordered_status,
+			Model model, HttpSession session) {
+		Customer c = new Customer(chinese_name, mobile_phone);
+		try {
+			Customer customer = cser.query(c);
+			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+			List<Ordered> returnlist = new ArrayList<Ordered>();
+			for (Ordered o : CustomerOrdered) {
+			//	if (o.getOrderedStatus().getOrdered_status() == "已結單") {
+					returnlist.add(o);
+				//}
+			}
+			return returnlist;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// 寫在後台需要從顧客查詢到他的訂單 AJAX 取出      全部訂單~~~~~~~~~~~~~~~
+	@PostMapping("/outsideCustomerToOrdered/orderedAll")
+	public @ResponseBody List<Ordered> outsideOrderedAllAjax(
+			@RequestParam(value = "chinese_name") String chinese_name,
+			@RequestParam(value = "mobile_phone") String mobile_phone,
+			@RequestParam(value = "ordered_status") String ordered_status,
+			Model model, HttpSession session) {
+		Customer c = new Customer(chinese_name, mobile_phone);
+		try {
+			Customer customer = cser.query(c);
+			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
+			return CustomerOrdered;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+//---------------------------------------------------------------------------------------------------------------------
 	public DateTime DateToDateTime(Date d) {
 		String str = d.toString();
 		return DateTime.parse(str);
