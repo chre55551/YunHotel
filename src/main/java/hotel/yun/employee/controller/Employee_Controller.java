@@ -161,7 +161,7 @@ public class Employee_Controller {
 //		return "employee/updateEmployee";
 //	}
 	@GetMapping("/updateEmployee/{employee_id}")
-	public String updateEmployee(Model model, @PathVariable int employee_id,
+	public String updateEmployee(Model model, @PathVariable Integer employee_id,
 			@PathVariable int employee_work_id,@PathVariable int employee_info_id,
 			@PathVariable int employee_status_id) {
 		Employee_basic bean = service.query(employee_id);
@@ -186,7 +186,7 @@ public class Employee_Controller {
 	@PostMapping("/updateEmployee/{employee_id}")	
 	public String updateEmployee2(
 			@ModelAttribute("Beans") Employee_basic bean ,
-			@PathVariable(value = "employee_id", required = false) int employee_id,
+			@PathVariable(value = "employee_id", required = false) Integer employee_id,
 			@RequestParam(value = "employee_name", required = false) String employee_name,
 			@RequestParam(value = "employee_department", required = false) String employee_department,
 			@RequestParam(value = "employee_position", required = false) String employee_position,
@@ -207,7 +207,7 @@ public class Employee_Controller {
 		}
 	
 	@GetMapping("/deleteEmployee/{employee_id}")
-	public String deleteEmployeeBasic(@PathVariable("employee_id") int employee_id) {
+	public String deleteEmployeeBasic(@PathVariable("employee_id") Integer employee_id) {
 		System.out.println("delete sucess");
 		service.delete(employee_id);	
 		return "employee/showAllEmployee";
