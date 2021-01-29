@@ -18,23 +18,24 @@
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改房型</h3>
-		<form modelAttribute="UpdateRoom" method="POST" class="container">
+		<form  method="POST" class="container">
 		
 		
 		
 		
 			<div>
-				<label>房型名稱：</label> <input name="room_type_room_type" />
+				<label>房型名稱：</label> <input name="room_type_room_type" value="${Rtype}"/>
 			</div>
 			<div>
-				<label>房價：</label> <input name="room_type_room_price"/>
+				<label>房價：</label> <input name="room_type_room_price" value="${Rprice}"/>
 			</div>
 			<div>
-				<label>房型總數：</label> <input name="room_type_room_stock"/>
+				<label>房型總數：</label> <input name="room_type_room_stock" value="${Rstock}"/>
 			</div>
+			<p id="myImg">房間圖片:</p>
 			<div>
 				<label>房型圖片</label> 
-				 <input type="file" name="room_image" id="room_type_room_Image" onchange="">
+				 <input type="file" name="room_type_room_Image"  onchange="">
 			</div>
 			<div>
 				<input value="修改" type="submit">
@@ -44,8 +45,19 @@
 	</div>
 	
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
-	<script type="text/javascript">
+	<script>
+	fetch('http://localhost:8080/YunHotel/room/getImg?room_typeid=${Rid}')
+	  .then(function(response) {
+	    return response.blob();
+	  })
+	  .then(function(data) {
+		  let img = document.createElement('IMG')
+			img.src = URL.createObjectURL(data); //創立一個暫時的圖片路徑
 
+			document.querySelector('#myImg').appendChild(img);
+	  });
+
+	
 	</script>
 </body>
 </html>
