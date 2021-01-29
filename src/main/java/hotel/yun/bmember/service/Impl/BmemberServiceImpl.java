@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hotel.yun.bmember.dao.BmemberDao;
 import hotel.yun.bmember.model.BmemberBean;
+
 import hotel.yun.bmember.service.BmemberService;
+import hotel.yun.customer.model.Customer;
 
 @Transactional
 @Service
@@ -54,5 +56,10 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	public BmemberBean getCustomerById(int bs_id) {
 	
 		return bDao.getCustomerById(bs_id);
+	}
+
+	@Override
+	public List<Customer> queryAllMember1() {
+		return bDao.queryAllMember1();
 	}
 }

@@ -18,12 +18,12 @@
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<div class="container">
-			<h3>後台會員資料</h3>
+			<h3>前台顧客資料</h3>
 			<hr>
 			<table border='1'>
 				<tr>
 					<th width='60'>編輯</th>
-					<th width='160'>員工姓名</th>
+					<th width='160'>顧客姓名</th>
 					<th width='60'>刪除</th>
 				</tr>
 				<c:choose>

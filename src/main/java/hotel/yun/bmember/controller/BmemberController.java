@@ -24,7 +24,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import hotel.yun.bmember.model.BmemberBean;
+
 import hotel.yun.bmember.service.BmemberService;
+import hotel.yun.customer.model.Customer;
 
 
 @Controller
@@ -100,7 +102,7 @@ public class BmemberController {
 		List<BmemberBean> sb = service.queryAllMember();
 		model.addAttribute("sab",sb);      
 	
-//		System.out.println(" showAllMembers");
+
 		return "bmember/ShowBmember";
 	}
 
@@ -192,4 +194,16 @@ public class BmemberController {
 		// 此敘述不能省略
 		return "redirect:/";
 	}
+
+//-----------------------------------------------------------------------------------------------------
+	// 顯示前台會員
+	@GetMapping("/ShowRMember")
+	public String getCustomer(Model model) {
+		List<Customer> sb = service.queryAllMember1();
+		model.addAttribute("sab",sb);      
+	
+
+		return "bmember/ShowRMember";
+	}
+
 }

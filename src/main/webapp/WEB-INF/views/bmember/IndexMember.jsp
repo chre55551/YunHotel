@@ -21,13 +21,16 @@
                 
   
             <li class="diamond">
-                <a href="ShowBmember" class="diamondtxt">顯示所有會員</a>
+                <a href="ShowBmember" class="diamondtxt">顯示後台所有會員</a>
             </li>
             <li class="diamond">
-                <a href="InsertBmemberBM" class="diamondtxt">新增會員</a>
+                <a href="InsertBmemberBM" class="diamondtxt">新增後台會員</a>
             </li>
             <li class="diamond">
-                <a href="QueryBmember" class="diamondtxt">查詢會員</a>
+                <a href="QueryBmember" class="diamondtxt">查詢後台會員</a>
+            </li>
+             <li class="diamond">
+                <a href="ShowRMember" class="diamondtxt">顯示顧客資料</a>
             </li>
            
             
