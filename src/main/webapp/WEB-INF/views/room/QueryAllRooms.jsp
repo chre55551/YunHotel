@@ -22,7 +22,7 @@
 			   <th width='130' height='20'>房型名稱</th>
 			   <th width='130' height='20'>房價</th>
 			   <th width='130' height='20'>房型總數</th>
-			   <th width='180' height='20'>房型圖片</th>
+<!-- 			   <th width='180' height='20'>房型圖片</th> -->
 			   <th colspan='2' height='20'>維護</th>
 			</tr>
 			<c:forEach var='rom' items='${roomTypeList}'>
@@ -31,7 +31,7 @@
 					<td style="text-align:center">${rom.room_type}</td>
 					<td style="text-align:center">${rom.room_price}</td>
 					<td style="text-align:center">${rom.room_stock}</td>
-					<td style="text-align:center"  id="myImg"></td>
+<!-- 					<td style="text-align:center"><p id="myImg">房間圖片:</p></td> -->
 					
 					 <td><a
                         href="${pageContext.request.contextPath}/room/UpdateRoom/${rom.room_typeid}">編輯</a></td>

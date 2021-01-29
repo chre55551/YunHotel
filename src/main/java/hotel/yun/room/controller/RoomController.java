@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -196,7 +197,7 @@ public class RoomController {
 	public String UpdateRoom(Model model, @PathVariable int room_typeid) {
 		RoomType rm = service.queryRoomType_id(room_typeid);
 		model.addAttribute("UpdateRoom", rm);
-      //  model.addAttribute("Rid",rm.getRoom_typeid());
+        model.addAttribute("Rid",rm.getRoom_typeid());
 		model.addAttribute("Rtype",rm.getRoom_type());
 		model.addAttribute("Rprice",rm.getRoom_price());
 		model.addAttribute("Rstock",rm.getRoom_stock());
@@ -206,19 +207,45 @@ public class RoomController {
 	
 	@PostMapping("/UpdateRoom/{room_typeid}")
 	public String update2(
-			@ModelAttribute("UpdateRoom") RoomType rm,
 			@PathVariable(value = "room_typeid", required = false) int room_typeid,
-			@RequestParam(value = "room_type", required = false) String room_type,
-			@RequestParam(value = "room_price", required = false) Double room_price,
-			@RequestParam(value = "room_stock", required = false) int room_stock,
-			@RequestParam(value = "room_image", required = false) Blob room_image,
+			@RequestParam(value = "room_type_room_type", required = false) String room_type,
+			@RequestParam(value = "room_type_room_price", required = false) double room_price,
+			@RequestParam(value = "room_type_room_stock", required = false) int room_stock,
+			@RequestParam(value = "room_type_room_Image", required = false) MultipartFile room_image,
 			Model model
-				) {
+				) throws IOException {
 
-			service.updateRoomType(rm);	
+			RoomType rt = new RoomType();
+			try {
+			byte[] img = room_image.getBytes();
+			String img_name = room_image.getOriginalFilename();
+			Blob ri;
+				ri = new SerialBlob(img);
+				rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
+				rt.setRoom_typeid(room_typeid);
+			} catch (Exception e) {
+				rt = new RoomType();
+				rt.setRoom_typeid(room_typeid);
+				rt.setRoom_type(room_type);
+				rt.setRoom_price(room_price);
+				rt.setRoom_stock(room_stock);
+			} 
+			
+			service.updateRoomType(rt);	
+			model.addAttribute("rt",rt);
 			return "redirect:../QueryAllRooms";
 		}
-	
+//	byte[] img = room_image.getBytes();
+//	String img_name = room_image.getOriginalFilename();
+//	try {
+//		Blob ri = new SerialBlob(img);
+//		
+//		service.saveRoomType(rt);
+//		model.addAttribute("rom", rt);
+//		model.addAttribute("img",rt.getRoom_image().getBytes(1l, (int)rt.getRoom_image().length()));
+//	} catch (Exception e) {
+//		e.printStackTrace();
+//	}
 	
 
 	
