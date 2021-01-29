@@ -84,23 +84,25 @@ public class News_Controller {
 	public String update(Model model, @PathVariable int news_id) {
 		News nw = service.queryNewID(news_id);
 		model.addAttribute("UpdateNew", nw);
-		model.addAttribute("Nid",nw.getNews_id());
-		model.addAttribute("Ndate",nw.getNews_date());
-		model.addAttribute("Nupdate",nw.getNews_updated_date());
-		model.addAttribute("Ncont",nw.getNews_content());
 		return "news/UpdateNew";
 	}
 	@PostMapping("/update/{news_id}")
-	public String update2(
-		@ModelAttribute("UpdateNew") News nw,
+	public String modify(
+		Model model,
 		@PathVariable(value = "news_id", required = false) int news_id,
 		@RequestParam(value = "news_date", required = false) Date news_date,
 		@RequestParam(value = "news_updated_date", required = false) Date news_updated_date,
 		@RequestParam(value = "news_content", required = false) String news_content,
-		Model model
-			) {
-
-		service.update(nw);	
+		HttpServletRequest request) {
+		News news = service.queryNewID(news_id);
+		
+		if(news.getNews_id() != 0) {
+			news.setNews_updated_date(news_updated_date);
+			news.setNews_content(news_content);
+		}
+		service.update(news);	
+		
+		model.addAttribute("news", news);
 		return "redirect:../showAllNews";
 	}
 
