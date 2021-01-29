@@ -171,24 +171,29 @@ header ul li a:hover{
 .abgne_float {
 	display: none;
 	position: absolute;
-	width: 160px;
-	height:160px;
+	width: 200px;
+	height:200px;
 	border-radius:5px;
-	padding-top: 11px;
-	padding-left: 9px;
-/* 	background-color:rgba(165,222,268,0.4); */
-/*	background-color:rgba(15,37,64,0.8);*/
-/* 	background-color: rgba(165,222,221,0.7); */
-	background-color: white;
+/* 	padding-top: 11px; */
+/* 	padding-left: 9px; */
+/* 	border: 2px #5082be solid; */
+/* 	background-color: #94cdd4; */
+	background-image: url('http://localhost:8080/YunHotel/image/float.png');
+}
+.abgne_float_pos{
+	margin-top: 30px;
 }
 .abgne_OR{
 	margin:0 auto;
-	width: 90px;
-	height:35px;
-	background-color:rgba(15,37,64,0.7);
+	width: 100px;
+	height:40px;
+/* 	background-color:rgba(15,37,64,0.7); */
 	padding-top: 8px;
+	border: 2px #fff solid;
 	border-radius:5px;
 	color: white;
+	font-size:1.2em;
+	font-weight: bold;
 }
 .OR_pos{
 	margin-top:20px;
