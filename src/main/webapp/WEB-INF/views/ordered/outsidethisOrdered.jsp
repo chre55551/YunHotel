@@ -31,12 +31,12 @@
 			<div class="orm2">
 				<h4 class="ormt2">詳細訂單</h4>
 				<p class="ormt2">訂單編號: ${ordered.ordered_number}</p>
-				<p class="ormt2">姓名: ${ordered.customer.chinese_name}</p>
-				<p class="ormt2">電話: ${ordered.customer.mobile_phone}</p>
+				<p class="ormt2">姓名: ${customer.chinese_name}</p>
+				<p class="ormt2">電話: ${customer.mobile_phone}</p>
 
 				<c:choose>
-					<c:when test="${not empty ordered.customer.birthday}">
-						<p class="ormt2">生日: ${ordered.customer.birthday}</p>
+					<c:when test="${not empty customer.birthday}">
+						<p class="ormt2">生日: ${customer.birthday}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">生日: 無</p>
@@ -44,8 +44,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty ordered.customer.idcard_number}">
-						<p class="ormt2">身分證字號: ${ordered.customer.idcard_number}</p>
+					<c:when test="${not empty customer.idcard_number}">
+						<p class="ormt2">身分證字號: ${customer.idcard_number}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">身分證字號: 無</p>
@@ -53,8 +53,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty ordered.customer.address}">
-						<p class="ormt2">地址: ${ordered.customer.address}</p>
+					<c:when test="${not empty customer.address}">
+						<p class="ormt2">地址: ${customer.address}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">地址: 無</p>
@@ -62,8 +62,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty ordered.orderedStatus.ordered_status}">
-						<p class="ormt2">訂單狀態: ${ordered.orderedStatus.ordered_status}</p>
+					<c:when test="${not empty status.ordered_status}">
+						<p class="ormt2">訂單狀態: ${status.ordered_status}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">訂單狀態: 無</p>
@@ -71,8 +71,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty ordered.orderedPayment.bill_status}">
-						<p class="ormt2">付款方式: ${ordered.orderedPayment.bill_status}</p>
+					<c:when test="${not empty payment.bill_status}">
+						<p class="ormt2">付款方式: ${payment.bill_status}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">付款方式: 無</p>
@@ -153,7 +153,7 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty ordered_last_update}">
+					<c:when test="${not empty ordered.ordered_last_update}">
 						<p class="ormt2">訂單修改時間: ${ordered.ordered_last_update}</p>
 					</c:when>
 					<c:otherwise>
