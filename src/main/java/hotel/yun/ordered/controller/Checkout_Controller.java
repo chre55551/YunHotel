@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import hotel.yun.customer.service.CustomerService;
@@ -48,7 +49,7 @@ public class Checkout_Controller {
 	@PostMapping("/queryOrdered")
 	public String checkOutRoom(@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdateEnd") Date rdateEnd,
-			@RequestParam(value = "roomnum_of_people") int roomnum_of_people,
+			@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
 			Model model, HttpSession session) {
 		
 		Room room = rser.queryRoomByName(room_name);
@@ -56,12 +57,35 @@ public class Checkout_Controller {
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(rdateEnd);
 		c.add(Calendar.DAY_OF_MONTH, -1);
-		Date lastUseDay = (Date) c.getTime();
+		Date lastUseDayd = (Date) c.getTime();
+		Date lastUseDay = new java.sql.Date(lastUseDayd.getTime());
 		Rdate rdate = dser.queryByRoomDate(lastUseDay);
 		
 		Ordered od = oser.queryOdByRoomAndRdate(room,rdate);
-		
+		model.addAttribute("od", od);
 				return null;
+	}
+	
+//	@PostMapping("/room/checkout")
+	
+	@PostMapping("/test")
+	public @ResponseBody Ordered checkOutRoomTest(@RequestParam(value = "room_name") String room_name,
+			@RequestParam(value = "rdateEnd") Date rdateEnd,
+			@RequestParam(value = "roomnum_of_people",required = false) Integer roomnum_of_people,
+			Model model, HttpSession session) {
+		
+		Room room = rser.queryRoomByName(room_name);
+		
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(rdateEnd);
+		c.add(Calendar.DAY_OF_MONTH, -1);
+		java.util.Date lastUseDayd = c.getTime();
+		Date lastUseDay = new java.sql.Date(lastUseDayd.getTime());
+		Rdate rdate = dser.queryByRoomDate(lastUseDay);
+		
+		Ordered od = oser.queryOdByRoomAndRdate(room,rdate);
+//		model.addAttribute("od", od);
+				return od;
 	}
 	
 }

@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.customer.model.Customer;
 
 @Entity
@@ -27,14 +29,19 @@ public class Ordered implements Serializable {
 	private int ordered_number;// 訂單編號
 
 	@Transient
+	@JsonIgnore
 	private int customer_id;// 顧客編號
 	@Transient
+	@JsonIgnore
 	private int ordered_tomeals_id;// 餐點訂單編號
 	@Transient
+	@JsonIgnore
 	private int ordered_toroom_id;// 房間訂單編號
 	@Transient
+	@JsonIgnore
 	private int status_id;// 狀態ID
 	@Transient
+	@JsonIgnore
 	private int payment_id;// 付款ID
 
 	private int ordered_accounts;// 訂單總價

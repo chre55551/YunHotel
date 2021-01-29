@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.date.model.Rdate;
 import hotel.yun.room.model.Room;
 
@@ -33,6 +35,7 @@ public class OrderedToRoom implements Serializable {
 	@Transient
 	private int room_id;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "orderedToRoom")
 	private Ordered ordered;
 

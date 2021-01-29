@@ -227,10 +227,10 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 			}
 		}
 //		session.get(Ordered.class, 1);
-		String hqll= "from Ordered od where od.orderedToRoom =";
-		
+		String hqll= "from Ordered od where od.orderedToRoom in (from OrderedToRoom otr where otr.ordered_toroom_id = :otrid)";
+		Ordered od = (Ordered)session.createQuery(hqll).setParameter("otrid", right.getOrdered_toroom_id()).getSingleResult();
 //		return right.getOrdered();
-		return null;
+		return od;
 //		Set<Rdate> rdates = od.getOrderedToRoom().getRdates();
 //		for(Rdate rdateqq:rdates) {
 //			
