@@ -8,6 +8,6 @@
 </head>
 <body>
 <h3>新增成功</h3>
-<a href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
+<br> <input class="ormBtn" type="button" value="回登入" 	onclick="location.href='http://localhost:8080/YunHotel/customer/Login'">
 </body>
 </html>

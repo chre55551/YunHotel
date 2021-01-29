@@ -10,7 +10,22 @@
 </head>
 <body>
 <%@ include file="CommonTemplates/header.jsp"%>
-<%@ include file="CommonTemplates/leftmenu.jsp"%>
+
+<div class="main">
+	<%@ include file="CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">首頁</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent">
+        	<div class="litletitle">	
+        	</div>
+        </div>
+        	
+     </div>
+
+</div>
 <%@ include file="CommonTemplates/footer.jsp"%>
 </body>
 </html>

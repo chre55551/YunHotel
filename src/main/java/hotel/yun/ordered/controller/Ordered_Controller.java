@@ -170,7 +170,9 @@ public class Ordered_Controller {
 		DateTime rdateDT = DateToDateTime(rdate);
 		DateTime rdateEndDT = DateToDateTime(rdateEnd);
 		Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
-		Set<Rdate> rdates = new HashSet<>();
+		Room room = new Room();// 新增空的房間
+		room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
+		Set<Rdate> rdates = room.getRdates() ;//根據房間取出所有 rdate
 
 		Ordered od = new Ordered();
 		od.setNote(note);
@@ -203,8 +205,6 @@ public class Ordered_Controller {
 
 		otr.setRdates(rdates);
 
-		Room room = new Room();// 新增空的房間
-		room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
 
 //	    try {
 //	    	room = rser.queryByRoomNum(room_name); //嘗試取出房號
@@ -326,7 +326,9 @@ public class Ordered_Controller {
 //-----------------------------------------------------------------------------------------------------
 	// 前台的
 	@GetMapping("/outsideInsertRoomOd")
-	public String outsideShowRoomOrdered(Model model, HttpSession session) {
+	public String outsideShowRoomOrdered(@RequestParam(value = "rdate", required = false) Date rdate,
+			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
+			Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/outsideInsertRoomOd";
@@ -335,62 +337,68 @@ public class Ordered_Controller {
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面 訂房~~~~~~~~~‵
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/outsideCustomerRoomOd")
-	public String outsideinsertRoomOrdered(@RequestParam(value = "chinese_name") String chinese_name,
+	public String outsideinsertRoomOrdered(/*@RequestParam(value = "chinese_name") String chinese_name,
 			@RequestParam(value = "idcard_number") String idcard_number,
-			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
-			@RequestParam(value = "address") String address, @RequestParam(value = "room_type") String room_type,
-			@RequestParam(value = "rdate", required = false) Date rdate, @RequestParam(value = "note") String note,
+			@RequestParam(value = "mobile_phone") String mobile_phone, 
+			@RequestParam(value = "birthday") Date birthday,
+			@RequestParam(value = "address") String address,*/ 
+			@RequestParam(value = "room_name") String room_name,
+			@RequestParam(value = "room_type", required = false) String room_type, // 可以不用
+			@RequestParam(value = "rdate", required = false) Date rdate,
+			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
+			@RequestParam(value = "note") String note,
 			Model model, HttpSession session) {
+		
+		DateTime rdateDT = DateToDateTime(rdate);
+		DateTime rdateEndDT = DateToDateTime(rdateEnd);
+		Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
+		Set<Rdate> rdates = new HashSet<>();
+		
+		for (DateTime d : range) {
+			Date date = dateTimeToDate(d);
+			try {
+				Rdate rd = dser.queryByRoomDate(date);// 嘗試根據日期找出 Rdate 物件
+				rdates.add(rd);// 加到 set<Rdate>中
+			} catch (Exception e) {// 若不存在此日期，new 一個加到資料庫
+				Rdate r = new Rdate();
+				r.setRdate(date);
+				dser.insert(r);
+				rdates.add(r);// 加到 set<Rdate>中
+			}
+		}
+		
 		Ordered od = new Ordered();
 		od.setNote(note);
-		Customer customer = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
+		
+		Customer ct = new Customer();
 		try {
-			Customer CExist = cser.query(customer);
-			CExist.setIdcard_number(idcard_number);
-			CExist.setAddress(address);
-			CExist.setBirthday(birthday);
-			od.setCustomer(CExist);
+			String ac = (String) session.getAttribute("LoginOK");
+			ct = cser.queryByAc(ac);
+			od.setCustomer(ct);
 		} catch (Exception e) {
-			od.setCustomer(customer);
 			e.printStackTrace();
 		}
+//		Customer customer = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
+//		try {
+//			Customer CExist = cser.query(customer);
+//			CExist.setIdcard_number(idcard_number);
+//			CExist.setAddress(address);
+//			CExist.setBirthday(birthday);
+//			od.setCustomer(CExist);
+//		} catch (Exception e) {
+//			od.setCustomer(customer);
+//			e.printStackTrace();
+//		}
 		OrderedToRoom otr = new OrderedToRoom();
-		Room rm = new Room();
-		try {
-			Rdate rd = dser.queryByRoomDate(rdate);
-			Set<Rdate> list = new HashSet();
-			list.add(rd);
-			otr.setRdates(list);
-		} catch (Exception e) {
-			Rdate rd = new Rdate();
-			rd.setRdate(rdate);
-			Set<Rdate> list = new HashSet();
-			list.add(rd);
-			otr.setRdates(list);
-		}
-		try {
-			RoomType r = rser.queryByRoomType(room_type);
-			rm.setRoomType(r);
-			otr.setRoom(rm);
-		} catch (Exception e) {
-			RoomType r = new RoomType();
-			r.setRoom_type(room_type);
-			rm.setRoomType(r);
-			otr.setRoom(rm);
-		}
-		od.setOrderedToRoom(otr);
-		try {
-			Rdate rd = dser.queryByRoomDate(rdate);
-			Set<Rdate> list = new HashSet();
-			list.add(rd);
-			otr.setRdates(list);
-		} catch (Exception e) {
-			Rdate rd = new Rdate();
-			rd.setRdate(rdate);
-			Set<Rdate> list = new HashSet();
-			list.add(rd);
-			otr.setRdates(list);
-		}
+		Room room = new Room();
+		
+		room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
+		room.setRdates(rdates);// 房間跟日期的多對多關係
+		rser.update(room);// 房間跟日期關係存入資料庫
+
+		otr.setRoom(room);// 將房間放入訂單
+		service.insertOTR(otr);
+
 		od.setOrderedToRoom(otr);
 
 		OrderedStatus os = new OrderedStatus();
@@ -402,12 +410,12 @@ public class Ordered_Controller {
 			odd = service.insert(od);
 			model.addAttribute("odd", odd);
 			model.addAttribute("rdates", odd.getOrderedToRoom().getRdates());
-			model.addAttribute("mdate", odd.getOrderedToMeals().getMdate().getMdate());
-			model.addAttribute("roomname", odd.getOrderedToRoom().getRoom().getRoom_name());
+			model.addAttribute("room", odd.getOrderedToRoom().getRoom());
+			System.out.println("insert otr success!!!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("insert otr fail!!!");
 		}
-//		return null;
+
 		return "ordered/outsideCustomerRoomOd";// 將來直接進該筆訂單明細，會跟單筆訂單查是同個jsp(暫定)
 	}
 //-----------------------------------------------------------------------------------------------------
@@ -436,7 +444,7 @@ public class Ordered_Controller {
 	}
 
 	// 查到我顧客訂單的詳細資料
-	@RequestMapping("/thisOrdered/{ordered_number}")
+	@GetMapping("/thisOrdered/{ordered_number}")
 	public String singleOrdered(@PathVariable(value = "ordered_number") int ordered_number, Model model,
 			HttpSession session) {
 		Ordered ordered = service.queryOrderNum(ordered_number);
@@ -444,7 +452,14 @@ public class Ordered_Controller {
 		try {
 			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
 			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
+			//Set<Rdate> rdates = ordered.getOrderedToRoom().getRdates();
 			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
+//			for(Rdate rdate:rdates) {
+//				rdate.getRdate();
+//			}
+//			for(int i = 0; i <= rdates.size(); i++) {
+//				rdates.
+//			}
 		} catch (Exception e) {
 
 		}
@@ -491,7 +506,7 @@ public class Ordered_Controller {
 	}
 
 //-----------------------------------------------------------------------------------------------------
-	// 更新
+	// 更新s
 	// 從查詢取值後，送出這個空白表單
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable(value = "id") int ordered_number, Model model, HttpSession session) {

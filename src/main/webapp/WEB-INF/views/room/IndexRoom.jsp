@@ -25,13 +25,7 @@
             </li>
             <li class="diamond">
                 <a href="ShowBlankQueryRoomForm" class="diamondtxt">查詢房型</a>
-            </li>
-            <li class="diamond">
-                <a href="" class="diamondtxt">修改房型</a>
-            </li>
-            <li class="diamond">
-                <a href="ShowBlankDeleteRoomForm" class="diamondtxt">刪除房型</a>
-            </li>
+          
             
             
             

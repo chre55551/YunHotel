@@ -97,4 +97,10 @@ public class RoomServiceImpl implements RoomService {
 		return RDao.queryRoomByName(room_name);
 	}
 
+	@Override
+	public void updateRoomType(int room_typeid) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

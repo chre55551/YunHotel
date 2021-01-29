@@ -8,7 +8,7 @@
 	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/register.css'
+		href='${pageContext.request.contextPath}/css/register.css'
 	type="text/css" />
 <title>註冊</title>
 <link rel="stylesheet"
@@ -26,11 +26,11 @@
 	<div class="steakRR">
 		<div class="main">
 			<br>
-			<div class="orm">
+		
 				<h3>註冊帳號</h3>
 				<div class="container">
 
-					<form action="/YunHotel/customer/Login" method="POST"
+					<form action="/YunHotel/customer/registerOK" method="POST"
 						class="container">
 						<p>帳號:</p>
 						<input type="text" name="account"></input> <br>
@@ -53,15 +53,19 @@
 						<p>生日:</p>
 						<input type="date" name="birthday"></input> <br>
 						<p>地址:</p>
-						<input type="text" name="address"></input> <br> <input
-							type="submit" value="註冊">
-						<div>
-							<a href="http://localhost:8080/YunHotel/YunPage" />回首頁</a>
-						</div>
+						<input type="text" name="address"></input> <br> 
+<!-- 							<input type="submit" value="註冊" -->
+<!-- 							onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
+							<br> <input class="ormBtn" type="submit" value="註冊" 	onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
+						<!-- 						<div> -->
+						<!-- 							<a href="http://localhost:8080/YunHotel/YunPage" />回首頁</a> -->
+						<!-- 						</div> -->
 					</form>
 
 
-
 				</div>
+			</div>
+		</div>
+	
 </body>
 </html>

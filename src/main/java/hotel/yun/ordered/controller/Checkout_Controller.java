@@ -1,0 +1,66 @@
+package hotel.yun.ordered.controller;
+
+import java.sql.Date;
+import java.util.Calendar;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import hotel.yun.customer.service.CustomerService;
+import hotel.yun.date.model.Rdate;
+import hotel.yun.date.service.Date_Service;
+import hotel.yun.ordered.service.Ordered_Service;
+import hotel.yun.room.model.Room;
+import hotel.yun.room.service.RoomService;
+
+@Controller
+@RequestMapping("/checkout")
+@SessionAttributes({ "order_number", "customer_id", "ordered_tomeals_id", "ordered_toroom_id", "status_id",
+		"payment_id" })
+public class Checkout_Controller {
+
+	@Autowired
+	ServletContext context;
+
+	@Autowired
+	Ordered_Service oser;
+
+	@Autowired
+	RoomService rser;
+
+	@Autowired
+	CustomerService cser;
+
+	@Autowired
+	Date_Service dser;
+	
+	//--------------------------------------------------------------------------------------------------
+	
+	@PostMapping("/queryOrdered")
+	public String checkOutRoom(@RequestParam(value = "room_name") String room_name,
+			@RequestParam(value = "rdateEnd") Date rdateEnd,
+			@RequestParam(value = "roomnum_of_people") int roomnum_of_people,
+			Model model, HttpSession session) {
+		
+		Room room = rser.queryRoomByName(room_name);
+		
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(rdateEnd);
+		c.add(Calendar.DAY_OF_MONTH, -1);
+		Date lastUseDay = (Date) c.getTime();
+		Rdate rdate = dser.queryByRoomDate(lastUseDay);
+		
+		
+		
+				return null;
+	}
+	
+}
