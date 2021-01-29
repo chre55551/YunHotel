@@ -449,24 +449,34 @@ public class Ordered_Controller {
 //	
 //-----------------------------------------------------------------------------------------------------
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
-	@GetMapping("/outsideCustomerToOrdered")
-	public String getCustomerOrderss(Model model, HttpSession session) {
-		return "ordered/outsideCustomerToOrdered";
-	}
 
 	// 查到顧客訂單的詳細資料
 	@RequestMapping("/outsidethisOrdered/{ordered_number}")
-	public String singleOrderedss(@PathVariable(value = "ordered_number") int ordered_number, Model model,
+	public String outsidesingleOrderedss(@PathVariable(value = "ordered_number") int ordered_number, Model model,
 			HttpSession session) {
+		
 		Ordered ordered = service.queryOrderNum(ordered_number);
 		model.addAttribute("ordered", ordered);
+		
+		Customer customer = new Customer();
 		try {
+			String ac = (String) session.getAttribute("LoginOK");
+			customer = cser.queryByAc(ac);
+			ordered.setCustomer(customer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
+			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
 			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
 		} catch (Exception e) {
 
 		}
 		try {
 			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
+			model.addAttribute("mdate", ordered.getOrderedToMeals().getMeals());
 		} catch (Exception e) {
 
 		}
