@@ -42,8 +42,8 @@
 	         <li class="nav-item"><a href="../YunPage" class="nav-link">首頁</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">最新消息</a></li>
-	          <li class="nav-item active"><a href="RoomIntroduction" class="nav-link">房型介紹</a></li>
-	          <li class="nav-item"><a href="restaurant.html" class="nav-link">美食佳餚</a></li>
+	          <li class="nav-item active"><a href="../room/RoomIntroduction" class="nav-link">房型介紹</a></li>
+	          <li class="nav-item"><a href="Delicious" class="nav-link">美食佳餚</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">其他設施</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">會員登入</a></li>
 	        </ul>
@@ -95,7 +95,7 @@
 <!--     </section> -->
 
     <section class="ftco-section ftco-menu bg-light">
-			<div class="container">
+			<div class="container"> 
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
           	<span class="subheading">2021全新菜單</span>
@@ -108,42 +108,42 @@
 				<div class="row">
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-1.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer1.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>法國空運活生蠔</span></h3>
+	        				<span class="price">$NT780</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>吉拉多生蠔是從法國蠔埸直接空運，法國空運直送台灣;吉拉多生蠔擁有獨有的細膩持久芳香和爽脆口感。</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-2.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer2.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>香煎北海道干貝佐松露高湯</span></h3>
+	        				<span class="price">$NT859</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>嚴選北海道生食級大干貝，兩面香煎過後淋上特製的松露高湯，松露高湯香氣十分濃郁，味道極富層次超好吃！</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-3.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer3.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>香煎厚片煙燻鮭魚</span></h3>
+	        				<span class="price">$NT888</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>煙燻熟成的半生熟厚切鮭魚，口感軟嫩緊實，味道甘甜帶有煙燻香氣，搭配水煮蛋及魚子醬，味道溫潤，底層的芥末美乃滋微微提味，更加鮮美。</p>
 	        			</div>
         			</div>
         		</div>
@@ -151,42 +151,42 @@
 
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-4.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer4.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>香煎海明蝦配羅勒起士餃</span></h3>
+	        				<span class="price">$NT708</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>精選菜色香草羅勒起司餃、焗烤馬鈴薯介紹特製餃子薄皮，配上各式內餡，加上濃郁起司，撒上特製研磨海苔粉。</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-5.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer5.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>脆煎路其加拿大鴨肝</span></h3>
+	        				<span class="price">$NT1088</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>鴨肝風味濃郁，口感綿密滑順一入口，油脂滋滋地在口中化開!富含豐富維生素A、維生素B2，還具有一般肉類食品不含的維生素C和微量元素硒、鐵與維生素E。</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-6.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer6.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>焗烤青醬田螺盅</span></h3>
+	        				<span class="price">$NT688</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>脆、軟帶有起司的強烈氣息，田螺在眾多的香料下吃不出蝸牛的腥味，細細品嘗吃得到地中海香料的香味。</p>
 	        			</div>
         			</div>
         		</div>
@@ -194,49 +194,87 @@
 
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-7.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer7.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>酥炸蟹肉餅</span></h3>
+	        				<span class="price">$NT688</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>👌裡面都是蟹肉沒有澱粉<br>
+                               👌澱粉只有外層炸的麵衣<br>
+                               👌蟹肉餅佐柳橙芥末醬與生菜沙拉</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
         	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-8.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer8.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>義式生牛肉冷盤</span></h3>
+	        				<span class="price">$NT1088</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>入口立馬感受清爽柔順的甘甜滋味，清爽口感嚐不到一絲肉腥味，精巧的擺盤讓人在美食之外嚐出趣味。</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
-        	<div class="col-lg-6 col-xl-6 d-flex">
+        	
+        	
+        	
+        				<div class="container"> 
+        	<h3>湯品</h3>
+        	    <div class="row">
+             	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-9.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer8.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>義式生牛肉冷盤</span></h3>
+	        				<span class="price">$NT1088</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>入口立馬感受清爽柔順的甘甜滋味，清爽口感嚐不到一絲肉腥味，精巧的擺盤讓人在美食之外嚐出趣味。</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
+        	
+        	
+        	
+        	        	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer8.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>義式生牛肉冷盤</span></h3>
+	        				<span class="price">$NT1088</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>入口立馬感受清爽柔順的甘甜滋味，清爽口感嚐不到一絲肉腥味，精巧的擺盤讓人在美食之外嚐出趣味。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+     		
+        
+        
+        
+        
+        
+        
+        
+        
+        
         </div>
+         </div>
+     </div>
         </div>
-			</div>
+       
+  	
 		</section>
 		
 
