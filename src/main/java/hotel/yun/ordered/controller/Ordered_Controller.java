@@ -473,8 +473,30 @@ public class Ordered_Controller {
 		try {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
-			
-			od.setCustomer(ct);
+			List<Ordered> odl = ct.getOrdered();
+			model.addAttribute("odl", odl);
+			for(Ordered qq:odl) {
+				model.addAttribute("od"+od.getOrdered_number(),qq);
+				model.addAttribute("odc"+od.getOrdered_number(),qq.getCustomer());
+				model.addAttribute("otr"+od.getOrdered_number(),qq.getOrderedToRoom());
+				model.addAttribute("otrr"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom());
+				model.addAttribute("otrrt"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom().getRoomType());
+				model.addAttribute("otrd"+od.getOrdered_number(),qq.getOrderedToRoom().getRdates());
+				model.addAttribute("otm"+od.getOrdered_number(),qq.getOrderedToMeals());
+				model.addAttribute("otmmd"+od.getOrdered_number(),qq.getOrderedToMeals().getMdate());
+				model.addAttribute("os"+od.getOrdered_number(),qq.getOrderedStatus());
+				model.addAttribute("op"+od.getOrdered_number(),qq.getOrderedPayment());
+				//od1
+				//od2
+				//otr2
+//				System.out.println(qq.getOrdered_number());
+//				System.out.println(qq.getCustomer().);
+//				System.out.println(qq.getOrdered_number());
+//				System.out.println(qq.getOrdered_number());
+//				System.out.println(qq.getOrdered_number());
+//				System.out.println(qq.getOrdered_number());
+//				System.out.println(qq.getOrdered_number());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

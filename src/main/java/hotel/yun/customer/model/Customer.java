@@ -39,7 +39,7 @@ public class Customer {
     @JoinColumn(name="member_id", referencedColumnName="member_id")
 	private Member member;
 	
-	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<Ordered> ordered = new ArrayList<Ordered>();
 	public Customer() {

@@ -32,12 +32,12 @@
 				<h4 class="ormt2">詳細訂單</h4>
 			<c:forEach var="od" items="${list}">				
 				<p class="ormt2">訂單編號: ${od.ordered_number}</p>
-				<p class="ormt2">姓名: ${od.chinese_name}</p>
-				<p class="ormt2">電話: ${od.mobile_phone}</p>
+				<p class="ormt2">姓名: ${odc.chinese_name}</p>
+				<p class="ormt2">電話: ${odc.mobile_phone}</p>
 
 				<c:choose>
-					<c:when test="${not empty od.customer.birthday}">
-						<p class="ormt2">生日: ${od.customer.birthday}</p>
+					<c:when test="${not empty odc.birthday}">
+						<p class="ormt2">生日: ${odc.birthday}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">生日: 無</p>
@@ -45,8 +45,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.customer.idcard_number}">
-						<p class="ormt2">身分證字號: ${od.customer.idcard_number}</p>
+					<c:when test="${not empty odc.idcard_number}">
+						<p class="ormt2">身分證字號: ${odc.idcard_number}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">身分證字號: 無</p>
@@ -54,8 +54,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.customer.address}">
-						<p class="ormt2">地址: ${od.customer.address}</p>
+					<c:when test="${not empty odc.address}">
+						<p class="ormt2">地址: ${odc.address}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">地址: 無</p>
@@ -63,8 +63,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.status.ordered_status}">
-						<p class="ormt2">訂單狀態: ${od.status.ordered_status}</p>
+					<c:when test="${not empty os.ordered_status}">
+						<p class="ormt2">訂單狀態: ${os.ordered_status}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">訂單狀態: 無</p>
@@ -82,33 +82,33 @@
 
 				<c:choose>
 					<c:when
-						test="${not empty od.orderedToMeals.mealsnum_of_people}">
+						test="${not empty otm.mealsnum_of_people}">
 						<p class="ormt2">用餐人數:
-							${od.orderedToMeals.mealsnum_of_people}</p>
+							${otm.mealsnum_of_people}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.mdate.mdate}">
-						<p class="ormt2">用餐日期: ${od.mdate.mdate}</p>
+					<c:when test="${not empty otmmd.mdate}">
+						<p class="ormt2">用餐日期: ${otmmd.mdate}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.mdate.time_period}">
-						<p class="ormt2">用餐時段: ${od.mdate.time_period}</p>
+					<c:when test="${not empty otmmd.time_period}">
+						<p class="ormt2">用餐時段: ${otmmd.time_period}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.room.room_name}">
-						<p class="ormt2">房號: ${od.room.room_name}</p>
+					<c:when test="${not empty otrr.room_name}">
+						<p class="ormt2">房號: ${otrr.room_name}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">房號: 無</p>
@@ -116,8 +116,8 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty od.roomType.room_type}">
-						<p class="ormt2">房型: ${od.roomType.room_type}</p>
+					<c:when test="${not empty otrrt.room_type}">
+						<p class="ormt2">房型: ${otrrt.room_type}</p>
 					</c:when>
 					<c:otherwise>
 						<p class="ormt2">房型: 無</p>
@@ -125,9 +125,9 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty rdates}">
+					<c:when test="${not empty otrd}">
 						<p class="ormt2">欲訂房日期:</p>
-						<c:forEach var="rdate" items="${rdates}">
+						<c:forEach var="rdate" items="${otrd}">
 							<p>${rdate.rdate}</p>
 						</c:forEach>
 					</c:when>
