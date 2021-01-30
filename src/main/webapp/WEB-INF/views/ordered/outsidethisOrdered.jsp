@@ -30,8 +30,8 @@
 		<div class="main">
 			<div class="orm2">
 				<h4 class="ormt2">詳細訂單</h4>
-			<c:forEach var="od" items="${list}">				
-				<p class="ormt2">訂單編號: ${od.ordered_number}</p>
+				<p class="ormt2">訂單編號: ${i}</p>
+				<p class="ormt2">姓名: ${odc.chinese_name}</p>
 				<p class="ormt2">姓名: ${odc.chinese_name}</p>
 				<p class="ormt2">電話: ${odc.mobile_phone}</p>
 
@@ -170,7 +170,6 @@
 						<p class="ormt2">備註: 無</p>
 					</c:otherwise>
 				</c:choose>
-			</c:forEach>
 				<br> 
 <!-- 				<input class="ormBtn" type="button" value="回官網" -->
 <!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->

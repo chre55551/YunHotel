@@ -456,7 +456,15 @@ public class Ordered_Controller {
 //	
 //-----------------------------------------------------------------------------------------------------
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
-
+	
+	@RequestMapping("/outsideCustomerOd")
+	public String outsideCustomerOd(Model model,HttpSession session) {
+		
+		return null;
+		
+	}
+	
+	
 	// 查到顧客訂單的詳細資料
 	@RequestMapping("/outsidethisOrdered")
 	public String outsidesingleOrderedss(
@@ -474,16 +482,29 @@ public class Ordered_Controller {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
 			List<Ordered> odl = ct.getOrdered();
+			List<Object> list = new ArrayList<Object>();
 			model.addAttribute("odl", odl);
 			for(Ordered qq:odl) {
+				Integer i = qq.getOrdered_number();
+				list.add(i);
+				System.out.println(i);
+				
 				model.addAttribute("od"+od.getOrdered_number(),qq);
 				model.addAttribute("odc"+od.getOrdered_number(),qq.getCustomer());
-				model.addAttribute("otr"+od.getOrdered_number(),qq.getOrderedToRoom());
-				model.addAttribute("otrr"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom());
-				model.addAttribute("otrrt"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom().getRoomType());
-				model.addAttribute("otrd"+od.getOrdered_number(),qq.getOrderedToRoom().getRdates());
-				model.addAttribute("otm"+od.getOrdered_number(),qq.getOrderedToMeals());
-				model.addAttribute("otmmd"+od.getOrdered_number(),qq.getOrderedToMeals().getMdate());
+				try {
+					model.addAttribute("otr"+od.getOrdered_number(),qq.getOrderedToRoom());
+					model.addAttribute("otrr"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom());
+					model.addAttribute("otrrt"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom().getRoomType());
+					model.addAttribute("otrd"+od.getOrdered_number(),qq.getOrderedToRoom().getRdates());
+				}catch(Exception e) {
+//					e.printStackTrace();
+				}
+				try {
+					model.addAttribute("otm"+od.getOrdered_number(),qq.getOrderedToMeals());
+					model.addAttribute("otmmd"+od.getOrdered_number(),qq.getOrderedToMeals().getMdate());
+				}catch(Exception e) {
+//					e.printStackTrace();
+				}
 				model.addAttribute("os"+od.getOrdered_number(),qq.getOrderedStatus());
 				model.addAttribute("op"+od.getOrdered_number(),qq.getOrderedPayment());
 				//od1
@@ -497,6 +518,8 @@ public class Ordered_Controller {
 //				System.out.println(qq.getOrdered_number());
 //				System.out.println(qq.getOrdered_number());
 			}
+			model.addAttribute("list",list);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
