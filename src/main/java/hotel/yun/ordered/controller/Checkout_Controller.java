@@ -47,7 +47,7 @@ public class Checkout_Controller {
 	//--------------------------------------------------------------------------------------------------
 	
 	@PostMapping("/queryOrdered")
-	public String checkOutRoom(@RequestParam(value = "room_name") String room_name,
+	public String queryOrdered(@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdateEnd") Date rdateEnd,
 			@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
 			Model model, HttpSession session) {
@@ -66,7 +66,15 @@ public class Checkout_Controller {
 				return null;
 	}
 	
-//	@PostMapping("/room/checkout")
+	@PostMapping("/room/checkout")
+	public String checkoutRoom(@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
+			@RequestParam(value = "bill_status") String bill_status,
+			Model model, HttpSession session) {
+		 Ordered od = (Ordered)model.getAttribute("od");
+		 od.getOrderedToRoom().setRoomnum_of_people((int)roomnum_of_people);
+		 oser.room_checkout(od,bill_status);
+		return null;
+	}
 	
 	@PostMapping("/test")
 	public @ResponseBody Ordered checkOutRoomTest(@RequestParam(value = "room_name") String room_name,

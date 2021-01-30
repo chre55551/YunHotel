@@ -158,4 +158,23 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate) {
 		return oDao.queryOdByRoomAndRdate(room, rdate);
 	}
+
+	@Override
+	public void checkout(Ordered od) {
+		
+		
+	}
+
+	@Override
+	public void room_checkout(Ordered od , String bill_status) {
+		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
+		OrderedPayment op = oDao.queryOP(2);
+		OrderedStatus os = oDao.queryOS(od,bill_status);
+		od.setOrderedPayment(op);
+		od.setOrderedStatus(os);
+//		od.getOrderedStatus();
+		od.setOrdered_last_update(c);
+		od.setOrdered_finish_date(c);
+		
+	}
 }

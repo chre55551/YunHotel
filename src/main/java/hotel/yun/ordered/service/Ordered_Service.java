@@ -26,4 +26,6 @@ public interface Ordered_Service {
 	public OrderedStatus queryStatusByS(String ordered_status);
 	public OrderedPayment queryPaymentBys(String bill_status);
 	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate);
+	public void checkout(Ordered od);
+	public void room_checkout(Ordered od, String bill_status);
 }
