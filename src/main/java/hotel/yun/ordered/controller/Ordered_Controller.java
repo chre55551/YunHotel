@@ -473,12 +473,7 @@ public class Ordered_Controller {
 		try {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
-			Customer havecus = cser.memquerycut(ct);
-			System.out.println(havecus);
-			System.out.println(havecus);
-			System.out.println(havecus);
-			System.out.println(havecus);
-			System.out.println(havecus);
+			
 			od.setCustomer(ct);
 		} catch (Exception e) {
 			e.printStackTrace();

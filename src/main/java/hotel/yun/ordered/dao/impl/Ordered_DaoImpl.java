@@ -162,7 +162,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		od.setOrdered_number(ordered_number);
 		session.delete(od);
 	}
-	
+//-----------------------------------------------------------------------------------------------------------------------------------------------
 	@Override
 	public OrderedToRoom insertOTR(OrderedToRoom otr) {
 		Session session = factory.getCurrentSession();
@@ -171,6 +171,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		session.save(otr);
 		return otr;
 	}
+//-----------------------------------------------------------------------------------------------------------------------------------------------	
 	@Override
 	public void updateOTR(OrderedToRoom orderedToRoom) {
 		Session session = factory.getCurrentSession();
@@ -191,6 +192,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		session.update(otr);
 	}
 	
+//-----------------------------------------------------------------------------------------------------------------------------------------------	
 	@Override
 	public OrderedStatus queryStatusByS(String ordered_status) {
 		Session session = factory.getCurrentSession();
@@ -198,6 +200,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		OrderedStatus os = (OrderedStatus)session.createQuery(hql).setParameter("oos", ordered_status).getSingleResult();
 		return os;
 	}
+//-----------------------------------------------------------------------------------------------------------------------------------------------	
 	@Override
 	public OrderedPayment queryPaymentBys(String bill_status) {
 		Session session = factory.getCurrentSession();
@@ -205,6 +208,7 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		OrderedPayment op = (OrderedPayment)session.createQuery(hql).setParameter("obs", bill_status).getSingleResult();
 		return op;
 	}
+//-----------------------------------------------------------------------------------------------------------------------------------------------	
 	@Override
 	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate) {
 		Session session = factory.getCurrentSession();
@@ -240,3 +244,4 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	}
 
 }
+//-----------------------------------------------------------------------------------------------------------------------------------------------	
