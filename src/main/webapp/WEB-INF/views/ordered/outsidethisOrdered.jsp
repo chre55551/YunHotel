@@ -125,7 +125,7 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test="${not empty otrd}">
+					<c:when test="${not empty otrd[i]}">
 						<p class="ormt2">欲訂房日期:</p>
 						<c:forEach var="rdate" items="${otrd}">
 							<p>${rdate.rdate}</p>

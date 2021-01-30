@@ -456,26 +456,56 @@ public class Ordered_Controller {
 //	
 //-----------------------------------------------------------------------------------------------------
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
-	
-	@RequestMapping("/outsideCustomerOd")
-	public String outsideCustomerOd(Model model,HttpSession session) {
-		
-		return null;
-		
+
+	@RequestMapping("/outsideQueryCustomerOd")
+	public String outsideQueryCustomerOd(Model model, HttpSession session) {
+
+		Customer ct = new Customer();
+
+		try {
+			String ac = (String) session.getAttribute("LoginOK");
+			ct = cser.queryByAc(ac);
+			List<Ordered> odl = ct.getOrdered();
+			// List<Object> list = new ArrayList<Object>();
+			model.addAttribute("odl", odl);
+
+			for (int i = 0; i < odl.size(); i++) {
+				Ordered getcu = odl.get(i);
+				for (int j = 0; j < odl.size(); j++) {
+					int odnum = getcu.getOrdered_number();
+					model.addAttribute("onum", odnum);
+				}
+				model.addAttribute("name",getcu.getCustomer().getChinese_name());
+				model.addAttribute("phone", getcu.getCustomer().getMobile_phone());
+				model.addAttribute("odate", getcu.getOrdered_date());
+				model.addAttribute("ostatus", getcu.getOrderedStatus().getOrdered_status());
+				model.addAttribute("oBill", getcu.getOrderedPayment().getBill_status());
+
+			}
+//			for(Ordered od:odl) {
+//				int odnum = od.getOrdered_number();
+//				model.addAttribute("odnum", odnum);
+//				list.add(odnum);
+//				
+//				System.out.println(odl);
+//			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "ordered/outsideQueryCustomerOd";
+
 	}
-	
-	
+
 	// 查到顧客訂單的詳細資料
 	@RequestMapping("/outsidethisOrdered")
 	public String outsidesingleOrderedss(
 //			@PathVariable(value = "chinese_name") String chinese_name,
 //			@PathVariable(value = "mobile_phone") String mobile_phone,
-			Model model,
-			HttpSession session) {
+			Model model, HttpSession session) {
 
 //		Ordered ordered = service.queryOrderNum(ordered_number);
 //		model.addAttribute("ordered", ordered);
-		
+
 		Ordered od = new Ordered();
 		Customer ct = new Customer();
 		try {
@@ -484,32 +514,32 @@ public class Ordered_Controller {
 			List<Ordered> odl = ct.getOrdered();
 			List<Object> list = new ArrayList<Object>();
 			model.addAttribute("odl", odl);
-			for(Ordered qq:odl) {
+			for (Ordered qq : odl) {
 				Integer i = qq.getOrdered_number();
 				list.add(i);
 				System.out.println(i);
-				
-				model.addAttribute("od"+od.getOrdered_number(),qq);
-				model.addAttribute("odc"+od.getOrdered_number(),qq.getCustomer());
+
+				model.addAttribute("od" + od.getOrdered_number(), qq);
+				model.addAttribute("odc" + od.getOrdered_number(), qq.getCustomer());
 				try {
-					model.addAttribute("otr"+od.getOrdered_number(),qq.getOrderedToRoom());
-					model.addAttribute("otrr"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom());
-					model.addAttribute("otrrt"+od.getOrdered_number(),qq.getOrderedToRoom().getRoom().getRoomType());
-					model.addAttribute("otrd"+od.getOrdered_number(),qq.getOrderedToRoom().getRdates());
-				}catch(Exception e) {
+					model.addAttribute("otr" + od.getOrdered_number(), qq.getOrderedToRoom());
+					model.addAttribute("otrr" + od.getOrdered_number(), qq.getOrderedToRoom().getRoom());
+					model.addAttribute("otrrt" + od.getOrdered_number(), qq.getOrderedToRoom().getRoom().getRoomType());
+					model.addAttribute("otrd" + od.getOrdered_number(), qq.getOrderedToRoom().getRdates());
+				} catch (Exception e) {
 //					e.printStackTrace();
 				}
 				try {
-					model.addAttribute("otm"+od.getOrdered_number(),qq.getOrderedToMeals());
-					model.addAttribute("otmmd"+od.getOrdered_number(),qq.getOrderedToMeals().getMdate());
-				}catch(Exception e) {
+					model.addAttribute("otm" + od.getOrdered_number(), qq.getOrderedToMeals());
+					model.addAttribute("otmmd" + od.getOrdered_number(), qq.getOrderedToMeals().getMdate());
+				} catch (Exception e) {
 //					e.printStackTrace();
 				}
-				model.addAttribute("os"+od.getOrdered_number(),qq.getOrderedStatus());
-				model.addAttribute("op"+od.getOrdered_number(),qq.getOrderedPayment());
-				//od1
-				//od2
-				//otr2
+				model.addAttribute("os" + od.getOrdered_number(), qq.getOrderedStatus());
+				model.addAttribute("op" + od.getOrdered_number(), qq.getOrderedPayment());
+				// od1
+				// od2
+				// otr2
 //				System.out.println(qq.getOrdered_number());
 //				System.out.println(qq.getCustomer().);
 //				System.out.println(qq.getOrdered_number());
@@ -518,14 +548,12 @@ public class Ordered_Controller {
 //				System.out.println(qq.getOrdered_number());
 //				System.out.println(qq.getOrdered_number());
 			}
-			model.addAttribute("list",list);
-			
+			model.addAttribute("list", list);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	
-				
+
 //		try {
 //			model.addAttribute("status", od.getOrderedStatus());
 //		} catch (Exception e) {
