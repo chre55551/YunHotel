@@ -45,7 +45,7 @@
 	          <li class="nav-item active"><a href="../room/RoomIntroduction" class="nav-link">房型介紹</a></li>
 	          <li class="nav-item"><a href="Delicious" class="nav-link">美食佳餚</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">其他設施</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">會員登入</a></li>
+	          <li class="nav-item"><a href="../customer/Login" class="nav-link">會員登入</a></li>
 	        </ul>
 	      </div>
 	    </div>
