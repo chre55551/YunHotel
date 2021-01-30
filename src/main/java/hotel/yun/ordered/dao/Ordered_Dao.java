@@ -26,4 +26,7 @@ public interface Ordered_Dao {
 	public OrderedStatus queryStatusByS(String ordered_status);
 	public OrderedPayment queryPaymentBys(String bill_status);
 	public Ordered queryOdByRoomAndRdate(Room room, Rdate rdate);
+	public OrderedPayment queryOP(int i);
+	public OrderedStatus queryOS(Ordered od, String bill_status);
+	public Ordered updateOd(Ordered od);
 }
