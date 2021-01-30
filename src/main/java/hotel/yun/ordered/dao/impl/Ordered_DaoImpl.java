@@ -216,18 +216,18 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 		OrderedToRoom right = new OrderedToRoom ();
 		String hql = "from OrderedToRoom otr where otr.room in (from Room rm  where rm.room_name = :rmn)";
 		@SuppressWarnings("unchecked")
-		List<OrderedToRoom> otrlist = session.createQuery(hql).setParameter("rmn", room.getRoom_name()).getResultList();
-		for(OrderedToRoom otr:otrlist) {		
-			Set<Rdate> rdates = otr.getRdates();
-			boolean kk = false;
-			for(Rdate rdateQQ:rdates) {
+		List<OrderedToRoom> otrlist = session.createQuery(hql).setParameter("rmn", room.getRoom_name()).getResultList();//根據房間找出所有跟此房間有關的房間訂單
+		for(OrderedToRoom otr:otrlist) {//根據每張查出的房間訂單跑迴圈
+			Set<Rdate> rdates = otr.getRdates();//查出該訂單的所有日期
+			boolean kk = false;//此訂單等級的 boolean 預設為 false
+			for(Rdate rdateQQ:rdates) {//該訂單的每個日期
 				Date rd1 = rdateQQ.getRdate();
-				if(rd1.compareTo(rd0)==0) {
-					kk = true;
+				if(rd1.compareTo(rd0)==0) {//日期若與入住的最後一日相同
+					kk = true;//訂單等級 boolean 為 true
 				}	
 			}
-			if(kk==true) {
-				right = otr;
+			if(kk==true) { //若為true
+				right = otr; //將此筆訂單裝至 right
 			}
 		}
 //		session.get(Ordered.class, 1);
@@ -241,6 +241,25 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 //		}
 //		od.getOrderedToRoom().getRoom();
 //		String hql = "from OrderedToRoom otr where otr.room in (from Room rm  where rm.room_name = :rmn ) and otr.rdates ";
+	}
+	@Override
+	public OrderedPayment queryOP(int i) {
+		Session session = factory.getCurrentSession();
+		OrderedPayment op = session.get(OrderedPayment.class, i);
+		return op;
+	}
+	@Override
+	public OrderedStatus queryOS(Ordered od, String bill_status) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM OrderedStatus os WHERE os.ordered_status = :os";
+		OrderedStatus os = (OrderedStatus)session.createQuery(hql).setParameter("os", bill_status).getSingleResult();
+		return os;
+	}
+	@Override
+	public Ordered updateOd(Ordered od) {
+		Session session = factory.getCurrentSession();
+		session.update(od);
+		return null;
 	}
 
 }
