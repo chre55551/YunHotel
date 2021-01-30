@@ -15,7 +15,20 @@
      <link href="${pageContext.request.contextPath}/fonts/icomoon/icomoon.woff" rel="stylesheet">
      <link href="${pageContext.request.contextPath}/fonts/ionicons/css/ionicons.min.css" rel="stylesheet">
      <link href="${pageContext.request.contextPath}/fonts/ionicons/css/_ionicons.scss" rel="stylesheet">
-    
+     <link href="${pageContext.request.contextPath}/fonts/open-iconic/open-iconic.eot" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/open-iconic/open-iconic.otf" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/open-iconic/open-iconic.svg" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/open-iconic/open-iconic.ttf" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/open-iconic/open-iconic.woff" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/_flaticon.scss" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/Flaticon.eot" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/flaticon.html" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/Flaticon.svg" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/Flaticon.ttf" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/fonts/flaticon/font/Flaticon.woff" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/test2/bootstrap/bootstrap-gird.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/test2/bootstrap/bootstrap-reboot.css" rel="stylesheet">
     
     
     
@@ -46,6 +59,8 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
+
+<%-- 		<%@ include file="CommonTemplates/Indexheader.jsp"%> --%>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
@@ -89,10 +104,10 @@
     					<a href="#" class="img" style="background-image: url(../image/test2/room-6.jpg);"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
-    							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">King Room</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+<!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
+    							<p class="mb-0"><span class="price mr-1">$NT7,600</span> <span class="per">每晚</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">豪華三人房</a></h3>
+	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -103,9 +118,9 @@
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
 <!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+    							<p class="mb-0"><span class="price mr-1">$NT6,600</span> <span class="per">每晚</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">都會套房</a></h3>
+	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -116,10 +131,10 @@
     					<a href="#" class="img order-md-last" style="background-image: url(../image//test2/room-2.jpg);"></a>
     					<div class="half right-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
-    							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Family Room</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+<!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
+    							<p class="mb-0"><span class="price mr-1">$NT8,800</span> <span class="per">每晚</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">豪華家庭房</a></h3>
+	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -129,10 +144,10 @@
     					<a href="#" class="img order-md-last" style="background-image: url(../image/test2/room-3.jpg);"></a>
     					<div class="half right-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
-    							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Deluxe Room</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+<!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
+    							<p class="mb-0"><span class="price mr-1">$NT4,600</span> <span class="per">每晚</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">豪華單人房</a></h3>
+	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -143,10 +158,10 @@
     					<a href="#" class="img" style="background-image: url(../image/test2/room-4.jpg);"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
-    							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Luxury Room</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+<!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
+    							<p class="mb-0"><span class="price mr-1">$NT5,200</span> <span class="per">每晚</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">豪華雙人房</a></h3>
+	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -156,10 +171,10 @@
     					<a href="#" class="img" style="background-image: url(../image/test2/room-5.jpg);"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
-    							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Superior Room</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+<!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
+    							<p class="mb-0"><span class="price mr-1">$NT5,800</span> <span class="per">每晚</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">高級套房</a></h3>
+	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料 </a></p>
     						</div>
     					</div>
     				</div>
@@ -175,45 +190,45 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Harbor Lights</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h2 class="ftco-heading-2"></h2>
+              <p></p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+<!--                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li> -->
+<!--                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li> -->
+<!--                 <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li> -->
               </ul>
             </div>
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Useful Links</h2>
+              <h2 class="ftco-heading-2"></h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Blog</a></li>
-                <li><a href="#" class="py-2 d-block">Rooms</a></li>
-                <li><a href="#" class="py-2 d-block">Amenities</a></li>
-                <li><a href="#" class="py-2 d-block">Gift Card</a></li>
+<!--                 <li><a href="#" class="py-2 d-block">Blog</a></li> -->
+<!--                 <li><a href="#" class="py-2 d-block">Rooms</a></li> -->
+<!--                 <li><a href="#" class="py-2 d-block">Amenities</a></li> -->
+<!--                 <li><a href="#" class="py-2 d-block">Gift Card</a></li> -->
               </ul>
             </div>
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Privacy</h2>
+              <h2 class="ftco-heading-2"></h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Career</a></li>
-                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
+<!--                 <li><a href="#" class="py-2 d-block">Career</a></li> -->
+<!--                 <li><a href="#" class="py-2 d-block">About Us</a></li> -->
+<!--                 <li><a href="#" class="py-2 d-block">Contact Us</a></li> -->
+<!--                 <li><a href="#" class="py-2 d-block">Services</a></li> -->
               </ul>
             </div>
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2"></h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+<!-- 	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li> -->
+<!-- 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li> -->
+<!-- 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li> -->
 	              </ul>
 	            </div>
             </div>
@@ -223,7 +238,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> © Copyright 澐酒店 Yun Hotel. All rights reserved. 2021 <i class="icon-heart color-danger" aria-hidden="true"></i>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> © Copyright 澐酒店 Yun Hotel. All rights reserved. 2021 <i  aria-hidden="true"></i>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
