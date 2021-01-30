@@ -21,5 +21,6 @@ public interface CustomerDao {
 	public Customer queryByAc(String s);
 	public Customer update(String u);
 	public Customer memquerycut(Customer c);
+	public Customer queryByAc1(String s);
 }
 

@@ -199,8 +199,8 @@ public class BmemberController {
 	// 顯示前台會員
 	@GetMapping("/ShowRMember")
 	public String getCustomer(Model model) {
-		List<Customer> sb = service.queryAllMember1();
-		model.addAttribute("sab",sb);      
+		List<Customer> srb = service.queryAllMember1();
+		model.addAttribute("sb",srb);      
 	
 
 		return "bmember/ShowRMember";

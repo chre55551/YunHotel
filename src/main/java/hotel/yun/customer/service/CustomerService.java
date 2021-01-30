@@ -17,4 +17,5 @@ public interface CustomerService {
 	public Customer queryByAc(String s);
 	Customer update(String u);
 	public Customer memquerycut(Customer c);
+	public Customer queryByAc1(String s);
 }

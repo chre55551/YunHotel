@@ -23,16 +23,16 @@
 			<table border='1'>
 				<tr>
 					<th width='60'>編輯</th>
-					<th width='160'>顧客姓名</th>
+					<th width='160'>員工姓名</th>
 					<th width='60'>刪除</th>
 				</tr>
 				<c:choose>
-					<c:when test="${not empty sab}">
-						<c:forEach var='c' items="${sab}">
+					<c:when test="${not empty sb}">
+						<c:forEach var='c' items="${sb}">
 							<tr>
-								<td align='center'><a href='modifyBmember/${c.bs_id}'>${c.bs_id}</a></td>
-								<td>${c.user_id}</td>
-								<td><a href="modifyBBmember/${c.bs_id}">刪除</a></td>
+								<td align='center'><a href='modifyBmember/${c.chinese_name}'>${c.chinese_name}</a></td>
+								<td>${c.customer_id}</td>
+								<td><a href="modifyBBmember/${c.chinese_name}">刪除</a></td>
 							</tr>
 						</c:forEach>
 					</c:when>
