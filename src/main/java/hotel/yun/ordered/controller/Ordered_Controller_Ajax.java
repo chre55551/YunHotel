@@ -121,7 +121,7 @@ public class Ordered_Controller_Ajax {
 		}
 		return null;
 	}
-	
+	//-----------------------------------------------------------------------------------------------------------------------------------
 	// Ajax 根據房型找出所有房間
 	@GetMapping("/roomtype/to/allrooms")
 	public @ResponseBody List<Room> roomTypeToSllRooms(@RequestParam(value = "room_type") String room_type,

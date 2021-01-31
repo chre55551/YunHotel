@@ -35,8 +35,13 @@ public class DateServiceImpl implements Date_Service {
 	}
 	 
 	@Override
-	public Mdate queryByMealDate(Date mmd) {
+	public Mdate queryByMealDate(Mdate mmd) {
 		Mdate md = dDao.queryByMealDate(mmd);
 		return md;
+	}
+	@Override
+	public Mdate queryByMealDate(Date mmd) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

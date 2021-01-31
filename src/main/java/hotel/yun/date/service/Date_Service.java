@@ -15,4 +15,6 @@ import hotel.yun.date.model.Rdate;
 
 	public Mdate queryByMealDate(Date mmd);
 
+	public Mdate queryByMealDate(Mdate md);
+
 }

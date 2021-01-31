@@ -98,8 +98,9 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	@Override
 	public void updateCustomerOd(Ordered odBean) {
 		Session session = factory.getCurrentSession();
-		Ordered customerOd = session.get(Ordered.class, odBean.getOrdered_number());
-		session.update(customerOd);
+//		Ordered customerOd = session.get(Ordered.class, odBean.getOrdered_number());
+//		customerOd.setOrderedStatus(odBean.getOrderedStatus());
+		session.update(odBean);
 //		if(odBean.getCustomer().getChinese_name()!=null) {
 //			customerOd.getCustomer().setChinese_name(odBean.getCustomer().getChinese_name());
 //		}

@@ -1,26 +1,30 @@
 package hotel.yun.ordered.controller;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.DateTime;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.Gson;
 
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
@@ -34,9 +38,7 @@ import hotel.yun.ordered.model.OrderedToMeals;
 import hotel.yun.ordered.model.OrderedToRoom;
 import hotel.yun.ordered.service.Ordered_Service;
 import hotel.yun.room.model.Room;
-import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
-import hotel.yun.bmember.controller.BmemberController;
 
 @Controller
 @RequestMapping("/ordered")
@@ -280,14 +282,6 @@ public class Ordered_Controller {
 			e.printStackTrace();
 		}
 
-//		Customer customer = new Customer(chinese_name, mobile_phone);
-//		try {
-//			Customer CExist = cser.query(customer);
-//			od.setCustomer(CExist);
-//		} catch (Exception e) {
-//			od.setCustomer(customer);
-//			e.printStackTrace();
-//		}
 		OrderedToMeals otm = new OrderedToMeals();
 		otm.setmealsnum_of_people(mealsnum_of_people);// 這是人數
 		try {// 根據時間跟時段撈出 mdate 並把它放進 otm 裡
@@ -339,17 +333,7 @@ public class Ordered_Controller {
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面 訂房~~~~~~~~~‵
 //	@SuppressWarnings("rawtypes")
 	@PostMapping("/outsideCustomerRoomOd")
-	public String outsideinsertRoomOrdered(/*
-											 * @RequestParam(value = "chinese_name") String chinese_name,
-											 * 
-											 * @RequestParam(value = "idcard_number") String idcard_number,
-											 * 
-											 * @RequestParam(value = "mobile_phone") String mobile_phone,
-											 * 
-											 * @RequestParam(value = "birthday") Date birthday,
-											 * 
-											 * @RequestParam(value = "address") String address,
-											 */
+	public String outsideinsertRoomOrdered(
 			@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "room_type", required = false) String room_type, // 可以不用
 			@RequestParam(value = "rdate", required = false) Date rdate,
@@ -433,36 +417,28 @@ public class Ordered_Controller {
 		try {
 			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
 			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
-			// Set<Rdate> rdates = ordered.getOrderedToRoom().getRdates();
 			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
-//			for(Rdate rdate:rdates) {
-//				rdate.getRdate();
-//			}
-//			for(int i = 0; i <= rdates.size(); i++) {
-//				rdates.
-//			}
+
 		} catch (Exception e) {
 
 		}
 		try {
 			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
-			model.addAttribute("mdate", ordered.getOrderedToMeals().getMeals());
+		} catch (Exception e) {
+
+		}
+		
+		try {
+			model.addAttribute("meals", ordered.getOrderedToMeals().getMeals());
 		} catch (Exception e) {
 
 		}
 		return "ordered/thisOrdered";
 	}
 
-	// 寫在後台需要從日期查詢到他的訂單
-//	@GetMapping("/dateToThisOrdered")
-//	public String DateToOrdered(@ModelAttribute("odd") Ordered odd,Model model) {
-//		List<Ordered> Ordered = service.queryDateToOrdered(odd.getOrdered_date());
-//		model.addAttribute("Ordered",Ordered);
-//		return "ordered/dateToOrdered";//進到該日期的所有訂單
-//	
 //-----------------------------------------------------------------------------------------------------
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
-
+	
 	@RequestMapping("/outsideQueryCustomerOd")
 	public String outsideQueryCustomerOd(Model model, HttpSession session) {
 
@@ -472,32 +448,35 @@ public class Ordered_Controller {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
 			List<Ordered> odl = ct.getOrdered();
-			// List<Object> list = new ArrayList<Object>();
+			
 			model.addAttribute("odl", odl);
-
+			
+//			java.lang.String gson = new Gson().toJson(odl);
+			// List<Object> list = new ArrayList<Object>();
+//			model.addAttribute("gson", gson);
+			
+			int i1 = odl.size();
+			Ordered[] a = new Ordered[i1];
+			
 			for (int i = 0; i < odl.size(); i++) {
 				Ordered getcu = odl.get(i);
-				for (int j = 0; j < odl.size(); j++) {
-					int odnum = getcu.getOrdered_number();
-					model.addAttribute("onum", odnum);
-				}
+//				a[i]=odl.get(i);
+				model.addAttribute("onum",getcu.getOrdered_number());
+				model.addAttribute("odate",getcu.getOrdered_date());
 				model.addAttribute("name",getcu.getCustomer().getChinese_name());
 				model.addAttribute("phone", getcu.getCustomer().getMobile_phone());
-				model.addAttribute("odate", getcu.getOrdered_date());
 				model.addAttribute("ostatus", getcu.getOrderedStatus().getOrdered_status());
 				model.addAttribute("oBill", getcu.getOrderedPayment().getBill_status());
-
 			}
-//			for(Ordered od:odl) {
-//				int odnum = od.getOrdered_number();
-//				model.addAttribute("odnum", odnum);
-//				list.add(odnum);
-//				
-//				System.out.println(odl);
-//			}
+			model.addAttribute("a", a);
+//			JSONObject json1 = new JSONObject(a);
+//			model.addAttribute("json",json1);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+
 		return "ordered/outsideQueryCustomerOd";
 
 	}
@@ -543,16 +522,6 @@ public class Ordered_Controller {
 				}
 				model.addAttribute("os" + od.getOrdered_number(), qq.getOrderedStatus());
 				model.addAttribute("op" + od.getOrdered_number(), qq.getOrderedPayment());
-				// od1
-				// od2
-				// otr2
-//				System.out.println(qq.getOrdered_number());
-//				System.out.println(qq.getCustomer().);
-//				System.out.println(qq.getOrdered_number());
-//				System.out.println(qq.getOrdered_number());
-//				System.out.println(qq.getOrdered_number());
-//				System.out.println(qq.getOrdered_number());
-//				System.out.println(qq.getOrdered_number());
 			}
 			model.addAttribute("list", list);
 
@@ -593,7 +562,7 @@ public class Ordered_Controller {
 	public String update(@PathVariable(value = "id") int ordered_number, Model model, HttpSession session) {
 		Ordered ThisOrdered = service.queryOrderNum(ordered_number);
 		model.addAttribute("updateOdered", ThisOrdered);
-		System.out.println(ThisOrdered.getOrderedToRoom().getRdates());
+//		System.out.println(ThisOrdered.getOrderedToRoom().getRdates());
 		try {
 			model.addAttribute("OTR", ThisOrdered.getOrderedToRoom());
 			model.addAttribute("room", ThisOrdered.getOrderedToRoom().getRoom());
@@ -649,56 +618,76 @@ public class Ordered_Controller {
 			ordered.getCustomer().setIdcard_number(idcard_number);
 			ordered.getCustomer().setAddress(address);
 		}
+		try {	
+			DateTime rdateDT = DateToDateTime(rdate);
+			DateTime rdateEndDT = DateToDateTime(rdateEnd);
+			Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
+			Set<Rdate> rdates = new HashSet<>();
 
-		DateTime rdateDT = DateToDateTime(rdate);
-		DateTime rdateEndDT = DateToDateTime(rdateEnd);
-		Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
-		Set<Rdate> rdates = new HashSet<>();
-
-		for (DateTime d : range) {
-			Date date = dateTimeToDate(d);
-			try {
-				Rdate rd = dser.queryByRoomDate(date);// 嘗試根據日期找出 Rdate 物件
-				rdates.add(rd);// 加到 set<Rdate>中
-			} catch (Exception e) {// 若不存在此日期，new 一個加到資料庫
-				Rdate r = new Rdate();
-				r.setRdate(date);
-				dser.insert(r);
-				rdates.add(r);// 加到 set<Rdate>中
+			for (DateTime d : range) {
+				Date date = dateTimeToDate(d);
+				try {
+					Rdate rd = dser.queryByRoomDate(date);// 嘗試根據日期找出 Rdate 物件
+					rdates.add(rd);// 加到 set<Rdate>中
+				} catch (Exception e) {// 若不存在此日期，new 一個加到資料庫
+					Rdate r = new Rdate();
+					r.setRdate(date);
+					dser.insert(r);
+					rdates.add(r);// 加到 set<Rdate>中
+				}
 			}
-		}
 
-		if (ordered.getOrderedToRoom() != null) {
-			Room room = rser.queryByRoomNum(room_name);
-			ordered.getOrderedToRoom().setRoom(room);
-			ordered.getOrderedToRoom().setRdates(rdates);
-		}
+			if (ordered.getOrderedToRoom() != null) {
+				Room room = rser.queryByRoomNum(room_name);
+				ordered.getOrderedToRoom().setRoom(room);
+				ordered.getOrderedToRoom().setRdates(rdates);
+			}
 
-		if (ordered.getOrderedToRoom().getRdates() != null) {
-			ordered.getOrderedToRoom().setRdates(rdates);
-		}
+			if (ordered.getOrderedToRoom().getRdates() != null) {
+				ordered.getOrderedToRoom().setRdates(rdates);
+			}
 
-		try {
-			service.updateOTR(ordered.getOrderedToRoom());
-			rser.update(ordered.getOrderedToRoom().getRoom());
-		} catch (Exception e) {
-			e.printStackTrace();
+			try {
+				service.updateOTR(ordered.getOrderedToRoom());
+				rser.update(ordered.getOrderedToRoom().getRoom());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}catch(Exception qqq) {
+			
 		}
 
 		if (ordered.getOrderedToMeals() != null) {
 			ordered.getOrderedToMeals().setmealsnum_of_people(mealsnum_of_people);
 		}
 
+		Mdate md = new Mdate();
+		md.setMdate(mdate);
+		md.setTime_period(time_period);
+		
 		if (ordered.getOrderedToMeals().getMdate() != null) {
-			Mdate md = dser.queryByMealDate(mdate);
-			ordered.getOrderedToMeals().setMdate(md);
+			try {
+				Mdate mda = dser.queryByMealDate(md);
+				ordered.getOrderedToMeals().setMdate(mda);
+			}catch(Exception e) {
+				ordered.getOrderedToMeals().setMdate(md);
+			}
 		}
 
 		if (ordered.getOrderedStatus() != null) {
 			OrderedStatus os = service.queryStatusByS(ordered_status);
 			ordered.setOrderedStatus(os);
 		}
-
+		
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		System.out.println(bill_status);
+		
 		if (ordered.getOrderedPayment() != null) {
 			OrderedPayment op = service.queryPaymentBys(bill_status);
 			ordered.setOrderedPayment(op);
@@ -757,3 +746,6 @@ public class Ordered_Controller {
 		return rdates;
 	}
 }
+
+
+

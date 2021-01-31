@@ -19,4 +19,6 @@ public interface DateDao {
 
 	public Mdate queryByMealDate(Date mod);
 
+	public Mdate queryByMealDate(Mdate mmd);
+
 }

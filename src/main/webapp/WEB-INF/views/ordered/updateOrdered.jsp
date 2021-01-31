@@ -37,7 +37,7 @@
 			<p>欲修改的 ${updateOdered.customer.chinese_name}, 訂單編號:
 				${updateOdered.ordered_number}</p>
 			<c:choose>
-				<c:when test="${not empty ${updateOdered.customer.birthday}}">
+				<c:when test="${not empty updateOdered.customer.birthday}">
 					<div>
 						<label>生日: </label> <input name="birthday" type="date"
 							value="${updateOdered.customer.birthday}" />
@@ -50,7 +50,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ${updateOdered.customer.idcard_number}}">
+				<c:when test="${not empty updateOdered.customer.idcard_number}">
 					<div>
 						<label>身分證字號: </label> <input name="idcard_number" type="text"
 							value="${updateOdered.customer.idcard_number}" />
@@ -63,7 +63,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ${updateOdered.customer.address}}">
+				<c:when test="${not empty updateOdered.customer.address}">
 					<div>
 						<label>地址: </label> <input name="address" type="text"
 							value="${updateOdered.customer.address}" />
@@ -76,7 +76,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${${roomType}=='豪華兩人房'}">
+				<c:when test="${roomType=='豪華兩人房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -90,7 +90,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${roomType}=='普通四人房'}">
+				<c:when test="${roomType=='普通四人房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -104,7 +104,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${roomType}=='豪華四人房'}">
+				<c:when test="${roomType=='豪華四人房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -118,7 +118,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${roomType}=='副總統套房'}">
+				<c:when test="${roomType=='副總統套房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -132,7 +132,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${roomType}=='總統套房'}">
+				<c:when test="${roomType=='總統套房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -152,7 +152,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ${OTR}}">
+				<c:when test="${not empty OTR}">
 					<label>欲入住日期: </label>
 					<div>
 						<input name="rdate" type="date"
@@ -164,7 +164,7 @@
 			</c:choose>
 			
 			<c:choose>
-				<c:when test="${not empty ${OTR}}">
+				<c:when test="${not empty OTR}">
 					<label>欲退房日期: </label>
 					<div>
 						<input name="rdateEnd" type="date"
@@ -176,7 +176,7 @@
 			</c:choose>
 			
 			<c:choose>
-				<c:when test="${not empty ${OTR}}">
+				<c:when test="${not empty OTR}">
 					<div>
 						<div>
 							<div id="roomnum"></div>
@@ -189,7 +189,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ${OTM}}">
+				<c:when test="${not empty OTM}">
 					<div>
 						<label>用餐人數: </label> <input name="mealsnum_of_people"
 							value="${updateOdered.orderedToMeals.mealsnum_of_people}" />
@@ -200,7 +200,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty ${OTM}}">
+				<c:when test="${not empty OTM}">
 					<div>
 						<label>用餐日期: </label> <input name="mdate" type="date"
 							value="${Mdate.mdate}" />
@@ -214,7 +214,7 @@
 
 
 			<c:choose>
-				<c:when test="${${time_period}=='11:00~13:00'}">
+				<c:when test="${time_period=='11:00~13:00'}">
 					<div>
 						<label>用餐時段: </label> <select name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
@@ -226,7 +226,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${time_period}=='13:00~15:00'}">
+				<c:when test="${time_period=='13:00~15:00'}">
 					<div>
 						<label>用餐時段: </label> <select name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
@@ -238,7 +238,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${time_period}=='15:00~17:00'}">
+				<c:when test="${time_period=='15:00~17:00'}">
 					<div>
 						<label>用餐時段: </label> <select name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
@@ -250,7 +250,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${time_period}=='17:00~19:00'}">
+				<c:when test="${time_period=='17:00~19:00'}">
 					<div>
 						<label>用餐時段: </label> <select name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
@@ -262,7 +262,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${${time_period}=='19:00~21:00'}">
+				<c:when test="${time_period=='19:00~21:00'}">
 					<div>
 						<label>用餐時段: </label> <select name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
@@ -293,16 +293,16 @@
 
 
 					<div>
-						<label>付款方式: </label> <select name="payment_status" id="requestPS">
+						<label>付款方式: </label> <select name="bill_status" id="requestPS">
 							<option disabled>請選擇付款方式</option>
-							<option value="現金" selected>現金</option>
-							<option value="信用卡">信用卡</option>
+							<option selected>現金</option>
+							<option>信用卡</option>
 						</select>
 					</div>
 
 
 			<c:choose>
-				<c:when test="${not empty ${updateOdered.note}}">
+				<c:when test="${not empty updateOdered.note}">
 					<div>
 						<label>備註</label> <input name="note" id="requestNote" type="text"
 							${updateOdered.note} />

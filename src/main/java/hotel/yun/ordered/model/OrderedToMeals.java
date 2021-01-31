@@ -36,6 +36,7 @@ public class OrderedToMeals implements Serializable {
 	@Transient
 	private int mdate_id;// 對到用餐時間
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "orderedToMeals")
 	private Ordered ordered;
 	
