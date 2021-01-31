@@ -22,12 +22,12 @@
             <li class="diamond">
                  <a href="queryEmployee" class="diamondtxt">查詢員工資料</a>
             </li>
-            <li class="diamond">
-                <div class="diamondtxt">修改員工資料</div>
-            </li>
-            <li class="diamond">
-                <div class="diamondtxt">刪除員工資料</div>
-            </li>
+<!--             <li class="diamond"> -->
+<!--                 <div class="diamondtxt">修改員工資料</div> -->
+<!--             </li> -->
+<!--             <li class="diamond"> -->
+<!--                 <div class="diamondtxt">刪除員工資料</div> -->
+<!--             </li> -->
             </ul>
         </div>
     </div>
