@@ -27,20 +27,23 @@
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 
 	<div class="queryODBG">
+				<input type="hidden" id="odl" value="${a}">
 		<div class="main">
-			<div class="orm2">
-				<h4 class="ormt2">您的所有訂單</h4>
-<%-- 				<c:forEach var="getcu" items="${list}"> --%>
-					<p>訂單編號: ${onum}</p>
-					<p>姓名: ${name}</p>
-					<p>手機: ${phone}</p>
-					<p>訂單時間: ${odate}</p>
-					<p>訂單狀態: ${ostatus}</p>
-					<p>付款方式: ${oBill}</p>
-<%-- 				</c:forEach> --%>
-				<br> <input class="ormBtn" type="button" value="回官網"
-					onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
-			</div>
+			<table class="orm2" id="container">
+				<thead class="ormt2" >
+				    <tr>
+     					 <th>您的所有訂單</th>
+    				</tr>
+				</thead>
+<%-- 				<p>訂單編號: ${onum}</p> --%>
+<%-- 				<p>姓名: ${name}</p> --%>
+<%-- 				<p>手機: ${phone}</p> --%>
+<%-- 				<p>訂單時間: ${odate}</p> --%>
+<%-- 				<p>訂單狀態: ${ostatus}</p> --%>
+<%-- 				<p>付款方式: ${oBill}</p> --%>
+<!-- 				<br> <input class="ormBtn" type="button" value="回官網" -->
+<!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
+			</table>
 		</div>
 	</div>
 
@@ -48,5 +51,39 @@
 		<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
 	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
+
+	<script type="text/javascript"> 
+	$(document).ready(function(){ 
+		var odl = $('#odl').val();
+   		var this_data = '';
+	
+   		for(let od of odl){
+	    	this_data += '<tr>';
+ 			this_data += '<td>' + od.ordered_number + '</td>';//訂單編號
+	  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ od.ordered_number + "'"+'">詳細資料</button>'
+  			this_data += '</tr>';
+		}
+		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
+		$('#container').append(this_data);
+	
+	
+		var qq = '${json}';
+		var ww='${gson}'
+	});
+//  function () {
+//     var this_data = '';
+// 		if(fk != null){
+// 			for(let ordered of fk){
+//    		    	this_data += '<tr>';
+//      			this_data += '<td>' + qq.ordered_number + '</td>';//訂單編號
+// 		  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+//       			this_data += '</tr>';
+//     		  };
+// 				 $('#container').append(this_data);
+// 		}else{
+// 			 alert('查無資料');
+//  		}
+//  }
+ 	</script> 
 </body>
 </html>

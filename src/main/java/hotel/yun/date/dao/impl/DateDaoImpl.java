@@ -65,10 +65,10 @@ public class DateDaoImpl implements Serializable, DateDao {
 	}
 	
 	@Override
-	public Mdate queryByMealDate(Date mod) {
+	public Mdate queryByMealDate(Mdate mod) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Mdate md WHERE md.mdate = :mmd";
-		Mdate md = (Mdate)session.createQuery(hql).setParameter("mmd", mod).getSingleResult();
+		String hql = "FROM Mdate md WHERE md.mdate = :mmd and md.time_period = :qqq";
+		Mdate md = (Mdate)session.createQuery(hql).setParameter("mmd", mod.getMdate()).setParameter("qqq", mod.getTime_period()).getSingleResult();
 		return md;	
 	}
 	//-----------------------------------------------------------------------------
@@ -78,5 +78,11 @@ public class DateDaoImpl implements Serializable, DateDao {
 			Session session = factory.getCurrentSession();
 			Rdate rd = session.get(Rdate.class, i);
 			return rd;
+		}
+
+		@Override
+		public Mdate queryByMealDate(Date mod) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 }

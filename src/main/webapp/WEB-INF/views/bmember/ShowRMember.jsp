@@ -27,12 +27,12 @@
 					<th width='60'>刪除</th>
 				</tr>
 				<c:choose>
-					<c:when test="${not empty sb}">
-						<c:forEach var='c' items="${sb}">
+					<c:when test="${not empty sm}">
+						<c:forEach var='s' items="${sm}">
 							<tr>
-								<td align='center'><a href='modifyBmember/${c.chinese_name}'>${c.chinese_name}</a></td>
-								<td>${c.customer_id}</td>
-								<td><a href="modifyBBmember/${c.chinese_name}">刪除</a></td>
+								<td align='center'><a href='modifyBmember/${s.account}'>${s.account}</a></td>
+								<td>${s.member_id}</td>
+								<td><a href="modifyBBmember/${s.account}">刪除</a></td>
 							</tr>
 						</c:forEach>
 					</c:when>
