@@ -870,11 +870,135 @@
         
         
         
+                    <div class="container"> 
+        	<h3>飲品</h3>
+        	    <div class="row">
+        
+                	  <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink1.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>布蕾香紅</span></h3>
+	        				<span class="price">$NT220</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>表面是烤布蕾，吃起來脆脆甜甜又香香的，裡面紅茶口感微甜順口，喝起來甜而不膩。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+                        	  <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink2.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>玫瑰水果茶</span></h3>
+	        				<span class="price">$NT250</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>玫瑰的花香讓人心神嚮往，歐薄荷的涼勁讓人輕爽無比，而且此款茶品特別又加入了水果果粒，更增添了果香味的濃郁感。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+              <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink3.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>拿鐵</span></h3>
+	        				<span class="price">$NT280</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>咖啡中摻雜著牛奶濃郁的奶香味，喝上一口滿嘴濃郁的奶香，讓你回味無窮。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+        
+                     <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink4.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>雪沁藍澄</span></h3>
+	        				<span class="price">$NT300</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>超夢幻的整個藍色，還有淡淡的酒香，酸酸甜甜有柳橙香味的氣泡飲料。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+                             <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink5.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>紫晶冰情</span></h3>
+	        				<span class="price">$NT300</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>超夢幻的紫色，濃郁的蔓越莓香氣，給您不一樣的味覺感受。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+                 <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink6.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>黑糖奶蓋</span></h3>
+	        				<span class="price">$NT290</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>獨家海鹽黑糖奶蓋讓黑糖波霸更好喝！甜度降低波霸的黑糖香，清爽不甜膩更好喝。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+                        <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Drink/Drink7.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>濃情可可</span></h3>
+	        				<span class="price">$NT250</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>來自西非迦納產區可可豆，其特色是帶有淡淡果香味以凸顯巧克力的苦甜，內餡部分則大量使用純天然可可粉，拌入日本進口鮮奶油，滑順而不膩。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         
         
         
         
         
+        
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
         </div>
         </div>
         </div>
