@@ -64,6 +64,17 @@ public class RoomController {
 		return "room/RoomIntroduction";
 
 	}
+	
+	// 房型介紹詳細資料
+	@GetMapping("/MetropolisSuite")
+	public String MetropolisSuite(Model model) {
+		return "room/MetropolisSuite";
+
+	}
+	
+	
+	
+	
 
 	// 查詢所有房型
 	@GetMapping("/QueryAllRooms")
