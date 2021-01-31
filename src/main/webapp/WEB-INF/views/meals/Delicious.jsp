@@ -312,7 +312,7 @@
         	
         	
         	
-        	    	      	        	<div class="col-lg-6 col-xl-6 d-flex">
+        	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
         			<div class="img" style="background-image: url(../image/test2/Soup/Soup6.jpg);"></div>
         			<div class="desc p-4">
@@ -328,11 +328,89 @@
         	</div>
         
         
+              	<div class="container"> 
+        	<h3>主菜</h3>
+        	    <div class="row">
+        
+              	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse1.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>牛肉蔬菜千層麵</span></h3>
+	        				<span class="price">$NT980</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>各種蔬菜塔配牛肉與培根，佐以茄汁醬及洋蔥，層層堆疊，口感豐富。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	      	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse2.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>牛肝菌義式松露燉飯</span></h3>
+	        				<span class="price">$NT1070</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>牛肝菌是一種在歐洲常見的珍貴菇類，香氣飽滿與義大利進口黑松露，這經典高貴食材搭配的美味，可以堪稱CP值之冠👑</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+                	      	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse3.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>米蘭風味燉牛臉頰肉</span></h3>
+	        				<span class="price">$NT1190</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>與蔬菜一同熬煮的米蘭風味燉牛肉滋味清甜，不油膩的口感，無論搭配米飯或麵包都很適合喔～</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	
+        	        	      	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse4.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>乳酪蘑菇釀雞胸</span></h3>
+	        				<span class="price">$NT890</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>這些美味的烤雞胸肉塞滿了蘑菇，馬蘇里拉奶酪和其他蔬菜的混合物。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
         
         
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        </div>
         </div>
          </div>
      </div>
