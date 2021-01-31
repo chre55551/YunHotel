@@ -451,7 +451,7 @@
 	        				<span class="price">$NT1299</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>多種中藥材滷製及照燒醬汁調理，經過繁複工法製成的炭烤小羊排，肉質多汁軟嫩</p>
+	        				<p>多種中藥材滷製及照燒醬汁調理，經過繁複工法製成的炭烤小羊排，肉質多汁軟嫩。</p>
 
 	        			</div>
         			</div>
@@ -643,11 +643,230 @@
         
         
         
+               <div class="container"> 
+        	<h3>沙拉</h3>
+        	    <div class="row">
+        
+        
+                   <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Salad/Salad1.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>田園蔬菜沙拉</span></h3>
+	        				<span class="price">$NT350</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>色澤美觀，蔬菜新鮮，口味清淡，原汁原味。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+                          <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Salad/Salad2.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>精選蔬菜沙拉</span></h3>
+	        				<span class="price">$NT370</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>以柔軟生菜為主的簡約系沙拉適合清爽的油醋類醬汁。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         
         
         
         
         
+                 <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Salad/Salad3.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>炭烤現流透抽配嫩葉生菜沙拉</span></h3>
+	        				<span class="price">$NT320</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>咬下去相當彈牙!!!搭配的是蒜蓉辣醬，跟些許鮭魚卵，在視覺跟味覺上有雙重享受。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>   
+        
+        
+        
+                         <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Salad/Salad4.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>脆炸軟殼蟹蔬菜沙拉</span></h3>
+	        				<span class="price">$NT520</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>整隻都可以食用的軟殼蟹，少了不會剝殼吃肉的困擾，而且炸的外脆內軟的超美味，加上生菜沙拉就是夏天的清爽餐點了。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        
+        
+                  <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Salad/Salad5.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>煙燻鮭魚羅蔓凱薩沙拉</span></h3>
+	        				<span class="price">$NT550</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>撒了大量的起司，搭配沙拉醬的酸甜滋味，入口就可以感受到濃郁的奶香氣味，煙燻鮭魚的肉塊可以搭配著享用。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        
+        
+                          <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Salad/Salad6.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>碳烤雞肉沙拉</span></h3>
+	        				<span class="price">$NT540</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>炭烤雞肉鮮嫩好吃加上青醬的特殊風味，還有特調的蔬菜沙拉醬淋在鮮脆的高麗菜和蔬果上頭，吃起來十分清爽。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        
+        
+        
+                       <div class="container"> 
+        	<h3>甜品</h3>
+        	    <div class="row">
+        
+        
+                <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert1.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>抹茶香草慕斯</span></h3>
+	        				<span class="price">$NT430</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>清爽的颜色，濃郁的茶香，甜而不膩，入口即化。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        
+                        <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert2.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>法式烤布蕾</span></h3>
+	        				<span class="price">$NT350</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>輕輕敲打表面稍帶苦澀甜味的焦糖，加上滑順柔嫩的布蕾口感，一起入口後在嘴中散發出濃郁綿密的奶香。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        
+        
+        
+                          <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert3.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>焦糖檸檬千層</span></h3>
+	        				<span class="price">$NT420</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>外層是香脆的焦糖千層，吃起來香脆迷人，內餡是酸酸的檸檬餡~</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        
+        
+        
+        
+                  <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert4.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>經典重乳酪蛋糕</span></h3>
+	        				<span class="price">$NT360</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>採用澳洲頂級乳酪，絕不添加任何人工香精、防腐劑，濃濃乳酪香氣，結合綿密口感，經典中的經典。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        	
+        	
+        	             <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert5.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>熔岩巧克力冰淇淋</span></h3>
+	        				<span class="price">$NT370</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>布朗尼質感的蛋糕體，是使用法國進口的64%巧克力製作，口感濃郁，微溫的蛋糕與巧克力醬內餡，搭配明治香草冰淇淋，更是絕妙好滋味。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>  
+        	
+        	
+        	 <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert6.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>檸檬香氛蛋糕</span></h3>
+	        				<span class="price">$NT350</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>以檸檬香蜂草為香味，帶有檸檬的清新與甜蜜的幸福感。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	
+        	        	 <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Dessert/Dessert7.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>覆盆子乳酪蛋糕</span></h3>
+	        				<span class="price">$NT350</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>覆盆子的酸甜，跟乳酪蛋糕結合在一起，吃起來有戀愛的滋味😍，酸甜的覆盆子凍在蛋糕的表面，閃亮亮的鏡面，有了美麗的視覺效果，很適合在炎熱的夏天來上一塊🤤</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         
         
         
