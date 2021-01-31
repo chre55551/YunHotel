@@ -41,6 +41,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		oBean.setOrdered_date(c);
 		
+		
 		try {
 			double p = oBean.getOrderedToRoom().getRoom().getRoomType().getRoom_price();
 			System.out.println(p);

@@ -306,6 +306,12 @@ public class Ordered_Controller {
 		}
 		od.setOrderedToMeals(otm);
 
+		System.out.println(od);
+		System.out.println(od);
+		System.out.println(od);
+		System.out.println(od);
+		System.out.println(od);
+		
 		Ordered odd;
 		try {
 			odd = service.insert(od);
@@ -450,6 +456,7 @@ public class Ordered_Controller {
 			List<Ordered> odl = ct.getOrdered();
 			
 			model.addAttribute("odl", odl);
+			
 			
 //			java.lang.String gson = new Gson().toJson(odl);
 			// List<Object> list = new ArrayList<Object>();
