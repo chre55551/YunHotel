@@ -60,7 +60,7 @@ public class BmemberController {
 
 	@GetMapping("/InsertBmemberBM")
 	public String InsertBmemberBM(Model model, HttpSession session) {
-		String kk = (String)session.getAttribute("LoginOK");
+		String kk = (String)session.getAttribute("BLoginOK");
 		String a = (String)session.getAttribute("Authority");//如果該功能有權限要求 可以用這個去判別
 		
 //		if(kk!=null) {
@@ -162,7 +162,7 @@ public class BmemberController {
 		mb = service.checkIdPassword(ac, pw);
 
 		if (mb != null) {
-			session.setAttribute("LoginOK", mb.getBs_account());
+			session.setAttribute("BLoginOK", mb.getBs_account());
 			session.setAttribute("Authority", mb.getAuthority());
 			System.out.println("登入成功");
 		} else {
@@ -173,13 +173,13 @@ public class BmemberController {
 		return "redirect: " + request.getContextPath();
 	}
 
-	@GetMapping("/logout")
+	@GetMapping("/BLogout")
 	public String logout(HttpSession session, Model model, SessionStatus status, RedirectAttributes redirectAtt) {
 		String name = "";
 		System.out.println("Logout");
-		BmemberBean memberBean = (BmemberBean) session.getAttribute("LoginOK");
-		if (memberBean != null) {
-			name = memberBean.getBs_account();
+		String ac = (String) session.getAttribute("BLoginOK");
+		if (ac != null) {
+			name = ac;
 		} else {
 			name = "訪客";
 		}

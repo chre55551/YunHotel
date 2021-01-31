@@ -174,31 +174,5 @@ public class CustomerController {
 		model.addAttribute("rcc", ct);
 		return "customer/UpdateMemberOK";
 	}
-//	@PostMapping("/UpdateMemberOK")
-//	public String Update1(@RequestParam(value = "chinese_name") String chinese_name,
-//			@RequestParam(value = "idcard_number") String idcard_number,
-//			@RequestParam(value = "mobile_phone") String mobile_phone, @RequestParam(value = "birthday") Date birthday,
-//			@RequestParam(value = "address") String address, @RequestParam(value = "account") String account,
-//			@RequestParam(value = "password") String password, @RequestParam(value = "gender") String gender,
-//			@RequestParam(value = "home_phone") String home_phone, @RequestParam(value = "job") String job,
-//			@RequestParam(value = "email") String email, Model model ,HttpServletRequest request) {
-//		session
-//		Customer c = new Customer(chinese_name, idcard_number, birthday, address, mobile_phone);
-//		Customer cu = service.query(c);
-//		Member m = new Member(account, password, gender, home_phone, job, email);
-//		cu.setMember(m);
-//		cu.setAddress(address);
-////		cu.setBirthday(birthday);
-////		c.setMember(m);
-//		service.update(c);
-//		model.addAttribute("rcc", c);
-//		model.addAttribute("rmm", m);
-////		Customer c = service.update(null);
-////		
-////		
-////		model.addAttribute("rcc", c);
-////		model.addAttribute("rmm", m);
-////		service.queryByAc1(account);
-//		return "customer/UpdateMemberOK";
-//	}
+
 }

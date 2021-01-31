@@ -39,8 +39,15 @@
 					<a href="${pageContext.request.contextPath}/ordered/checkoutIndex" class="menutxt">結帳</a>
 				</li>
 				<li>
-					<img class="pic" src="${pageContext.request.contextPath}/image/login.png">
+				<c:choose>
+			<c:when test="${not empty BLoginOK}">
+				<li><a href="http://localhost:8080/YunHotel/bmember/BLogout">登出</a></li>
+			</c:when>
+			<c:otherwise>
+				<img class="pic" src="${pageContext.request.contextPath}/image/login.png">
 					<a href="${pageContext.request.contextPath}/bmember/BLogin" class="menutxt">登入</a>
+			</c:otherwise>
+		</c:choose>			
 				</li>
 				<li><a href="http://localhost:8080/YunHotel/YunPage" class="menutxt">回到官網</a></li>
 			</ul>
