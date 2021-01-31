@@ -5,6 +5,7 @@ import java.util.List;
 
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 
 
 public interface BmemberService {
@@ -16,5 +17,6 @@ public interface BmemberService {
 	public BmemberBean update(BmemberBean nbean);
 	public boolean delete(int bs_id);
 	public BmemberBean checkIdPassword(String account, String password);
-	public List<Customer> queryAllMember1();
+	public List<Member> queryAllMember1();
+	public Customer queryByAc(String s);
 }
