@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +27,7 @@ import hotel.yun.bmember.model.BmemberBean;
 
 import hotel.yun.bmember.service.BmemberService;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 
 
 @Controller
@@ -63,13 +64,13 @@ public class BmemberController {
 		String kk = (String)session.getAttribute("BLoginOK");
 		String a = (String)session.getAttribute("Authority");//如果該功能有權限要求 可以用這個去判別
 		
-//		if(kk!=null) {
+		if(kk!=null) {
 		BmemberBean bm = new BmemberBean();
 		model.addAttribute("bb", bm);
 		return "bmember/InsertBmemberBM";
-//		}else {
-//			return "login/PleaseLoginInBS";
-//		}
+		}else {
+			return "login/PleaseLoginInBS";
+		}
 	}
 
 	@PostMapping("/insertbmemberbb")
@@ -199,11 +200,23 @@ public class BmemberController {
 	// 顯示前台會員
 	@GetMapping("/ShowRMember")
 	public String getCustomer(Model model) {
-		List<Customer> srb = service.queryAllMember1();
-		model.addAttribute("sb",srb);      
+		List<Member> srm = service.queryAllMember1();
+		model.addAttribute("sm",srm);      
 	
 
 		return "bmember/ShowRMember";
 	}
+
+//	@GetMapping("/ShowRMember")
+//	public String getCustomer(Model model, HttpSession session) {
+//		Member me = new Member();
+//		Customer ct = new Customer();
+//		String account = (String) session.getAttribute("LoginOK");
+//		ct = service.queryByAc(account);
+//		me = ct.getMember();
+//		model.addAttribute("rcm", me);
+//		model.addAttribute("rcc", ct);
+//		return "bmember/ShowRMember";
+//	}
 
 }

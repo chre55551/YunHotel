@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import hotel.yun.bmember.dao.BmemberDao;
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 
 
 @Repository
@@ -104,13 +105,23 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 
 		@SuppressWarnings("unchecked")
 		@Override
-		public List<Customer> queryAllMember1() {
+		public List<Member> queryAllMember1() {
 			Session session = null;
 			session = factory.getCurrentSession();
-			String hql = "FROM BmemberBean";
-			List<Customer> list = new ArrayList<>();
+			String hql = "FROM Member";
+			List<Member> list = new ArrayList<>();
 			list = session.createQuery(hql).getResultList();
 			System.out.println(list);
 			return list;
+		}
+		@Override
+		public Customer queryByAc(String s) {
+			Member mn = null;
+			String hql = "FROM Member m WHERE m.account = :mid";
+			Session session = factory.getCurrentSession();
+			mn = (Member) session.createQuery(hql).setParameter("mid", s).getSingleResult();
+			Customer c = mn.getCustomer();
+			
+			return c;
 		}
 }

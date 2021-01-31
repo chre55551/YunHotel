@@ -13,6 +13,7 @@ import hotel.yun.bmember.model.BmemberBean;
 
 import hotel.yun.bmember.service.BmemberService;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 
 @Transactional
 @Service
@@ -59,7 +60,14 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	}
 
 	@Override
-	public List<Customer> queryAllMember1() {
+	public List<Member> queryAllMember1() {
 		return bDao.queryAllMember1();
 	}
+
+	@Override
+	public Customer queryByAc(String s) {
+		Customer c = bDao.queryByAc(s);
+		return c;
+	}
+	
 }
