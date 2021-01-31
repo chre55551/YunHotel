@@ -469,12 +469,184 @@
 	        				<span class="price">$NT1499</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>用「龍蝦頭」細火熬煮多時，最後以鮮美的「龍蝦醬汁」大火拌炒義大利麵與龍蝦，讓醬汁的味道融入食材，每一口都是龍蝦的甜美滋味。</p>
+	        				<p>用龍蝦頭細火熬煮多時，以鮮美的龍蝦醬汁大火拌炒義大利麵與龍蝦，讓醬汁的味道融入食材，每一口都是龍蝦的甜美滋味。</p>
 
 	        			</div>
         			</div>
         		</div>
         	</div>
+        
+        
+                   <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse10.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>美國頂級嫩肩牛排7oz</span></h3>
+	        				<span class="price">$NT4500</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>肉質細緻軟嫩、營養超級豐富，鮮嫩與香甜的肉汁一次讓您滿足。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+                         <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse11.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>香煎舒肥宜蘭櫻桃鴨胸</span></h3>
+	        				<span class="price">$NT3700</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>加入迷迭香，蒜瓣，甚至月桂葉等，讓鴨油逼出香氣，為料理更添風味，鴨胸皮煎到黃金色。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+        
+                <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse12.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>海鮮蕃茄義大利圓麵</span></h3>
+	        				<span class="price">$NT650</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>蒜末與切細的蔥末拌炒稍微焦化後與番茄麵糊會有特殊香氣與增加一層黏稠感，醬汁讓麵條更鮮美香甜與濃郁~</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+            <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse13.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>烏魚子干貝海膽燉飯</span></h3>
+	        				<span class="price">$NT980</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>海膽燉飯與香煎北海道干貝燉飯口感彈牙，有西班牙燉飯的味道，同時展現豐富的鮮味。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+                    <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse15.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>紐西蘭一級菲力牛排7oz</span></h3>
+	        				<span class="price">$NT5400</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>超厚切的紐西蘭菲力外皮酥脆微焦，帶有木頭燻香味，內層鮮嫩多汁，火候掌握完美，只要沾一點鹽就非常好吃！</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+                            <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse16.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>美國頂級老饕牛排</span></h3>
+	        				<span class="price">$NT6200</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>建議老饕牛排吃三到五分熟，汁液最豐富。上桌時的溫度大約是 50 幾度，這是不會讓蛋白質變質的溫度但又高過人的體溫與口腔溫度，讓人入口感覺良好，飽滿的汁液與油花也能展現出來。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+       <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse17.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>焗烤鮮蝦鮪魚奶油筆管麵</span></h3>
+	        				<span class="price">$NT980</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>濃郁香馥的義大利麵Ｑ勁十足，搭配鮪魚及鮮蝦，是眾多義大利麵愛食族的口袋菜單，吃它千遍也不厭倦。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+               <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse18.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>爐烤美國頂級肋眼牛排</span></h3>
+	        				<span class="price">$NT5100</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>肉質柔軟細嫩，彈嫩又帶有微微的嚼勁，帶有些許油脂，比例恰到好處。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+                       <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse19.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>爐烤舒肥帶骨豬里肌</span></h3>
+	        				<span class="price">$NT3900</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>緊實富咬勁並帶些許油花，帶骨烹飪讓風味更加迷人。香味四溢-較無豬腥味，另有種獨特的清香鮮味。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+                           <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse20.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>爐烤戰斧豬排</span></h3>
+	        				<span class="price">$NT3800</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>外層烤的脆而不硬還帶有陣陣的肉香，內層的肉很Ｑ彈，絕非油膩的口感，扎實的肉質與肉汁同時並存，焦香肉香淡淡的調味料香氣與肉汁充滿整個嘴。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+        
+        
+        
+        
+        
+        
         
         
         
