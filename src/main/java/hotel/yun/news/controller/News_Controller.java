@@ -79,6 +79,13 @@ public class News_Controller {
 		model.addAttribute(beans);      
 		return "news/ShowNews";
 	}
+	
+	@GetMapping("/outsideNews")
+	public String OutsideNews(Model model) {
+		List<News> beans = service.queryAllNews();
+		model.addAttribute(beans);      
+		return "news/outsideNews";
+	}
 //---------------------------------------------------------------
 	@GetMapping("/update/{news_id}")
 	public String update(Model model, @PathVariable int news_id) {

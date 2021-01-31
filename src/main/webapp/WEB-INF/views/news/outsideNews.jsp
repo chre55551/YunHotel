@@ -44,10 +44,6 @@
 					<td style="text-align:center">${NWS.news_updated_date}</td>
 					<td style="text-align:center">${NWS.news_content}</td>
 					
-					 <td><a
-                        href="${pageContext.request.contextPath}/news/update/${NWS.news_id}">編輯</a></td>
-                    <td><a
-                        href="${pageContext.request.contextPath}/news/DeleteNew/${NWS.news_id}">刪除</a></td>
 				</tr>
 			</c:forEach>
 		
