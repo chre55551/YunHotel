@@ -230,14 +230,14 @@
         	    <div class="row">
              	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer8.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Soup/Soup1.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>義式生牛肉冷盤</span></h3>
-	        				<span class="price">$NT1088</span>
+	        				<h3><span>中式風味時令海鮮湯</span></h3>
+	        				<span class="price">$NT340</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>入口立馬感受清爽柔順的甘甜滋味，清爽口感嚐不到一絲肉腥味，精巧的擺盤讓人在美食之外嚐出趣味。</p>
+	        				<p>熬煮高湯需不斷攪拌避免黏底，為保留海鮮風味，起鍋前放入海產快煮，香濃湯品風味絕佳，尾層次感豐富。</p>
 	        			</div>
         			</div>
         		</div>
@@ -247,21 +247,85 @@
         	
         	        	<div class="col-lg-6 col-xl-6 d-flex">
         		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(../image/test2/Appetizer/Appetizer8.jpg);"></div>
+        			<div class="img" style="background-image: url(../image/test2/Soup/Soup2.jpg);"></div>
         			<div class="desc p-4">
 	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>義式生牛肉冷盤</span></h3>
-	        				<span class="price">$NT1088</span>
+	        				<h3><span>松露蘑菇濃湯</span></h3>
+	        				<span class="price">$NT360</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>入口立馬感受清爽柔順的甘甜滋味，清爽口感嚐不到一絲肉腥味，精巧的擺盤讓人在美食之外嚐出趣味。</p>
+	        				<p>以蘑菇、秀針菇、蒜苗、西洋芹、馬鈴薯為主要成份，其口感順口帶點鹹味且甘甜奶香及黑松露特有香氣直逼味覺，再搭配上焙炒過蘑菇及秀針菇獨特口感。</p>
 	        			</div>
         			</div>
         		</div>
         	</div>
      		
         
-        
+              	        	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Soup/Soup3.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>海鮮酥皮奶油巧達湯</span></h3>
+	        				<span class="price">$NT330</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>經典美式做法，酥皮與培根、海鮮、蔬菜搭配蛤蠣濃湯，真是讓人愛不釋口!</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	
+        	
+        	      	        	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Soup/Soup4.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>蛤蠣蘑菇奶油湯</span></h3>
+	        				<span class="price">$NT320</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>蛤蠣巧達湯是以牛奶/鮮奶油為基底，濃稠度比其他版本更為濃稠，透過馬鈴薯自然的澱粉與牛奶產生湯品的濃稠度，沒有另外加任何澱粉。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	
+        	    	      	        	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Soup/Soup5.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>酥皮燻鮭魚南瓜湯</span></h3>
+	        				<span class="price">$NT360</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>百里香切碎燻鮭魚、南瓜，口感綿密，味道清爽，喝起來還有飽足感，沒有太多材料與複雜作法，是一道方便又無負擔的湯品。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	
+        	
+        	
+        	    	      	        	<div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/Soup/Soup6.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>義式蕃茄蔬菜牛肉湯</span></h3>
+	        				<span class="price">$NT370</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>湯頭味道非常濃郁豐富，多種蔬菜的口感搭配牛肉，美味又營養均衡。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         
         
         
