@@ -43,8 +43,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return cDao.queryAll();
 	}
 	@Override
-	public Customer update(String u) {
-		return cDao.update(u);
+	public Customer update(Customer cu) {
+		return cDao.update(cu);
 	}
 
 	@Override

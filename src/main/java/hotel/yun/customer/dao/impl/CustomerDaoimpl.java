@@ -50,27 +50,27 @@ public class CustomerDaoimpl implements Serializable, CustomerDao {
 
 	@SuppressWarnings("unchecked")
 
-		@Override
-	public Customer update(String u) {
-		Member mn = null;
-		String hql = "FROM Member m WHERE m.account = :mid";
-		Session session = factory.getCurrentSession();
-		mn = (Member) session.createQuery(hql).setParameter("mid", u).getSingleResult();
-		Customer c = mn.getCustomer();
-		c.setAddress(u);
-		c.setBirthday(null);
-		c.setChinese_name(u);
-		c.setIdcard_number(u);
-		c.setMobile_phone(u);
-		mn.setAccount(u);
-		mn.setEmail(u);
-		mn.setGender(u);
-		mn.setHome_phone(u);
-		mn.setJob(u);
-		mn.setPassword(u);
-	
-		return c;
-	}
+//		@Override
+//	public Customer update(String u) {
+//		Member mn = null;
+//		String hql = "FROM Member m WHERE m.account = :mid";
+//		Session session = factory.getCurrentSession();
+//		mn = (Member) session.createQuery(hql).setParameter("mid", u).getSingleResult();
+//		Customer c = mn.getCustomer();
+//		c.setAddress(u);
+//		c.setBirthday(null);
+//		c.setChinese_name(u);
+//		c.setIdcard_number(u);
+//		c.setMobile_phone(u);
+//		mn.setAccount(u);
+//		mn.setEmail(u);
+//		mn.setGender(u);
+//		mn.setHome_phone(u);
+//		mn.setJob(u);
+//		mn.setPassword(u);
+//	
+//		return c;
+//	}
 
 
 	
@@ -138,6 +138,14 @@ public class CustomerDaoimpl implements Serializable, CustomerDao {
 		Customer c = mn.getCustomer();
 		
 		return c;
+	}
+
+	@Override
+	public Customer update(Customer cu) {
+//		Customer c = query(cu);
+		Session session = factory.getCurrentSession();
+		session.update(cu);
+		return cu;
 	}
 	
 }

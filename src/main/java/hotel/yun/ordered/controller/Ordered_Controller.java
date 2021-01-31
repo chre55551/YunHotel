@@ -36,6 +36,7 @@ import hotel.yun.ordered.service.Ordered_Service;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
+import hotel.yun.bmember.controller.BmemberController;
 
 @Controller
 @RequestMapping("/ordered")
@@ -91,9 +92,14 @@ public class Ordered_Controller {
 	// 訂餐~~~~~~~~~
 	@GetMapping("/insertMealsOd")
 	public String ShowMealsOrdered(Model model, HttpSession session) {
+		String kk = (String)session.getAttribute("LoginOK");
+		if(kk!=null) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/insertMealsOd";
+		}else {
+			return "login/PleaseLoginInBS";
+		}
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面
