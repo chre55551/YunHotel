@@ -42,7 +42,7 @@
 	         <li class="nav-item"><a href="../YunPage" class="nav-link">首頁</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">最新消息</a></li>
-	          <li class="nav-item active"><a href="../room/RoomIntroduction" class="nav-link">房型介紹</a></li>
+	          <li class="nav-item"><a href="../room/RoomIntroduction" class="nav-link">房型介紹</a></li>
 	          <li class="nav-item"><a href="Delicious" class="nav-link">美食佳餚</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">其他設施</a></li>
 	          <li class="nav-item"><a href="../customer/Login" class="nav-link">會員登入</a></li>
@@ -394,12 +394,87 @@
         		</div>
         	</div>
         	
+             <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse5.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>波隆那肉醬螺紋水管麵</span></h3>
+	        				<span class="price">$NT790</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>番茄肉醬複合著濃郁義大利香氣纏結在麵條上，讓麵條吸附更多醬汁，風味濃郁富有層次。</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	
+        	   <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse6.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>青醬蛤蠣義大利扁麵</span></h3>
+	        				<span class="price">$NT790</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>循著義大利海岸熱那亞的祕傳製法，加入嚴選油漬鯷魚，帶有海味鹹香的道地青醬。草綠色的青醬是以新鮮蘿勒葉與橄欖油為主調製而成，不僅美味，也更健康。</p>
+
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+               	   <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse7.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>炭烤花枝大蒜辣椒麵</span></h3>
+	        				<span class="price">$NT790</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>經由慢火烘焙工序醞釀出碳烤香味，細嚼而出海潮的鮮味加上炭烤風味的陪襯，更顯出花枝的美味價值。</p>
+
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        
+                <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse8.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>炭烤紐西蘭小羊排</span></h3>
+	        				<span class="price">$NT1299</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>多種中藥材滷製及照燒醬汁調理，經過繁複工法製成的炭烤小羊排，肉質多汁軟嫩</p>
+
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         
         
         
-        
-        
-        
+              <div class="col-lg-6 col-xl-6 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(../image/test2/MainCourse/MainCourse9.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>美國波士頓蒜片辣椒龍蝦義大利圓麵半隻</span></h3>
+	        				<span class="price">$NT1499</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>用「龍蝦頭」細火熬煮多時，最後以鮮美的「龍蝦醬汁」大火拌炒義大利麵與龍蝦，讓醬汁的味道融入食材，每一口都是龍蝦的甜美滋味。</p>
+
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         
         
         

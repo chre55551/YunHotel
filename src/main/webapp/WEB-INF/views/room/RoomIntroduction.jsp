@@ -68,7 +68,7 @@
 	          <li class="nav-item"><a href="../YunPage" class="nav-link">首頁</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">最新消息</a></li>
-	          <li class="nav-item active"><a href="RoomIntroduction" class="nav-link">房型介紹</a></li>
+	          <li class="nav-item"><a href="RoomIntroduction" class="nav-link">房型介紹</a></li>
 	          <li class="nav-item"><a href="../meals/Delicious" class="nav-link">美食佳餚</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">其他設施</a></li>
 	          <li class="nav-item"><a href="../customer/Login" class="nav-link">會員登入</a></li>
