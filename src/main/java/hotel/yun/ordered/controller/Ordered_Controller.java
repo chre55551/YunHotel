@@ -251,9 +251,13 @@ public class Ordered_Controller {
 	// 送出空白的表單，來接住使用者輸入的值 訂位~~~~
 	@GetMapping("/outsideInsertMealsOd")
 	public String outsideShowMealsOrdered(Model model, HttpSession session) {
+		if(session.getAttribute("LoginOK")!=null) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		return "ordered/outsideInsertMealsOd";
+		}else {
+			return "customer/Login";
+		}
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面
@@ -329,8 +333,9 @@ public class Ordered_Controller {
 //-----------------------------------------------------------------------------------------------------
 	// 前台的
 	@GetMapping("/outsideInsertRoomOd")
-	public String outsideShowRoomOrdered(@RequestParam(value = "rdate", required = false) Date rdate,
-			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd, Model model, HttpSession session) {
+	public String outsideShowRoomOrdered(@RequestParam(value = "rdate", required = false) String rdate,
+			@RequestParam(value = "rdateEnd", required = false) String rdateEnd, Model model, HttpSession session) {
+		if(session.getAttribute("LoginOK")!=null) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
 		try {
@@ -339,7 +344,9 @@ public class Ordered_Controller {
 		}catch(Exception e) {
 			
 		}
-		return "ordered/outsideInsertRoomOd";
+		return "ordered/outsideInsertRoomOd";}else {
+			return "customer/Login";
+		}
 	}
 
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面 訂房~~~~~~~~~‵
@@ -458,6 +465,16 @@ public class Ordered_Controller {
 	}
 
 //-----------------------------------------------------------------------------------------------------
+	
+	@GetMapping("/outsideQueryMyOd")
+	public String outsideQueryMyOd(Model model, HttpSession session) {
+		if(session.getAttribute("LoginOK")!=null) {
+			return "ordered/outsideQueryMyOd";
+		}else {
+				return "customer/Login";
+				}
+	}
+	
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
 	
 	@RequestMapping("/outsideQueryCustomerOd")

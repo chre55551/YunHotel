@@ -25,11 +25,11 @@
         	</div>
         
             <ul class="ALLdiamond">             
-            	<li class="diamond">
-              		<a href="insertIndex" class="diamondtxt">新增訂單</a>
+            	<li class="diamond_M"> 
+              		<a href="insertIndex" class="diamondtxt">&emsp;   新增訂單</a>
             	</li>
-            	<li class="diamond">
-                 <a href="customerToOrdered" class="diamondtxt">查詢訂單</a>
+            	<li class="diamond_M">
+                 <a href="customerToOrdered" class="diamondtxt">&emsp;   查詢訂單</a>
             	</li>
             </ul>
         </div>
