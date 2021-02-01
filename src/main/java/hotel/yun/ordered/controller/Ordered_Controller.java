@@ -479,6 +479,7 @@ public class Ordered_Controller {
 			
 			List<Room> rooms = new ArrayList<>();
 			List<Set<Rdate>> rdates = new ArrayList<>();
+			List<Mdate> mdates = new ArrayList<>();
 
 //			Set<Ordered> set = new HashSet<>(odl);
 //			odl.clear();
@@ -494,14 +495,25 @@ public class Ordered_Controller {
 //				odd.getOrdered_number();
 //			}
 			for(Ordered od:odl) {
-				Room room = od.getOrderedToRoom().getRoom();
-				Set<Rdate> rdatesSet = od.getOrderedToRoom().getRdates();
-				rdates.add(rdatesSet);
-				rooms.add(room);
+				try {
+					Room room = od.getOrderedToRoom().getRoom();
+					Set<Rdate> rdatesSet = od.getOrderedToRoom().getRdates();
+					rdates.add(rdatesSet);
+					rooms.add(room);
+				}catch(Exception e) {
+					
+				}
+				try {
+					Mdate mdate = od.getOrderedToMeals().getMdate();
+					mdates.add(mdate);
+				}catch(Exception e) {
+					
+				}
 			}
 			
 			model.addAttribute("odl", odl);
 			model.addAttribute("rooms",rooms);
+			model.addAttribute("mdates",mdates);
 			
 			
 //			java.lang.String gson = new Gson().toJson(odl);
