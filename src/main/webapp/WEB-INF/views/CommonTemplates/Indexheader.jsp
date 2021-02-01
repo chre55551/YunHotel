@@ -16,8 +16,8 @@
 			<li>&emsp;&emsp;&emsp;&emsp;</li>
 			<li><a href="#">關於我們</a></li>
 			<li><a href="http://localhost:8080/YunHotel/news/outsideNews">最新消息</a></li>
-			<li><a href="room/RoomIntroduction">房型介紹</a></li>
-			<li><a href="meals/Delicious">美食佳餚</a></li>
+			<li><a href="http://localhost:8080/YunHotel/room/RoomIntroduction">房型介紹</a></li>
+			<li><a href="http://localhost:8080/YunHotel/meals/Delicious">美食佳餚</a></li>
 			<li><a href="#">其他設施</a></li>
 		<c:choose>
 			<c:when test="${not empty LoginOK}">

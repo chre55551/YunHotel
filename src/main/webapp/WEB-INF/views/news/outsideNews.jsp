@@ -10,7 +10,7 @@
 	href='${pageContext.request.contextPath}/css/indexcss.css'
 	type="text/css" />
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/ordered.css'
+	href='${pageContext.request.contextPath}/css/news.css'
 	type="text/css" />
 <title>訂位</title>
 <link rel="stylesheet"
@@ -26,33 +26,32 @@
 
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 
+	<div class="BG">
 		<div class="main">
+		<div class="newsdiv">
 		
-		
-	<table border='1' cellpadding="3" cellspacing="1" >
+		<table class="newsF" border='1' cellpadding="3" cellspacing="1" >
 			<tr>
-			   <th width='56' height='20'>編號</th>
 			   <th width='130' height='20'>上傳時間</th>
 			   <th width='130' height='20'>更新時間</th>
 			   <th width='180' height='20'>消息內容</th>
-			   <th colspan='2' height='20'>維護</th>
 			</tr>
 			<c:forEach var='NWS' items='${newsList}'>
 				<tr>
-					<td style="text-align:center">${NWS.news_id}</td>
 					<td style="text-align:center">${NWS.news_date}</td>
 					<td style="text-align:center">${NWS.news_updated_date}</td>
 					<td style="text-align:center">${NWS.news_content}</td>
-					
 				</tr>
 			</c:forEach>
 		
 		</table>
 		
-		
-			<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
 		</div>
-		<%@ include file="../CommonTemplates/footer.jsp"%>
+		</div>
+		
+		<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
+	</div>
+	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 
 	<script
