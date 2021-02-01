@@ -37,6 +37,8 @@
 					</td>
 				</tr>
 			</thead>
+			<tbody id="clean">
+			</tbody>
 		</table>
 	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
@@ -58,6 +60,7 @@
             type: 'Post',
             cache: false,
             success: function (data) {
+            	$('#clean').empty();
             	let fk = data
                 var this_data = '';
             		if(fk != null){
@@ -72,7 +75,7 @@
     					    this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                             this_data += '</tr>';
                      	 };
-                  $('#container').append(this_data);
+                 		$('#clean').append(this_data);
                  }else{
                 		 alert('查無資料');
                 		}
@@ -97,6 +100,7 @@
             type: 'Post',
             cache: false,
             success: function (data) {
+            	$('#clean').empty();
             	let fk = data
                 var this_data = '';
             		if(fk != null){
@@ -109,7 +113,7 @@
 					  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                   			this_data += '</tr>';
                 		  };
-           				 $('#container').append(this_data);
+           				$('#clean').append(this_data);
             		}else{
             			 alert('查無資料');
             		}
@@ -133,8 +137,21 @@
             type: 'Post',
             cache: false,
             success: function (data) {
-			let fk = data
-              var this_data = '';
+            	$('#clean').empty();
+            	let fk = data
+                var this_data = '';
+            	
+            	
+//             	this_data += '<thead><tr><th>姓名</th><td><input id="name'+'" type='+'"text'+'"></td>	<th>電話</th><td><input id='+'"phone'+'" type='+'"text'+'"></td>	<td>';
+//             	this_data += '<input type="radio'+'" name='+'"r'+'" id='+'"status1'+'" value='+'"1'+'">';
+//             	this_data += '<label for="status1'+'"> 已成立</label>';
+//             	this_data += '<input type="radio'+'" name='+'"r'+'" id='+'"status2'+'" value='+'"2'+'">';
+//             	this_data += '<label for="status2'+'"> 已結單</label>';
+//             	this_data += '<input type="radio'+'" name='+'"r'+'" id='+'"status3'+'" value='+'"3'+'">';
+//             	this_data += '<label for="status3'+'"> 全部</label>';
+//             	this_data += '<td><div class="mycenter'+'">';
+//             	this_data += '<button id="peko'+'">查詢</button>'
+//             	this_data += '</div></td></tr></thead>'
 				if(fk != null){
 	             	for(let ordered of fk){
 	                 	this_data += '<tr>';
@@ -146,7 +163,7 @@
 	 						this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
 	              		   this_data += '</tr>';
 	              		  };
-	              			 $('#container').append(this_data);	
+	              			 $('#clean').append(this_data);	
 				      }else{
 	            		 	 alert('查無資料');
 							}

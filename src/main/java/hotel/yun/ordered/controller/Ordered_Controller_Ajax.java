@@ -70,8 +70,7 @@ public class Ordered_Controller_Ajax {
 //			System.out.println(CustomerOrdered.get(0).getOrderedToRoom().getRdates().get(0).getRdate());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
 			for (Ordered o : CustomerOrdered) {
-//				if (o.getOrderedStatus().getOrdered_status() == "已成立") 
-				{
+				if (o.getOrderedStatus().getStatus_id() == 1) {
 					returnlist.add(o);
 				}
 			}
@@ -94,7 +93,7 @@ public class Ordered_Controller_Ajax {
 			List<Ordered> CustomerOrdered = service.queryCustomerToOrdered(customer.getCustomer_id());
 			List<Ordered> returnlist = new ArrayList<Ordered>();
 			for (Ordered o : CustomerOrdered) {
-				if (o.getOrderedStatus().getOrdered_status() == "已結單") {
+				if (o.getOrderedStatus().getStatus_id() == 2) {
 					returnlist.add(o);
 				}
 			}
