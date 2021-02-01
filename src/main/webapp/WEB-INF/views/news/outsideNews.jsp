@@ -30,17 +30,17 @@
 		<div class="main">
 		<div class="newsdiv">
 		
-		<table class="newsF" border='1' cellpadding="3" cellspacing="1" >
+		<table class="newsF_pos" border='1' cellpadding="3" cellspacing="1" >
 			<tr>
-			   <th width='130' height='20'>上傳時間</th>
-			   <th width='130' height='20'>更新時間</th>
-			   <th width='180' height='20'>消息內容</th>
+			   <th class="newsF">上傳時間</th>
+			   <th class="newsF">更新時間</th>
+			   <th class="newsF">消息內容</th>
 			</tr>
 			<c:forEach var='NWS' items='${newsList}'>
 				<tr>
-					<td style="text-align:center">${NWS.news_date}</td>
-					<td style="text-align:center">${NWS.news_updated_date}</td>
-					<td style="text-align:center">${NWS.news_content}</td>
+					<td class="newsF">${NWS.news_date}</td>
+					<td class="newsF">${NWS.news_updated_date}</td>
+					<td class="newsF">${NWS.news_content}</td>
 				</tr>
 			</c:forEach>
 		

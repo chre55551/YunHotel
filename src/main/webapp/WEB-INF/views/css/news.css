@@ -8,15 +8,21 @@
 	border-radius: 30px;
 }
 
-.newsF {
+.newsF_pos {
 	margin: 25px;
-	color: rgba(15, 37, 64, 0.7);
+
+}
+.newsF {
+	padding:20px;
+	text-align:center;
+	color: #0F2540;
+	font-weight: 1.3em;
 }
 
 .BG {
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url('http://localhost:8080/YunHotel/image/queryOd2.jpg');
+	background-image: url('http://localhost:8080/YunHotel/image/newsbg.jpg');
 }
 
 
