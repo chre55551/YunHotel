@@ -20,10 +20,9 @@
 			<thead>
 				<tr>
 					<th>姓名</th>
-					<td><input id="name" type="text">
+					<td><input id="name" type="text"></td>
 					<th>電話</th>
-					<td><input id="phone" type="text">
-						<button></button></td>
+					<td><input id="phone" type="text"></td>
 					<td>
 						<input type="radio" name="r" id="status1" value="1">
 						<label for="status1"> 已成立 </label> 

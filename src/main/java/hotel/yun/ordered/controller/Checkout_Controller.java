@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +47,7 @@ public class Checkout_Controller {
 	
 	//--------------------------------------------------------------------------------------------------
 	
-	@PostMapping("/queryOrdered")
+	@GetMapping("/checkoutQueryRoomOd")
 	public String queryOrdered(@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdateEnd") Date rdateEnd,
 			@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
@@ -63,17 +64,19 @@ public class Checkout_Controller {
 		
 		Ordered od = oser.queryOdByRoomAndRdate(room,rdate);
 		model.addAttribute("od", od);
-				return null;
+		model.addAttribute("room", od.getOrderedToRoom().getRoom());//房間
+		model.addAttribute("rdates", od.getOrderedToRoom().getRdates());//退房日期
+				return "checkout/checkoutQueryRoomOd";
 	}
 	
-	@PostMapping("/room/checkout")
+	@PostMapping("/room/checkoutRoomOd")
 	public String checkoutRoom(@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
 			@RequestParam(value = "bill_status") String bill_status,
 			Model model, HttpSession session) {
 		 Ordered od = (Ordered)model.getAttribute("od");
 		 od.getOrderedToRoom().setRoomnum_of_people((int)roomnum_of_people);
 		 oser.room_checkout(od,bill_status);
-		return null;
+		return "checkout/checkoutRoomOd";
 	}
 	
 	@PostMapping("/meals/checkout")

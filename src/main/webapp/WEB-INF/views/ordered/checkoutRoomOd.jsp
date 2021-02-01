@@ -22,28 +22,28 @@
 			method="POST" class="container">
 
 			<c:choose>
-				<c:when test="${not empty ${room_name}">
+				<c:when test="${not empty ${room.room_name}">
 					<div>
 						<label>房號 : </label> <input name="room_name" type="text"
-							value="${room_name}" />
+							value="${room.room_name}" />
 					</div>
 				</c:when>
 				<c:otherwise>
 				</c:otherwise>
 			</c:choose>
 
-			<c:choose>
-				<c:when test="${not empty ${rdate}">
-					<div>
-						<label>入住日期: </label> <input name="rdate" type="date"
-							value="${rdate}" />
-					</div>
-				</c:when>
-				<c:otherwise>
-					<label>入住日期: </label>
-					<input name="rdate" type="date" />
-				</c:otherwise>
-			</c:choose>
+<%-- 			<c:choose> --%>
+<%-- 				<c:when test="${not empty ${rdate}"> --%>
+<!-- 					<div> -->
+<!-- 						<label>入住日期: </label> <input name="rdate" type="date" -->
+<%-- 							value="${rdate}" /> --%>
+<!-- 					</div> -->
+<%-- 				</c:when> --%>
+<%-- 				<c:otherwise> --%>
+<!-- 					<label>入住日期: </label> -->
+<!-- 					<input name="rdate" type="date" /> -->
+<%-- 				</c:otherwise> --%>
+<%-- 			</c:choose> --%>
 
 			<c:choose>
 				<c:when test="${not empty ${rdateEnd}">
@@ -59,46 +59,46 @@
 			</c:choose>
 
 
-			<c:choose>
-				<c:when test="${not empty ${room_accounts}">
-					<div>
-						<label>總價: </label> <input name="room_accounts " type="text"
-							value="${room_accounts}" />
-					</div>
-				</c:when>
-				<c:otherwise>
-					<label>總價: </label>
-					<input name="room_accounts " type="text" />
-				</c:otherwise>
-			</c:choose>
+<%-- 			<c:choose> --%>
+<%-- 				<c:when test="${not empty ${room_accounts}"> --%>
+<!-- 					<div> -->
+<!-- 						<label>總價: </label> <input name="room_accounts " type="text" -->
+<%-- 							value="${room_accounts}" /> --%>
+<!-- 					</div> -->
+<%-- 				</c:when> --%>
+<%-- 				<c:otherwise> --%>
+<!-- 					<label>總價: </label> -->
+<!-- 					<input name="room_accounts " type="text" /> -->
+<%-- 				</c:otherwise> --%>
+<%-- 			</c:choose> --%>
 
-			<c:choose>
-				<c:when test="${not empty ${payment_status}">
-					<div>
-						<label>付款方式: </label> <select name="payment_status">
-							<option disabled>請選擇付款方式</option>
-							<option value="現金">現金</option>
-							<option value="信用卡">信用卡</option>
-						</select>
-					</div>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
-			
-			<c:choose>
-				<c:when test="${not empty ${ordered_status}">
-					<div>
-						<label>訂單狀態: </label> <select name="ordered_status">
-							<option disabled>請選擇訂單狀態</option>
-							<option value="已成立">已成立</option>
-							<option value="已結單">已結單</option>
-						</select>
-					</div>
-				</c:when>
-				<c:otherwise>
-				</c:otherwise>
-			</c:choose>
+			<%-- 			<c:choose> --%>
+			<%-- 				<c:when test="${not empty ${payment_status}"> --%>
+			<!-- 					<div> -->
+			<!-- 						<label>付款方式: </label> <select name="payment_status"> -->
+			<!-- 							<option disabled>請選擇付款方式</option> -->
+			<!-- 							<option value="現金">現金</option> -->
+			<!-- 							<option value="信用卡">信用卡</option> -->
+			<!-- 						</select> -->
+			<!-- 					</div> -->
+			<%-- 				</c:when> --%>
+			<%-- 				<c:otherwise> --%>
+			<%-- 				</c:otherwise> --%>
+			<%-- 			</c:choose> --%>
+
+			<%-- 			<c:choose> --%>
+			<%-- 				<c:when test="${not empty ${ordered_status}"> --%>
+			<!-- 					<div> -->
+			<!-- 						<label>訂單狀態: </label> <select name="ordered_status"> -->
+			<!-- 							<option disabled>請選擇訂單狀態</option> -->
+			<!-- 							<option value="已成立">已成立</option> -->
+			<!-- 							<option value="已結單">已結單</option> -->
+			<!-- 						</select> -->
+			<!-- 					</div> -->
+			<%-- 				</c:when> --%>
+			<%-- 				<c:otherwise> --%>
+			<%-- 				</c:otherwise> --%>
+			<%-- 			</c:choose> --%>
 
 
 		</form>
