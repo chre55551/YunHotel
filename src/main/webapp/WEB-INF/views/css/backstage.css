@@ -217,6 +217,16 @@ body{
     display: inline-block;
     background-color:#fcefc3;
 }
+.diamond_M{
+	margin-left:40px;
+	padding-top: 47px;
+/*     border:2px rgb(193, 184, 180) solid; */
+    border-radius:10px;
+    width:190px;
+    height:80px;
+    display: inline-block;
+    background-color:#fcefc3;
+}
 .diamondtxt{
     margin-left: 20px;
     text-align: center;
@@ -225,6 +235,13 @@ body{
     text-decoration: none;
 }
 
+.diamondtxt_M{
+    margin-left: 15px;
+    text-align: center;
+    color: #1a3f6c;
+    font-size: 1.3em;
+    text-decoration: none;
+}
 /* ========================================================== */
 /* 頁尾 */
 .footer{
