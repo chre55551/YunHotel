@@ -24,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.Gson;
 
@@ -466,20 +469,11 @@ public class Ordered_Controller {
 
 //-----------------------------------------------------------------------------------------------------
 	
-	@GetMapping("/outsideQueryMyOd")
-	public String outsideQueryMyOd(Model model, HttpSession session) {
-		if(session.getAttribute("LoginOK")!=null) {
-			return "ordered/outsideQueryMyOd";
-		}else {
-				return "customer/Login";
-				}
-	}
-	
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
 	
 	@RequestMapping("/outsideQueryCustomerOd")
 	public String outsideQueryCustomerOd(Model model, HttpSession session) {
-
+		if(session.getAttribute("LoginOK")!=null) {
 		Customer ct = new Customer();
 
 		try {
@@ -493,6 +487,9 @@ public class Ordered_Controller {
 				}
 			odl.clear(); 
 			odl.addAll(newList);
+			
+			String jsonString = new ObjectMapper().writeValueAsString(odl);
+			model.addAttribute("jsonString", jsonString);
 			
 			List<Room> rooms = new ArrayList<>();
 			List<Set<Rdate>> rdates = new ArrayList<>();
@@ -568,7 +565,9 @@ public class Ordered_Controller {
 		}
 		
 
-		return "ordered/outsideQueryCustomerOd";
+		return "ordered/outsideQueryCustomerOd";}else {
+			return "customer/Login";
+			}
 
 	}
 

@@ -62,11 +62,11 @@ public class Ordered implements Serializable {
 	@JoinColumn(name = "payment_id")
 	private OrderedPayment orderedPayment;// 付款ID
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ordered_tomeals_id", referencedColumnName = "ordered_tomeals_id")
 	private OrderedToMeals orderedToMeals;// 餐點訂單編號
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ordered_toroom_id", referencedColumnName = "ordered_toroom_id")
 	private OrderedToRoom orderedToRoom;// 房間訂單編號
 

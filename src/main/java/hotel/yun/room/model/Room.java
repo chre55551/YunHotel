@@ -41,7 +41,7 @@ public class Room implements Serializable {
 	@JsonIgnore
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER,  cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType;

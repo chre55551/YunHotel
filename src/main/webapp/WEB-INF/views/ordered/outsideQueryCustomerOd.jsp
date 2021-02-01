@@ -56,20 +56,23 @@
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 	<script type="text/javascript"> 
-	$(document).ready(function(){ 
-		var odl = $('#odl').val();
-   		var this_data = '';
+	let jsonS = ${jsonString};
 	
-   		for(let od of odl){
-	    	this_data += '<tr>';
- 			this_data += '<td>' + od.ordered_number + '</td>';//訂單編號
-	  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ od.ordered_number + "'"+'">詳細資料</button>'
-  			this_data += '</tr>';
-		}
-		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
-		$('#container').append(this_data);
+	
+// 	$(document).ready(function(){ 
+// 		var odl = $('#odl').val();
+//    		var this_data = '';
+	
+//    		for(let od of odl){
+// 	    	this_data += '<tr>';
+//  			this_data += '<td>' + od.ordered_number + '</td>';//訂單編號
+// 	  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ od.ordered_number + "'"+'">詳細資料</button>'
+//   			this_data += '</tr>';
+// 		}
+// 		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
+// 		$('#container').append(this_data);
 
-	});
+// 	});
 //  function () {
 //     var this_data = '';
 // 		if(fk != null){

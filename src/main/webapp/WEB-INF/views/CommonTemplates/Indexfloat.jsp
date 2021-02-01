@@ -13,7 +13,7 @@
 			<a href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd" style="color: white;">餐廳訂位</a>
 		</div>
 		<div class="abgne_OR">
-			<a href="http://localhost:8080/YunHotel/ordered/outsideQueryMyOd" style="color: white;">查詢訂單</a>
+			<a href="http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd" style="color: white;">查詢訂單</a>
 		</div>
 
 	</div>
