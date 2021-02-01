@@ -171,20 +171,21 @@ header ul li a:hover{
 .abgne_float {
 	display: none;
 	position: absolute;
-	width: 200px;
-	height:200px;
+	width: 150px;
+	height:150px;
 	border-radius:5px;
 /* 	padding-top: 11px; */
 /* 	padding-left: 9px; */
 /* 	border: 2px #5082be solid; */
-/* 	background-color: #94cdd4; */
-	background-image: url('http://localhost:8080/YunHotel/image/float.png');
+    background-color: #0F2540;
+/* 	background-image: url('http://localhost:8080/YunHotel/image/float.png'); */
 }
 .abgne_float_pos{
 	margin-top: 30px;
 }
 .abgne_OR{
-	margin:0 auto;
+/* 	margin:0 auto; */
+	margin-top:20px;
 	width: 100px;
 	height:40px;
 /* 	background-color:rgba(15,37,64,0.7); */
@@ -195,9 +196,7 @@ header ul li a:hover{
 	font-size:1.2em;
 	font-weight: bold;
 }
-.OR_pos{
-	margin-top:20px;
-}
+
 /*====================================================*/
 /*Yun Hotel介紹這塊*/
 .middle{
