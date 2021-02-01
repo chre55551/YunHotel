@@ -50,19 +50,24 @@ public class BmemberController {
 
 	// 後台
 	@GetMapping("/IndexMember")
-	public String indexMember(Model model) {
+	public String indexMember(Model model, HttpSession session) {
+//		String kk = (String) session.getAttribute("BLoginOK");
+//		if (kk != null) {
 		return "bmember/IndexMember";
-
+//		
+//		} else {
+//			return "login/PleaseLoginInBS";
+//		}
 	}
 //------------------------------------------------------------------------------------------------------
 	// 新增
 
 	@GetMapping("/InsertBmemberBM")
 	public String InsertBmemberBM(Model model, HttpSession session) {
-		String kk = (String) session.getAttribute("BLoginOK");
-		String a = (String) session.getAttribute("Authority");// 如果該功能有權限要求 可以用這個去判別
-
-		if (kk != null) {
+//		String kk = (String) session.getAttribute("BLoginOK");
+//		String a = (String) session.getAttribute("Authority");// 如果該功能有權限要求 可以用這個去判別
+//
+//		if (kk != null) {
 			BmemberBean bm = new BmemberBean();
 			bm.setBs_account("poky");
 			bm.setBs_password("123456");
@@ -71,10 +76,10 @@ public class BmemberController {
 			bm.setUser_id("小魏");
 			model.addAttribute("bb", bm);
 			return "bmember/InsertBmemberBM";
-		} else {
-			return "login/PleaseLoginInBS";
+//		} else {
+//			return "login/PleaseLoginInBS";
 		}
-	}
+//	}
 
 	@PostMapping("/insertbmemberbb")
 	public String insert(@ModelAttribute("bb") BmemberBean bm, Model model, BindingResult result) {

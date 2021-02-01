@@ -36,8 +36,13 @@ public class News_Controller {
 
 	//後台
 	@GetMapping("/newsindex")
-	public String indexNews(Model model){
+	public String indexNews(Model model,HttpSession session){
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
 		return "news/newsindex";
+		} else {
+			return "login/PleaseLoginInBS";
+		}
 	}
 
 	//關於我們

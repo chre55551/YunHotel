@@ -71,8 +71,13 @@ public class Ordered_Controller {
 //-----------------------------------------------------------------------------------------------------
 	// 後台的進入點
 	@GetMapping("/indexOrdered")
-	public String indexOrdered(Model model) {
+	public String indexOrdered(Model model ,HttpSession session) {
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
 		return "ordered/ordered";
+		} else {
+			return "login/PleaseLoginInBS";
+		}
 	}
 
 	// 新增的分流

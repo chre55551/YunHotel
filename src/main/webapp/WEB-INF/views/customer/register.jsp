@@ -33,45 +33,94 @@
 				<form action="/YunHotel/customer/registerOK" method="POST"
 					class="container">
 					<p>帳號:</p>
-					<input type="text" name="account" id="account" autocomplete="off" placeholder="請輸入姓名">
-					<span id="acccheck">此欄位必須輸入</span>
-					<br>
-					<p>(不可空白,至少兩個字且必須為中文字)</p>
+					<input type="text" name="account" id="theAccount">
 					<p>密碼:</p>
-					<input type="password" name="password" id="np"></input> <br>
-					
-					性別：<br> <input type="radio" name="sex" value="male">男
-					<input type="radio" name="sex" value="female">女
-					<p>
+					<input type="password" name="password" id="thePwd"></input><br>
+					<div>
+						性別: <select name="gender" id="theGender">
+							<option value="0">請選擇</option>
+							<option value="1">男</option>
+							<option value="2">女</option>
+						</select>
+					</div>
+					<br>
 					<p>家裡電話:</p>
-					<input type="text" name="home_phone"></input> <br>
+					<input type="text" name="home_phone" id="theHphone"></input> <br>
 					<p>手機電話:</p>
-					<input type="text" name="mobile_phone"></input> <br>
+					<input type="text" name="mobile_phone" id="theMphone"></input> <br>
 					<p>工作:</p>
-					<input type="text" name="job"></input> <br>
+					<input type="text" name="job" id="theJob"></input> <br>
 					<p>電子信箱:</p>
-					<input type="text" name="email"></input> <br>
+					<input type="text" name="email" id="theEmail"></input> <br>
 					<p>真實姓名:</p>
-					<input type="text" name="chinese_name"></input> <br>
+					<input type="text" name="chinese_name" id="theName"></input> <br>
 					<p>身分證字號:</p>
-					<input type="text" name="idcard_number"></input> <br>
+					<input type="text" name="idcard_number" id="theCard"></input> <br>
 					<p>生日:</p>
 					<input type="date" name="birthday"></input> <br>
 					<p>地址:</p>
-					<input type="text" name="address"></input> <br> <br> <input
-						class="ormBtn" type="submit" value="註冊"
+					<input type="text" name="address" id="theAddress"></input> <br>
+					<br> <input class="ormBtn" type="submit" value="註冊"
 						onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
 
 				</form>
-				<script type="text/javascript">
-					function btclick() {
-						if (!((document.getElementById("np").value)
-								.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$/))) {
-							alert("your password : "
-									+ document.getElementById("np").value);
-						}
-					}
+				<div>
+					<button id="btn">一鍵輸入</button>
+				</div>
+
+				<script>
+					//抓與按鈕
+					let myBtn = document.getElementById("btn");
+					//設定點擊事件
+					myBtn
+							.addEventListener(
+									"click",
+									function() {
+										//設定預先輸入的值
+										let defaultAccount = "poky";
+										let defaultPwd = "12345";
+										let defaultGender = 1;
+										let defaultHphone = "25010000";
+										let defaultMphone = "0988-848-123";
+										let defaultJob = "工程師";
+										let defaultEmail = "test123@gmail.com";
+										let defaultCard = "A123456765";
+										let defaultName = "大帥哥"
+										let defaultAddress = "台北市大安區";
+
+										//抓取目標input並填入值
+										document.getElementById("theAccount").value = defaultAccount;
+										document.getElementById("thePwd").value = defaultPwd;
+										document.getElementById("theGender").value = defaultGender;
+										document.getElementById("theHphone").value = defaultHphone;
+										document.getElementById("theMphone").value = defaultMphone;
+										document.getElementById("theJob").value = defaultJob;
+										document.getElementById("theEmail").value = defaultEmail;
+										document.getElementById("theCard").value = defaultCard;
+										document.getElementById("theName").value = defaultName;										
+										document.getElementById("theAddress").value = defaultAddress;
+									})
+
+					//增加鍵盤敲擊事件
+					document
+							.addEventListener(
+									"keydown",
+									function(event) {
+										if (event.key == "a") { //如果按下的鍵為a鍵
+											//設定預先輸入的值
+											let defaultAccount = "Bob6666";
+											let defaultPwd = "654321";
+											let defaultCity = 2;
+
+											//抓取目標input並填入值
+											document
+													.getElementById("theAccount").value = defaultAccount;
+											document.getElementById("thePwd").value = defaultPwd;
+											document.getElementById("theCity").value = defaultCity;
+										}
+									})
 				</script>
+
 
 			</div>
 		</div>
