@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>澐Hotel-房型介紹-都會套房</title>
+    <title>澐Hotel-房型介紹-豪華三人房</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -58,7 +58,7 @@
         <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
           	<div class="text">
-	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="../YunPage">Home</a></span> <span class="mr-2"><a href="RoomIntroduction">房型介紹</a></span> <span>都會套房</span></p>
+	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="../YunPage">Home</a></span> <span class="mr-2"><a href="RoomIntroduction">房型介紹</a></span> <span>豪華三人房</span></p>
 	            <h1 class="mb-4 bread">Rooms Details</h1>
             </div>
           </div>
@@ -74,21 +74,21 @@
           		<div class="col-md-12 ftco-animate">
           			<div class="single-slider owl-carousel">
           				<div class="item">
-          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite1.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/DeluxeTripleRoom/DeluxeTripleRoom1.jpg);"></div>
           				</div>
           				<div class="item">
-          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite2.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/DeluxeTripleRoom/DeluxeTripleRoom2.jpg);"></div>
           				</div>
           				<div class="item">
-          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite3.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/DeluxeTripleRoom/DeluxeTripleRoom3.jpg);"></div>
           				</div>
           						<div class="item">
-          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite4.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/DeluxeTripleRoom/DeluxeTripleRoom4.jpg);"></div>
           				</div>
           			</div>
           		</div>
           		<div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-          			<h2 class="mb-4">都會套房 </h2>
+          			<h2 class="mb-4">豪華三人房 </h2>
     						<p></p>
     						<div class="d-md-flex mt-5 mb-5">
     							<ul class="list">
@@ -97,12 +97,12 @@
 	    						</ul>
 	    						<ul class="list ml-md-5">
 	    						
-	    							<li><span>床:</span> 一大床</li>
-	    							<li><span>定價:</span> $NT6,600</li>
+	    							<li><span>床:</span> 兩大床</li>
+	    							<li><span>定價:</span> $NT7,600</li>
 	    						</ul>
     						</div>
     						<P>客房設備:</P>
-    						<p>液晶電視、廳用電視、沙發座椅．羽絨被枕、小冰箱、礦泉水、電熱快煮壺、咖啡包、茶包、精緻咖啡杯、吹風機、精緻備品、中央空調、無線上網、免治馬桶、三用衣刷、擦鞋布、盥洗備品組、保險箱、客廳書桌、DVD播放器、調理台。</p>
+    						<p>液晶電視、沙發座椅、羽絨被枕、小冰箱、電熱快煮壺、咖啡包、礦泉水、茶包、精緻咖啡、吹風機、精緻備品、中央空調、無線上網、免治馬桶、用衣刷、擦鞋布、盥洗備品組、保險箱。</p>
           	
           		</div>
 <!--           		<div class="col-md-12 room-single ftco-animate mb-5 mt-4"> -->
@@ -172,7 +172,7 @@
                 <h3>所有房型</h3>
                 <ul>
                 <li><a href="DeluxeTripleRoom">豪華三人房 <span>$NT7600</span></a></li>
-                <li><a href="MetropolisSuite">都會套房 <span>$NT6600</span></a></li>
+                <li><a href="MetropokisSuite">都會套房 <span>$NT6600</span></a></li>
                 <li><a href="DeluxeFamilyRoom">豪華家庭房 <span>$NT8800</span></a></li>
                 <li><a href="DeluxeSingleRoom">豪華單人房 <span>$NT4600</span></a></li>
                 <li><a href="DeluxeDoubleRoom">豪華雙人房 <span>$NT5200</span></a></li>

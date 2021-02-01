@@ -108,7 +108,7 @@
 <!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
     							<p class="mb-0"><span class="price mr-1">$NT7,600</span> <span class="per">每晚</span></p>
 	    						<h3 class="mb-3"><a href="RoomIntroduction">豪華三人房</a></h3>
-	    						<p class="pt-1"><a href="" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
+	    						<p class="pt-1"><a href="DeluxeTripleRoom" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -135,7 +135,7 @@
 <!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
     							<p class="mb-0"><span class="price mr-1">$NT8,800</span> <span class="per">每晚</span></p>
 	    						<h3 class="mb-3"><a href="RoomIntroduction">豪華家庭房</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
+	    						<p class="pt-1"><a href="DeluxeFamilyRoom" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -148,7 +148,7 @@
 <!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
     							<p class="mb-0"><span class="price mr-1">$NT4,600</span> <span class="per">每晚</span></p>
 	    						<h3 class="mb-3"><a href="RoomIntroduction">豪華單人房</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
+	    						<p class="pt-1"><a href="DeluxeSingleRoom" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -162,7 +162,7 @@
 <!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
     							<p class="mb-0"><span class="price mr-1">$NT5,200</span> <span class="per">每晚</span></p>
 	    						<h3 class="mb-3"><a href="RoomIntroduction">豪華雙人房</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
+	    						<p class="pt-1"><a href="DeluxeDoubleRoom" class="btn-custom px-3 py-2 rounded">詳細資料</a></p>
     						</div>
     					</div>
     				</div>
@@ -175,7 +175,7 @@
 <!--     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p> -->
     							<p class="mb-0"><span class="price mr-1">$NT5,800</span> <span class="per">每晚</span></p>
 	    						<h3 class="mb-3"><a href="RoomIntroduction">高級套房</a></h3>
-	    						<p class="pt-1"><a href="rooms-single.html" class="btn-custom px-3 py-2 rounded">詳細資料 </a></p>
+	    						<p class="pt-1"><a href="AdvancedRoom" class="btn-custom px-3 py-2 rounded">詳細資料 </a></p>
     						</div>
     					</div>
     				</div>

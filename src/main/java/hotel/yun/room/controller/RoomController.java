@@ -65,12 +65,52 @@ public class RoomController {
 
 	}
 	
-	// 房型介紹詳細資料
+	// 豪華三人房
+	@GetMapping("/DeluxeTripleRoom")
+	public String DeluxeTripleRoom(Model model) {
+		return "room/DeluxeTripleRoom";
+		
+	}
+	
+	
+	// 都會套房
 	@GetMapping("/MetropolisSuite")
 	public String MetropolisSuite(Model model) {
 		return "room/MetropolisSuite";
-
+		
 	}
+	
+	
+	// 豪華家庭房
+	@GetMapping("/DeluxeFamilyRoom")
+	public String DeluxeFamilyRoom(Model model) {
+		return "room/DeluxeFamilyRoom";
+		
+	}
+	
+	// 豪華單人房
+	@GetMapping("/DeluxeSingleRoom")
+	public String DeluxeSingleRoom(Model model) {
+		return "room/DeluxeSingleRoom";
+		
+	}
+	
+	
+	
+	// 豪華雙人房
+	@GetMapping("/DeluxeDoubleRoom")
+	public String DeluxeDoubleRoom(Model model) {
+		return "room/DeluxeDoubleRoom";
+		
+	}
+	
+	// 豪華雙人房
+	@GetMapping("/AdvancedRoom")
+	public String AdvancedRoom(Model model) {
+		return "room/AdvancedRoom";
+		
+	}
+	
 	
 	
 	
