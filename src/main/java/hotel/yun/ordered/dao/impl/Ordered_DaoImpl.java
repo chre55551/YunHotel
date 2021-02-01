@@ -177,21 +177,21 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 	@Override
 	public void updateOTR(OrderedToRoom orderedToRoom) {
 		Session session = factory.getCurrentSession();
-		OrderedToRoom otr = new OrderedToRoom();
-		otr = (OrderedToRoom)session.get(OrderedToRoom.class, otr.getOrdered_toroom_id());
-		if(orderedToRoom.getRdates()!=null) {
-			otr.setRdates(orderedToRoom.getRdates());
-		}
-		if(orderedToRoom.getRoom()!=null) {
-			otr.setRoom(orderedToRoom.getRoom());
-		}
-		if(orderedToRoom.getRoom_accounts()!=0) {
-			otr.setRoom_accounts(orderedToRoom.getRoom_accounts());
-		}
-		if(orderedToRoom.getRoomnum_of_people()!=0) {
-			otr.setRoomnum_of_people(orderedToRoom.getRoomnum_of_people());
-		}
-		session.update(otr);
+//		OrderedToRoom otr = new OrderedToRoom();
+//		otr = (OrderedToRoom)session.get(OrderedToRoom.class, otr.getOrdered_toroom_id());
+//		if(orderedToRoom.getRdates()!=null) {
+//			otr.setRdates(orderedToRoom.getRdates());
+//		}
+//		if(orderedToRoom.getRoom()!=null) {
+//			otr.setRoom(orderedToRoom.getRoom());
+//		}
+//		if(orderedToRoom.getRoom_accounts()!=0) {
+//			otr.setRoom_accounts(orderedToRoom.getRoom_accounts());
+//		}
+//		if(orderedToRoom.getRoomnum_of_people()!=0) {
+//			otr.setRoomnum_of_people(orderedToRoom.getRoomnum_of_people());
+//		}
+		session.update(orderedToRoom);
 	}
 	
 //-----------------------------------------------------------------------------------------------------------------------------------------------	

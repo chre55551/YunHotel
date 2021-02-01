@@ -99,7 +99,6 @@
 					<p>房號: ${room.room_name}</p>
 				</c:when>
 				<c:otherwise>
-    				房號: 無
    				</c:otherwise>
 			</c:choose>
 
@@ -108,7 +107,6 @@
 					<p>房型: ${roomType.room_type}</p>
 				</c:when>
 				<c:otherwise>
-    				房型: 無
    				</c:otherwise>
 			</c:choose>
 

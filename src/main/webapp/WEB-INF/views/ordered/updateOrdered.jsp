@@ -37,41 +37,41 @@
 			<p>欲修改的 ${updateOdered.customer.chinese_name}, 訂單編號:
 				${updateOdered.ordered_number}</p>
 			<c:choose>
-				<c:when test="${not empty updateOdered.customer.birthday}">
+				<c:when test="${not empty OTR}">
 					<div>
 						<label>生日: </label> <input name="birthday" type="date"
 							value="${updateOdered.customer.birthday}" />
 					</div>
 				</c:when>
 				<c:otherwise>
-					<label>生日: </label>
-					<input name="birthday" type="date" />
+<!-- 					<label>生日: </label> -->
+<!-- 					<input name="birthday" type="date" /> -->
 				</c:otherwise>
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty updateOdered.customer.idcard_number}">
+				<c:when test="${not empty OTR}">
 					<div>
 						<label>身分證字號: </label> <input name="idcard_number" type="text"
 							value="${updateOdered.customer.idcard_number}" />
 					</div>
 				</c:when>
 				<c:otherwise>
-					<label>身分證字號: </label>
-					<input name="idcard_number" type="text" />
+<!-- 					<label>身分證字號: </label> -->
+<!-- 					<input name="idcard_number" type="text" /> -->
 				</c:otherwise>
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${not empty updateOdered.customer.address}">
+				<c:when test="${not empty OTR}">
 					<div>
 						<label>地址: </label> <input name="address" type="text"
 							value="${updateOdered.customer.address}" />
 					</div>
 				</c:when>
 				<c:otherwise>
-					<label>地址: </label>
-					<input name="address" type="text" />
+<!-- 					<label>地址: </label> -->
+<!-- 					<input name="address" type="text" /> -->
 				</c:otherwise>
 			</c:choose>
 

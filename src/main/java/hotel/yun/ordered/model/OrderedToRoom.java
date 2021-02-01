@@ -39,7 +39,7 @@ public class OrderedToRoom implements Serializable {
 	@OneToOne(mappedBy = "orderedToRoom")
 	private Ordered ordered;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "room_id")
 	private Room room;
 	

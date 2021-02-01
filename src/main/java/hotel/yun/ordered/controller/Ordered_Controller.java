@@ -104,7 +104,7 @@ public class Ordered_Controller {
 	// 訂餐~~~~~~~~~
 	@GetMapping("/insertMealsOd")
 	public String ShowMealsOrdered(Model model, HttpSession session) {
-		String kk = (String)session.getAttribute("LoginOK");
+		String kk = (String)session.getAttribute("BLoginOK");
 		if(kk!=null) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
@@ -260,8 +260,8 @@ public class Ordered_Controller {
 	@GetMapping("/outsideInsertMealsOd")
 	public String outsideShowMealsOrdered(Model model, HttpSession session) {
 		if(session.getAttribute("LoginOK")!=null) {
-		Ordered od = new Ordered();
-		model.addAttribute("odd", od);
+			Ordered od = new Ordered();
+			model.addAttribute("odd", od);
 		return "ordered/outsideInsertMealsOd";
 		}else {
 			return "customer/Login";
@@ -718,6 +718,7 @@ public class Ordered_Controller {
 			DateTime rdateEndDT = DateToDateTime(rdateEnd);
 			Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
 			Set<Rdate> rdates = new HashSet<>();
+			Set<Rdate> rdates1 = new HashSet<>();
 
 			for (DateTime d : range) {
 				Date date = dateTimeToDate(d);
@@ -729,63 +730,68 @@ public class Ordered_Controller {
 					r.setRdate(date);
 					dser.insert(r);
 					rdates.add(r);// 加到 set<Rdate>中
+					rdates1.add(r);// 加到 set<Rdate>中
 				}
 			}
+			try {
+				if (ordered.getOrderedToRoom() != null) {
+					Room room = rser.queryByRoomNum(room_name);
+					ordered.getOrderedToRoom().setRoom(room);
+					ordered.getOrderedToRoom().setRdates(rdates);
+				}
 
-			if (ordered.getOrderedToRoom() != null) {
-				Room room = rser.queryByRoomNum(room_name);
-				ordered.getOrderedToRoom().setRoom(room);
-				ordered.getOrderedToRoom().setRdates(rdates);
+				if (ordered.getOrderedToRoom().getRoom() != null) {
+					ordered.getOrderedToRoom().getRoom().setRdates(rdates1);
+					;
+//				room.setRdates(rdates);// 房間跟日期的多對多關係
+//				rser.update(room);// 房間跟日期關係存入資料庫
+				}
+				try {
+					rser.update(ordered.getOrderedToRoom().getRoom());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				try {
+					service.updateOTR(ordered.getOrderedToRoom());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} catch (Exception qqq) {
+				qqq.printStackTrace();
+			}
+		}catch(Exception www) {
+			System.out.println("非房間訂單或房間訂單出 bug 啦");
+		}
+		try {
+			if (ordered.getOrderedToMeals() != null) {
+				ordered.getOrderedToMeals().setmealsnum_of_people(mealsnum_of_people);
 			}
 
-			if (ordered.getOrderedToRoom().getRdates() != null) {
-				ordered.getOrderedToRoom().setRdates(rdates);
-			}
+			Mdate md = new Mdate();
+			md.setMdate(mdate);
+			md.setTime_period(time_period);
 
 			try {
-				service.updateOTR(ordered.getOrderedToRoom());
-				rser.update(ordered.getOrderedToRoom().getRoom());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}catch(Exception qqq) {
-			
-		}
-
-		if (ordered.getOrderedToMeals() != null) {
-			ordered.getOrderedToMeals().setmealsnum_of_people(mealsnum_of_people);
-		}
-
-		Mdate md = new Mdate();
-		md.setMdate(mdate);
-		md.setTime_period(time_period);
-		
-		try {
-			if (ordered.getOrderedToMeals().getMdate() != null) {
-				try {
-					Mdate mda = dser.queryByMealDate(md);
-					ordered.getOrderedToMeals().setMdate(mda);
-				} catch (Exception e) {
-					ordered.getOrderedToMeals().setMdate(md);
+				if (ordered.getOrderedToMeals().getMdate() != null) {
+					try {
+						Mdate mda = dser.queryByMealDate(md);
+						ordered.getOrderedToMeals().setMdate(mda);
+					} catch (Exception e) {
+						ordered.getOrderedToMeals().setMdate(md);
+					}
 				}
+			} catch (Exception e) {
+
 			}
-		}catch(Exception e) {
-			
+		}catch(Exception eee) {
+			System.out.println("非餐點訂單或是餐點訂單出 bug 啦");
 		}
 
 		if (ordered.getOrderedStatus() != null) {
 			OrderedStatus os = service.queryStatusByS(ordered_status);
 			ordered.setOrderedStatus(os);
 		}
-		
-		System.out.println(bill_status);
-		System.out.println(bill_status);
-		System.out.println(bill_status);
-		System.out.println(bill_status);
-		System.out.println(bill_status);
-		System.out.println(bill_status);
-		System.out.println(bill_status);
-		System.out.println(bill_status);
 		
 		if (ordered.getOrderedPayment() != null) {
 			OrderedPayment op = service.queryPaymentBys(bill_status);

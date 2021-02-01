@@ -66,6 +66,11 @@ public class RoomDaoImpl implements RoomDao{
     public Room queryByRoomNum(String num) {
     	Session session = factory.getCurrentSession();
     	String hql  = "FROM Room r WHERE r.room_name = :name";
+    	System.out.println(num);
+    	System.out.println(num);
+    	System.out.println(num);
+    	System.out.println(num);
+    	System.out.println(num);
     	Room r = (Room)session.createQuery(hql).setParameter("name", num).getSingleResult();
     	return r;
     }
@@ -85,23 +90,23 @@ public class RoomDaoImpl implements RoomDao{
 	public void update(Room rBean) {
 		Session session = factory.getCurrentSession();
 
-		Room room = session.get(Room.class, rBean.getRoom_id());
-		if(rBean.getRoom_name()!=null) {
-			room.setRoom_name(rBean.getRoom_name());
-		}
-		if(rBean.getRoomType()!=null) {
-			room.setRoomType(rBean.getRoomType());
-		}
-		if(rBean.getRdates()!=null) {
-			Set<Rdate> rdates = rBean.getRdates();
-			for(Rdate rdate : rdates) {
-				session.merge(rdate);
-			}
-			room.setRdates(rBean.getRdates());
-		}
-//		session.update(room);
-		session.evict(room);
-		session.update(room);
+//		Room room = session.get(Room.class, rBean.getRoom_id());
+//		if(rBean.getRoom_name()!=null) {
+//			room.setRoom_name(rBean.getRoom_name());
+//		}
+//		if(rBean.getRoomType()!=null) {
+//			room.setRoomType(rBean.getRoomType());
+//		}
+//		if(rBean.getRdates()!=null) {
+//			Set<Rdate> rdates = rBean.getRdates();
+//			for(Rdate rdate : rdates) {
+//				session.merge(rdate);
+//			}
+//			room.setRdates(rBean.getRdates());
+//		}
+////		session.update(room);
+//		session.evict(room);
+		session.update(rBean);
 		
 	}
 	
