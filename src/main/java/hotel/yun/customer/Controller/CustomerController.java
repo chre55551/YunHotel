@@ -65,7 +65,11 @@ public class CustomerController {
 		System.out.println(pw);
 		Member mb = null;
 		HttpSession session = request.getSession();
-		mb = service.checkIdPassword(ac, pw);
+		try {
+			mb = service.checkIdPassword(ac, pw);
+		}catch(Exception e) {
+			
+		}
 
 		if (mb != null) {
 			session.setAttribute("LoginOK", mb.getAccount());
@@ -73,7 +77,7 @@ public class CustomerController {
 			System.out.println("登入成功");
 		} else {
 			System.out.println("登入失敗");
-			return "loginForm";
+			return "customer/loginForm";
 		}
 
 		return "redirect: " + request.getContextPath() + "/YunPage";
@@ -108,6 +112,11 @@ public class CustomerController {
 	@GetMapping("/register")
 	public String InserMember(Model model, HttpSession session) {
 		Member bm = new Member();
+		Customer cu = new Customer();
+		bm.setAccount("poky");
+		bm.setPassword("12345");
+		bm.setGender("男");
+		cu.setChinese_name("魏柏源");
 		model.addAttribute("cr", bm);
 		return "customer/register";
 
