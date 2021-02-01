@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,18 +47,23 @@ public class Checkout_Controller {
 	Date_Service dser;
 	
 	//--------------------------------------------------------------------------------------------------
-	
+	//一個可以輸入房號跟退房日期的頁面，點查詢後跳轉
 	@GetMapping("/checkoutQueryRoomOd")
+	public String queryCustcheck(Model model, HttpSession session) {
+		return "ordered/checkoutQueryRoomOd";
+	}
+	//跳轉後，可以從房號查到該張訂單的詳細資訊
+	@PostMapping("/checkoutRoomOd")
 	public String queryOrdered(@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdateEnd") Date rdateEnd,
-			@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
+//			@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
 			Model model, HttpSession session) {
 		
 		Room room = rser.queryRoomByName(room_name);
-		
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(rdateEnd);
 		c.add(Calendar.DAY_OF_MONTH, -1);
+		
 		Date lastUseDayd = (Date) c.getTime();
 		Date lastUseDay = new java.sql.Date(lastUseDayd.getTime());
 		Rdate rdate = dser.queryByRoomDate(lastUseDay);
@@ -66,17 +72,17 @@ public class Checkout_Controller {
 		model.addAttribute("od", od);
 		model.addAttribute("room", od.getOrderedToRoom().getRoom());//房間
 		model.addAttribute("rdates", od.getOrderedToRoom().getRdates());//退房日期
-				return "checkout/checkoutQueryRoomOd";
+				return "ordered/checkoutRoomOd";
 	}
-	
-	@PostMapping("/room/checkoutRoomOd")
+	//開始做結帳，只需修改付款狀態跟確認訂房人數而已
+	@PostMapping("/room/checkoutUpdate")
 	public String checkoutRoom(@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
 			@RequestParam(value = "bill_status") String bill_status,
 			Model model, HttpSession session) {
 		 Ordered od = (Ordered)model.getAttribute("od");
 		 od.getOrderedToRoom().setRoomnum_of_people((int)roomnum_of_people);
 		 oser.room_checkout(od,bill_status);
-		return "checkout/checkoutRoomOd";
+		return "ordered/checkoutUpdate";
 	}
 	
 	@PostMapping("/meals/checkout")

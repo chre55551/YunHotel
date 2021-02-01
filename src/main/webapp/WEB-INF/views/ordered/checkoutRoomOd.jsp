@@ -10,7 +10,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
-<title>輸入退房結帳資訊</title>
+<title>訂單結帳資訊</title>
 </head>
 <body>
 
@@ -72,19 +72,19 @@
 <%-- 				</c:otherwise> --%>
 <%-- 			</c:choose> --%>
 
-			<%-- 			<c:choose> --%>
-			<%-- 				<c:when test="${not empty ${payment_status}"> --%>
-			<!-- 					<div> -->
-			<!-- 						<label>付款方式: </label> <select name="payment_status"> -->
-			<!-- 							<option disabled>請選擇付款方式</option> -->
-			<!-- 							<option value="現金">現金</option> -->
-			<!-- 							<option value="信用卡">信用卡</option> -->
-			<!-- 						</select> -->
-			<!-- 					</div> -->
-			<%-- 				</c:when> --%>
-			<%-- 				<c:otherwise> --%>
-			<%-- 				</c:otherwise> --%>
-			<%-- 			</c:choose> --%>
+						<c:choose>
+							<c:when test="${not empty ${bill_status}">
+								<div>
+									<label>付款方式: </label> <select name="bill_status">
+										<option disabled>請選擇付款方式</option>
+										<option value="現金">現金</option>
+										<option value="信用卡">信用卡</option>
+									</select>
+								</div>
+							</c:when>
+							<c:otherwise>
+							</c:otherwise>
+						</c:choose>
 
 			<%-- 			<c:choose> --%>
 			<%-- 				<c:when test="${not empty ${ordered_status}"> --%>

@@ -25,7 +25,7 @@
         	
             <ul class="ALLdiamond">             
             <li class="diamond">
-              <a href="../checkoutMealsOd" class="diamondtxt">餐廳結帳</a>
+              <a href="../checkout/checkoutMealsOd" class="diamondtxt">餐廳結帳</a>
             </li>
             <li class="diamond">
                  <a href="../checkout/checkoutQueryRoomOd" class="diamondtxt">房務結帳</a>

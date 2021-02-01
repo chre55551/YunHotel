@@ -30,7 +30,7 @@
 		<p>房型: ${room.roomType.room_type}
 		<p>
 		<c:forEach var="rdate" items="${rdates}" >
-		訂房日期: ${rdate.rdate}  
+		訂房日期: ${rdate.rdate} <br>
 		</c:forEach>
 		</p><br>
 		<input type="button" value="回新增" onclick="location.href='http://localhost:8080/YunHotel/ordered/insertIndex'" >
