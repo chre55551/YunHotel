@@ -21,6 +21,45 @@
         <div class="allcontent">
         	<div class="litletitle">	
         	</div>
+        	
+        	
+        	<ul class="ALLdiamond">
+
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/bmember/IndexMember" class="diamondtxt">&emsp;會員</a>
+				</li>
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/ordered/indexOrdered" class="diamondtxt">&emsp;訂單</a>
+				</li>
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/employee/empindex"  class="diamondtxt">&emsp;員工</a>
+				</li>
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/meals/IndexMeals" class="diamondtxt">&emsp;餐點</a>
+				</li>
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/room/IndexRoom" class="diamondtxt">&emsp;房務</a>
+				</li>
+				<p style="width:150px;height:80px; "></p>
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/news/newsindex" class="diamondtxt">&emsp;消息</a>
+				</li>
+				<li class="diamond">
+					<a href="${pageContext.request.contextPath}/ordered/checkoutIndex" class="diamondtxt">&emsp;結帳</a>
+				</li>
+				<li class="diamond">
+				<c:choose>
+			<c:when test="${not empty BLoginOK}">
+				<li class="diamond"><a href="http://localhost:8080/YunHotel/bmember/BLogout">登出</a></li>
+			</c:when>
+			<c:otherwise>
+					<a href="${pageContext.request.contextPath}/bmember/BLogin" class="diamondtxt">&emsp;登入</a>
+			</c:otherwise>
+		</c:choose>	
+
+
+            </ul>
+            
         </div>
         	
      </div>

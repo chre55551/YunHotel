@@ -14,7 +14,14 @@
     <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div class="container">
+        <div class="right">
+        <p class="title">餐點</p>
+        <p class="hr"></p>
+        
+     <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        
             <ul class="ALLdiamond">
            
             <li class="diamond">
@@ -32,10 +39,6 @@
             <li class="diamond">
                 <a href="" class="diamondtxt">刪除餐點</a>
             </li>
-            
-            
-            
-            
             
 
             </ul>
