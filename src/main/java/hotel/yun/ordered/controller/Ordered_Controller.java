@@ -331,8 +331,12 @@ public class Ordered_Controller {
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd, Model model, HttpSession session) {
 		Ordered od = new Ordered();
 		model.addAttribute("odd", od);
+		try {
 		model.addAttribute("rdate", rdate);
 		model.addAttribute("rdateEnd", rdateEnd);
+		}catch(Exception e) {
+			
+		}
 		return "ordered/outsideInsertRoomOd";
 	}
 
