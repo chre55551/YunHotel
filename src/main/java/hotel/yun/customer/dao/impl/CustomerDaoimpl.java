@@ -76,11 +76,12 @@ public class CustomerDaoimpl implements Serializable, CustomerDao {
 	
 
 	@Override
-	public void delete(int customer_id) {
+	public boolean delete(int member_id) {
 		Session session = factory.getCurrentSession();
-		Customer cu = new Customer();
-		cu.setCustomer_id(customer_id);
-		session.delete(cu);
+		Member me = new Member();
+		me.setMember_id(member_id);
+		session.delete(me);
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")

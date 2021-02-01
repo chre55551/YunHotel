@@ -12,12 +12,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import hotel.yun.bmember.dao.BmemberDao;
 import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.model.Member;
-
 
 @Repository
 public class BmemberDaoImpl implements Serializable, BmemberDao {
@@ -102,26 +100,37 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Customer> queryAllMember1() {
+		Session session = null;
+		session = factory.getCurrentSession();
+		String hql = "FROM Customer";
+		List<Customer> list = new ArrayList<>();
+		list = session.createQuery(hql).getResultList();
+		System.out.println(list);
+		return list;
+	}
 
-		@SuppressWarnings("unchecked")
-		@Override
-		public List<Member> queryAllMember1() {
-			Session session = null;
-			session = factory.getCurrentSession();
-			String hql = "FROM Member";
-			List<Member> list = new ArrayList<>();
-			list = session.createQuery(hql).getResultList();
-			System.out.println(list);
-			return list;
-		}
-		@Override
-		public Customer queryByAc(String s) {
-			Member mn = null;
-			String hql = "FROM Member m WHERE m.account = :mid";
-			Session session = factory.getCurrentSession();
-			mn = (Member) session.createQuery(hql).setParameter("mid", s).getSingleResult();
-			Customer c = mn.getCustomer();
-			
-			return c;
-		}
+	@Override
+	public Customer queryByAc(String s) {
+		Member mn = null;
+		String hql = "FROM Member m WHERE m.account = :mid";
+		Session session = factory.getCurrentSession();
+		mn = (Member) session.createQuery(hql).setParameter("mid", s).getSingleResult();
+		Customer c = mn.getCustomer();
+
+		return c;
+	}
+
+	@Override
+	public boolean delete1(int customer_id) {
+
+		Session session = factory.getCurrentSession();
+		Customer me = new Customer();
+		me.setCustomer_id(customer_id);
+		session.delete(me);
+		return false;
+
+	}
 }

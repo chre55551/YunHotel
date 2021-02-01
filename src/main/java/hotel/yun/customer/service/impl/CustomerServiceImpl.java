@@ -48,8 +48,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void delete(int customer_id) {
-		cDao.delete(customer_id);
+	public void delete(int member_id) {
+		cDao.delete(member_id);
 
 	}
 

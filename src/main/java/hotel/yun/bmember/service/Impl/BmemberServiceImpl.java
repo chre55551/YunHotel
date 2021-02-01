@@ -60,7 +60,7 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	}
 
 	@Override
-	public List<Member> queryAllMember1() {
+	public List<Customer> queryAllMember1() {
 		return bDao.queryAllMember1();
 	}
 
@@ -68,6 +68,11 @@ public class BmemberServiceImpl implements Serializable, BmemberService {
 	public Customer queryByAc(String s) {
 		Customer c = bDao.queryByAc(s);
 		return c;
+	}
+
+	@Override
+	public boolean delete1(int customer_id) {
+		return bDao.delete1(customer_id);
 	}
 	
 }

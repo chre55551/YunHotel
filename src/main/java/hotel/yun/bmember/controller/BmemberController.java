@@ -64,13 +64,18 @@ public class BmemberController {
 		String kk = (String)session.getAttribute("BLoginOK");
 		String a = (String)session.getAttribute("Authority");//如果該功能有權限要求 可以用這個去判別
 		
-		if(kk!=null) {
+//		if(kk!=null) {
 		BmemberBean bm = new BmemberBean();
+		bm.setBs_account("poky");
+		bm.setBs_password("123456");
+		bm.setBs_email("poky172839456@gmail.com");
+		bm.setAuthority("老闆");
+		bm.setUser_id("小魏");
 		model.addAttribute("bb", bm);
 		return "bmember/InsertBmemberBM";
-		}else {
-			return "login/PleaseLoginInBS";
-		}
+//		}else {
+//			return "login/PleaseLoginInBS";
+//		}
 	}
 
 	@PostMapping("/insertbmemberbb")
@@ -200,23 +205,19 @@ public class BmemberController {
 	// 顯示前台會員
 	@GetMapping("/ShowRMember")
 	public String getCustomer(Model model) {
-		List<Member> srm = service.queryAllMember1();
+		List<Customer> srm = service.queryAllMember1();
 		model.addAttribute("sm",srm);      
 	
 
 		return "bmember/ShowRMember";
 	}
 
-//	@GetMapping("/ShowRMember")
-//	public String getCustomer(Model model, HttpSession session) {
-//		Member me = new Member();
-//		Customer ct = new Customer();
-//		String account = (String) session.getAttribute("LoginOK");
-//		ct = service.queryByAc(account);
-//		me = ct.getMember();
-//		model.addAttribute("rcm", me);
-//		model.addAttribute("rcc", ct);
-//		return "bmember/ShowRMember";
-//	}
+	//刪除前台會員------------------------------------------------------------------------------------------------
+		@GetMapping("/modifyRMember/{customer_id}")
+		public String deleteCustomerData1(@PathVariable("customer_id") int customer_id) {
+			service.delete1(customer_id);	
+			System.out.println(11122233);
+			return "redirect:../ShowRMember";
+		}
 
 }

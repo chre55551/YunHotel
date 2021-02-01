@@ -15,8 +15,9 @@ public interface BmemberService {
 	public BmemberBean queryMemberID(int bs_id);
 	public List<BmemberBean> queryAllMember();
 	public BmemberBean update(BmemberBean nbean);
-	public boolean delete(int bs_id);
+	public boolean delete(int customer_id);
 	public BmemberBean checkIdPassword(String account, String password);
-	public List<Member> queryAllMember1();
+	public List<Customer> queryAllMember1();
 	public Customer queryByAc(String s);
+	public boolean delete1(int member_id);
 }

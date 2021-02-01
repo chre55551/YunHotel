@@ -35,7 +35,7 @@
 					<p>帳號:</p>
 					<input type="text" name="account"></input> <br>
 					<p>密碼:</p>
-					<input type="password" name="password"></input> <br>
+					<input type="password" name="password" id ="np"></input> <br>
 					<p>性別:</p>
 					<input type="text" name="gender"></input> <br>
 					<p>家裡電話:</p>
@@ -58,7 +58,15 @@
 						onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
 
 				</form>
-
+				<script type="text/javascript">
+					function btclick() {
+						if (!((document.getElementById("np").value)
+								.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$/))) {
+							alert("your password : "
+									+ document.getElementById("np").value);
+						}
+					}
+				</script>
 
 			</div>
 		</div>

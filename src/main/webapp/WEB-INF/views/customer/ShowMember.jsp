@@ -42,6 +42,7 @@
 			<p>身分證字號: ${rcc.idcard_number}</p>
 			<p>生日: ${rcc.birthday}</p>
 			<p>地址: ${rcc.address}</p>
+			
 			<br> <input class="ormBtn" type="button" value="回官網" 	onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
 			<br> <input class="ormBtn" type="button" value="修改" 	onclick="location.href='http://localhost:8080/YunHotel/customer/UpdateMember'">
 		</div>
