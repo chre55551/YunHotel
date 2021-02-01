@@ -38,6 +38,28 @@
      					 <th>您的所有訂單</th>
     				</tr>
 				</thead>
+				<tbody>
+					<c:forEach var="od" items="${odl}" varStatus="state">
+						<tr>
+							<td>${od.ordered_number}</td>
+							<c:choose>
+								<c:when test="${not empty otms[state-1]}">
+									<td>餐廳訂單</td>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${not empty rdates[state-1]}">
+									<td>房間訂單</td>
+								</c:when>
+							</c:choose>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>${od.orderedStatus.ordered_status}</td>
+							<td>${od.ordered_date}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
 <%-- 				<p>訂單編號: ${onum}</p> --%>
 <%-- 				<p>姓名: ${name}</p> --%>
 <%-- 				<p>手機: ${phone}</p> --%>

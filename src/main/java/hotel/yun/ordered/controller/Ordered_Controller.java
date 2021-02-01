@@ -479,31 +479,34 @@ public class Ordered_Controller {
 	@RequestMapping("/outsideQueryCustomerOd")
 	public String outsideQueryCustomerOd(Model model, HttpSession session) {
 		if(session.getAttribute("LoginOK")!=null) {
-		Customer ct = new Customer();
+			Customer ct = new Customer();
 
-		try {
-			String ac = (String) session.getAttribute("LoginOK");
-			ct = cser.queryByAc(ac);
-			List<Ordered> odl = ct.getOrdered();
-			Set<Ordered> set = new HashSet<Ordered>(); 
-			List<Ordered> newList = new ArrayList<Ordered>(); 
-			for (Iterator<Ordered> iter = odl.iterator(); iter.hasNext();) {
-				Object element = iter.next(); if (set.add((Ordered) element)) newList.add((Ordered) element); 
+			try {
+				String ac = (String) session.getAttribute("LoginOK");
+				ct = cser.queryByAc(ac);
+				List<Ordered> odl = ct.getOrdered();
+				Set<Ordered> set = new HashSet<Ordered>();
+				List<Ordered> newList = new ArrayList<Ordered>();
+				for (Iterator<Ordered> iter = odl.iterator(); iter.hasNext();) {
+					Object element = iter.next();
+					if (set.add((Ordered) element))
+						newList.add((Ordered) element);
 				}
-			odl.clear(); 
-			odl.addAll(newList);
-			
-			String jsonString = new ObjectMapper().writeValueAsString(odl);
-			model.addAttribute("jsonString", jsonString);
-			
-			List<Room> rooms = new ArrayList<>();
-			List<Set<Rdate>> rdates = new ArrayList<>();
-			List<Mdate> mdates = new ArrayList<>();
+				odl.clear();
+				odl.addAll(newList);
+
+				String jsonString = new ObjectMapper().writeValueAsString(odl);
+				model.addAttribute("jsonString", jsonString);
+
+				List<Room> rooms = new ArrayList<>();
+				List<Set<Rdate>> rdates = new ArrayList<>();
+				List<Mdate> mdates = new ArrayList<>();
+				List<OrderedToMeals> otms = new ArrayList<>();
 
 //			Set<Ordered> set = new HashSet<>(odl);
 //			odl.clear();
 //			odl.addAll(set);
-			
+
 //			List<Integer> num = new ArrayList();
 //			List<Ordered> odl = new ArrayList();
 //			odlllll.
@@ -513,34 +516,46 @@ public class Ordered_Controller {
 //			for(Ordered odd:set) {
 //				odd.getOrdered_number();
 //			}
-			for(Ordered od:odl) {
-				try {
-					Room room = od.getOrderedToRoom().getRoom();
-					Set<Rdate> rdatesSet = od.getOrderedToRoom().getRdates();
-					rdates.add(rdatesSet);
-					rooms.add(room);
-				}catch(Exception e) {
-					
+				for (Ordered od : odl) {
+					try {
+						Room room = od.getOrderedToRoom().getRoom();
+						Set<Rdate> rdatesSet = od.getOrderedToRoom().getRdates();
+						rdates.add(rdatesSet);
+						rooms.add(room);
+					} catch (Exception e) {
+
+					}
+					try {
+						Mdate mdate = od.getOrderedToMeals().getMdate();
+						OrderedToMeals otm = od.getOrderedToMeals();
+						mdates.add(mdate);
+						otms.add(otm);
+					} catch (Exception e) {
+
+					}
 				}
-				try {
-					Mdate mdate = od.getOrderedToMeals().getMdate();
-					mdates.add(mdate);
-				}catch(Exception e) {
-					
-				}
-			}
-			
-			model.addAttribute("odl", odl);
-			model.addAttribute("rooms",rooms);
-			model.addAttribute("mdates",mdates);
-			
-			
+
+				model.addAttribute("odl", odl);
+				
+					if(!rooms.isEmpty()) {
+						model.addAttribute("rooms", rooms);
+					}
+					if(!rdates.isEmpty()) {
+						model.addAttribute("rdates", rdates);
+					}
+					if(!mdates.isEmpty()) {
+						model.addAttribute("mdates", mdates);
+					}
+					if(!otms.isEmpty()) {
+						model.addAttribute("otms",otms);
+					}
+
 //			java.lang.String gson = new Gson().toJson(odl);
-			// List<Object> list = new ArrayList<Object>();
+				// List<Object> list = new ArrayList<Object>();
 //			model.addAttribute("gson", gson);
-			
+
 //			Ordered[] a = new Ordered[i1];
-			
+
 //			for (int i = 0; i < odl.size(); i++) {
 //				Ordered getcu = odl.get(i);
 ////				a[i]=odl.get(i);
@@ -564,13 +579,12 @@ public class Ordered_Controller {
 //			}
 //			JSONObject json1 = new JSONObject(a);
 //			model.addAttribute("json",json1);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 
-		return "ordered/outsideQueryCustomerOd";}else {
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return "ordered/outsideQueryCustomerOd";
+		}else {
 			return "customer/Login";
 			}
 
