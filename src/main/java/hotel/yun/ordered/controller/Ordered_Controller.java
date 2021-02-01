@@ -798,6 +798,13 @@ public class Ordered_Controller {
 
 		Ordered odAfter = service.queryOrderNum(ordered_number.intValue());
 		model.addAttribute("ordered", odAfter);
+		try {
+			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
+			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
+			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
+		}catch(Exception e) {
+			
+		}
 		return "ordered/thisOrdered";
 	}
 
