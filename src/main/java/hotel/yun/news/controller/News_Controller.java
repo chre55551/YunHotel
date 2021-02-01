@@ -38,7 +38,12 @@ public class News_Controller {
 	@GetMapping("/newsindex")
 	public String indexNews(Model model){
 		return "news/newsindex";
-	
+	}
+
+	//關於我們
+	@GetMapping("/Aboutus")
+	public String aboutus(Model model){
+		return "news/Aboutus";
 	}
 //---------------------------------------------------------------
 	@GetMapping("/showinsertNews")

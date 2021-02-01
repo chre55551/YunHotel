@@ -12,7 +12,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/news.css'
 	type="text/css" />
-<title>最新消息</title>
+<title>關於我們</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
 <!-- Bootstrapt插件 -->
@@ -28,25 +28,8 @@
 
 	<div class="BG">
 		<div class="main">
-		<div class="newsdiv">
-		
-		<table class="newsF_pos" border='1' cellpadding="3" cellspacing="1" >
-			<tr>
-			   <th class="newsF">上傳時間</th>
-			   <th class="newsF">更新時間</th>
-			   <th class="newsF">消息內容</th>
-			</tr>
-			<c:forEach var='NWS' items='${newsList}'>
-				<tr>
-					<td class="newsF">${NWS.news_date}</td>
-					<td class="newsF">${NWS.news_updated_date}</td>
-					<td class="newsF">${NWS.news_content}</td>
-				</tr>
-			</c:forEach>
-		
-		</table>
-		
-		</div>
+	
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d451.87688666435463!2d121.54337575419828!3d25.033561846969427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd379a5ec97%3A0xedc006d25a9e35df!2z6LOH562W5pyDIOaVuOS9jeaVmeiCsueglOeptuaJgCDmlbjkvY3kurrmiY3ln7nogrLkuK3lv4M!5e0!3m2!1szh-TW!2stw!4v1612166831261!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 		</div>
 		
 		<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
