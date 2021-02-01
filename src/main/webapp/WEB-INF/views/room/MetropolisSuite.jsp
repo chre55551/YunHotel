@@ -52,7 +52,7 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-		<div class="hero-wrap" style="background-image: url('images/bg_3.jpg');">
+		<div class="hero-wrap" style="background-image: url('../image/test2/bg_3.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
@@ -74,30 +74,36 @@
           		<div class="col-md-12 ftco-animate">
           			<div class="single-slider owl-carousel">
           				<div class="item">
-          					<div class="room-img" style="background-image: url(images/room-4.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite1.jpg);"></div>
           				</div>
           				<div class="item">
-          					<div class="room-img" style="background-image: url(images/room-5.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite2.jpg);"></div>
           				</div>
           				<div class="item">
-          					<div class="room-img" style="background-image: url(images/room-6.jpg);"></div>
+          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite3.jpg);"></div>
+          				</div>
+          						<div class="item">
+          					<div class="room-img" style="background-image: url(../image/test2/MetropolisSuite/MetropolisSuite4.jpg);"></div>
           				</div>
           			</div>
           		</div>
           		<div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-          			<h2 class="mb-4">都會套房 <span>- (4 Available rooms)</span></h2>
-    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+          			<h2 class="mb-4">都會套房 </h2>
+    						<p></p>
     						<div class="d-md-flex mt-5 mb-5">
     							<ul class="list">
-	    							<li><span>Max:</span> 3 Persons</li>
-	    							<li><span>Size:</span> 45 m2</li>
+	    						    <li><span>景觀:</span> 海景</li>
+	    							<li><span>坪數:</span> 16坪</li>
 	    						</ul>
 	    						<ul class="list ml-md-5">
-	    							<li><span>View:</span> Sea View</li>
-	    							<li><span>Bed:</span> 1</li>
+	    						
+	    							<li><span>床:</span> 一大床</li>
+	    							<li><span>定價:</span> $NT6,600</li>
 	    						</ul>
     						</div>
-    						<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+    						<P>客房設備:</P>
+    						<p>液晶電視、廳用電視、沙發座椅．羽絨被枕、小冰箱、礦泉水、電熱快煮壺、咖啡包、茶包、精緻咖啡杯、吹風機、精緻備品、中央空調、無線上網、免治馬桶、三用衣刷、擦鞋布、盥洗備品組、保險箱、客廳書桌、DVD播放器、調理台</p>
+          	
           		</div>
 <!--           		<div class="col-md-12 room-single ftco-animate mb-5 mt-4"> -->
 <!--           			<h3 class="mb-4">Take A Tour</h3> -->
@@ -151,6 +157,7 @@
           	</div>
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar ftco-animate pl-md-5">
+          
             <div class="sidebar-box">
               <form action="#" class="search-form">
                 <div class="form-group">
@@ -160,6 +167,7 @@
               </form>
             </div>
             <div class="sidebar-box ftco-animate">
+            
               <div class="categories">
                 <h3>Categories</h3>
                 <li><a href="#">Properties <span>(12)</span></a></li>

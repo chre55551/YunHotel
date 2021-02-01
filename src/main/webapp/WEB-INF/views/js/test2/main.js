@@ -115,20 +115,20 @@
 			items:1,
 			margin: 0,
 			stagePadding: 0,
-			nav: true,
+//			nav: true,
 			dots: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive:{
-				0:{
-					items: 1
-				},
-				600:{
-					items: 1
-				},
-				1000:{
-					items: 1
-				}
-			}
+//			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+//			responsive:{
+//				0:{
+//					items: 1
+//				},
+//				600:{
+//					items: 1
+//				},
+//				1000:{
+//					items: 1
+//				}
+//			}
 		});
 
 		$('.single-slider-resto').owlCarousel({
