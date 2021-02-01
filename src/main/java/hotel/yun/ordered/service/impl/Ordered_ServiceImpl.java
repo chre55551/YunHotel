@@ -30,13 +30,15 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 	}
 
 	@Override
-	public Ordered insert(Ordered oBean)  throws Exception{	
+	public Ordered insert(Ordered oBean) {	
 		OrderedStatus ods  = oDao.queryS(1);
 		oBean.setOrderedStatus(ods);
 		
-		OrderedPayment odp = oDao.queryP(1);
-		oBean.setOrderedPayment(odp);
+//		OrderedPayment odp = oDao.queryP(1);
+//		oBean.setOrderedPayment(odp);
 		
+//		oBean.setOrderedStatus(new OrderedStatus());
+//		oBean.getOrderedStatus().setStatus_id(1);
 		
 		Timestamp c = new java.sql.Timestamp(System.currentTimeMillis());
 		oBean.setOrdered_date(c);
@@ -60,7 +62,7 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 				System.out.println(mp);
 				oBean.getOrderedToMeals().setMeals_accounts(mp);
 				oBean.setOrdered_accounts(mp);
-				er.printStackTrace();
+//				er.printStackTrace();
 		}
 		
 		try {
@@ -77,10 +79,17 @@ public class Ordered_ServiceImpl implements Ordered_Service {
 			oBean.getOrderedToMeals().setMeals_accounts(mp);
 			oBean.setOrdered_accounts(oBean.getOrderedToMeals().getMeals_accounts()+oBean.getOrderedToRoom().getRoom_accounts());
 		}catch(Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
-		
-		return oDao.insert(oBean);
+		Ordered od;
+		try {
+			od = oDao.insert(oBean);
+			return od;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -31,6 +32,7 @@ import hotel.yun.customer.service.CustomerService;
 import hotel.yun.date.model.Mdate;
 import hotel.yun.date.model.Rdate;
 import hotel.yun.date.service.Date_Service;
+import hotel.yun.meals.model.Meals;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
@@ -384,17 +386,26 @@ public class Ordered_Controller {
 		Room room = new Room();
 
 		room = rser.queryRoomByName(room_name);// 根據房名撈出該房間
+//		System.out.println(room.getRoomType().getRoom_price());
+//		System.out.println(room.getRoomType().getRoom_price());
+//		System.out.println(room.getRoomType().getRoom_price());
+//		System.out.println(room.getRoomType().getRoom_price());
 		room.setRdates(rdates);// 房間跟日期的多對多關係
 		rser.update(room);// 房間跟日期關係存入資料庫
+		otr.setRdates(rdates);
 
 		otr.setRoom(room);// 將房間放入訂單
 		service.insertOTR(otr);
 
 		od.setOrderedToRoom(otr);
 
-		OrderedStatus os = new OrderedStatus();
-		os.setStatus_id(1);
-		od.setOrderedStatus(os);
+//		OrderedStatus os = new OrderedStatus();
+//		os.setStatus_id(1);
+//		od.setOrderedStatus(os);
+		
+//		OrderedPayment op = new OrderedPayment();
+//		op.setPayment_id(1);
+//		od.setOrderedPayment(op);
 
 		Ordered odd;
 		try {
@@ -458,28 +469,68 @@ public class Ordered_Controller {
 			String ac = (String) session.getAttribute("LoginOK");
 			ct = cser.queryByAc(ac);
 			List<Ordered> odl = ct.getOrdered();
+			Set<Ordered> set = new HashSet<Ordered>(); 
+			List<Ordered> newList = new ArrayList<Ordered>(); 
+			for (Iterator<Ordered> iter = odl.iterator(); iter.hasNext();) {
+				Object element = iter.next(); if (set.add((Ordered) element)) newList.add((Ordered) element); 
+				}
+			odl.clear(); 
+			odl.addAll(newList);
+			
+			List<Room> rooms = new ArrayList<>();
+			List<Set<Rdate>> rdates = new ArrayList<>();
+
+//			Set<Ordered> set = new HashSet<>(odl);
+//			odl.clear();
+//			odl.addAll(set);
+			
+//			List<Integer> num = new ArrayList();
+//			List<Ordered> odl = new ArrayList();
+//			odlllll.
+//			for(Ordered odd:odlllll) {
+//				set.add(odd);
+//			}
+//			for(Ordered odd:set) {
+//				odd.getOrdered_number();
+//			}
+			for(Ordered od:odl) {
+				Room room = od.getOrderedToRoom().getRoom();
+				Set<Rdate> rdatesSet = od.getOrderedToRoom().getRdates();
+				rdates.add(rdatesSet);
+				rooms.add(room);
+			}
 			
 			model.addAttribute("odl", odl);
+			model.addAttribute("rooms",rooms);
 			
 			
 //			java.lang.String gson = new Gson().toJson(odl);
 			// List<Object> list = new ArrayList<Object>();
 //			model.addAttribute("gson", gson);
 			
-			int i1 = odl.size();
-			Ordered[] a = new Ordered[i1];
+//			Ordered[] a = new Ordered[i1];
 			
-			for (int i = 0; i < odl.size(); i++) {
-				Ordered getcu = odl.get(i);
-//				a[i]=odl.get(i);
-				model.addAttribute("onum",getcu.getOrdered_number());
-				model.addAttribute("odate",getcu.getOrdered_date());
-				model.addAttribute("name",getcu.getCustomer().getChinese_name());
-				model.addAttribute("phone", getcu.getCustomer().getMobile_phone());
-				model.addAttribute("ostatus", getcu.getOrderedStatus().getOrdered_status());
-				model.addAttribute("oBill", getcu.getOrderedPayment().getBill_status());
-			}
-			model.addAttribute("a", a);
+//			for (int i = 0; i < odl.size(); i++) {
+//				Ordered getcu = odl.get(i);
+////				a[i]=odl.get(i);
+//				model.addAttribute("onum",getcu.getOrdered_number());
+//				model.addAttribute("odate",getcu.getOrdered_date());
+//				model.addAttribute("name",getcu.getCustomer().getChinese_name());
+//				model.addAttribute("phone", getcu.getCustomer().getMobile_phone());
+//				model.addAttribute("ostatus", getcu.getOrderedStatus().getOrdered_status());
+//				model.addAttribute("oBill", getcu.getOrderedPayment().getBill_status());
+//			}
+//			model.addAttribute("a", a);
+//			for (int i = 0;i < a.length; i++) {
+//				Room room = a[i].getOrderedToRoom().getRoom();
+//				Set<Rdate> rdates = a[i].getOrderedToRoom().getRdates();
+//				Mdate mdate = a[i].getOrderedToMeals().getMdate();
+//				List<Meals> meals = a[i].getOrderedToMeals().getMeals();
+//				model.addAttribute("room"+i,room);
+//				model.addAttribute("mdate"+i,mdate);
+//				model.addAttribute("meals"+i,meals);
+//				model.addAttribute("room"+i,room);
+//			}
 //			JSONObject json1 = new JSONObject(a);
 //			model.addAttribute("json",json1);
 			

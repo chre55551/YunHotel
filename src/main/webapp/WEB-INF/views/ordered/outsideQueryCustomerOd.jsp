@@ -27,7 +27,10 @@
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 
 	<div class="queryODBG">
-				<input type="hidden" id="odl" value="${a}">
+				<input type="hidden" id="${odl}" value="${odl}">
+	<c:forEach var="od" items="${odl}">
+				<input type="hidden" id="${od.ordered_number}" value="${od}">
+	</c:forEach>
 		<div class="main">
 			<table class="orm2" id="container">
 				<thead class="ormt2" >
@@ -65,10 +68,7 @@
 		}
 		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
 		$('#container').append(this_data);
-	
-	
-		var qq = '${json}';
-		var ww='${gson}'
+
 	});
 //  function () {
 //     var this_data = '';

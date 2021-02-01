@@ -54,7 +54,7 @@ public class Ordered implements Serializable {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;// 顧客編號
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinColumn(name = "status_id")
 	private OrderedStatus orderedStatus;// 狀態ID
 

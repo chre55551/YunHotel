@@ -22,7 +22,7 @@ public class OrderedStatus implements Serializable {
 
 	private String ordered_status;// 訂單狀態
 
-	@OneToMany(mappedBy = "orderedStatus", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderedStatus", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	private Set<Ordered> ordered = new HashSet<>();
 
 	public OrderedStatus() {

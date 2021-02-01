@@ -28,8 +28,9 @@ public class Ordered_DaoImpl implements Serializable, Ordered_Dao {
 
 	// 新增訂單資訊
 	@Override
-	public Ordered insert(Ordered oBean) throws Exception {
+	public Ordered insert(Ordered oBean) {
 		Session session = factory.getCurrentSession();
+		session.flush();
 		session.save(oBean);
 		return oBean;
 	}
