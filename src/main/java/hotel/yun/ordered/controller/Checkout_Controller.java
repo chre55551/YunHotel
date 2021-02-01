@@ -76,6 +76,12 @@ public class Checkout_Controller {
 		return null;
 	}
 	
+	@PostMapping("/meals/checkout")
+	public String checkoutRoom(Model model, HttpSession session) {
+		
+		return null;
+	}
+	
 	@PostMapping("/test")
 	public @ResponseBody Ordered checkOutRoomTest(@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "rdateEnd") Date rdateEnd,
