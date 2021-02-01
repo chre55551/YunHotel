@@ -33,11 +33,16 @@
 				<form action="/YunHotel/customer/registerOK" method="POST"
 					class="container">
 					<p>帳號:</p>
-					<input type="text" name="account"></input> <br>
+					<input type="text" name="account" id="account" autocomplete="off" placeholder="請輸入姓名">
+					<span id="acccheck">此欄位必須輸入</span>
+					<br>
+					<p>(不可空白,至少兩個字且必須為中文字)</p>
 					<p>密碼:</p>
-					<input type="password" name="password" id ="np"></input> <br>
-					<p>性別:</p>
-					<input type="text" name="gender"></input> <br>
+					<input type="password" name="password" id="np"></input> <br>
+					
+					性別：<br> <input type="radio" name="sex" value="male">男
+					<input type="radio" name="sex" value="female">女
+					<p>
 					<p>家裡電話:</p>
 					<input type="text" name="home_phone"></input> <br>
 					<p>手機電話:</p>

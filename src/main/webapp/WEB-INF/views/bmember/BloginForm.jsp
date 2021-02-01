@@ -17,7 +17,7 @@
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	 <div class="right">
-        <p class="title">麻煩請先登入會員</p>
+        <p class="title">登入失敗</p>
         <p class="hr"></p>
         <br> <input class="ormBtn" type="button" value="回登入"
 				onclick="location.href='http://localhost:8080/YunHotel/bmember/BLogin'">
