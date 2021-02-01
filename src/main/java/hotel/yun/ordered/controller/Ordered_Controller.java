@@ -673,7 +673,7 @@ public class Ordered_Controller {
 			model.addAttribute("lastDay", dateList.get(dateList.size() - 1));
 			model.addAttribute("Rdates", ThisOrdered.getOrderedToRoom().getRdates());
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 		try {
 			model.addAttribute("OTM", ThisOrdered.getOrderedToMeals());
@@ -760,13 +760,17 @@ public class Ordered_Controller {
 		md.setMdate(mdate);
 		md.setTime_period(time_period);
 		
-		if (ordered.getOrderedToMeals().getMdate() != null) {
-			try {
-				Mdate mda = dser.queryByMealDate(md);
-				ordered.getOrderedToMeals().setMdate(mda);
-			}catch(Exception e) {
-				ordered.getOrderedToMeals().setMdate(md);
+		try {
+			if (ordered.getOrderedToMeals().getMdate() != null) {
+				try {
+					Mdate mda = dser.queryByMealDate(md);
+					ordered.getOrderedToMeals().setMdate(mda);
+				} catch (Exception e) {
+					ordered.getOrderedToMeals().setMdate(md);
+				}
 			}
+		}catch(Exception e) {
+			
 		}
 
 		if (ordered.getOrderedStatus() != null) {

@@ -76,7 +76,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${roomType=='豪華兩人房'}">
+				<c:when test="${roomType.room_type=='豪華兩人房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -90,7 +90,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${roomType=='普通四人房'}">
+				<c:when test="${roomType.room_type=='普通四人房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -104,7 +104,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${roomType=='豪華四人房'}">
+				<c:when test="${roomType.room_type=='豪華四人房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -118,7 +118,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${roomType=='副總統套房'}">
+				<c:when test="${roomType.room_type=='副總統套房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -132,7 +132,7 @@
 						</select>
 					</div>
 				</c:when>
-				<c:when test="${roomType=='總統套房'}">
+				<c:when test="${roomType.room_type=='總統套房'}">
 					<div>
 						<label>房型</label> 
 						<select name="room_type" id="room_type" >
@@ -155,7 +155,7 @@
 				<c:when test="${not empty OTR}">
 					<label>欲入住日期: </label>
 					<div>
-						<input name="rdate" type="date"
+						<input name="rdate" type="date" id="rdate"
 							value="${firstDay}" />
 					</div>
 				</c:when>
@@ -167,7 +167,7 @@
 				<c:when test="${not empty OTR}">
 					<label>欲退房日期: </label>
 					<div>
-						<input name="rdateEnd" type="date"
+						<input name="rdateEnd" type="date" id="rdateEnd"
 							value="${lastDay}" />
 					</div>
 				</c:when>
@@ -181,7 +181,7 @@
 						<div>
 							<div id="roomnum"></div>
 						</div>
-						<button id="zzz">查詢</button>
+						<button id="zzz" type="button">查詢</button>
 					</div>
 				</c:when>
 				<c:otherwise>
@@ -207,8 +207,8 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					<label>用餐日期: </label>
-					<input name="mdate" type="date" />
+<!-- 					<label>用餐日期: </label> -->
+<!-- 					<input name="mdate" type="date" /> -->
 				</c:otherwise>
 			</c:choose>
 
@@ -348,6 +348,33 @@
 		})
 		
 	})
+	
+			$('#zzz').click(function(){
+			$.ajax({
+				url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/availablerooms',
+				dataType: 'json',
+				type : 'POST',
+				data:{
+					room_type : $("#room_type").val(),
+					rdate : $("#rdate").val(),
+					rdateEnd : $("#rdateEnd").val()
+ 					},
+					success: function (data){
+						let fk = data
+						var this_data = '';
+						this_data += '<label>房號</label> <select name="room_name"><option selected>請選擇房號</option>';
+						for(let room of fk){
+							this_data += '<option>' + room.room_name + '</option>' ;
+						};
+						this_data += '</select>';
+						$('#roomnum').html(this_data);
+					},
+					error: function (d) {
+			              alert('查無資料');
+			            },
+				
+			})
+		})
 	</script>
 </body>
 </html>
