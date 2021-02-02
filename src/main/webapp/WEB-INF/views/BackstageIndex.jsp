@@ -47,15 +47,7 @@
 				<li class="diamond">
 					<a href="${pageContext.request.contextPath}/ordered/checkoutIndex" class="diamondtxt">&emsp;結帳</a>
 				</li>
-				<li class="diamond">
-				<c:choose>
-			<c:when test="${not empty BLoginOK}">
-				<li class="diamond"><a href="http://localhost:8080/YunHotel/bmember/BLogout">登出</a></li>
-			</c:when>
-			<c:otherwise>
-					<a href="${pageContext.request.contextPath}/bmember/BLogin" class="diamondtxt">&emsp;登入</a>
-			</c:otherwise>
-		</c:choose>	
+			
 
 
             </ul>

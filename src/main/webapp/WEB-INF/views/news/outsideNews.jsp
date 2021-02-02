@@ -32,15 +32,13 @@
 		
 		<table class="newsF_pos" border='1' cellpadding="3" cellspacing="1" >
 			<tr>
-			   <th class="newsF">上傳時間</th>
-			   <th class="newsF">更新時間</th>
-			   <th class="newsF">消息內容</th>
+			   <th class="newsF">時間</th>
+			   <th class="newsFC">消息內容</th>
 			</tr>
 			<c:forEach var='NWS' items='${newsList}'>
 				<tr>
-					<td class="newsF">${NWS.news_date}</td>
 					<td class="newsF">${NWS.news_updated_date}</td>
-					<td class="newsF">${NWS.news_content}</td>
+					<td class="newsFC">${NWS.news_content}</td>
 				</tr>
 			</c:forEach>
 		
