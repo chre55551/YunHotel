@@ -32,18 +32,18 @@
 				</c:otherwise>
 			</c:choose>
 
-<%-- 			<c:choose> --%>
-<%-- 				<c:when test="${not empty ${rdate}"> --%>
-<!-- 					<div> -->
-<!-- 						<label>入住日期: </label> <input name="rdate" type="date" -->
-<%-- 							value="${rdate}" /> --%>
-<!-- 					</div> -->
-<%-- 				</c:when> --%>
-<%-- 				<c:otherwise> --%>
-<!-- 					<label>入住日期: </label> -->
-<!-- 					<input name="rdate" type="date" /> -->
-<%-- 				</c:otherwise> --%>
-<%-- 			</c:choose> --%>
+			<c:choose>
+				<c:when test="${not empty rdates.rdate}">
+					<div>
+						<label>入住日期: </label> <input name="rdate" type="date"
+							value="${rdates.rdate}" />
+					</div>
+				</c:when>
+				<c:otherwise>
+					<label>入住日期: </label>
+					<input name="rdate" type="date" />
+				</c:otherwise>
+			</c:choose>
 
 			<c:choose>
 				<c:when test="${not empty rdateEnd}">
@@ -59,18 +59,18 @@
 			</c:choose>
 
 
-<%-- 			<c:choose> --%>
-<%-- 				<c:when test="${not empty ${room_accounts}"> --%>
-<!-- 					<div> -->
-<!-- 						<label>總價: </label> <input name="room_accounts " type="text" -->
-<%-- 							value="${room_accounts}" /> --%>
-<!-- 					</div> -->
-<%-- 				</c:when> --%>
-<%-- 				<c:otherwise> --%>
-<!-- 					<label>總價: </label> -->
-<!-- 					<input name="room_accounts " type="text" /> -->
-<%-- 				</c:otherwise> --%>
-<%-- 			</c:choose> --%>
+			<c:choose>
+				<c:when test="${not empty room_accounts}">
+					<div>
+						<label>總價: </label> <input name="room_accounts " type="text"
+							value="${room_accounts}" />
+					</div>
+				</c:when>
+				<c:otherwise>
+					<label>總價: </label>
+					<input name="room_accounts " type="text" />
+				</c:otherwise>
+			</c:choose>
 
 						<c:choose>
 							<c:when test="${not empty bill_status}">
