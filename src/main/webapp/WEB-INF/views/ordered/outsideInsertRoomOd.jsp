@@ -31,7 +31,7 @@
 				<form action="/YunHotel/ordered/outsideCustomerRoomOd" method="POST">
 					<h4 class="ormt">新增房間訂單</h4>
 					<div class="ormt">
-						<label>房型</label> <select name="room_type" id="room_type"
+						<label class="ormt3">房型</label> <select name="room_type" id="room_type"
 							class="odsm">
 							<option selected>請選擇欲訂的房型</option>
 							<option>普通兩人房</option>
@@ -43,18 +43,18 @@
 						</select>
 					</div>
 					<div id="QQQ">
-						<label>欲入住日期</label> <input name="rdate" type="date" id="rdate" value="${rdate}"/>
-						<br /> <label>欲退房日期</label> <input name="rdateEnd" type="date" value="${rdateEnd}"
+						<label class="ormt3">欲入住日期</label> <input name="rdate" type="date" id="rdate" class="odsm" value="${rdate}"/>
+						<br /> <label class="ormt3">欲退房日期</label> <input name="rdateEnd" type="date" class="odsm" value="${rdateEnd}"
 							id="rdateEnd" />
 					</div>
 					<div>
-						<div class="ormt">
+						<div class="ormt3">
 							<div id="roomnum" class="odsm"></div>
 						</div>
 						<button id="zzz" type="button" class="ormBtn">查詢</button>
 					</div>
 					<div class="ormt">
-						<label>備註</label> <input name="note" id="requestNote" class="odsm" />
+						<label class="ormt3">備註</label> <input name="note" id="requestNote" class="odsm" />
 					</div>
 
 					<div>

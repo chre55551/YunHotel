@@ -51,7 +51,7 @@
 
 					<div class="ormt">
 						<label>用餐時段:</label>&nbsp;&nbsp;&nbsp;&nbsp;<select
-							name="time_period" class="odsm">
+							name="time_period" class="odsm" style="width: 120px">
 							<option value="11:00~13:00">上午十一點</option>
 							<option value="13:00~15:00">下午一點</option>
 							<option value="15:00~17:00">下午三點</option>
@@ -63,12 +63,12 @@
 					<div class="ormt">
 						<label>用餐人數:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input
 							name="mealsnum_of_people" id="requestMop" type="text"
-							class="odsm" />
+							class="odsm" style="width: 120px"/>
 					</div>
 
 					<div class="ormt">
 						<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="note"
-							id="requestNote" class="odsm" />
+							id="requestNote" class="odsm" style="width: 140px"/>
 					</div>
 					<div>
 						<input value="預訂" type="submit" class="ormBtn"> <input

@@ -30,7 +30,6 @@
 		<div class="main">
 			<div class="orm2">
 				<h4 class="ormt2">詳細訂單</h4>
-				<p class="ormt2">訂單編號: ${i}</p>
 				<c:choose>
 					<c:when
 						test="${not empty otm.mealsnum_of_people}">
@@ -62,7 +61,6 @@
 						<p class="ormt2">房號: ${room.room_name}</p>
 					</c:when>
 					<c:otherwise>
-						<p class="ormt2">房號: 無</p>
 					</c:otherwise>
 				</c:choose>
 
@@ -71,7 +69,6 @@
 						<p class="ormt2">房型: ${roomType.room_type}</p>
 					</c:when>
 					<c:otherwise>
-						<p class="ormt2">房型: 無</p>
 					</c:otherwise>
 				</c:choose>
 
@@ -79,7 +76,7 @@
 					<c:when test="${not empty rdates}">
 						<p class="ormt2">欲訂房日期:</p>
 						<c:forEach var="rdate" items="${rdates}">
-							<p>${rdates.rdate}</p>
+							<p>${rdate.rdate}</p>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
