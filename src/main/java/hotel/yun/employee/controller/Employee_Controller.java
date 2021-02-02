@@ -117,7 +117,7 @@ public class Employee_Controller {
 		return "/Employee/ThisEmployee";//依訂單號查到他的訂單
 	}
 	
-	@GetMapping("/showAllemployees")
+	@GetMapping("/showAllEmployee")
 	public String getEmployees(Model model) {
 		List<Employee_basic> beans = service.queryAll();
 //		List<Employee_work> wbeans = service.queryAll_work();
@@ -200,7 +200,20 @@ public class Employee_Controller {
 			HttpServletRequest request
 			) {
 			Employee_basic bean = service.query(employee_id);
-			service.update(bean);	
+			bean.setEmployee_name(employee_name);
+			bean.setEmployee_position(employee_position);
+			bean.setEmployee_department(employee_department);
+			bean.getEmployee_work().setEmployee_salary(employee_salary);
+			bean.getEmployee_work().setEmployee_workyears(employee_workyears);
+			bean.getEmployee_info().setEmployee_age(employee_age);
+			bean.getEmployee_info().setEmployee_gender(employee_gender);
+			bean.getEmployee_info().setEmployee_mobile(employee_mobile);
+			bean.getEmployee_info().setEmployee_phone(employee_phone);
+			bean.getEmployee_info().setEmployee_email(employee_email);
+			bean.getEmployee_info().setEmergency_contact(emergency_contact);
+			bean.getEmployee_info().setEmployee_address(employee_address);
+			service.update(bean);
+			model.addAttribute("embs",bean); 
 			return "redirect:../showAllEmployee";
 		}
 	

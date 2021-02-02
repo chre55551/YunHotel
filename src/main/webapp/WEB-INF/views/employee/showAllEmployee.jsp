@@ -45,7 +45,7 @@
 			   <th width='120' height='20'>電子信箱</th>
 			   <th width='70' height='20'>緊急聯絡人</th>
 <!-- 			   <th width='100' height='100'>員工大頭照</th> -->
-			   <th width='90' height='20'>職位狀態</th>
+<!-- 			   <th width='90' height='20'>職位狀態</th> -->
 			   <th colspan='2' height='20'>維護</th>
 			</tr>
 			<c:forEach var='emb' items='${embs}'>
