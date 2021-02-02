@@ -2,18 +2,15 @@ package hotel.yun.ordered.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.DateTime;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,18 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.google.gson.Gson;
-
 import hotel.yun.customer.model.Customer;
 import hotel.yun.customer.service.CustomerService;
 import hotel.yun.date.model.Mdate;
 import hotel.yun.date.model.Rdate;
 import hotel.yun.date.service.Date_Service;
-import hotel.yun.meals.model.Meals;
 import hotel.yun.ordered.model.Ordered;
 import hotel.yun.ordered.model.OrderedPayment;
 import hotel.yun.ordered.model.OrderedStatus;
@@ -51,7 +41,7 @@ import hotel.yun.room.service.RoomService;
 		"payment_id" })
 public class Ordered_Controller {
 
-	private static final String String = null;
+//	private static final String String = null;
 
 	@Autowired
 	ServletContext context;
@@ -623,13 +613,21 @@ public class Ordered_Controller {
 	@GetMapping("/outsideCancelCustomerOd/{ordered_number}")
 	public String cancelOrdered(@PathVariable(value = "ordered_number") int ordered_number, HttpSession session,
 			Model model) {
-				Ordered ordered = service.queryOrderNum(ordered_number);
-				if(ordered.getOrderedStatus().getStatus_id() == 1) {
-					ordered.getOrderedStatus().setStatus_id(3);
-				}
-				service.updateCustomerOd(ordered);
+		OrderedStatus os = new OrderedStatus();
+		try {
+			os = service.queryStatusByS("已取消");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		Ordered ordered = service.queryOrderNum(ordered_number);
+		if (ordered.getOrderedStatus().getStatus_id() == 1) {
+//			ordered.getOrderedStatus().setStatus_id(1);
+			ordered.setOrderedStatus(os);
+			;
+		}
+		service.updateCustomerOd(ordered);
 
-				return "redirect:/ordered/outsideQueryCustomerOd";
+		return "redirect:/ordered/outsideQueryCustomerOd";
 	}
 
 //	public String outsidesingleOrderedss(

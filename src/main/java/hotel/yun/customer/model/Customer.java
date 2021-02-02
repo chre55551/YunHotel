@@ -17,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -34,9 +35,13 @@ public class Customer {
 	private Date birthday;
 	private String address;
 	private String mobile_phone;
+	@Transient
+	@JsonIgnore
+	private int member_id;
 	
 	@OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="member_id", referencedColumnName="member_id")
+	@JsonIgnore
 	private Member member;
 	
 	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -126,5 +131,14 @@ public class Customer {
 	public void setOrdered(List<Ordered> ordered) {
 		this.ordered = ordered;
 	}
+
+	public int getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	
 	
 }

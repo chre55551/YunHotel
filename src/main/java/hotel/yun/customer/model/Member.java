@@ -3,15 +3,14 @@ package hotel.yun.customer.model;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,9 +28,12 @@ public class Member {
 	private String email;
 	private Timestamp register_date;
 	private Date updated_date;
-	
+	@Transient
 	@JsonIgnore
+	private int customer_id;
+	
 	@OneToOne(mappedBy = "member")
+	@JsonIgnore
 	private Customer Customer;
 	
 	public Customer getCustomer() {
@@ -140,6 +142,23 @@ public class Member {
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
+
+	public Timestamp getRegister_date() {
+		return register_date;
+	}
+
+	public void setRegister_date(Timestamp register_date) {
+		this.register_date = register_date;
+	}
+
+	public int getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+	
 	
 }
 
