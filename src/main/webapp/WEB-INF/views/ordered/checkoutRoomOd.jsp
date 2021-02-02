@@ -22,7 +22,7 @@
 			method="POST" class="container">
 
 			<c:choose>
-				<c:when test="${not empty ${room.room_name}">
+				<c:when test="${not empty room.room_name}">
 					<div>
 						<label>房號 : </label> <input name="room_name" type="text"
 							value="${room.room_name}" />
@@ -46,7 +46,7 @@
 <%-- 			</c:choose> --%>
 
 			<c:choose>
-				<c:when test="${not empty ${rdateEnd}">
+				<c:when test="${not empty rdateEnd}">
 					<div>
 						<label>退房日期: </label> <input name="rdateEnd" type="date"
 							value="${rdateEnd}" />
@@ -73,7 +73,7 @@
 <%-- 			</c:choose> --%>
 
 						<c:choose>
-							<c:when test="${not empty ${bill_status}">
+							<c:when test="${not empty bill_status}">
 								<div>
 									<label>付款方式: </label> <select name="bill_status">
 										<option disabled>請選擇付款方式</option>
