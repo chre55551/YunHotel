@@ -21,6 +21,8 @@ import hotel.yun.customer.service.CustomerService;
 import hotel.yun.date.model.Rdate;
 import hotel.yun.date.service.Date_Service;
 import hotel.yun.ordered.model.Ordered;
+import hotel.yun.ordered.model.OrderedPayment;
+import hotel.yun.ordered.model.OrderedStatus;
 import hotel.yun.ordered.service.Ordered_Service;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.service.RoomService;
@@ -86,12 +88,19 @@ public class Checkout_Controller {
 	}
 	//開始做結帳，只需修改付款狀態跟確認訂房人數而已
 	@PostMapping("/room/checkoutUpdate")
-	public String checkoutRoom(@RequestParam(value = "roomnum_of_people") Integer roomnum_of_people,
+	public String checkoutRoom(@RequestParam(value = "roomnum_of_people",required = false) Integer roomnum_of_people,
 			@RequestParam(value = "bill_status") String bill_status,
+			@RequestParam(value = "ordered_number") int ordered_number,		
 			Model model, HttpSession session) {
+		 System.out.println(bill_status);
 		 Ordered od = (Ordered)model.getAttribute("od");
+		 od = oser.queryOrderNum(ordered_number);
 		 od.getOrderedToRoom().setRoomnum_of_people((int)roomnum_of_people);
-		 oser.room_checkout(od,bill_status);
+		 OrderedPayment op = oser.queryPaymentBys(bill_status);
+		 OrderedStatus os = oser.queryStatusByS("已結單");
+		 od.setOrderedStatus(os);
+		 od.setOrderedPayment(op);
+		 oser.updateCustomerOd(od);
 		return "ordered/checkoutUpdate";
 	}
 	

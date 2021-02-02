@@ -18,7 +18,7 @@
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<form
-			action="/YunHotel/ordered/thisCheckoutRoomOd/${updateOdered.ordered_number}"
+			action="/YunHotel/checkout/room/checkoutUpdate"
 			method="POST" class="container">
 
 			<c:choose>
@@ -72,9 +72,18 @@
 					<option value="信用卡">信用卡</option>
 				</select>
 			</div>
+			
+			<div>
+				<label>住房人數: </label><input type="text" name="roomnum_of_people">
+			</div>
+			
+			<div>
+				<label>住房人數: </label><input type="hidden" name="ordered_number" value="${od.ordered_number}">
+			</div>
 
 			<div>
-				<button>結帳</button>
+<!-- 				onclick="location.href='http://localhost:8080/YunHotel/ordered/room/checkoutUpdate'" -->
+				<button type ="submit">結帳</button>
 			</div>
 
 			<%-- 			<c:choose> --%>
