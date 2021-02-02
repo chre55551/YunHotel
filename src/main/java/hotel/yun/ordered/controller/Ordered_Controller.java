@@ -495,8 +495,8 @@ public class Ordered_Controller {
 				odl.clear();
 				odl.addAll(newList);
 
-				String jsonString = new ObjectMapper().writeValueAsString(odl);
-				model.addAttribute("jsonString", jsonString);
+//				String jsonString = new ObjectMapper().writeValueAsString(odl);
+//				model.addAttribute("jsonString", jsonString);
 
 				List<Room> rooms = new ArrayList<>();
 				List<Set<Rdate>> rdates = new ArrayList<>();

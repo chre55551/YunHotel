@@ -43,20 +43,26 @@
 						<tr>
 							<td>${od.ordered_number}</td>
 							<c:choose>
-								<c:when test="${not empty otms[state-1]}">
+								<c:when test="${not empty otms[state.count-1]}">
 									<td>餐廳訂單</td>
+								<td>${otms[state.count-1].mealsnum_of_people}</td>
+								<td>${mdates[state.count-1].mdate}</td>
+								<td>${mdates[state.count-1].time_period}</td>
+								<td></td>
 								</c:when>
 							</c:choose>
 							<c:choose>
-								<c:when test="${not empty rdates[state-1]}">
+								<c:when test="${not empty rdates[state.count-1]}">
 									<td>房間訂單</td>
+								<td>${room[state.count-1].room_name}</td>
+								<td>${room[state.count-1].roomType.room_type}</td>
+								<td>${rdate[state.count-1].rdate}</td>
 								</c:when>
 							</c:choose>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>${od.orderedPayment.bill_status}</td>
 							<td>${od.orderedStatus.ordered_status}</td>
 							<td>${od.ordered_date}</td>
+							<td>${od.note}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
