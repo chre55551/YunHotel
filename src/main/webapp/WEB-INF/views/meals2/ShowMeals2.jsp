@@ -10,54 +10,59 @@
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
 <title>Show Meals2</title>
 </head>
-<body>
-	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
-	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-<div align='center'>
+<body><%@ include file="../CommonTemplates/header.jsp"%>
 
-		<table class="container" border='1'  >
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">餐點</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+<!--         		<div class="ltF_div"> 按鈕	 -->
+<!--         			<a class="ltF" href='showinsertNews'>新增消息</a> -->
+<!--         		</div> -->
+        	</div>
+        		<div class="listtitle">
+        		
+        		
+		<table border='1'  >
 			<tr>
-			   <th width='130' height='20'>餐點編號</th>
+			   <th width='56' height='20'>餐點編號</th>
 			   <th width='130' height='20'>餐點類型</th>
+			   <th width='130' height='20'>餐點名稱</th>
 			   <th width='130' height='20'>餐點價格</th>
-			   <th width='130' height='20'>餐點庫存</th>
-<!-- 			   <th width='180' height='20'>房型圖片</th> -->
+			   <th width='180' height='20'>餐點庫存</th>
 			   <th colspan='2' height='20'>維護</th>
 			</tr>
 			<c:forEach var='MES' items='${meals2List}'>
 				<tr>
 					<td style="text-align:center">${MES.meals2_id}</td>
 					<td style="text-align:center">${MES.meals2_type}</td>
+					<td style="text-align:center">${MES.meals2_name}</td>
 					<td style="text-align:center">${MES.meals2_price}</td>
 					<td style="text-align:center">${MES.meals2_stock}</td>
-<!-- 					<td style="text-align:center"><p id="myImg">房間圖片:</p></td> -->
 					
 					 <td><a
-                        href="${pageContext.request.contextPath}/room/UpdateRoom/${MES.meals2_id}">編輯</a></td>
+                        href="${pageContext.request.contextPath}/meals2/update/${MES.meals2_id}">編輯</a></td>
                     <td><a
-                        href="${pageContext.request.contextPath}/room/DeleteRoom/${MES.meals2_id}">刪除</a></td>
+                        href="${pageContext.request.contextPath}/meals2/DeleteMeals2/${MES.meals2_id}">刪除</a></td>
 				</tr>
 			</c:forEach>
 		
 		</table>
-<hr>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
 </div>
+
+
+
 <script type='text/javascript'>
-
-fetch('http://localhost:8080/YunHotel/room/getImg?room_typeid=${rom.room_typeid}')
-.then(function(response) {
-  return response.blob();
-})
-.then(function(data) {
-	  let img = document.createElement('IMG')
-		img.src = URL.createObjectURL(data); //創立一個暫時的圖片路徑
-
-		document.querySelector('#myImg').appendChild(img);
-});
-
-
     $(document).ready(function() {
         $('.deletelink').click(function() {
         	if (confirm('確定刪除? ')) {

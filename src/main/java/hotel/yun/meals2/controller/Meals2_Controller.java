@@ -2,9 +2,11 @@ package hotel.yun.meals2.controller;
 
 
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -97,14 +100,65 @@ public class Meals2_Controller {
 			return "meals2/ShowMeals2";
 		}
 	
-		@GetMapping("/outsideMeals2")
-		public String OutsideMeals2(Model model) {
-			List<Meals2> beans = service.queryAll();
-			model.addAttribute(beans);      
-			return "meals2/outsideMeals2";
+//		@GetMapping("/outsideMeals2")
+//		public String OutsideMeals2(Model model) {
+//			List<Meals2> beans = service.queryAll();
+//			model.addAttribute(beans);      
+//			return "meals2/outsideMeals2";
+//		}
+	
+		//---------------------------------------------------------------
+		
+		@GetMapping("/update/{meals2_id}")
+		public String update(Model model, @PathVariable int meals2_id) {
+			Meals2 ms = service.queryID(meals2_id);
+			model.addAttribute("UpdateMeals2", ms);
+			return "meals2/UpdateMeals2";
 		}
-	
-	
+		@PostMapping("/update/{meals2_id}")
+		public String modify(
+			Model model,
+			@PathVariable(value = "meals2_id", required = false) int meals2_id,
+			@RequestParam(value = "meals2_meals2_name", required = false) String meals2_name,
+			@RequestParam(value = "meals2_meals2_type", required = false) String meals2_type,
+			@RequestParam(value = "meals2_meals2_price", required = false) double meals2_price,
+			@RequestParam(value = "meals2_meals2_stock", required = false) int meals2_stock,
+			HttpServletRequest request) {
+			Meals2 meals2 = service.queryID(meals2_id);
+			
+			if(meals2.getMeals2_id() != 0) {
+				meals2.setMeals2_name(meals2_name);
+				meals2.setMeals2_type(meals2_type);
+				meals2.setMeals2_price(meals2_price);
+				meals2.setMeals2_stock(meals2_stock);
+				
+			}
+			service.update(meals2);	
+			
+			model.addAttribute("mes", meals2);
+			return "redirect:../ShowMeals2";
+		}
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//---------------------------------------------------------------
+		
+		@GetMapping("/DeleteMeals2/{meals2_id}")
+		public String deleteMeals2(@PathVariable("meals2_id") int meals2_id) {
+			service.delete(meals2_id);	
+			System.out.println("delete sucess");
+			return "redirect:/meals2/ShowMeals2";
+		}
 	
 	
 	

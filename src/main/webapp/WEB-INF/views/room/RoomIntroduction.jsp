@@ -10,6 +10,34 @@
     
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
     
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/aos.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/jquery.timepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/fancybox.min.css">
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts2/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts2/fontawesome/css/font-awesome.min.css">
+    
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/test/style.css">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      <link href="${pageContext.request.contextPath}/fonts/icomoon/icomoon.eot" rel="stylesheet">
      <link href="${pageContext.request.contextPath}/fonts/icomoon/icomoon.svg" rel="stylesheet">
      <link href="${pageContext.request.contextPath}/fonts/icomoon/icomoon.ttf" rel="stylesheet">
@@ -98,7 +126,166 @@
           	<span class="subheading">2021全新房型</span>
             <h2 class="mb-4">澐Hotel 房型介紹</h2>
           </div>
-        </div>  
+        </div>
+        
+        
+
+         <section class="section bg-light pb-0"  >
+      <div class="container">
+       
+        <div class="row check-availabilty" id="next">
+          <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+
+            <form action="http://localhost:8080/YunHotel/ordered/outsideInsertRoomOd">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                  <label for="checkin_date" class="font-weight-bold text-black">入住</label>
+                  <div class="field-icon-wrap">
+<!--                     <div class="icon"><span class="icon-calendar"></span></div> -->
+                    <input type="text" id="checkin_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                  <label for="checkout_date" class="font-weight-bold text-black">退房</label>
+                  <div class="field-icon-wrap">
+<!--                     <div class="icon"><span class="icon-calendar"></span></div> -->
+                    <input type="text" id="checkout_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                  <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="adults" class="font-weight-bold text-black">成人</label>
+                      <div class="field-icon-wrap">
+<!--                         <div class="icon"><span class="ion-ios-arrow-down"></span></div> -->
+                        <select name="" id="adults" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="children" class="font-weight-bold text-black">孩童</label>
+                      <div class="field-icon-wrap">
+<!--                         <div class="icon"><span class="ion-ios-arrow-down"></span></div> -->
+                        <select name="" id="children" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 align-self-end">
+                  <button class="btn btn-primary btn-block text-white" type="submit">馬上訂房</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     		<div class="row no-gutters">
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
@@ -268,6 +455,28 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="${pageContext.request.contextPath}/js/test2/google-map.js"></script>
   <script src="${pageContext.request.contextPath}/js/test2/main.js"></script>
+  
+  
+ 
+  
+    <script src="${pageContext.request.contextPath}/js/test/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery-migrate-3.0.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/owl.carousel.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery.stellar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/test/jquery.fancybox.min.js"></script>
+    
+    
+    <script src="${pageContext.request.contextPath}/js/test/aos.js"></script>
+    
+    <script src="${pageContext.request.contextPath}/js/test/bootstrap-datepicker.js"></script> 
+    <script src="${pageContext.request.contextPath}/js/test/jquery.timepicker.min.js"></script> 
+
+    
+
+    <script src="${pageContext.request.contextPath}/js/test/main.js"></script>
+  
    
   </body>
 </html>
