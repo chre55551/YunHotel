@@ -32,7 +32,7 @@
 				<input type="hidden" id="${od.ordered_number}" value="${od}">
 	</c:forEach>
 		<div class="main">
-			<table class="orm2" id="container">
+			<table class="orm4" id="container">
 				<thead class="ormt2" >
 				    <tr>
      					 <th>您的所有訂單</th>
