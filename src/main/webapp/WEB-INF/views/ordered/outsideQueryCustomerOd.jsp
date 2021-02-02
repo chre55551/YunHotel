@@ -32,7 +32,8 @@
 				<input type="hidden" id="${od.ordered_number}" value="${od}">
 	</c:forEach>
 		<div class="main">
-			<table class="orm4" id="container">
+		<div class="orm4">
+			<table>
 				<thead class="ormt2" >
 				    <tr>
      					 <th>您的所有訂單</th>
@@ -75,6 +76,7 @@
 <!-- 				<br> <input class="ormBtn" type="button" value="回官網" -->
 <!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
 			</table>
+			</div>
 		</div>
 	</div>
 
