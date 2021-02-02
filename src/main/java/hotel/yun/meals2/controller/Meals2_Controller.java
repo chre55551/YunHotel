@@ -54,7 +54,13 @@ public class Meals2_Controller {
 
 	}
 	
+	// 官網的美食佳餚
+	@GetMapping("/Delicious")
+	public String Delicious(Model model) {
+		return "meals2/Delicious";
+	}
 	
+	//--------------------------------------------------------------------------------------		
 	@GetMapping("/AddMeals2")
 	public String ShowMeals2(Model model) {
 		Meals2 ms = new Meals2();
@@ -82,15 +88,15 @@ public class Meals2_Controller {
 	
 	
 	//---------------------------------------------------------------
-		@GetMapping("/queryMeals2")
+		@GetMapping("/QueryMeals2")
 		public String Meals2(Model model,HttpSession session) {
-			return "news/QueryMeals2";
+			return "meals2/QueryMeals2";
 		}	
 		@PostMapping("/getaMeals2")
 		public String GetaNew(@ModelAttribute("mes") Meals2 ms,Model model) {
 			Meals2 meals2 = service.queryID(ms.getMeals2_id());
 			model.addAttribute("MES", meals2);
-			return "/meals2/GetaMeals";
+			return "/meals2/GetaMeals2";
 		}
 		
 		@GetMapping("/ShowMeals2")

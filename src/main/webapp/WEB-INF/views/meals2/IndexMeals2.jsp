@@ -31,7 +31,7 @@
                 <a href="AddMeals2" class="diamondtxt">新增餐點</a>
             </li>
             <li class="diamond">
-                <a href="ShowBlankQueryMealsForm" class="diamondtxt">查詢餐點</a>
+                <a href="QueryMeals2" class="diamondtxt">查詢餐點</a>
           
             
             

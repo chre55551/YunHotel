@@ -89,7 +89,7 @@
 		<div class="food_intro_div">
 			<div class="food_introduce">
 				<div class="thirdDark_right">
-				<a href="meals/Delicious">
+				<a href="meals2/Delicious">
 					<p class="thirdF_right">美 食 饗 宴</p>
 					<p class="thirdmin">查看更多</p>
 				</a>
