@@ -27,55 +27,60 @@
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 
 	<div class="queryODBG">
-				<input type="hidden" id="${odl}" value="${odl}">
-	<c:forEach var="od" items="${odl}">
-				<input type="hidden" id="${od.ordered_number}" value="${od}">
-	</c:forEach>
+		<input type="hidden" id="${odl}" value="${odl}">
+		<c:forEach var="od" items="${odl}">
+			<input type="hidden" id="${od.ordered_number}" value="${od}">
+		</c:forEach>
 		<div class="main">
-		<div class="orm4">
-			<table>
-				<thead class="ormt2" >
-				    <tr>
-     					 <th>您的所有訂單</th>
-    				</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="od" items="${odl}" varStatus="state">
+			<div class="orm4">
+				<table>
+					<thead class="ormt2">
 						<tr>
-							<td>${od.ordered_number}</td>
-							<c:choose>
-								<c:when test="${not empty otms[state.count-1]}">
-									<td>餐廳訂單</td>
-								<td>${otms[state.count-1].mealsnum_of_people}</td>
-								<td>${mdates[state.count-1].mdate}</td>
-								<td>${mdates[state.count-1].time_period}</td>
-								<td></td>
-								</c:when>
-							</c:choose>
-							<c:choose>
-								<c:when test="${not empty rdates[state.count-1]}">
-									<td>房間訂單</td>
-								<td>${room[state.count-1].room_name}</td>
-								<td>${room[state.count-1].roomType.room_type}</td>
-								<td>${rdate[state.count-1].rdate}</td>
-								</c:when>
-							</c:choose>
-							<td>${od.orderedPayment.bill_status}</td>
-							<td>${od.orderedStatus.ordered_status}</td>
-							<td>${od.ordered_date}</td>
-							<td>${od.note}</td>
+							<th>您的所有訂單</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-<%-- 				<p>訂單編號: ${onum}</p> --%>
-<%-- 				<p>姓名: ${name}</p> --%>
-<%-- 				<p>手機: ${phone}</p> --%>
-<%-- 				<p>訂單時間: ${odate}</p> --%>
-<%-- 				<p>訂單狀態: ${ostatus}</p> --%>
-<%-- 				<p>付款方式: ${oBill}</p> --%>
-<!-- 				<br> <input class="ormBtn" type="button" value="回官網" -->
-<!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
-			</table>
+					</thead>
+					<tbody>
+						<tr>
+							<th>訂單編號</th>
+							<th>訂單類型</th>
+							<th>訂單狀態</th>
+							<th>成立時間</th>
+						</tr>
+						<c:forEach var="od" items="${odl}" varStatus="state">
+							<tr>
+								<td>${od.ordered_number}</td>
+								<c:choose>
+									<c:when test="${not empty od.orderedToMeals}">
+										<td>餐廳訂單</td>
+										<%-- 										<td>${otms[state.count-1].mealsnum_of_people}</td> --%>
+										<%-- 										<td>${mdates[state.count-1].mdate}</td> --%>
+										<%-- 										<td>${mdates[state.count-1].time_period}</td> --%>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${not empty od.orderedToRoom}">
+										<td>房間訂單</td>
+										<%-- 										<td>${room[state.count-1].room_name}</td> --%>
+										<%-- 										<td>${room[state.count-1].roomType.room_type}</td> --%>
+										<%-- 										<td>${rdate[state.count-1].rdate}</td> --%>
+									</c:when>
+								</c:choose>
+								<%-- 								<td>${od.orderedPayment.bill_status}</td> --%>
+								<td>${od.orderedStatus.ordered_status}</td>
+								<td>${od.ordered_date}</td>
+								<td><button onclick="location.href='/YunHotel/ordered/outsidethisOrdered'">查詢</button></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					<%-- 				<p>訂單編號: ${onum}</p> --%>
+					<%-- 				<p>姓名: ${name}</p> --%>
+					<%-- 				<p>手機: ${phone}</p> --%>
+					<%-- 				<p>訂單時間: ${odate}</p> --%>
+					<%-- 				<p>訂單狀態: ${ostatus}</p> --%>
+					<%-- 				<p>付款方式: ${oBill}</p> --%>
+					<!-- 				<br> <input class="ormBtn" type="button" value="回官網" -->
+					<!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
+				</table>
 			</div>
 		</div>
 	</div>
@@ -85,38 +90,40 @@
 	</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
-	<script type="text/javascript"> 
-	let jsonS = ${jsonString};
-	
-	
-// 	$(document).ready(function(){ 
-// 		var odl = $('#odl').val();
-//    		var this_data = '';
-	
-//    		for(let od of odl){
-// 	    	this_data += '<tr>';
-//  			this_data += '<td>' + od.ordered_number + '</td>';//訂單編號
-// 	  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ od.ordered_number + "'"+'">詳細資料</button>'
-//   			this_data += '</tr>';
-// 		}
-// 		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
-// 		$('#container').append(this_data);
+	<script type="text/javascript">
+		let jsonS = $
+		{
+			jsonString
+		};
 
-// 	});
-//  function () {
-//     var this_data = '';
-// 		if(fk != null){
-// 			for(let ordered of fk){
-//    		    	this_data += '<tr>';
-//      			this_data += '<td>' + qq.ordered_number + '</td>';//訂單編號
-// 		  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
-//       			this_data += '</tr>';
-//     		  };
-// 				 $('#container').append(this_data);
-// 		}else{
-// 			 alert('查無資料');
-//  		}
-//  }
- 	</script> 
+		// 	$(document).ready(function(){ 
+		// 		var odl = $('#odl').val();
+		//    		var this_data = '';
+
+		//    		for(let od of odl){
+		// 	    	this_data += '<tr>';
+		//  			this_data += '<td>' + od.ordered_number + '</td>';//訂單編號
+		// 	  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ od.ordered_number + "'"+'">詳細資料</button>'
+		//   			this_data += '</tr>';
+		// 		}
+		// 		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
+		// 		$('#container').append(this_data);
+
+		// 	});
+		//  function () {
+		//     var this_data = '';
+		// 		if(fk != null){
+		// 			for(let ordered of fk){
+		//    		    	this_data += '<tr>';
+		//      			this_data += '<td>' + qq.ordered_number + '</td>';//訂單編號
+		// 		  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+		//       			this_data += '</tr>';
+		//     		  };
+		// 				 $('#container').append(this_data);
+		// 		}else{
+		// 			 alert('查無資料');
+		//  		}
+		//  }
+	</script>
 </body>
 </html>
