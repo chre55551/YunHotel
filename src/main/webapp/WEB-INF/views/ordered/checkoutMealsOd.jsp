@@ -10,6 +10,9 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
 <title>確認餐點結帳內容</title>
 </head>
 <body>
@@ -34,7 +37,7 @@
 					<input name="meals_accounts " type="text" />
 				</c:otherwise>
 			</c:choose>
-			
+
 			<c:choose>
 				<c:when test="${not empty ${payment_status}">
 					<div>

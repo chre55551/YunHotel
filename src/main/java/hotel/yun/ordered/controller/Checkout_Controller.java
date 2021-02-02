@@ -87,7 +87,7 @@ public class Checkout_Controller {
 				return "ordered/checkoutRoomOd";
 	}
 	//開始做結帳，只需修改付款狀態跟確認訂房人數而已
-	@PostMapping("/room/checkoutUpdate")
+	@PostMapping("/checkoutUpdate")
 	public String checkoutRoom(@RequestParam(value = "roomnum_of_people",required = false) Integer roomnum_of_people,
 			@RequestParam(value = "bill_status") String bill_status,
 			@RequestParam(value = "ordered_number") int ordered_number,		
@@ -107,7 +107,7 @@ public class Checkout_Controller {
 	@PostMapping("/meals/checkout")
 	public String checkoutRoom(Model model, HttpSession session) {
 		
-		return null;
+		return "ordered/checkoutUpdate";
 	}
 	
 	@PostMapping("/test")

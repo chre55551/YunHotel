@@ -28,7 +28,7 @@
 					<label class="bormt">手機</label> <input name="mobile_phone" class="bodsm" style="margin:auto"/>
 				</div>
 			</div>
-			<div class="bormm2"">
+			<div class="bormm2">
 				<label class="bormt">身分證</label> <input name="idcard_number" class="bodsm" style="margin:auto"/>
 				<label class="bormt">生日</label> <input name="birthday" type="date" class="bodsm" style="margin:auto"/>
 			</div>

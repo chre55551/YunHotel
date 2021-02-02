@@ -11,26 +11,29 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
 </head>
 <body>
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	<div class="main">
-			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<form action="/YunHotel/checkout/checkoutRoomOd" method="POST"
 			class="container">
 			<br>
-			<div>
-				<label>房號:</label> <input name="room_name" id="requestCn" />
+			<div class="bormm">
+				<label class="bormt">房號:</label> <input name="room_name" id="requestCn" class="bodsm"/>
 			</div>
 			<br>
-			<div>
-				<label>退房日期:</label> <input name="rdateEnd" id="requestMp"
+			<div class="bormm">
+				<label class="bormt">退房日期:</label> <input name="rdateEnd" id="requestMp" class="bodsm" 
 					type="date" />
 			</div>
 			<br>
 			<div>
-				<input value="查詢" type="submit">
+				<input value="查詢" type="submit" class="bormb">
 			</div>
 		</form>
 	</div>

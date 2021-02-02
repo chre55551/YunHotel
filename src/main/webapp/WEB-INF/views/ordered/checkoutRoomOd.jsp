@@ -10,6 +10,9 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
+	<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
 <title>訂單結帳資訊</title>
 </head>
 <body>
@@ -18,13 +21,13 @@
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<form
-			action="/YunHotel/checkout/room/checkoutUpdate"
+			action="/YunHotel/checkout/checkoutUpdate"
 			method="POST" class="container">
 
 			<c:choose>
 				<c:when test="${not empty room.room_name}">
-					<div>
-						<label>房號 :</label><p>${room.room_name}</p>
+					<div class="bormm">
+						<label class="bormt">房號 :</label><p>${room.room_name}</p>
 					</div>
 				</c:when>
 				<c:otherwise>
@@ -33,7 +36,7 @@
 
 				<c:choose>
 					<c:when test="${not empty rdates}">
-						<p class="ormt2">訂房日期:</p>
+						<p class="ormt2 bormt">訂房日期:</p>
 						<c:forEach var="rdate" items="${rdates}">
 							<p>${rdate.rdate}</p>
 						</c:forEach>
@@ -59,14 +62,14 @@
 
 			<c:choose>
 				<c:when test="${not empty room_accounts}">
-					<div>
-						<label>總價: </label> <p>${room_accounts}</p>
+					<div class="bormm">
+						<label class="bormt">總價: </label> <p>${room_accounts}</p>
 					</div>
 				</c:when>
 			</c:choose>
 
 			<div>
-				<label>付款方式: </label> <select name="bill_status">
+				<label class="bormt">付款方式: </label> <select name="bill_status">
 					<option selected>請選擇付款方式</option>
 					<option value="現金">現金</option>
 					<option value="信用卡">信用卡</option>
@@ -74,16 +77,16 @@
 			</div>
 			
 			<div>
-				<label>住房人數: </label><input type="text" name="roomnum_of_people">
+				<label class="bormt">住房人數: </label><input type="text" name="roomnum_of_people" class="bodsm">
 			</div>
 			
 			<div>
-				<label>住房人數: </label><input type="hidden" name="ordered_number" value="${od.ordered_number}">
+				<label class="bormt">住房人數: </label><input type="hidden" name="ordered_number" value="${od.ordered_number}">
 			</div>
 
 			<div>
 <!-- 				onclick="location.href='http://localhost:8080/YunHotel/ordered/room/checkoutUpdate'" -->
-				<button type ="submit">結帳</button>
+				<button type ="submit" class="bormb">結帳</button>
 			</div>
 
 			<%-- 			<c:choose> --%>
