@@ -70,7 +70,7 @@
 					<td style="text-align:center">${emb.employee_info.emergency_contact}</td>
 <%-- 					<td style="text-align:center">${emb.employee_info.employee_image}</td> --%>
 					<td style="text-align:center">${emb.employee_status.employee_status}</td>
-					<td align='center'><a href='updateEmployee/${emb.employee_id}'>編輯</a></td>
+					<td align='center'><a href='${pageContext.request.contextPath}/employee/updateEmployee/${emb.employee_id}'>編輯</a></td>
 <!-- 					 <td><a -->
 <%--                         href="${pageContext.request.contextPath}/employee/updateEmployee/${emb.employee_id}">編輯</a></td> --%>
                     <td><a
@@ -82,6 +82,9 @@
 			</c:forEach>
 		</table>
 <hr>
+</div>
+</div>
+</div>
 </div>
 <script type='text/javascript'>
     $(document).ready(function() {

@@ -18,7 +18,7 @@
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 		<h3>修改員工</h3>
-		<form action="/YunHotel/employee/updateEmployee/${employee_id}" method="POST" class="container">
+		<form method="POST" class="container">
 			<div>
 				<label>姓名：</label> <input name="employee_name" value="縣春"/>
 			</div>
