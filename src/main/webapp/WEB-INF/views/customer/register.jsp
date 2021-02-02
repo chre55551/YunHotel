@@ -39,8 +39,8 @@
 					<div>
 						性別: <select name="gender" id="theGender">
 							<option value="0">請選擇</option>
-							<option value="1">男</option>
-							<option value="2">女</option>
+							<option value="男">男</option>
+							<option value="女">女</option>
 						</select>
 					</div>
 					<br>
@@ -79,7 +79,7 @@
 										//設定預先輸入的值
 										let defaultAccount = "poky";
 										let defaultPwd = "12345";
-										let defaultGender = 1;
+										let defaultGender = "男";
 										let defaultHphone = "25010000";
 										let defaultMphone = "0988-848-123";
 										let defaultJob = "工程師";
@@ -113,7 +113,7 @@
 											//設定預先輸入的值
 											let defaultAccount = "222";
 										let defaultPwd = "12345";
-										let defaultGender = 1;
+										let defaultGender = "男";
 										let defaultHphone = "25010000";
 										let defaultMphone = "0988-848-123";
 										let defaultJob = "工程師";
