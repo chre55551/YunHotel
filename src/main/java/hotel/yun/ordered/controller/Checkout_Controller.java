@@ -63,9 +63,10 @@ public class Checkout_Controller {
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(rdateEnd);
 		c.add(Calendar.DAY_OF_MONTH, -1);
-		
-		Date lastUseDayd = (Date) c.getTime();
-		Date lastUseDay = new java.sql.Date(lastUseDayd.getTime());
+//		java.util.Date d = c.getTime();
+//		java.sql.Date(ud.getTime())
+		Date lastUseDay =new  java.sql.Date(c.getTime().getTime());
+//		Date lastUseDay = new java.sql.Date(lastUseDayd.getTime());
 		Rdate rdate = dser.queryByRoomDate(lastUseDay);
 		
 		Ordered od = oser.queryOdByRoomAndRdate(room,rdate);
