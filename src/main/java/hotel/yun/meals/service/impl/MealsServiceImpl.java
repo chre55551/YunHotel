@@ -22,10 +22,19 @@ public class MealsServiceImpl implements MealsService {
 		this.MDao = MDao;
 	}
 
-	@Override
-	public Object save(Meals mBean) {
-		return MDao.save(mBean);
+
+
+	public MealsDao getMDao() {
+		return MDao;
 	}
+
+
+
+	public void setMDao(MealsDao mDao) {
+		MDao = mDao;
+	}
+
+
 
 	@Override
 	public Meals queryMeals_id(int meals_id) {
@@ -51,6 +60,14 @@ public class MealsServiceImpl implements MealsService {
 	@Override
 	public MealsType queryMealsType_id(int id) {
 		return MDao.queryMealsType_id(id);
+	}
+
+
+
+	@Override
+	public Meals save(Meals mBean) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

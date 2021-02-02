@@ -172,7 +172,7 @@
                 <h3>所有房型</h3>
                 <ul>
                 <li><a href="DeluxeTripleRoom">豪華三人房 <span>$NT7600</span></a></li>
-                <li><a href="MetropokisSuite">都會套房 <span>$NT6600</span></a></li>
+                <li><a href="MetropolisSuite">都會套房 <span>$NT6600</span></a></li>
                 <li><a href="DeluxeFamilyRoom">豪華家庭房 <span>$NT8800</span></a></li>
                 <li><a href="DeluxeSingleRoom">豪華單人房 <span>$NT4600</span></a></li>
                 <li><a href="DeluxeDoubleRoom">豪華雙人房 <span>$NT5200</span></a></li>

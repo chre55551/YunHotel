@@ -16,6 +16,9 @@ import hotel.yun.meals.model.MealsType;
 
 @Repository
 public class MealsDaoImpl implements MealsDao {
+	
+	
+	@Autowired
 	SessionFactory factory;
 
 	@Autowired
@@ -28,9 +31,9 @@ public class MealsDaoImpl implements MealsDao {
 	}
 
 	@Override
-	public Object save(Meals mBean) {
+	public void save(Meals mBean) {
 		Session session = factory.getCurrentSession();
-		return session.save(mBean);
+		session.save(mBean);
 
 	}
 

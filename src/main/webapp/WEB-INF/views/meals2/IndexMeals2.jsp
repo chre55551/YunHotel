@@ -25,10 +25,10 @@
             <ul class="ALLdiamond">
            
             <li class="diamond">
-                <a href="QueryAllMeals" class="diamondtxt">所有餐點</a>
+                <a href="ShowMeals2" class="diamondtxt">所有餐點</a>
             </li>
             <li class="diamond">
-                <a href="ShowBlankInsertMealsForm" class="diamondtxt">新增餐點</a>
+                <a href="AddMeals2" class="diamondtxt">新增餐點</a>
             </li>
             <li class="diamond">
                 <a href="ShowBlankQueryMealsForm" class="diamondtxt">查詢餐點</a>

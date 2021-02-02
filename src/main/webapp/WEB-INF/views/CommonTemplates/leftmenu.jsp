@@ -24,7 +24,7 @@
 				</li>
 				<li>
 					<img class="pic" src="${pageContext.request.contextPath}/image/food.png">
-					<a href="${pageContext.request.contextPath}/meals/IndexMeals" class="menutxt">餐點</a>
+					<a href="${pageContext.request.contextPath}/meals2/IndexMeals2" class="menutxt">餐點</a>
 				</li>
 				<li>
 					<img class="pic" src="${pageContext.request.contextPath}/image/roomthing.png">
