@@ -292,7 +292,7 @@ public class Ordered_Controller_Ajax {
 	
 //-------------------------------------------------------------------------------------------------------------------------- 
     //寫前台訂單可以直接取消的ajax
-    @PostMapping("/outsidethisOrdered/cancelOrdered")
+    @PostMapping("/outsideQueryCustomerOd/cancelOrdered")
     public @ResponseBody Ordered  cancelOrdered(
     		@RequestParam(value = "ordered_number") int ordered_number,
     		@RequestParam(value = "ordered_status") String ordered_status,

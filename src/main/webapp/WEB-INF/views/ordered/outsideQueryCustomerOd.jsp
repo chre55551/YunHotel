@@ -69,6 +69,7 @@
 								<td>${od.orderedStatus.ordered_status}</td>
 								<td>${od.ordered_date}</td>
 								<td><button  class="ormBtn" onclick="location.href='/YunHotel/ordered/outsidethisOrdered/${od.ordered_number}'">查詢</button></td>
+								<td><button  class="ormBtn" id="cancel">取消訂單</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -91,39 +92,19 @@
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 	<script type="text/javascript">
-		let jsonS = $
-		{
-			jsonString
-		};
-
-		// 	$(document).ready(function(){ 
-		// 		var odl = $('#odl').val();
-		//    		var this_data = '';
-
-		//    		for(let od of odl){
-		// 	    	this_data += '<tr>';
-		//  			this_data += '<td>' + od.ordered_number + '</td>';//訂單編號
-		// 	  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ od.ordered_number + "'"+'">詳細資料</button>'
-		//   			this_data += '</tr>';
-		// 		}
-		// 		this_data +=  '<br> <input class="ormBtn'+'" type='+'"button'+'" value='+'"'+'回官網"'+'onclick="location.href='+"'http://localhost:8080/YunHotel/YunPage"+"'"+'">';
-		// 		$('#container').append(this_data);
-
-		// 	});
-		//  function () {
-		//     var this_data = '';
-		// 		if(fk != null){
-		// 			for(let ordered of fk){
-		//    		    	this_data += '<tr>';
-		//      			this_data += '<td>' + qq.ordered_number + '</td>';//訂單編號
-		// 		  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/outsidethisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
-		//       			this_data += '</tr>';
-		//     		  };
-		// 				 $('#container').append(this_data);
-		// 		}else{
-		// 			 alert('查無資料');
-		//  		}
-		//  }
+	$('#cancel').click(function(){
+		$.ajax({
+			url:'http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd/cancelOrdered'
+			type:'POST'
+			dataType:'json'
+			success:function(data){
+				$("#success").tml(data.msg);
+			},
+			error:function(){
+				alert("不可修改");
+			}
+		})
+	})
 	</script>
 </body>
 </html>
