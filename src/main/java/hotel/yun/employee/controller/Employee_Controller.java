@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
@@ -30,39 +31,35 @@ import hotel.yun.employee.model.Employee_status;
 import hotel.yun.employee.model.Employee_work;
 import hotel.yun.employee.service.Employee_Service;
 
-
-
-
 @Controller
 @RequestMapping("/employee")
-@SessionAttributes({"employee_id", "employee_work_id","employee_info_id"})
+@SessionAttributes({ "employee_id", "employee_work_id", "employee_info_id" })
 public class Employee_Controller {
-	
-	
+
 	@Autowired
 	Employee_Service service;
-	
+
 	@PostMapping("/insertEmployee")
-	public String Insert(@RequestParam(value="employee_name") String employee_name,
-			@RequestParam(value="employee_department") String employee_department,
-			@RequestParam(value="employee_position") String employee_position,
-			@RequestParam(value="employee_workyears") int employee_workyears,
-			@RequestParam(value="employee_salary") int employee_salary,
+	public String Insert(@RequestParam(value = "employee_name") String employee_name,
+			@RequestParam(value = "employee_department") String employee_department,
+			@RequestParam(value = "employee_position") String employee_position,
+			@RequestParam(value = "employee_workyears") int employee_workyears,
+			@RequestParam(value = "employee_salary") int employee_salary,
 //			@RequestParam(value="working_hours") int working_hours,
 //			@RequestParam(value="holiday_hours") int holiday_hours,
-			@RequestParam(value="employee_gender") String employee_gender,
-			@RequestParam(value="employee_age") int employee_age,
-			@RequestParam(value="employee_address") String employee_address,
-			@RequestParam(value="employee_mobile") String employee_mobile,
-			@RequestParam(value="employee_phone") String employee_phone,
-			@RequestParam(value="employee_email") String employee_email,
-			@RequestParam(value="emergency_contact") String emergency_contact,
-			@RequestParam(value="employee_image") byte[] employee_image,Model model) { 
+			@RequestParam(value = "employee_gender") String employee_gender,
+			@RequestParam(value = "employee_age") int employee_age,
+			@RequestParam(value = "employee_address") String employee_address,
+			@RequestParam(value = "employee_mobile") String employee_mobile,
+			@RequestParam(value = "employee_phone") String employee_phone,
+			@RequestParam(value = "employee_email") String employee_email,
+			@RequestParam(value = "emergency_contact") String emergency_contact,
+			@RequestParam(value = "employee_image") byte[] employee_image, Model model) {
 //					throws IOException {
 //		byte[] img = employee_image.getBytes();
 //		try {
 //			Blob ri = new SerialBlob(img);
-			
+
 		Employee_basic Bbeans = new Employee_basic();
 		Employee_work Wbeans = new Employee_work();
 		Employee_info Ibeans = new Employee_info();
@@ -81,7 +78,7 @@ public class Employee_Controller {
 //		Ibeans.setEmployee_image(employee_image);
 		Bbeans.setEmployee_info(Ibeans);
 		Bbeans.setEmployee_work(Wbeans);
-		Employee_basic NBbeans =service.insert(Bbeans);
+		Employee_basic NBbeans = service.insert(Bbeans);
 //		Employee_work NWbeans =service.insert_work(Wbeans);
 //		Employee_info NIbeans =service.insert_info(Ibeans);
 		model.addAttribute("NBbeans", NBbeans);
@@ -96,8 +93,7 @@ public class Employee_Controller {
 //			e.printStackTrace();
 //		}
 		return "employee/insertSucess";
-}
-	
+	}
 
 	// 本方法於新增時，送出空白的表單讓使用者輸入資料
 	@GetMapping("/insertEmp")
@@ -112,29 +108,28 @@ public class Employee_Controller {
 //		model.addAttribute("NIbeans", Ibeans);
 		return "employee/insertEmployee";
 	}
-	
+
 	@PostMapping("/thisEmployee")
-	public String ThisEmployee(@ModelAttribute("pojo") Employee_basic pojo,Model model) {
+	public String ThisEmployee(@ModelAttribute("pojo") Employee_basic pojo, Model model) {
 		Employee_basic beans = service.query(pojo.getEmployee_id());
 		model.addAttribute("Employee_basic", beans);
 		model.addAttribute("null", beans);
-		return "/Employee/ThisEmployee";//依訂單號查到他的訂單
+		return "/Employee/ThisEmployee";// 依訂單號查到他的訂單
 	}
-	
+
 	@GetMapping("/showAllemployees")
 	public String getEmployees(Model model) {
 		List<Employee_basic> beans = service.queryAll();
 //		List<Employee_work> wbeans = service.queryAll_work();
 //		List<Employee_info> ibeans = service.queryAll_info();
 //		List<Employee_status> sbeans = service.queryAll_status();
-		model.addAttribute("embs",beans); 
+		model.addAttribute("embs", beans);
 		// 若屬性物件為CustomerBean型別的物件，則預設的識別字串 ==> customerBean
 		// 若屬性物件為List<CustomerBean>型別的物件，則預設的識別字串 ==> customerBeanList
 		System.out.println("getEmployees");
 		return "employee/showAllEmployee";
 	}
-	
-	
+
 	@GetMapping("/modifyEmployee/{id}")
 	public String editEmployeeForm(Model model, @PathVariable Integer employee_info_id) {
 		Employee_basic bean = service.query(employee_info_id);
@@ -142,7 +137,7 @@ public class Employee_Controller {
 		model.addAttribute("Employee_basic", bean);
 		return "employee/EditEmployeeForm";
 	}
-	
+
 //	@GetMapping("/updateEmployee/{Employee_id}")
 //	public String updateEmployee(@ModelAttribute("pojo") Employee_basic bpojo,Model model
 //			,Employee_work wpojo,Employee_info ipojo,Employee_status spojo) {
@@ -165,10 +160,10 @@ public class Employee_Controller {
 	public String updateEmployee(Model model, @PathVariable int employee_id
 //			,@PathVariable int employee_work_id,@PathVariable int employee_info_id,
 //			@PathVariable int employee_status_id
-			) {
+	) {
 		Employee_basic bean = service.query(employee_id);
 		model.addAttribute("Beans", bean);
-		
+
 		model.addAttribute("Beans", bean.getEmployee_name());
 		model.addAttribute("department", bean.getEmployee_department());
 		model.addAttribute("position", bean.getEmployee_position());
@@ -185,10 +180,9 @@ public class Employee_Controller {
 		model.addAttribute("phone", bean.getEmployee_info().getEmergency_contact());
 		return "employee/updateEmployee";
 	}
-	@PostMapping("/updateEmployee/{employee_id}")	
-	public String updateEmployee2(
-			Model model,
-			@PathVariable(value = "employee_id", required = false) int employee_id,
+
+	@PostMapping("/updateEmployee/{employee_id}")
+	public String updateEmployee2(Model model, @PathVariable(value = "employee_id", required = false) int employee_id,
 			@RequestParam(value = "employee_name", required = false) String employee_name,
 			@RequestParam(value = "employee_department", required = false) String employee_department,
 			@RequestParam(value = "employee_position", required = false) String employee_position,
@@ -201,19 +195,19 @@ public class Employee_Controller {
 			@RequestParam(value = "employee_phone", required = false) String employee_phone,
 			@RequestParam(value = "employee_email", required = false) String employee_email,
 			@RequestParam(value = "emergency_contact", required = false) String emergency_contact,
-			HttpServletRequest request
-			) {
-			Employee_basic bean = service.query(employee_id);
-			service.update(bean);	
-			return "redirect:../showAllEmployee";
-		}
-	
+			HttpServletRequest request) {
+		Employee_basic bean = service.query(employee_id);
+		service.update(bean);
+		return "redirect:../showAllEmployee";
+	}
+
 	@GetMapping("/deleteEmployee/{employee_id}")
 	public String deleteEmployeeBasic(@PathVariable("employee_id") int employee_id) {
 		System.out.println("delete sucess");
-		service.delete(employee_id);	
+		service.delete(employee_id);
 		return "employee/showAllEmployee";
 	}
+
 //	@DeleteMapping(value="/modifyEmployee/{employee_work_id}")
 //	public String deleteEmployeeWork(@PathVariable("employee_work_id") int employee_work_id) {
 //		System.out.println("delete sucess");
@@ -232,21 +226,26 @@ public class Employee_Controller {
 //		service.delete(employee_status_id);	
 //		return "employee/showAllemployees";
 //	}
-	//後台的進入點
+	// 後台的進入點
 	@GetMapping("/empindex")
-	public String homeEmployee(Model model) {
-		return "employee/empindex";
+	public String homeEmployee(Model model, HttpSession session) {
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
+			return "employee/empindex";
+		} else {
+			return "login/PleaseLoginInBS";
+		}
 	}
-	
-	//新增的分流
+
+	// 新增的分流
 	@GetMapping("/insertEmployee")
-	public String insertEmployee(Model model){
+	public String insertEmployee(Model model) {
 		return "employee/insert";
 	}
-	
-	//查詢的分流
+
+	// 查詢的分流
 	@GetMapping("/queryEmployee")
-	public String queryEmployee(Model model){
+	public String queryEmployee(Model model) {
 		return "employee/query";
 	}
 }

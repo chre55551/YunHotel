@@ -30,7 +30,7 @@
 			<h3>修改成功</h3>
 			<div class="container">
 
-				<br> <input class="ormBtn" type="button" value="回登入" 	onclick="location.href='http://localhost:8080/YunHotel/customer/Login'">
+				<br> <input class="ormBtn" type="button" value="回顯示" 	onclick="location.href='http://localhost:8080/YunHotel/customer/ShowMember'">
 
 			</div>
 		</div>

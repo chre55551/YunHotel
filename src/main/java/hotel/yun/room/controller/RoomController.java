@@ -53,8 +53,13 @@ public class RoomController {
 
 	// 後台的進入點
 	@GetMapping("/IndexRoom")
-	public String IndexRoom(Model model) {
+	public String IndexRoom(Model model,HttpSession session) {
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
 		return "room/IndexRoom";
+		} else {
+			return "login/PleaseLoginInBS";
+		}
 
 	}
 
