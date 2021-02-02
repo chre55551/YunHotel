@@ -23,8 +23,8 @@
 			<p>編號: ${rom.room_typeid}</p>
 			<p>房價: ${rom.room_price}</p>
 			<p>庫存: ${rom.room_stock}</p>
-			<p id="myImg">房間圖片:</p>
-			<p>房間圖片名稱: ${rom.room_image_name}</p>
+<!-- 			<p id="myImg">房間圖片:</p> -->
+<%-- 			<p>房間圖片名稱: ${rom.room_image_name}</p> --%>
 			<a href="<c:url value='IndexRoom'/> ">回房務</a>
 		</div>
 	</div>

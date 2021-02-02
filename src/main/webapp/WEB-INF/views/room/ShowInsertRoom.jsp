@@ -21,8 +21,9 @@
 		<h2>新增完成</h2><hr/>
 		<h3>房型名稱：${rom.room_type}</h3>
 		<h3>房價: ${rom.room_price}</h3>
-		<h3 id="myImg">房間圖片:</h3>
-		<h3>房間圖片名稱: ${rom.room_image_name}</h3>
+		<h3>房間數量: ${rom.room_stock}</h3>
+<!-- 		<h3 id="myImg">房間圖片:</h3> -->
+<%-- 		<h3>房間圖片名稱: ${rom.room_image_name}</h3> --%>
 		<a href="<c:url value='IndexRoom'/> ">回房務</a>
 		</div>
 	</div>

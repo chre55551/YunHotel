@@ -26,10 +26,10 @@
 			<div>
 				<label>房型總數</label> <input name="room_stock" id="requestRoomStock" />
 			</div>
-			<div>
-				<label>房型圖片</label> 
-				 <input type="file" name="room_image" id="requestRoomImage" onchange="">
-			</div>
+<!-- 			<div> -->
+<!-- 				<label>房型圖片</label>  -->
+<!-- 				 <input type="file" name="room_image" id="requestRoomImage" onchange=""> -->
+<!-- 			</div> -->
 			
 	
 			<div>

@@ -32,11 +32,11 @@
 			<div>
 				<label>房型總數：</label> <input name="room_type_room_stock" value="${Rstock}"/>
 			</div>
-			<p id="myImg">房間圖片:</p>
-			<div>
-				<label>房型圖片</label> 
-				 <input type="file" name="room_type_room_Image"  onchange="">
-			</div>
+<!-- 			<p id="myImg">房間圖片:</p> -->
+<!-- 			<div> -->
+<!-- 				<label>房型圖片</label>  -->
+<!-- 				 <input type="file" name="room_type_room_Image"  onchange=""> -->
+<!-- 			</div> -->
 			<div>
 				<input value="修改" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>

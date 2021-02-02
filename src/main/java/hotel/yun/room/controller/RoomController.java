@@ -171,32 +171,53 @@ public class RoomController {
 		return "room/ShowBlankInsertRoomForm";
 	}
 
-	// 新增房型
+	// 新增房型 可新增圖片的
+//	@PostMapping("/InsertRoom")
+//	public String InsertRoom(
+//			@RequestParam String room_type, 
+//			@RequestParam double room_price,
+//			@RequestParam int room_stock,
+//			@RequestParam(value = "room_image", required = false) MultipartFile room_image, Model model,
+//			HttpServletRequest request) throws IOException {
+//		System.out.println(room_type);
+//		System.out.println(room_price);
+//		System.out.println(room_stock);
+//		System.out.println(room_image);
+//
+//		byte[] img = room_image.getBytes();
+//		String img_name = room_image.getOriginalFilename();
+//		try {
+//			Blob ri = new SerialBlob(img);
+//			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
+//			service.saveRoomType(rt);
+//			model.addAttribute("rom", rt);
+//			model.addAttribute("img",rt.getRoom_image().getBytes(1l, (int)rt.getRoom_image().length()));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "room/ShowInsertRoom";
+//	}
+
 	@PostMapping("/InsertRoom")
-	public String InsertRoom(@RequestParam String room_type, @RequestParam double room_price,
-			@RequestParam int room_stock,
-			@RequestParam(value = "room_image", required = false) MultipartFile room_image, Model model,
-			HttpServletRequest request) throws IOException {
-		System.out.println(room_type);
-		System.out.println(room_price);
-		System.out.println(room_stock);
-		System.out.println(room_image);
-
-		byte[] img = room_image.getBytes();
-		String img_name = room_image.getOriginalFilename();
-		try {
-			Blob ri = new SerialBlob(img);
-			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
-			service.saveRoomType(rt);
-			model.addAttribute("rom", rt);
-			model.addAttribute("img",rt.getRoom_image().getBytes(1l, (int)rt.getRoom_image().length()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public String InsertRoom(
+			@RequestParam(value="room_type") String room_type,
+			@RequestParam(value="room_price") double room_price,
+			@RequestParam(value="room_stock") int room_stock,
+			Model model) {
+		RoomType rt= new RoomType();
+		rt.setRoom_type(room_type);
+		rt.setRoom_price(room_price);
+		rt.setRoom_stock(room_stock);
+		RoomType rom =service.saveRoomType(rt);
+		model.addAttribute("rom", rom);
+		System.out.println("insert sucess");
 		return "room/ShowInsertRoom";
-	}
-
+}
 	
+	
+	
+	
+
 
 
 	

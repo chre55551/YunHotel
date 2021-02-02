@@ -52,8 +52,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public void saveRoomType(RoomType rBean) {
+	public RoomType saveRoomType(RoomType rBean) {
 		RDao.saveRoomType(rBean);
+		return rBean;
 		
 	}
 
