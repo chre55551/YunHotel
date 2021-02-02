@@ -69,8 +69,9 @@
 								<td>${od.orderedStatus.ordered_status}</td>
 								<td>${od.ordered_date}</td>
 								<td><button  class="ormBtn" onclick="location.href='/YunHotel/ordered/outsidethisOrdered/${od.ordered_number}'">查詢</button></td>
-								<td><button  class="ormBtn2" type="button" onclick="location.href='/YunHotel/ordered/outsideQueryCustomerOd/${od.ordered_number}'">取消訂單</button></td>
+								<td><button  class="ormBtn2" onclick="location.href='/YunHotel/ordered/outsideQueryCustomerOd/${od.ordered_number}'">取消訂單</button></td>
 							</tr>
+							
 						</c:forEach>
 					</tbody>
 					<%-- 				<p>訂單編號: ${onum}</p> --%>

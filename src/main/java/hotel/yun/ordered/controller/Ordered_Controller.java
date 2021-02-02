@@ -628,7 +628,7 @@ public class Ordered_Controller {
 					ordered.getOrderedStatus().setStatus_id(3);
 				}
 				service.updateCustomerOd(ordered);
-				
+
 				return "redirect:/ordered/outsideQueryCustomerOd";
 	}
 
