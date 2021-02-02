@@ -39,9 +39,9 @@
 				<p class="ormt2">地址: ${ct.address}</p>
 				<p class="ormt2">房號: ${room.room_name}</p>
 				<p class="ormt2">房型: ${room.roomType.room_type}
-				<p class="ormt2">
+				<p class="ormt2">訂房日期: 
 					<c:forEach var="rdate" items="${rdates}">
-						訂房日期: ${rdate.rdate}<br>
+						${rdate.rdate}<br>
 					</c:forEach>
 				</p>
 				<br> <input class="ormBtn" type="button" value="回官網"
