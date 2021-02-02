@@ -23,4 +23,9 @@ public class HomeController {
 		return "test";
 	}
 	
+	@GetMapping("/OtherFacilities")
+	public String OtherFacilities() {
+		return "OtherFacilities";
+	}
+	
 }

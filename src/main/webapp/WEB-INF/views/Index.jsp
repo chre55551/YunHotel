@@ -100,7 +100,7 @@
 		<div class="spa_intro_div">
 			<div class="spa_introduce">
 				<div class="thirdDark_right">
-				<a href="room/RoomIntroduction">
+				<a href="OtherFacilities">
 					<p class="thirdF_right">S P A</p>
 					<p class="thirdmin">查看更多</p>
 				</a>
