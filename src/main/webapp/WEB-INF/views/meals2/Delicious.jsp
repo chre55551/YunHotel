@@ -40,8 +40,8 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	         <li class="nav-item"><a href="../YunPage" class="nav-link">首頁</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">最新消息</a></li>
+	          <li class="nav-item"><a href="../news/Aboutus" class="nav-link">關於我們</a></li>
+	          <li class="nav-item"><a href="../news/outsideNews" class="nav-link">最新消息</a></li>
 	          <li class="nav-item"><a href="../room/RoomIntroduction" class="nav-link">房型介紹</a></li>
 	          <li class="nav-item"><a href="Delicious" class="nav-link">美食佳餚</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">其他設施</a></li>
