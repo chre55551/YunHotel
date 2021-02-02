@@ -35,13 +35,13 @@
 					<input type="text" name="account"></input> <br>
 					<p>密碼:</p>
 					<input type="password" name="password"></input> <br> <input
-						type="submit" value="登入"> <a href="register"
+						type="submit" value="登入"> <a href="register" type="submit"
 						class="diamondtxt">新增會員</a> <a
 						href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
 				</form>
 
-
 			</div>
-			
+		</div>
+	</div>
 </body>
 </html>

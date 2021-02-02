@@ -42,6 +42,7 @@ public class Customer {
 	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<Ordered> ordered = new ArrayList<Ordered>();
+
 	public Customer() {
 		
 	}
