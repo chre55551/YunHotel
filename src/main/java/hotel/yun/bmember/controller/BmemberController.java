@@ -69,11 +69,11 @@ public class BmemberController {
 //
 //		if (kk != null) {
 			BmemberBean bm = new BmemberBean();
-			bm.setBs_account("poky");
-			bm.setBs_password("123456");
-			bm.setBs_email("poky172839456@gmail.com");
-			bm.setAuthority("老闆");
-			bm.setUser_id("小魏");
+//			bm.setBs_account("poky");
+//			bm.setBs_password("123456");
+//			bm.setBs_email("poky172839456@gmail.com");
+//			bm.setAuthority("老闆");
+//			bm.setUser_id("小魏");
 			model.addAttribute("bb", bm);
 			return "bmember/InsertBmemberBM";
 //		} else {

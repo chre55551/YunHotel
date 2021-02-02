@@ -35,7 +35,7 @@
 					<a href="${pageContext.request.contextPath}/employee/empindex"  class="diamondtxt">&emsp;員工</a>
 				</li>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/meals/IndexMeals" class="diamondtxt">&emsp;餐點</a>
+					<a href="${pageContext.request.contextPath}/meals2/IndexMeals2" class="diamondtxt">&emsp;餐點</a>
 				</li>
 				<li class="diamond">
 					<a href="${pageContext.request.contextPath}/room/IndexRoom" class="diamondtxt">&emsp;房務</a>
