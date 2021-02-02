@@ -57,7 +57,7 @@
 					<p>身分證字號:</p>
 					<input type="text" name="idcard_number" id="theCard"></input> <br>
 					<p>生日:</p>
-					<input type="date" name="birthday"></input> <br>
+					<input type="date" name="birthday" id="theDate"></input> <br>
 					<p>地址:</p>
 					<input type="text" name="address" id="theAddress"></input> <br>
 					<br> <input class="ormBtn" type="submit" value="註冊"
@@ -65,7 +65,7 @@
 
 				</form>
 				<div>
-					<button id="btn">一鍵輸入</button>
+					<button id="btn"></button>
 				</div>
 
 				<script>
@@ -85,7 +85,8 @@
 										let defaultJob = "工程師";
 										let defaultEmail = "test123@gmail.com";
 										let defaultCard = "A123456765";
-										let defaultName = "大帥哥"
+										let defaultDate = new Date().toISOString().slice(0,10);
+										let defaultName = "大帥哥";
 										let defaultAddress = "台北市大安區";
 
 										//抓取目標input並填入值
@@ -97,6 +98,8 @@
 										document.getElementById("theJob").value = defaultJob;
 										document.getElementById("theEmail").value = defaultEmail;
 										document.getElementById("theCard").value = defaultCard;
+										document.getElementById("theDate").value = defaultDate;
+										
 										document.getElementById("theName").value = defaultName;										
 										document.getElementById("theAddress").value = defaultAddress;
 									})
@@ -106,17 +109,32 @@
 							.addEventListener(
 									"keydown",
 									function(event) {
-										if (event.key == "a") { //如果按下的鍵為a鍵
+										if (event.key == "f") { //如果按下的鍵為f鍵
 											//設定預先輸入的值
-											let defaultAccount = "Bob6666";
-											let defaultPwd = "654321";
-											let defaultCity = 2;
+											let defaultAccount = "222";
+										let defaultPwd = "12345";
+										let defaultGender = 1;
+										let defaultHphone = "25010000";
+										let defaultMphone = "0988-848-123";
+										let defaultJob = "工程師";
+										let defaultEmail = "test123@gmail.com";
+										let defaultCard = "A123456765";
+										let defaultDate = new Date().toISOString().slice(0,10);
+										let defaultName = "大帥哥"
+										let defaultAddress = "台北市大安區";
 
 											//抓取目標input並填入值
-											document
-													.getElementById("theAccount").value = defaultAccount;
-											document.getElementById("thePwd").value = defaultPwd;
-											document.getElementById("theCity").value = defaultCity;
+										document.getElementById("theAccount").value = defaultAccount;
+										document.getElementById("thePwd").value = defaultPwd;
+										document.getElementById("theGender").value = defaultGender;
+										document.getElementById("theHphone").value = defaultHphone;
+										document.getElementById("theMphone").value = defaultMphone;
+										document.getElementById("theJob").value = defaultJob;
+										document.getElementById("theEmail").value = defaultEmail;
+										document.getElementById("theCard").value = defaultCard;
+										document.getElementById("theDate").value = defaultDate;
+										document.getElementById("theName").value = defaultName;										
+										document.getElementById("theAddress").value = defaultAddress;
 										}
 									})
 				</script>
