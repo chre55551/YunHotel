@@ -158,7 +158,38 @@
 }
 /* 上面這是動態廣告的東c */
 
+/*後台的css------------------------------------------------------------------------------*/
+/*後台新增的字體*/
+.bormt {
+	font-size: 20px;
+	color: #0F2540;
+}
+/*後台的按鈕*/
+.bormb {
+	border-radius: 8px;
+	background-color: rgba(43, 95, 117, 0.8);
+	color: #FFFFFF;
+	font-size: 18px;
+	width: 70px;
+}
+/*後台訂位的間距*/
+.bormm {
+	margin: 20px;
+}
+/*後台訂房的間距*/
+.bormm2 {
+	margin: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
 
-
+/*後台的間距*/
+.bodsm {
+	border-radius: 3px;
+	border-color: rgba(15, 37, 64, 0.4);
+	border: 20px;
+	height: 25px;
+}
 
 

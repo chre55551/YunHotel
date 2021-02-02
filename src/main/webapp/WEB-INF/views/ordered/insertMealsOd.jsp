@@ -10,6 +10,9 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
 <title>insertMealsOrdered</title>
 </head>
 <body>
@@ -22,21 +25,21 @@
 		<h3>新增餐點訂單</h3>
 		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST"
 			class="container">
-			<div>
-				<label>姓名</label> <input name="chinese_name" id="requestCn" />
+			<div class="bormm">
+				<label class="bormt">姓名: </label> <input name="chinese_name" id="requestCn" class="bodsm"/>
 			</div>
-			<div>
-				<label>手機</label> <input name="mobile_phone" id="requestMp" />
+			<div class="bormm">
+				<label class="bormt">手機: </label> <input name="mobile_phone" id="requestMp" class="bodsm"/>
 			</div>
-			<div>
-				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" />
+			<div class="bormm">
+				<label class="bormt">人數: </label> <input name="mealsnum_of_people" id="requestMp" class="bodsm"/>
 			</div>
-			<div>
-				<label>用餐日期</label> <input name="mdate" id="requestMp"
-					type="date" />
+			<div class="bormm">
+				<label class="bormt">用餐日期: </label> <input name="mdate" id="requestMp"
+					type="date" class="bodsm"/>
 			</div>
-			<div>
-				<label>用餐時段</label> <select name="time_period">
+			<div class="bormm">
+				<label class="bormt">用餐時段: </label> <select name="time_period" class="bodsm">
 					<option disabled="disabled">請選擇用餐時段</option>
 					<option value="11:00~13:00">11:00~13:00</option>
 					<option value="13:00~15:00">13:00~15:00</option>
@@ -45,12 +48,13 @@
 					<option value="19:00~21:00">19:00~21:00</option>
 				</select>
 			</div>
-			<div>
-				<label>備註</label> <input name="note" id="requestNote"/>
+			<div class="bormm">
+				<label class="bormt">備註: </label> <input name="note" id="requestNote" class="bodsm"/>
 			</div>
-			<div>
-				<input value="新增" type="submit">
-				<input value="清除" type="reset">
+			<br>
+			<div class="bormm">
+				<input value="新增" type="submit" class="bormb" style="margin-right: 20px">
+				<input value="清除" type="reset" class="bormb">
 				<%-- <a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>

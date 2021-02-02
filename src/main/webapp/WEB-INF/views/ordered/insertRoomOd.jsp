@@ -9,6 +9,9 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -20,52 +23,46 @@
 		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
 			class="container">
 			<div id="basic">
-			<div>
-				<label>姓名</label> <input name="chinese_name" />
+				<div class="bormm2">
+					<label class="bormt">姓名</label> <input name="chinese_name" class="bodsm"/>
+					<label class="bormt">手機</label> <input name="mobile_phone" class="bodsm"/>
+				</div>
 			</div>
-			<div>
-				<label>手機</label> <input name="mobile_phone" />
+			<div class="bormm2">
+				<label class="bormt">身分證</label> <input name="idcard_number" class="bodsm" style="margin-left: 25px"/>
+				<label class="bormt">生日</label> <input name="birthday" type="date" class="bodsm"/>
 			</div>
-			</div>
-			<div>
-				<label>身分證</label> <input name="idcard_number" />
-			</div>
-			<div>
-				<label>生日</label> <input name="birthday" type="date" />
-			</div>
-			<div>
-				<label>地址</label> <input name="address" />
-			</div>
-			<div >
-				<label>房型</label> 
-				<select name="room_type" id="room_type">
-   					<option selected>請選擇欲訂的房型</option>
-   					<option>普通兩人房</option>
-   					<option>豪華兩人房</option>
-   					<option>普通四人房</option>
- 					<option>豪華四人房</option>
-    				<option>副總統套房</option>
-    				<option>總統套房</option>
+			<div class="bormm2">
+				<label class="bormt">地址</label> <input name="address" class="bodsm"/>
+				<label class="bormt">房型</label> <select name="room_type" id="room_type" class="bodsm">
+					<option selected>請選擇欲訂的房型</option>
+					<option>普通兩人房</option>
+					<option>豪華兩人房</option>
+					<option>普通四人房</option>
+					<option>豪華四人房</option>
+					<option>副總統套房</option>
+					<option>總統套房</option>
 				</select>
 			</div>
-			<div id="QQQ">
-				<label>欲入住日期</label> <input name="rdate" type="date" id="rdate" />
-				<br/>
-				<label>欲退房日期</label> <input name="rdateEnd" type="date" id="rdateEnd"/>
+			<div id="QQQ" class="bormm2">
+				<label class="bormt">欲入住日期</label> <input name="rdate" type="date" id="rdate" class="bodsm"/>
+				<br /> <label class="bormt">欲退房日期</label> <input name="rdateEnd" type="date"
+					id="rdateEnd" class="bodsm"/>
 			</div>
-			<div>
-			<div>
-				<div id="roomnum"></div>
+			<div class="bormm2">
+				<div>
+					<div id="roomnum" class="bodsm"></div>
+				</div>
+				<button id="zzz" type="button" class="bormb">查詢</button>
 			</div>
-				<button id="zzz" type="button">查詢</button>
+			<div class="bormm">
+				<label class="bormt">備註</label> <input name="note" id="requestNote" class="bodsm"/>
 			</div>
-			<div>
-				<label>備註</label> <input name="note" id="requestNote" />
-			</div>
+			<br>
 
 			<div>
-				<input value="新增" type="submit"> <input value="清除"
-					type="reset">
+				<input value="新增" type="submit" class="bormb" style="margin-right: 20px"> <input value="清除"
+					type="reset" class="bormb">
 				<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
