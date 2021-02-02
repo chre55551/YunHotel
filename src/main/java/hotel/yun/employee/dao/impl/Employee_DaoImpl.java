@@ -13,6 +13,7 @@ import hotel.yun.employee.model.Employee_basic;
 import hotel.yun.employee.model.Employee_info;
 import hotel.yun.employee.model.Employee_status;
 import hotel.yun.employee.model.Employee_work;
+import hotel.yun.news.model.News;
 import hotel.yun.ordered.model.OrderedStatus;
 
 
@@ -125,26 +126,32 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 			return allEmployees;
 		}
 	//依照員工編號即可修改員工資料
+//	@Override
+//	public Employee_basic update(Employee_basic emBean) {
+//		Session session = factory.getCurrentSession();
+//		String hql = "UPDATE Employee_basic eb SET eb.employee_name  = :name "
+//			+",eb.employee_department = :department"
+//			+",eb.employee_position = :position"
+//			+",eb.employee_work_id = :work"
+//			+",eb.employee_info_id = :info"
+//			+",eb.employee_status_id = :status_id"
+//			+"WHERE eb.employee_id = :id";
+//		session.createQuery(hql)
+//				.setParameter("id",emBean.getEmployee_id())
+//				.setParameter("name",emBean.getEmployee_name())
+//				.setParameter("department",emBean.getEmployee_department() )
+//				.setParameter("position",emBean.getEmployee_position() )
+//				.setParameter("work",emBean.getEmployee_work())
+//				.setParameter("info",emBean.getEmployee_info())
+//				.executeUpdate();
+//		return emBean;
+//		
+//	}
 	@Override
-	public Employee_basic update(Employee_basic emBean) {
+	public Employee_basic update(Employee_basic embean) {
 		Session session = factory.getCurrentSession();
-		String hql = "UPDATE Employee_basic eb SET eb.employee_name  = :name "
-			+",eb.employee_department = :department"
-			+",eb.employee_position = :position"
-			+",eb.employee_work_id = :work"
-			+",eb.employee_info_id = :info"
-			+",eb.employee_status_id = :status_id"
-			+"WHERE eb.employee_id = :id";
-		session.createQuery(hql)
-				.setParameter("id",emBean.getEmployee_id())
-				.setParameter("name",emBean.getEmployee_name())
-				.setParameter("department",emBean.getEmployee_department() )
-				.setParameter("position",emBean.getEmployee_position() )
-				.setParameter("work",emBean.getEmployee_work())
-				.setParameter("info",emBean.getEmployee_info())
-				.executeUpdate();
-		return emBean;
-		
+		session.update(embean);
+		return embean;
 	}
 	
 

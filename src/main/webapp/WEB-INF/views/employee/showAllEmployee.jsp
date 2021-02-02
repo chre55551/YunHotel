@@ -14,9 +14,20 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-<div align='center'>
-<h3>全部員工資料</h3>
-		<table class="container" border='1' cellpadding="3" cellspacing="1" >
+<!-- <div align='center'> -->
+    <div class="right">
+        <p class="title">員工</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+<!--         		<div class="ltF_div"> 按鈕	 -->
+<!--         			<a class="ltF" href='showinsertNews'>新增消息</a> -->
+<!--         		</div> -->
+        	</div>
+        		<div class="listtitle">
+
+		<table  border='1' cellpadding="3" cellspacing="1" >
 			<tr>
 			   <th width='56' height='20'>員工編號</th>
 			   <th width='80' height='20'>姓名</th>
