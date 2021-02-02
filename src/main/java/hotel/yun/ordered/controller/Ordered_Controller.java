@@ -620,7 +620,7 @@ public class Ordered_Controller {
 	}
 
 	// 前台 修改訂單狀態成取消
-	@GetMapping("/outsideQueryCustomerOd/{ordered_number}")
+	@GetMapping("/outsideCancelCustomerOd/{ordered_number}")
 	public String cancelOrdered(@PathVariable(value = "ordered_number") int ordered_number, HttpSession session,
 			Model model) {
 				Ordered ordered = service.queryOrderNum(ordered_number);

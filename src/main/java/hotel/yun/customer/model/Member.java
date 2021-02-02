@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "member")
 public class Member {
@@ -28,7 +30,8 @@ public class Member {
 	private Timestamp register_date;
 	private Date updated_date;
 	
-	  @OneToOne(mappedBy = "member")
+	@JsonIgnore
+	@OneToOne(mappedBy = "member")
 	private Customer Customer;
 	
 	public Customer getCustomer() {
