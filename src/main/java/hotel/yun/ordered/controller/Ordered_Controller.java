@@ -591,78 +591,82 @@ public class Ordered_Controller {
 	}
 
 	// 查到顧客訂單的詳細資料
-	@RequestMapping("/outsidethisOrdered")
-	public String outsidesingleOrderedss(
-//			@PathVariable(value = "chinese_name") String chinese_name,
-//			@PathVariable(value = "mobile_phone") String mobile_phone,
-			Model model, HttpSession session) {
-
-//		Ordered ordered = service.queryOrderNum(ordered_number);
-//		model.addAttribute("ordered", ordered);
-
-		Ordered od = new Ordered();
-		Customer ct = new Customer();
+	@RequestMapping("/outsidethisOrdered/{ordered_number}")
+	public String outsidesingleOrdered(@PathVariable(value = "ordered_number") int ordered_number, Model model,
+			HttpSession session) {
+		Ordered ordered = service.queryOrderNum(ordered_number);
+		model.addAttribute("od", ordered);
 		try {
-			String ac = (String) session.getAttribute("LoginOK");
-			ct = cser.queryByAc(ac);
-			List<Ordered> odl = ct.getOrdered();
-			List<Object> list = new ArrayList<Object>();
-			model.addAttribute("odl", odl);
-			for (Ordered qq : odl) {
-				Integer i = qq.getOrdered_number();
-				list.add(i);
-				System.out.println(i);
-
-				model.addAttribute("od" + od.getOrdered_number(), qq);
-				model.addAttribute("odc" + od.getOrdered_number(), qq.getCustomer());
-				try {
-					model.addAttribute("otr" + od.getOrdered_number(), qq.getOrderedToRoom());
-					model.addAttribute("otrr" + od.getOrdered_number(), qq.getOrderedToRoom().getRoom());
-					model.addAttribute("otrrt" + od.getOrdered_number(), qq.getOrderedToRoom().getRoom().getRoomType());
-					model.addAttribute("otrd" + od.getOrdered_number(), qq.getOrderedToRoom().getRdates());
-				} catch (Exception e) {
-//					e.printStackTrace();
-				}
-				try {
-					model.addAttribute("otm" + od.getOrdered_number(), qq.getOrderedToMeals());
-					model.addAttribute("otmmd" + od.getOrdered_number(), qq.getOrderedToMeals().getMdate());
-				} catch (Exception e) {
-//					e.printStackTrace();
-				}
-				model.addAttribute("os" + od.getOrdered_number(), qq.getOrderedStatus());
-				model.addAttribute("op" + od.getOrdered_number(), qq.getOrderedPayment());
-			}
-			model.addAttribute("list", list);
+			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
+			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
+			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		try {
+			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			model.addAttribute("otm", ordered.getOrderedToMeals());
+			model.addAttribute("meals", ordered.getOrderedToMeals().getMeals());
+		} catch (Exception e) {
 
-//		try {
-//			model.addAttribute("status", od.getOrderedStatus());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		try {
-//			model.addAttribute("payment", ordered.getOrderedPayment());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		try {
-//			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
-//			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
-//			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		try {
-//			model.addAttribute("mdate", ordered.getOrderedToMeals().getMdate());
-//			model.addAttribute("mdate", ordered.getOrderedToMeals().getMeals());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		}
 		return "ordered/outsidethisOrdered";
 	}
+	
+	
+//	public String outsidesingleOrderedss(
+//			@PathVariable(value = "ordered_number") 
+//			int ordered_number, 
+//			Model model,
+//			HttpSession session) {
+//
+////		Ordered ordered = service.queryOrderNum(ordered_number);
+////		model.addAttribute("ordered", ordered);
+//
+//		Ordered od = new Ordered();
+//		Customer ct = new Customer();
+//		try {
+//			String ac = (String) session.getAttribute("LoginOK");
+//			ct = cser.queryByAc(ac);
+//			List<Ordered> odl = ct.getOrdered();
+//			List<Object> list = new ArrayList<Object>();
+//			model.addAttribute("odl", odl);
+//			for (Ordered qq : odl) {
+//				Integer i = qq.getOrdered_number();
+//				list.add(i);
+//				System.out.println(i);
+//
+//				model.addAttribute("od" + od.getOrdered_number(), qq);
+//				model.addAttribute("odc" + od.getOrdered_number(), qq.getCustomer());
+//				try {
+//					model.addAttribute("otr" + od.getOrdered_number(), qq.getOrderedToRoom());
+//					model.addAttribute("otrr" + od.getOrdered_number(), qq.getOrderedToRoom().getRoom());
+//					model.addAttribute("otrrt" + od.getOrdered_number(), qq.getOrderedToRoom().getRoom().getRoomType());
+//					model.addAttribute("otrd" + od.getOrdered_number(), qq.getOrderedToRoom().getRdates());
+//				} catch (Exception e) {
+////					e.printStackTrace();
+//				}
+//				try {
+//					model.addAttribute("otm" + od.getOrdered_number(), qq.getOrderedToMeals());
+//					model.addAttribute("otmmd" + od.getOrdered_number(), qq.getOrderedToMeals().getMdate());
+//				} catch (Exception e) {
+////					e.printStackTrace();
+//				}
+//				model.addAttribute("os" + od.getOrdered_number(), qq.getOrderedStatus());
+//				model.addAttribute("op" + od.getOrdered_number(), qq.getOrderedPayment());
+//			}
+//			model.addAttribute("list", list);
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+
 
 //-----------------------------------------------------------------------------------------------------
 	// 更新s

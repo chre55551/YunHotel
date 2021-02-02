@@ -68,7 +68,7 @@
 								<%-- 								<td>${od.orderedPayment.bill_status}</td> --%>
 								<td>${od.orderedStatus.ordered_status}</td>
 								<td>${od.ordered_date}</td>
-								<td><button onclick="location.href='/YunHotel/ordered/outsidethisOrdered/YunHotel/ordered/thisOrdered/${ordered.ordered_number}'">查詢</button></td>
+								<td><button onclick="location.href='/YunHotel/ordered/outsidethisOrdered/${od.ordered_number}'">查詢</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
