@@ -13,7 +13,7 @@ public interface Employee_Dao {
 	public Employee_work insert_work(Employee_work emBean);
 	public Employee_info insert_info(Employee_info emBean);
 	public Employee_status queryS(int i);
-	public Employee_basic query(Integer employee_id);
+	public Employee_basic query(int employee_id);
 	public Employee_work query_work(int employee_work_id);
 	public Employee_info query_info(int employee_info_id);
 	public Employee_status query_status(int employee_status_id);

@@ -28,7 +28,7 @@ public class Employee_basic implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	Integer employee_id;//員工編號
+	int employee_id;//員工編號
 	String employee_name;//姓名
 	String employee_department;//部門
 	String employee_position;//職位
@@ -55,7 +55,7 @@ public class Employee_basic implements Serializable {
 	@ManyToMany(mappedBy = "employee")
 	private Set<Schedule> scedule = new HashSet<Schedule>(0);
 	
-	public Employee_basic(Integer employee_id,String employee_name,
+	public Employee_basic(int employee_id,String employee_name,
 			String employee_department,String employee_position
 			,int employee_info_id,int employee_work_id,int employee_status_id){
 		this.employee_id = employee_id;
@@ -93,7 +93,7 @@ public class Employee_basic implements Serializable {
 		this.employee_work = employee_work;
 	}
 
-	public Integer getEmployee_id() {
+	public int getEmployee_id() {
 		return employee_id;
 	}
 

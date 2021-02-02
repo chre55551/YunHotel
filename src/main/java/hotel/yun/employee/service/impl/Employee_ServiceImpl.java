@@ -47,7 +47,7 @@ public class Employee_ServiceImpl implements Employee_Service {
 	}
 
 	@Override
-	public Employee_basic query(Integer employee_id) {
+	public Employee_basic query(int employee_id) {
 		
 		return emDao.query(employee_id);	
 	}

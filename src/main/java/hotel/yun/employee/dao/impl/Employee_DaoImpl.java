@@ -52,7 +52,7 @@ public class Employee_DaoImpl implements Serializable, Employee_Dao{
 	
 	//依照員工編號來查詢該員工資料
 	@Override
-	public Employee_basic query(Integer employee_id) {
+	public Employee_basic query(int employee_id) {
 		Employee_basic bean = null;
 		Session session = factory.getCurrentSession();
 		bean = session.get(Employee_basic.class, employee_id);
