@@ -15,4 +15,10 @@ public interface DateDao {
 
 	public Rdate queryByRoomDate(Date rrd);
 
+	public Rdate queryRdate(Date i);
+
+	public Mdate queryByMealDate(Date mod);
+
+	public Mdate queryByMealDate(Mdate mmd);
+
 }

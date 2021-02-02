@@ -15,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -28,45 +27,20 @@ import hotel.yun.room.model.Room;
 public class Rdate {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer rdate_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer rdate_id;
 	private Date rdate;
-	
-	@OneToMany(mappedBy = "rdate",cascade = CascadeType.ALL)
+
 	@JsonIgnore
-	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
+    @ManyToMany(mappedBy = "rdates_to_rooms", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Set<Room> rooms = new HashSet<Room>();
 	
 	@JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "room_rdate",
-    joinColumns = {
-            @JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") },
-    inverseJoinColumns = {
-            @JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") })
-    private Set<Room> rooms = new HashSet<Room>();
-	
-    
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, mappedBy = "rdates")
+	private Set<OrderedToRoom> orderedToRooms = new HashSet<OrderedToRoom>();
+	                            
 	public Rdate() {
-		
-	}
-	
-	public Rdate(Date room_date) {
-		this.rdate = room_date;
-	}
-	public int getDate_id() {
-		return rdate_id;
-	}
-	public void setDate_id(int date_id) {
-		this.rdate_id = date_id;
-	}
 
-
-	public Integer getRdate_id() {
-		return rdate_id;
-	}
-
-	public void setRdate_id(Integer rdate_id) {
-		this.rdate_id = rdate_id;
 	}
 
 	public Date getRdate() {
@@ -77,13 +51,22 @@ public class Rdate {
 		this.rdate = rdate;
 	}
 
-	public List<OrderedToRoom> getOrderedToRoom() {
-		return orderedToRoom;
+	public int getDate_id() {
+		return rdate_id;
 	}
 
-	public void setOrderedToRoom(List<OrderedToRoom> orderedToRoom) {
-		this.orderedToRoom = orderedToRoom;
+	public void setDate_id(int date_id) {
+		this.rdate_id = date_id;
 	}
+
+	public Integer getRdate_id() {
+		return rdate_id;
+	}
+
+	public void setRdate_id(Integer rdate_id) {
+		this.rdate_id = rdate_id;
+	}
+
 
 	public Set<Room> getRooms() {
 		return rooms;
@@ -92,6 +75,6 @@ public class Rdate {
 	public void setRooms(Set<Room> rooms) {
 		this.rooms = rooms;
 	}
-	
-	
+
 }
+

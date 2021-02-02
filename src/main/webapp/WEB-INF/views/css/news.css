@@ -1,0 +1,44 @@
+
+.newsdiv {
+	text-align: center;
+	margin-top: 100px;
+	background-color: rgba(189, 192, 186, 0.75);
+	width: 700px;
+	height: 600px;
+	border-radius: 30px;
+}
+
+.newsF_pos {
+	margin: 25px;
+
+}
+.newsF {
+	padding:20px;
+	width:150px;
+	text-align:center;
+	color: #0F2540;
+	font-size: 1.4em;
+
+}
+.newsFC {
+	padding:20px;
+	width:500px;
+	text-align:center;
+	color: #0F2540;
+	font-size: 1.4em;
+}
+
+
+.BG {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('http://localhost:8080/YunHotel/image/newsbg.jpg');
+}
+
+
+
+
+
+
+
+

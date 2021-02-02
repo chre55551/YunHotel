@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>DeleteBmember</title>
+<title>DeleteNew</title>
 </head>
 <body>
 
@@ -17,10 +17,10 @@
 
 	<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>刪除後台會員</h3>
-		<form action="/YunHotel/bmember/DeleteOKBmember" method="POST" class="container">
+		<h3>刪除會員</h3>
+		<form action="/YunHotel/news/DeleteNewOK" method="POST" class="container">
 			<div>
-				<label>後台會員ID</label> <input name="bs_id"/>
+				<label>會員編號</label> <input name="bs_id"/>
 			</div>
 			
 			<div>

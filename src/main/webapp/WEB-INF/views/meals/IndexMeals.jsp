@@ -13,25 +13,26 @@
 
     <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-
-        <div class="container">
+    
+     <div class="right">
+     <p class="title">餐點</p>
+     <p class="hr"></p>
+        
+     <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        	
             <ul class="ALLdiamond">
            
             <li class="diamond">
-                <a href="" class="diamondtxt">所有餐點</a>
+                <a href="QueryAllMeals" class="diamondtxt">所有餐點</a>
             </li>
             <li class="diamond">
-                <a href="" class="diamondtxt">新增餐點</a>
+                <a href="ShowBlankInsertMealsForm" class="diamondtxt">新增餐點</a>
             </li>
             <li class="diamond">
-                <a href="" class="diamondtxt">查詢餐點</a>
-            </li>
-            <li class="diamond">
-                <a href="" class="diamondtxt">修改餐點</a>
-            </li>
-            <li class="diamond">
-                <a href="" class="diamondtxt">刪除餐點</a>
-            </li>
+                <a href="ShowBlankQueryMealsForm" class="diamondtxt">查詢餐點</a>
+          
             
             
             
@@ -39,6 +40,7 @@
             
 
             </ul>
+            </div>
         </div>
     </div>
 

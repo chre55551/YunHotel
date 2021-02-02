@@ -10,26 +10,27 @@
 
 </head>
 <body>
- 
 <%@ include file="../CommonTemplates/header.jsp"%>
 
     <div class="main">
-        	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-
-        <div class="container">
+    <%@ include file="../CommonTemplates/leftmenu.jsp"%>
+        	
+    <div class="right">
+        <p class="title">訂單</p>
+        <p class="hr"></p>
+        
+        
+        <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        
             <ul class="ALLdiamond">             
-            <li class="diamond">
-              <a href="insertIndex" class="diamondtxt">新增訂單</a>
-            </li>
-            <li class="diamond">
-                 <a href="queryIndex" class="diamondtxt">查詢訂單</a>
-            </li>
-            <li class="diamond">
-                <div class="diamondtxt">修改訂單</div>
-            </li>
-            <li class="diamond">
-                <div class="diamondtxt">刪除訂單</div>
-            </li>
+            	<li class="diamond_M"> 
+              		<a href="insertIndex" class="diamondtxt">&emsp;   新增訂單</a>
+            	</li>
+            	<li class="diamond_M">
+                 <a href="customerToOrdered" class="diamondtxt">&emsp;   查詢訂單</a>
+            	</li>
             </ul>
         </div>
     </div>

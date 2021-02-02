@@ -12,9 +12,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import hotel.yun.bmember.dao.BmemberDao;
 import hotel.yun.bmember.model.BmemberBean;
+import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 
 @Repository
 public class BmemberDaoImpl implements Serializable, BmemberDao {
@@ -50,7 +51,7 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 		list = session.createQuery(hql).getResultList();
 		System.out.println(list);
 		return list;
-		
+
 	}
 
 	@Override
@@ -74,12 +75,62 @@ public class BmemberDaoImpl implements Serializable, BmemberDao {
 		String hql = "FROM BmemberBean m WHERE m.bs_account = :mid and m.bs_password = :pwsd";
 		Session session = factory.getCurrentSession();
 		try {
-			mb = (BmemberBean) session.createQuery(hql).setParameter("mid",account).setParameter("pwsd", password)
+			mb = (BmemberBean) session.createQuery(hql).setParameter("mid", account).setParameter("pwsd", password)
 					.getSingleResult();
 			return mb;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public BmemberBean getCustomerById(int bs_id) {
+
+		BmemberBean bean = null;
+		Session session = factory.getCurrentSession();
+		String hql = "FROM BmemberBean cb WHERE cb.bs_id = :id";
+		try {
+			bean = (BmemberBean) session.createQuery(hql).setParameter("id", bs_id).getSingleResult();
+		} catch (NoResultException e) {
+			; // 表示查無紀錄
+		}
+
+		return bean;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Customer> queryAllMember1() {
+		Session session = null;
+		session = factory.getCurrentSession();
+		String hql = "FROM Customer";
+		List<Customer> list = new ArrayList<>();
+		list = session.createQuery(hql).getResultList();
+		System.out.println(list);
+		return list;
+	}
+
+	@Override
+	public Customer queryByAc(String s) {
+		Member mn = null;
+		String hql = "FROM Member m WHERE m.account = :mid";
+		Session session = factory.getCurrentSession();
+		mn = (Member) session.createQuery(hql).setParameter("mid", s).getSingleResult();
+		Customer c = mn.getCustomer();
+
+		return c;
+	}
+
+	@Override
+	public boolean delete1(int customer_id) {
+
+		Session session = factory.getCurrentSession();
+		Customer me = new Customer();
+		me.setCustomer_id(customer_id);
+		session.delete(me);
+		return false;
+
 	}
 }

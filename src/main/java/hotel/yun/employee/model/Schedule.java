@@ -2,9 +2,9 @@ package hotel.yun.employee.model;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 
@@ -25,10 +27,13 @@ public class Schedule {
 	private Integer schedule_id;//班表編號
 	private String schedule_manager;//排班經理
 	private String schedule_supervisor;//主管
-	private Date schedule_date_start;//上班時間
-	private Date schedule_date_end;//下班時間
-	private String schedule_time;//班別
 	private Integer schedule_totalTime;//總工作時數
+	@Transient
+	private int shifts_id;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "shifts_id", referencedColumnName = "shifts_id")
+	private Shifts shifts;// 付款ID	
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "employee_schedule",  
@@ -43,17 +48,20 @@ public class Schedule {
 
 	public Schedule() {
 	}
+	
 
-	public Schedule(String schedule_manager,String schedule_supervisor,
-			Date schedule_date_start,Date schedule_date_end,String schedule_time,Integer schedule_totalTime) {
+	public Schedule(Integer schedule_id, String schedule_manager, String schedule_supervisor,
+			Integer schedule_totalTime, int shifts_id, Shifts shifts, Set<Employee_basic> employee) {
+		super();
+		this.schedule_id = schedule_id;
 		this.schedule_manager = schedule_manager;
 		this.schedule_supervisor = schedule_supervisor;
-		this.schedule_date_start = schedule_date_start;
-		this.schedule_date_end = schedule_date_end;
-		this.schedule_time = schedule_time;
 		this.schedule_totalTime = schedule_totalTime;
-		
+		this.shifts_id = shifts_id;
+		this.shifts = shifts;
+		this.employee = employee;
 	}
+
 
 	public Integer getSchedule_id() {
 		return schedule_id;
@@ -79,31 +87,6 @@ public class Schedule {
 		this.schedule_supervisor = schedule_supervisor;
 	}
 
-
-	public Date getSchedule_date_start() {
-		return schedule_date_start;
-	}
-
-	public void setSchedule_date_start(Date schedule_date_start) {
-		this.schedule_date_start = schedule_date_start;
-	}
-
-	public Date getSchedule_date_end() {
-		return schedule_date_end;
-	}
-
-	public void setSchedule_date_end(Date schedule_date_end) {
-		this.schedule_date_end = schedule_date_end;
-	}
-
-	public String getSchedule_time() {
-		return schedule_time;
-	}
-
-	public void setSchedule_time(String schedule_time) {
-		this.schedule_time = schedule_time;
-	}
-
 	public Integer getSchedule_totalTime() {
 		return schedule_totalTime;
 	}
@@ -118,6 +101,16 @@ public class Schedule {
 
 	public void setEmployee(Set<Employee_basic> employee) {
 		this.employee = employee;
+	}
+
+
+	public Shifts getShifts() {
+		return shifts;
+	}
+
+
+	public void setShifts(Shifts shifts) {
+		this.shifts = shifts;
 	}
 
 	

@@ -3,14 +3,14 @@ package hotel.yun.room.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.NoResultException;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import hotel.yun.date.model.Rdate;
 import hotel.yun.room.dao.RoomDao;
 import hotel.yun.room.model.Room;
 import hotel.yun.room.model.RoomType;
@@ -31,11 +31,20 @@ public class RoomDaoImpl implements RoomDao{
     }
     
     @Override
-	public Object save(Room rBean) {
+	public Room save(Room rBean) {
 		Session session = factory.getCurrentSession();
-		return session.save(rBean);
+		session.save(rBean);
+		return rBean;
 		
 	}
+    
+	@Override
+    public RoomType queryByRoomType(String roomType) {
+    	Session session = factory.getCurrentSession();
+    	String hql  = "FROM room_type rt WHERE rt.room_type = :roomTp";
+    	RoomType rt = (RoomType)session.createQuery(hql).setParameter("roomTp", roomType).getSingleResult();
+    	return rt;
+    }
     
     @Override
 	public Room queryRoom_id(int room_id) {
@@ -57,6 +66,11 @@ public class RoomDaoImpl implements RoomDao{
     public Room queryByRoomNum(String num) {
     	Session session = factory.getCurrentSession();
     	String hql  = "FROM Room r WHERE r.room_name = :name";
+    	System.out.println(num);
+    	System.out.println(num);
+    	System.out.println(num);
+    	System.out.println(num);
+    	System.out.println(num);
     	Room r = (Room)session.createQuery(hql).setParameter("name", num).getSingleResult();
     	return r;
     }
@@ -75,17 +89,24 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public void update(Room rBean) {
 		Session session = factory.getCurrentSession();
-		Room room = session.get(Room.class, rBean.getRoom_id());
-		if(rBean.getRoom_name()!=null) {
-			room.setRoom_name(rBean.getRoom_name());
-		}
-		if(rBean.getRoomType()!=null) {
-			room.setRoomType(rBean.getRoomType());
-		}
-		if(rBean.getDate()!=null) {
-			room.setDate(rBean.getDate());
-		}
-		session.update(room);
+
+//		Room room = session.get(Room.class, rBean.getRoom_id());
+//		if(rBean.getRoom_name()!=null) {
+//			room.setRoom_name(rBean.getRoom_name());
+//		}
+//		if(rBean.getRoomType()!=null) {
+//			room.setRoomType(rBean.getRoomType());
+//		}
+//		if(rBean.getRdates()!=null) {
+//			Set<Rdate> rdates = rBean.getRdates();
+//			for(Rdate rdate : rdates) {
+//				session.merge(rdate);
+//			}
+//			room.setRdates(rBean.getRdates());
+//		}
+////		session.update(room);
+//		session.evict(room);
+		session.update(rBean);
 		
 	}
 	
@@ -164,9 +185,30 @@ public class RoomDaoImpl implements RoomDao{
 	@Override
 	public void deleteRoomType(int room_typeid) {
 		Session session = factory.getCurrentSession();
-		RoomType suite = new RoomType();
-		suite.setRoom_typeid(room_typeid);
+		RoomType suite = (RoomType)session.get(RoomType.class, room_typeid);
+//		suite.setRoom_typeid(room_typeid);
 		session.delete(suite);
 	}
     
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<Room> queryAllRoomByRoomType(String roomType){
+		Session session = factory.getCurrentSession();
+    	String hql  = "FROM RoomType rt WHERE rt.room_type = :name";
+		RoomType roomtypeAfter = (RoomType)session.createQuery(hql).setParameter("name",roomType).getSingleResult();
+		Set<Room> rooms = roomtypeAfter.getRoom();
+		return rooms;
+		
+	}
+
+
+
+	@Override
+	public Room queryRoomByName(String room_name) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Room r WHERE r.room_name = :rn";
+		Room r = (Room)session.createQuery(hql).setParameter("rn",room_name).getSingleResult();
+		return r;
+	}
 }

@@ -9,10 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import hotel.yun.ordered.model.OrderedPayment;
-import hotel.yun.ordered.model.OrderedStatus;
-
-@Entity
+@Entity(name="news")
 	@Table(name = "news")
 	public class News implements Serializable{
 	private static final long serialVersionUID = 1L;

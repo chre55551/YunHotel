@@ -14,8 +14,21 @@
 
 <div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-        <div class="container">
-            <ul class="ALLdiamond">
+	
+    <div class="right">
+        <p class="title">消息</p>
+        <p class="hr"></p>
+        		
+        <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+<!--         		<div class="ltF_div"> 按鈕	 -->
+<!--         			<a class="ltF" href='showinsertNews'>新增消息</a> -->
+<!--         		</div> -->
+        	</div>
+        	
+  
+				
+			<ul class="ALLdiamond">
                 
             <li class="diamond">
                 <a href='showAllNews' class="diamondtxt">所有消息</a>
@@ -24,18 +37,17 @@
                 <a href='showinsertNews' class="diamondtxt">新增消息</a>
             </li>
             <li class="diamond">
-                <a href='DeleteNew' class="diamondtxt">刪除消息</a>
-            </li>
-            <li class="diamond">
-                <a href='queryNew' class="diamondtxt">修改消息</a>
-            </li>
-            <li class="diamond">
                 <a href='queryNew' class="diamondtxt">查詢消息</a>
             </li>
             </ul>
+
+				
         </div>
+        	
+     </div>
+
 </div>
-<div></div>
+
 <%@ include file="../CommonTemplates/footer.jsp"%>
 
 </body>

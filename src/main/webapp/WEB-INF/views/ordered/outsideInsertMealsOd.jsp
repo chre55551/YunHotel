@@ -5,89 +5,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/indexcss.css'
+	type="text/css" />
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/ordered.css'
+	type="text/css" />
+<title>訂位</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/themes/cupertino/jquery-ui.min.css">
+<!-- Bootstrapt插件 -->
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<link rel='stylesheet' href='${pageContext.request.contextPath}/css/backstage.css'  type="text/css"/>
-<title>insertMealsOrdered</title>
+<script
+	src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<%@ include file="../CommonTemplates/header.jsp"%>
-	
+	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
+	<div class="steakBG">
+		<div class="main">
+			<br>
+			<div class="orm">
+				<form action="/YunHotel/ordered/outsideCustomerMealsOd" method="POST">
+					<div>
+						<h4 class="ormt">請輸入訂位的時間</h4>
+					</div>
+					<!-- 			<div> -->
+					<!-- 				<label>姓名</label> <input name="chinese_name" id="requestCn" /> -->
+					<!-- 			</div> -->
+					<!-- 			<div> -->
+					<!-- 				<label>手機</label> <input name="mobile_phone" id="requestMp" /> -->
+					<!-- 			</div> -->
+					<!-- 			<div> -->
+					<!-- 				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" /> -->
+					<!-- 			</div> -->
 
-	<div class="main">
-	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>${customer.chinese_name}，請輸入您的訂位資訊</h3>
-		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" class="container">
-			<div>
-				<label>人數</label> <input name="mealsnum_of_people" id="requestMp" />
+
+					<div class="ormt">
+						<label>用餐日期:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input name="mdate"
+							id="requestMp" type="date" class="odsm" />
+					</div>
+
+					<div class="ormt">
+						<label>用餐時段:</label>&nbsp;&nbsp;&nbsp;&nbsp;<select
+							name="time_period" class="odsm" style="width: 120px">
+							<option value="11:00~13:00">上午十一點</option>
+							<option value="13:00~15:00">下午一點</option>
+							<option value="15:00~17:00">下午三點</option>
+							<option value="17:00~19:00">下午五點</option>
+							<option value="19:00~21:00">晚上七點</option>
+						</select>
+					</div>
+
+					<div class="ormt">
+						<label>用餐人數:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input
+							name="mealsnum_of_people" id="requestMop" type="text"
+							class="odsm" style="width: 120px"/>
+					</div>
+
+					<div class="ormt">
+						<label>備註:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="note"
+							id="requestNote" class="odsm" style="width: 140px"/>
+					</div>
+					<div>
+						<input value="預訂" type="submit" class="ormBtn"> <input
+							value="清除" type="reset" class="ormBtn">
+					</div>
+				</form>
 			</div>
-			<div>
-				<label>用餐日期</label> <input name="meals_ordered_time" id="requestMp"
-					type="date" />
-			</div>
-			<div>
-				<input value="訂位" type="submit">
-				<input value="清除" type="reset">
-			</div>
-		</form>
+			<%@ include file="../CommonTemplates/Indexfloat.jsp"%>
+		</div>
+		<%@ include file="../CommonTemplates/footer.jsp"%>
 	</div>
-	
-	    <%@ include file="../CommonTemplates/footer.jsp"%>
-	<script type="text/javascript">
-		// 		$("#insertOd").click(function() {
-		// 			 o=$("#odd input");
-		// 			 o.each(function(X,item){console.log(item.value)})
-		// 			 var atr = o.each(function(X,item){item.value})
 
-		// 			 var btr = {
-		// 				 chinese_name:atr[0],
-		// 				 mobile_phone:atr[1],
-		// 				 number_of_meals:atr[2],
-		// 				 meals_ordered_time:atr[3]
-		// 			 }
+	<script
+		src="${pageContext.request.contextPath}/js/Yun_js/SharedFunctions.js"></script>
 
-		//當初寫新增的ajax
-		// 			$.ajax({
-		// 				type : 'POST',
-		// 				data : {chinese_name : $("#requestCn").val(),
-		// 					 mobile_phone : $("#requestMp").val(),
-		// 					 number_of_meals : $("#requestNom").val(),
-		// 					 meals_ordered_time : $("#requestMot").val()},
-		// 				url : '/YunHotel/ordered/insertMealsOrdered',
-		// 				dataType : "json",
-		// 				success : function() {
-		// 					alert("新增成功");
-		// 				}
-		// 			})
-		// 		})
-
-		// 		document.getElementById("insertOd").addEventListener("click",
-		// 				function() {
-		// 					let QQQ = document.getElementById("Odxx").serialize();
-		// 					let myQuery = new URLSearchParams({
-		// 						ordered_number : document.getElementById("requestOn").value,
-		// 						customer_id : document.getElementById("requestCi").value,
-		// 						ordered_tomeals_id : document.getElementById("requestOtmi").value,
-		// 						ordered_toroom_id : document.getElementById("requestOtri").value,
-		// 						status_id : document.getElementById("requestSi").value,
-		// 						payment_id : document.getElementById("requestPi").value,
-		// 						ordered_accounts : document.getElementById("requestOa").value,
-		// 						ordered_date : document.getElementById("requestOd").value,
-		// 						iv_no : document.getElementById("requestIn").value,
-		// 						note : document.getElementById("requestNote").value
-		// 					})
-		// 					console.log(myQuery.toString());
-
-		// 					fetch("/insertOrderedCheck".{
-		// 						method : "POST",
-		// 						body : myQuery
-		// 					}).then(function(response){
-		// 						return response.text();
-		// 					}).then(function(data) {
-		// 						document.getElementById("requestOn").innerHTML = data;
-		// 					})
-		// 		});
-	</script>
 </body>
 </html>

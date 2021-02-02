@@ -1,6 +1,6 @@
 package hotel.yun.news.service.impl;
 
-import java.sql.Date;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class News_ServiceImpl implements News_Service {
 	public News insert(News nBean) {
 		return NDao.insert(nBean);
 	}
-//test
+
 	@Override
 	public News queryNewID(int news_id) {
 		return NDao.queryNewID(news_id);

@@ -16,12 +16,14 @@
 	
 	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div classz="container">
-	<h3>查詢第${qbm.bs_id}則的消息</h3>
+		<div class="container">
+	<h3>查詢第${qbm.bs_id}則的編號</h3>
 	<p>編號: ${qbm.bs_id}</p>
 	<p>帳號: ${qbm.bs_account}</p>
 	<p>密碼: ${qbm.bs_password}</p>
 	<p>信箱: ${qbm.bs_email}</p>
+	<p>權限: ${qbm.authority}</p>
+	<p>使用者名稱:${qbm.user_id}</p>
 		<a href="<c:url value='IndexMember'/> ">回上一頁</a>
 		</div>
 	</div>

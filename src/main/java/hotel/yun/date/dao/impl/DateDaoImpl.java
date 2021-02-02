@@ -51,7 +51,7 @@ public class DateDaoImpl implements Serializable, DateDao {
 	@Override
 	public Mdate queryByDatePeriod(Date d,String tp) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM mdate md WHERE md.mdate = :dd and md.time_period = :tp";
+		String hql = "FROM Mdate md WHERE md.mdate = :dd and md.time_period = :tp";
 		Mdate md = (Mdate)session.createQuery(hql).setParameter("dd", d).setParameter("tp", tp).getSingleResult();
 		return md;	
 	}
@@ -59,9 +59,30 @@ public class DateDaoImpl implements Serializable, DateDao {
 	@Override
 	public Rdate queryByRoomDate(Date rod) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM rdate rd WHERE rd.room_date = :rrd";
+		String hql = "FROM Rdate rd WHERE rd.rdate = :rrd";
 		Rdate md = (Rdate)session.createQuery(hql).setParameter("rrd", rod).getSingleResult();
 		return md;	
 	}
 	
+	@Override
+	public Mdate queryByMealDate(Mdate mod) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Mdate md WHERE md.mdate = :mmd and md.time_period = :qqq";
+		Mdate md = (Mdate)session.createQuery(hql).setParameter("mmd", mod.getMdate()).setParameter("qqq", mod.getTime_period()).getSingleResult();
+		return md;	
+	}
+	//-----------------------------------------------------------------------------
+		//去資料庫撈rdate(訂房日期)，有的話就把他叫出來塞進去。
+		@Override
+		public Rdate queryRdate(Date i) {
+			Session session = factory.getCurrentSession();
+			Rdate rd = session.get(Rdate.class, i);
+			return rd;
+		}
+
+		@Override
+		public Mdate queryByMealDate(Date mod) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }

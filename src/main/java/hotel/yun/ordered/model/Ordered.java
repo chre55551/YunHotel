@@ -15,59 +15,64 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import hotel.yun.customer.model.Customer;
 
 @Entity
 @Table(name = "Ordered")
-public class Ordered implements Serializable{
+public class Ordered implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_number;// 訂單編號
-	
+
 	@Transient
+	@JsonIgnore
 	private int customer_id;// 顧客編號
 	@Transient
-	private int ordered_tomeals_id;//餐點訂單編號
+	@JsonIgnore
+	private int ordered_tomeals_id;// 餐點訂單編號
 	@Transient
-	private int ordered_toroom_id;//房間訂單編號
+	@JsonIgnore
+	private int ordered_toroom_id;// 房間訂單編號
 	@Transient
+	@JsonIgnore
 	private int status_id;// 狀態ID
 	@Transient
+	@JsonIgnore
 	private int payment_id;// 付款ID
-	
+
 	private int ordered_accounts;// 訂單總價
 	private Timestamp ordered_date;// 訂單日期
-	private Timestamp ordered_last_update;//訂單最後修改時間
-	private Timestamp ordered_finish_date;//訂單完成時間
-	private String note;//註記
-	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name= "customer_id")
+	private Timestamp ordered_last_update;// 訂單最後修改時間
+	private Timestamp ordered_finish_date;// 訂單完成時間
+	private String note;// 註記
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "customer_id")
 	private Customer customer;// 顧客編號
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name= "status_id")
+
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+	@JoinColumn(name = "status_id")
 	private OrderedStatus orderedStatus;// 狀態ID
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name= "payment_id")
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "payment_id")
 	private OrderedPayment orderedPayment;// 付款ID
-	
-	@OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="ordered_tomeals_id", referencedColumnName="ordered_tomeals_id")
-	private OrderedToMeals orderedToMeals;//餐點訂單編號
-	
-	@OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="ordered_toroom_id", referencedColumnName="ordered_toroom_id")
-	private OrderedToRoom orderedToRoom;//房間訂單編號
-	
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "ordered_tomeals_id", referencedColumnName = "ordered_tomeals_id")
+	private OrderedToMeals orderedToMeals;// 餐點訂單編號
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "ordered_toroom_id", referencedColumnName = "ordered_toroom_id")
+	private OrderedToRoom orderedToRoom;// 房間訂單編號
+
 	public Ordered() {
 
 	}
-	
-	
 
 	public Ordered(int ordered_number, int ordered_accounts, String note, Customer customer,
 			OrderedStatus orderedStatus, OrderedPayment orderedPayment, OrderedToMeals orderedToMeals,
@@ -81,8 +86,6 @@ public class Ordered implements Serializable{
 		this.orderedToMeals = orderedToMeals;
 		this.orderedToRoom = orderedToRoom;
 	}
-
-
 
 	public Ordered(int ordered_number, int ordered_accounts, String note) {
 		this.ordered_number = ordered_number;
@@ -101,9 +104,8 @@ public class Ordered implements Serializable{
 		this.orderedPayment = orderedPayment;
 		this.orderedToMeals = orderedToMeals;
 		this.orderedToRoom = orderedToRoom;
-		
+
 	}
-	
 
 	public Ordered(int ordered_number, int customer_id, int ordered_tomeals_id, int ordered_toroom_id, int status_id,
 			int payment_id, int ordered_accounts, Timestamp ordered_date, Timestamp ordered_last_update,
@@ -129,7 +131,7 @@ public class Ordered implements Serializable{
 	}
 
 	public int getOrdered_number() {
-	
+
 		return ordered_number;
 	}
 
@@ -151,7 +153,7 @@ public class Ordered implements Serializable{
 
 	public void setOrdered_date(Timestamp c) {
 		this.ordered_date = c;
-	
+
 	}
 
 	public Timestamp getOrdered_last_update() {
@@ -261,6 +263,5 @@ public class Ordered implements Serializable{
 	public void setPayment_id(int payment_id) {
 		this.payment_id = payment_id;
 	}
-
 
 }

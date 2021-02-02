@@ -28,4 +28,20 @@ public class DateServiceImpl implements Date_Service {
 		Rdate rd = dDao.queryByRoomDate(rrd);
 		return rd;
 	}
+	
+	@Override
+	public Rdate insert(Rdate rd) {
+		return dDao.insert(rd);	
+	}
+	 
+	@Override
+	public Mdate queryByMealDate(Mdate mmd) {
+		Mdate md = dDao.queryByMealDate(mmd);
+		return md;
+	}
+	@Override
+	public Mdate queryByMealDate(Date mmd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -2,126 +2,225 @@ package hotel.yun.room.controller;
 
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import hotel.yun.news.model.News;
 import hotel.yun.room.model.RoomType;
 import hotel.yun.room.service.RoomService;
 
 @Controller
 @RequestMapping("/room")
-@SessionAttributes({ "room_id", "room_name", "room_typeid"})
+@SessionAttributes({ "room_id", "room_name", "room_typeid" })
 public class RoomController {
-
+    
+	@Autowired
 	ServletContext context;
+
 	@Autowired
 	public void setContext(ServletContext context) {
 		this.context = context;
 	}
-	
+
 	RoomService service;
-	
-	
+
 	@Autowired
 	public void setService(RoomService service) {
 		this.service = service;
 	}
-	
-	
-	//後台的進入點
+
+	// 後台的進入點
 	@GetMapping("/IndexRoom")
-	public String IndexRoom(Model model){
+	public String IndexRoom(Model model,HttpSession session) {
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
 		return "room/IndexRoom";
-	
+		} else {
+			return "login/PleaseLoginInBS";
+		}
+
 	}
-	
-	//官網的房型介紹
+
+	// 官網的房型介紹
 	@GetMapping("/RoomIntroduction")
-	public String RoomIntroduction(Model model){
+	public String RoomIntroduction(Model model) {
 		return "room/RoomIntroduction";
-	
+
 	}
 	
-    //查詢所有房型
+	// 豪華三人房
+	@GetMapping("/DeluxeTripleRoom")
+	public String DeluxeTripleRoom(Model model) {
+		return "room/DeluxeTripleRoom";
+		
+	}
+	
+	
+	// 都會套房
+	@GetMapping("/MetropolisSuite")
+	public String MetropolisSuite(Model model) {
+		return "room/MetropolisSuite";
+		
+	}
+	
+	
+	// 豪華家庭房
+	@GetMapping("/DeluxeFamilyRoom")
+	public String DeluxeFamilyRoom(Model model) {
+		return "room/DeluxeFamilyRoom";
+		
+	}
+	
+	// 豪華單人房
+	@GetMapping("/DeluxeSingleRoom")
+	public String DeluxeSingleRoom(Model model) {
+		return "room/DeluxeSingleRoom";
+		
+	}
+	
+	
+	
+	// 豪華雙人房
+	@GetMapping("/DeluxeDoubleRoom")
+	public String DeluxeDoubleRoom(Model model) {
+		return "room/DeluxeDoubleRoom";
+		
+	}
+	
+	// 豪華雙人房
+	@GetMapping("/AdvancedRoom")
+	public String AdvancedRoom(Model model) {
+		return "room/AdvancedRoom";
+		
+	}
+	
+	
+	
+	
+	
+
+	// 查詢所有房型
 	@GetMapping("/QueryAllRooms")
 	public String QueryAllRooms(Model model) {
 		List<RoomType> rm = service.queryAllRoomType();
-		model.addAttribute("rom", rm);
+		model.addAttribute(rm);
+//		model.addAttribute("rom", rm);
 		return "room/QueryAllRooms";
 	}
-	
-	
-	
+
 //	@GetMapping("/QueryAllRooms")
 //	public String QueryAllRooms(Model model) {
 //		model.addAttribute("Rooms", RoomService.queryAll());
 //		return "room/QueryAllRooms";
 //	}
-	@GetMapping("/ShowBlankQueryForm")
-	public String ShowBlankQueryForm(Model model,HttpSession session) {
-		return "room/ShowBlankQueryForm";
-	}	
-	
-	
-	
-	//查詢單筆房型
+
+	// 送出空白查詢表單
+	@GetMapping("/ShowBlankQueryRoomForm")
+	public String ShowBlankQueryRoomForm(Model model, HttpSession session) {
+		return "room/ShowBlankQueryRoomForm";
+	}
+
+	// 查詢單筆房型
 	@PostMapping("/ShowQueryRoom")
-	public String ShowQueryRoom(@ModelAttribute("rom") RoomType rm,Model model) {
+	public String ShowQueryRoom(@ModelAttribute("rom") RoomType rm, Model model) {
 		RoomType roomtype = service.queryRoomType_id(rm.getRoom_typeid());
 		model.addAttribute("rom", roomtype);
+		
+//		MultipartFile picture = (MultipartFile) roomtype.getRoom_image();
+//		model.addAttribute("img", picture);
 		return "room/ShowQueryRoom";
 	}
-	
-	
-    //送出空白表單
-	@GetMapping("/ShowBlankInsertForm")
-	public String ShowBlankInsertForm( Model model) {
+
+	@GetMapping("/getImg")
+	@ResponseBody
+	public byte[] getImg(@ModelAttribute("rom") RoomType rm, Model model) throws Exception {
+		RoomType roomtype = service.queryRoomType_id(rm.getRoom_typeid());
+		System.out.println(roomtype.getRoom_image_name());
+		System.out.println(roomtype.getRoom_image());
+
+		return roomtype.getRoom_image().getBytes(1l, (int)roomtype.getRoom_image().length());
+	}
+
+	// 送出空白新增表單
+	@GetMapping("/ShowBlankInsertRoomForm")
+	public String ShowBlankInsertRoomForm(Model model) {
 		RoomType rmt = new RoomType();
 		model.addAttribute("rom", rmt);
-		return "room/ShowBlankInsertForm";
-		}
-	
-	
-	//新增房型
+		return "room/ShowBlankInsertRoomForm";
+	}
+
+	// 新增房型 可新增圖片的
+//	@PostMapping("/InsertRoom")
+//	public String InsertRoom(
+//			@RequestParam String room_type, 
+//			@RequestParam double room_price,
+//			@RequestParam int room_stock,
+//			@RequestParam(value = "room_image", required = false) MultipartFile room_image, Model model,
+//			HttpServletRequest request) throws IOException {
+//		System.out.println(room_type);
+//		System.out.println(room_price);
+//		System.out.println(room_stock);
+//		System.out.println(room_image);
+//
+//		byte[] img = room_image.getBytes();
+//		String img_name = room_image.getOriginalFilename();
+//		try {
+//			Blob ri = new SerialBlob(img);
+//			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
+//			service.saveRoomType(rt);
+//			model.addAttribute("rom", rt);
+//			model.addAttribute("img",rt.getRoom_image().getBytes(1l, (int)rt.getRoom_image().length()));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "room/ShowInsertRoom";
+//	}
+
 	@PostMapping("/InsertRoom")
 	public String InsertRoom(
-			@RequestParam String room_type,
-			@RequestParam double room_price,
-			@RequestParam int room_stock,
-			@RequestParam(value="room_image",required=false) MultipartFile room_image,
-			 Model model,HttpServletRequest request) throws IOException {
-			System.out.println(room_type);
-			System.out.println(room_price);
-			System.out.println(room_stock);
-			System.out.println(room_image);
-			
-		byte[] img = room_image.getBytes();
-		String img_name = room_image.getOriginalFilename();
-		try {
-			Blob ri = new SerialBlob(img);
-			RoomType rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
-			service.saveRoomType(rt);
-			model.addAttribute("roomType", rt);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return "room/QueryAllRooms";
-	}
+			@RequestParam(value="room_type") String room_type,
+			@RequestParam(value="room_price") double room_price,
+			@RequestParam(value="room_stock") int room_stock,
+			Model model) {
+		RoomType rt= new RoomType();
+		rt.setRoom_type(room_type);
+		rt.setRoom_price(room_price);
+		rt.setRoom_stock(room_stock);
+		RoomType rom =service.saveRoomType(rt);
+		model.addAttribute("rom", rom);
+		System.out.println("insert sucess");
+		return "room/ShowInsertRoom";
+}
+	
+	
+	
+	
+
+
+
+	
 	
 //	@PostMapping(value="/CompanyRegister")
 //	 public String companyRegister(
@@ -171,6 +270,73 @@ public class RoomController {
 //	  
 //	  
 //	 }
+	@GetMapping("/UpdateRoom/{room_typeid}")
+	public String UpdateRoom(Model model, @PathVariable int room_typeid) {
+		RoomType rm = service.queryRoomType_id(room_typeid);
+		model.addAttribute("UpdateRoom", rm);
+        model.addAttribute("Rid",rm.getRoom_typeid());
+		model.addAttribute("Rtype",rm.getRoom_type());
+		model.addAttribute("Rprice",rm.getRoom_price());
+		model.addAttribute("Rstock",rm.getRoom_stock());
+		model.addAttribute("Rimage",rm.getRoom_image());
+		return "room/UpdateRoom";
+	}
 	
+	@PostMapping("/UpdateRoom/{room_typeid}")
+	public String update2(
+			@PathVariable(value = "room_typeid", required = false) int room_typeid,
+			@RequestParam(value = "room_type_room_type", required = false) String room_type,
+			@RequestParam(value = "room_type_room_price", required = false) double room_price,
+			@RequestParam(value = "room_type_room_stock", required = false) int room_stock,
+			@RequestParam(value = "room_type_room_Image", required = false) MultipartFile room_image,
+			Model model
+				) throws IOException {
+
+			RoomType rt = new RoomType();
+			try {
+			byte[] img = room_image.getBytes();
+			String img_name = room_image.getOriginalFilename();
+			Blob ri;
+				ri = new SerialBlob(img);
+				rt = new RoomType(room_type, room_price, room_stock, ri, img_name);
+				rt.setRoom_typeid(room_typeid);
+			} catch (Exception e) {
+				rt = new RoomType();
+				rt.setRoom_typeid(room_typeid);
+				rt.setRoom_type(room_type);
+				rt.setRoom_price(room_price);
+				rt.setRoom_stock(room_stock);
+			} 
+			
+			service.updateRoomType(rt);	
+			model.addAttribute("rt",rt);
+			return "redirect:../QueryAllRooms";
+		}
+//	byte[] img = room_image.getBytes();
+//	String img_name = room_image.getOriginalFilename();
+//	try {
+//		Blob ri = new SerialBlob(img);
+//		
+//		service.saveRoomType(rt);
+//		model.addAttribute("rom", rt);
+//		model.addAttribute("img",rt.getRoom_image().getBytes(1l, (int)rt.getRoom_image().length()));
+//	} catch (Exception e) {
+//		e.printStackTrace();
+//	}
 	
+
+	
+
+
+
+	@GetMapping("/DeleteRoom/{room_typeid}")
+	public String DeleteRoom(@PathVariable("room_typeid") int room_typeid) {
+		service.deleteRoomType(room_typeid);	
+		System.out.println("delete sucess");
+		return "redirect:/room/QueryAllRooms";
+	}
+	 
+
 }
+
+

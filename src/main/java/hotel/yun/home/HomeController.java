@@ -16,4 +16,16 @@ public class HomeController {
 		return "Index";
 	}
 	
+	
+	//測試用
+	@GetMapping("/test")
+	public String test() {
+		return "test";
+	}
+	
+	@GetMapping("/OtherFacilities")
+	public String OtherFacilities() {
+		return "OtherFacilities";
+	}
+	
 }

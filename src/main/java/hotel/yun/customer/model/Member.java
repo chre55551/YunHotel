@@ -3,12 +3,17 @@ package hotel.yun.customer.model;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "member")
@@ -24,6 +29,22 @@ public class Member {
 	private String email;
 	private Timestamp register_date;
 	private Date updated_date;
+	
+	@JsonIgnore
+	@OneToOne(mappedBy = "member")
+	private Customer Customer;
+	
+	public Customer getCustomer() {
+		return Customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		Customer = customer;
+	}
+
+	public Member(){
+		
+	}
 
 	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
 			String email, Timestamp register_date, Date updated_date) {
@@ -39,6 +60,31 @@ public class Member {
 		this.updated_date = updated_date;
 	}
 	
+	
+	public Member(int member_id, String account, String password, String gender, String home_phone, String job,
+			String email) {
+		super();
+		this.member_id = member_id;
+		this.account = account;
+		this.password = password;
+		this.gender = gender;
+		this.home_phone = home_phone;
+		this.job = job;
+		this.email = email;
+	}
+
+	
+	
+	public Member(String account, String password, String gender, String home_phone, String job, String email) {
+		super();
+		this.account = account;
+		this.password = password;
+		this.gender = gender;
+		this.home_phone = home_phone;
+		this.job = job;
+		this.email = email;
+	}
+
 	public int getMember_id() {
 		return member_id;
 	}

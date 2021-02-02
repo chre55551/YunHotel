@@ -12,63 +12,76 @@ import org.springframework.stereotype.Repository;
 
 import hotel.yun.meals.dao.MealsDao;
 import hotel.yun.meals.model.Meals;
-import hotel.yun.room.model.Room;
+import hotel.yun.meals.model.MealsType;
+
 @Repository
-public  class MealsDaoImpl implements MealsDao {
-	SessionFactory factory;
+public class MealsDaoImpl implements MealsDao {
 	
+	
+	@Autowired
+	SessionFactory factory;
+
 	@Autowired
 	public void setFactory(SessionFactory factory) {
 		this.factory = factory;
 	}
-    
-	
-	public MealsDaoImpl() { 
-		
+
+	public MealsDaoImpl() {
+
 	}
-	
-	
-	
+
 	@Override
-	public Object save(Meals mBean) {
+	public void save(Meals mBean) {
 		Session session = factory.getCurrentSession();
-		return session.save(mBean);
-		
+		session.save(mBean);
+
 	}
-	
+
 	@Override
 	public Meals queryMeals_id(int id) {
-	Meals bean = null;
-	Session session = factory.getCurrentSession();
-	String hql  = "FROM Meals m WHERE m.meals_id = :id";
-	try {
-		bean = (Meals)session.createQuery(hql)
-								.setParameter("id", id)
-								.getSingleResult();
-	} catch(NoResultException e) {
-		;  // 表示查無紀錄
+		Meals mBean = null;
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Meals m WHERE m.meals_id = :id";
+		try {
+			mBean = (Meals) session.createQuery(hql).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			// 表示查無紀錄
+			e.printStackTrace();
+		}
+		return mBean;
 	}
 	
-	return bean;
-	
-}
+	@Override
+	public MealsType queryMealsType_id(int id) {
+		MealsType mtBean = null;
+		Session session = factory.getCurrentSession();
+		String hql = "FROM meals_type m WHERE m.meals_typeid = :id";
+		try {
+			mtBean = (MealsType) session.createQuery(hql).setParameter("id", id).getSingleResult();
+		} catch (NoResultException e) {
+			// 表示查無紀錄
+			e.printStackTrace();
+		}
+		return mtBean;
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Meals> queryAll() {
 		Session session = factory.getCurrentSession();
-		String hql  = "FROM Meals";
+		String hql = "FROM Meals";
 		List<Meals> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
-	
+
 	@Override
 	public void update(Meals mBean) {
-			Session session = factory.getCurrentSession();
-			session.update(mBean);
-			
-		}
-	
+		Session session = factory.getCurrentSession();
+		Meals meals = session.get(Meals.class, mBean.getMeals_id());
+		session.update(meals);
+	}
+
 	@Override
 	public void delete(int meals_id) {
 		Session session = factory.getCurrentSession();

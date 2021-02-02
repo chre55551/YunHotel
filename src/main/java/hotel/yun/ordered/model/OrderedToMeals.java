@@ -1,7 +1,6 @@
 package hotel.yun.ordered.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -32,17 +32,20 @@ public class OrderedToMeals implements Serializable {
 	private int ordered_tomeals_id;// 餐點訂單編號
 	private int meals_accounts;// 餐點總價
 	private int mealsnum_of_people;// 用餐人數
-	private Date meals_ordered_time;// 餐點訂單時間
 	private int table_number;// 桌號
 	@Transient
 	private int mdate_id;// 對到用餐時間
 
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	@OneToOne(mappedBy = "orderedToMeals")
+	private Ordered ordered;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "mdate_id")
 	private Mdate mdate;
-	
+
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinTable(name = "orderedToMeals_meals", joinColumns = {
 			@JoinColumn(name = "fk_ordered_tomeals_id", referencedColumnName = "ordered_tomeals_id") }, inverseJoinColumns = {
 					@JoinColumn(name = "fk_meals_id", referencedColumnName = "meals_id") })
@@ -52,18 +55,15 @@ public class OrderedToMeals implements Serializable {
 
 	}
 
-	public OrderedToMeals(int mealsnum_of_people, Date meals_ordered_time) {
+	public OrderedToMeals(int mealsnum_of_people) {
 		super();
 		this.mealsnum_of_people = mealsnum_of_people;
-		this.meals_ordered_time = meals_ordered_time;
 	}
 
-	public OrderedToMeals(int ordered_tomeals_id, int meals_accounts, int mealsnum_of_people, Date meals_ordered_time,
-			int table_number) {
+	public OrderedToMeals(int ordered_tomeals_id, int meals_accounts, int mealsnum_of_people, int table_number) {
 		this.ordered_tomeals_id = ordered_tomeals_id;
 		this.meals_accounts = meals_accounts;
 		this.mealsnum_of_people = mealsnum_of_people;
-		this.meals_ordered_time = meals_ordered_time;
 		this.table_number = table_number;
 	}
 
@@ -93,14 +93,6 @@ public class OrderedToMeals implements Serializable {
 
 	public void setmealsnum_of_people(int mealsnum_of_people) {
 		this.mealsnum_of_people = mealsnum_of_people;
-	}
-
-	public Date getMeals_ordered_time() {
-		return meals_ordered_time;
-	}
-
-	public void setMeals_ordered_time(Date meals_ordered_time) {
-		this.meals_ordered_time = meals_ordered_time;
 	}
 
 	public int getTable_number() {
@@ -133,6 +125,14 @@ public class OrderedToMeals implements Serializable {
 
 	public void setMeals(List<Meals> meals) {
 		this.meals = meals;
+	}
+
+	public Ordered getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Ordered ordered) {
+		this.ordered = ordered;
 	}
 
 }

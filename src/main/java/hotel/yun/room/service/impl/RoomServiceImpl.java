@@ -1,6 +1,7 @@
 package hotel.yun.room.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,8 @@ import hotel.yun.room.service.RoomService;
 @Transactional
 @Service
 public class RoomServiceImpl implements RoomService {
-   
+	private static final long serialVersionUID = 1L;
+	
 	RoomDao RDao;
 	
 	@Autowired
@@ -50,8 +52,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public void saveRoomType(RoomType rBean) {
+	public RoomType saveRoomType(RoomType rBean) {
 		RDao.saveRoomType(rBean);
+		return rBean;
 		
 	}
 
@@ -72,13 +75,33 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void deleteRoomType(int room_typeid) {
-		RDao.delete(room_typeid);
+		RDao.deleteRoomType(room_typeid);
 	}
 
 	@Override
 	public Room queryByRoomNum(String s) {
 		return RDao.queryByRoomNum(s);
 	}
+
+	@Override
+	public RoomType queryByRoomType(String roomType) {
+		return RDao.queryByRoomType(roomType);
+	}
 	
+	@Override
+	public Set<Room> queryAllRoomByRoomType(String roomType){
+		return RDao.queryAllRoomByRoomType(roomType);
+	}
+
+	@Override
+	public Room queryRoomByName(String room_name) {
+		return RDao.queryRoomByName(room_name);
+	}
+
+	@Override
+	public void updateRoomType(int room_typeid) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

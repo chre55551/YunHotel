@@ -1,66 +1,70 @@
 package hotel.yun.ordered.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import hotel.yun.date.model.Rdate;
 import hotel.yun.room.model.Room;
 
 @Entity
 @Table(name = "ordered_toroom")
-public class OrderedToRoom implements Serializable{
+public class OrderedToRoom implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordered_toroom_id;
-	
 	private int room_accounts;
 	private int roomnum_of_people;
-	private Date room_ordered_time;
-	private int room_number;
 	@Transient
 	private int room_id;
-	@Transient
-	private int rdate_id;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	@OneToOne(mappedBy = "orderedToRoom")
+	private Ordered ordered;
+
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "rdate_id")
-	private Rdate rdate;
-	
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE},fetch = FetchType.EAGER)
+    @JoinTable(name = "orderedToRoom_rdate", 
+		joinColumns = {
+				@JoinColumn(name = "fk_ordered_toroom_id")
+		 }, 
+		inverseJoinColumns = {
+				@JoinColumn(name = "fk_rdate_id")
+		}
+    )
+    private Set<Rdate> rdates = new HashSet<Rdate>();
+
 	public OrderedToRoom() {
-		
+
 	}
-	
-	public OrderedToRoom(int ordered_toroom_id, int room_id, int room_accounts, int roomnum_of_people,
-			Date room_ordered_time, int room_number) {
+
+	public OrderedToRoom(int ordered_toroom_id, int room_id, int room_accounts, int roomnum_of_people) {
 		this.ordered_toroom_id = ordered_toroom_id;
 		this.room_id = room_id;
 		this.room_accounts = room_accounts;
 		this.roomnum_of_people = roomnum_of_people;
-		this.room_ordered_time = room_ordered_time;
-		this.room_number = room_number;
 	}
 
-	public OrderedToRoom(Date room_ordered_time, int room_number) {
-		this.room_ordered_time = room_ordered_time;
-		this.room_number = room_number;
-	}
 
 	public int getOrdered_toroom_id() {
 		return ordered_toroom_id;
@@ -86,29 +90,7 @@ public class OrderedToRoom implements Serializable{
 		this.room_accounts = room_accounts;
 	}
 
-	public int getroomnum_of_people() {
-		return roomnum_of_people;
-	}
 
-	public void setroomnum_of_people(int roomnum_of_people) {
-		this.roomnum_of_people = roomnum_of_people;
-	}
-
-	public Date getRoom_ordered_time() {
-		return room_ordered_time;
-	}
-
-	public void setRoom_ordered_time(Date room_ordered_time) {
-		this.room_ordered_time = room_ordered_time;
-	}
-
-	public int getRoom_number() {
-		return room_number;
-	}
-
-	public void setRoom_number(int room_number) {
-		this.room_number = room_number;
-	}
 
 	public Room getRoom() {
 		return room;
@@ -118,13 +100,28 @@ public class OrderedToRoom implements Serializable{
 		this.room = room;
 	}
 
-	public Rdate getRdate() {
-		return rdate;
+	public int getRoomnum_of_people() {
+		return roomnum_of_people;
 	}
 
-	public void setRdate(Rdate rdate) {
-		this.rdate = rdate;
+	public void setRoomnum_of_people(int roomnum_of_people) {
+		this.roomnum_of_people = roomnum_of_people;
 	}
-	
-	
+
+	public Set<Rdate> getRdates() {
+		return rdates;
+	}
+
+	public void setRdates(Set<Rdate> list) {
+		this.rdates = list;
+	}
+
+	public Ordered getOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(Ordered ordered) {
+		this.ordered = ordered;
+	}
+
 }

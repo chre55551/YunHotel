@@ -14,72 +14,64 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
 
-	<div id="main">
+	<div class="main">
 		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增餐點訂單</h3>
+		<h3>新增員工資料</h3>
 		<form action="/YunHotel/employee/insertEmployee" method="POST"
-			id="container">
+			class="container">
 			<div>
-				<label>姓名</label> <input name="employee_name" id="requestCn" />
+				<label>姓名</label> <input name="employee_name" class="requestCn" 
+					value="張凱翔"/>
 			</div>
 			<div>
-				<label>部門</label> <input name="employee_department" id="requestMp" />
+				<label>部門</label> <input name="employee_department" class="requestMp" 
+				value="房務部"/>
 			</div>
 			<div>
-				<label>職位</label> <input name="employee_position" id="requestMp" />
+				<label>職位</label> <input name="employee_position" class="requestMp"
+				value="房務人員" />
 			</div>		
 			<div>
-				<label>年資</label> <input name="employee_workyears" id="requestMp"
-					/>
+				<label>年資</label> <input name="employee_workyears" class="requestMp"
+					value="5"/>
 			</div>			
 			<div>
-				<label>薪水</label> <input name="employee_salary" id="requestMp"
-					 />
+				<label>薪水</label> <input name="employee_salary" class="requestMp"
+					 value="35000"/>
+			</div>					
+			<div>
+				<label>性別</label> <input name="employee_gender" class="requestMp"
+					 value="男"/>
 			</div>			
 			<div>
-				<label>工作時數</label> <input name="working_hours" id="requestMp"
-					 />
+				<label>年齡</label> <input name="employee_age" class="requestMp"
+					 value="30"/>
 			</div>			
 			<div>
-				<label>休假時數</label> <input name="holiday_hours" id="requestMp"
-					 />
+				<label>地址</label> <input name="employee_address" class="requestMp"
+					 value="台北市松山區"/>
 			</div>			
 			<div>
-				<label>性別</label> <input name="employee_gender" id="requestMp"
-					 />
+				<label>手機</label> <input name="employee_mobile" class="requestMp"
+					 value="0911245123"/>
 			</div>			
 			<div>
-				<label>年齡</label> <input name="employee_age" id="requestMp"
-					 />
+				<label>電話</label> <input name="employee_phone" class="requestMp"
+					value="02-25664789" />
 			</div>			
 			<div>
-				<label>地址</label> <input name="employee_address" id="requestMp"
-					 />
+				<label>電子信箱</label> <input name="employee_email" class="requestMp"
+					 value="pop@gmail.com"/>
 			</div>			
 			<div>
-				<label>手機</label> <input name="employee_mobile" id="requestMp"
-					 />
+				<label>緊急聯絡人</label> <input name="emergency_contact" class="requestMp"
+					value="張君雅" />
 			</div>			
-			<div>
-				<label>電話</label> <input name="employee_phone" id="requestMp"
-					 />
-			</div>			
-			<div>
-				<label>電子信箱</label> <input name="employee_email" id="requestMp"
-					 />
-			</div>			
-			<div>
-				<label>緊急聯絡人</label> <input name="emergency_contact" id="requestMp"
-					 />
-			</div>			
-			<div>
-				<label>大頭照</label> 
-				 <input type="file"name="employee_image" id="requestRoomImage" onchange="fileShow();" accept="image/*">
-			</div>		
-			<div>
-				<label>職位狀態</label> <input name="employee_status" id="requestMp"
-					 />
-			</div>
+<!-- 			<div> -->
+<!-- 				<label>大頭照</label>  -->
+<!-- 				 <input type="file"name="employee_image" class="requestRoomImage" onchange="fileShow();" accept="image/*"> -->
+<!-- 			</div>		 -->
+
 			<div>
 				<input value="新增" type="submit">
 				<input value="清除" type="reset">

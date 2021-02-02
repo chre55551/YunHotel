@@ -6,6 +6,7 @@
     overflow-x:hidden;
     overflow-y:auto;
 }
+/*====================================================*/
 /* 頁首 */
 header{
     margin:0 auto;
@@ -37,12 +38,7 @@ header ul li a:visited{
 header ul li a:hover{
     color: #8a97a5;
 }
-
-body{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
-}
+/*====================================================*/
 /* 主體 */
 .main{
     padding-top: 50px;
@@ -52,57 +48,312 @@ body{
     background: rgba(94, 73, 68, 0.5); /* 整個網頁壓暗的程度 */
     flex: 1 0 auto; /* 頁首頁尾剩的空間 */
 }
-/* 內容 */
+/*====================================================*/
+/*有訂房的第一區塊*/
+.first{
+	min-height: 100vh;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('http://localhost:8080/YunHotel/image/indexbg.jpeg');
+}
+.firstDark{
+	min-height: 100vh;
+	background: rgba(94, 73, 68, 0.52); /* 整個網頁壓暗的程度 */
+}
+/*====================================================*/
+.title{
+	margin-top: 150px;
+	width: 300px;
+	height:300px;
+}
+/*====================================================*/
+/* 內容(index沒有這項) */ 
 .container{
-    margin-top: 450px;
+    margin-top: 100px;
     width: 1000px;
     height: 600px;
     text-align: center;
-    /* background-color: rgb(212, 194, 160); */
 }
+/*====================================================*/
 /* Date標題字 */
 .dateF{
     float: left;
-    color: white;
-    font-size: 1.4em;
-    font-weight:bold; /* 粗體 */
+    color: #212e3d;
+    font-size: 1.3em;
+    font-weight: bold;
 }
 /* Date下面那整條 */
 .dateline{
+	margin-top: 70px;
+	padding-top:20px;
     float: left;
     display:block;
-    /* background-color: rgb(243, 176, 165); */
+    text-align: center;
+    background-color: rgb(255, 255, 255,0.4);
+    width: 100vw;
+    height: 150px;
+}
+/*調整整條內容位置用*/
+.dateline2{
+	margin-left: 450px;
+
 }
 .D1{
     float: left;
+    margin-right: 15px;
 }
 /* Date的input */
 .datepicker{
-    margin-top: -10px;
+    margin-top: -5px;
     padding-left: 15px;
     width: 200px;
     height: 70px;
-    background-color: #212e3d;
-    opacity: 0.6;
+    background-color: rgb(15, 37, 64,0.3);
     color: white;
     font-size: 1.4em;
     font-family:"Trebuchet MS";
-    border:2px solid white;
+    border:1px solid white;
     /* position:absolute; */
     z-index:-1; 
 }
 .datepic{
     margin-left: -40px;
-    margin-top: 10px;
-    position:absolute;
+    margin-top: -5px;
+/*     position:absolute; */
     z-index:0; /* 讓日曆圖疊在輸入框上 */
 }
+/*====================================================*/
+/* 馬上訂房按鈕的位置 */
+.ORbtnposition{
+	margin-top: 25px;
+	margin-left: 20px;
+}
+.ORbtn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #577C8A;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.ORbtn p {
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.5s;
+}
 
+.ORbtn p:after {
+  content: '»';
+  margin-top:-2px;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.ORbtn:hover p {
+  padding-right: 25px;
+}
+
+.ORbtn:hover p:after {
+  opacity: 1;
+  right: 0;
+}
+/*====================================================*/
+/*浮動訂位*/
+.abgne_float {
+	display: none;
+	position: absolute;
+	width: 150px;
+	height:150px;
+	border-radius:5px;
+/* 	padding-top: 11px; */
+/* 	padding-left: 9px; */
+/* 	border: 2px #5082be solid; */
+    background-color: #0F2540;
+/* 	background-image: url('http://localhost:8080/YunHotel/image/float.png'); */
+}
+.abgne_float_pos{
+	margin-top: 30px;
+}
+.abgne_OR{
+/* 	margin:0 auto; */
+	margin-top:20px;
+	width: 100px;
+	height:40px;
+/* 	background-color:rgba(15,37,64,0.7); */
+	padding-top: 8px;
+	border: 2px #fff solid;
+	border-radius:5px;
+	color: white;
+	font-size:1.2em;
+	font-weight: bold;
+}
+
+/*====================================================*/
+/*Yun Hotel介紹這塊*/
+.middle{
+	width:100vw;
+	height:270px;
+	background-color: white;
+}
+/*Yun Hotel介紹這塊的字_位置調整*/
+.middlepos{
+	padding-top:50px;
+	text-align: center;
+	width: 500px;
+}
+/*澐Hotel標題字*/
+.middleF{
+	font-weight: bold;
+	font-size: 1.8em;
+	text-align: center;
+	color: #0F2540;
+}
+/*澐Hotel介紹小字*/
+.middleF_introduce{
+	padding-top:5px;
+	font-size: 1.2em;
+	text-align: center;
+	color: #0F2540;
+}
+/*====================================================*/
+.third{
+	height:1200px;
+	background-color: #d6d9d7;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*房型介紹的div，用來調位置*/
+.room_intro_div{
+	float:left;
+	margin-top:100px;
+	margin-left:100px;
+	width: 700px;
+	height:720px;
+}
+
+/*房間介紹*/
+.room_introduce{
+	width: 700px;
+	height:720px;
+	background-size:cover;
+	background-image: url('http://localhost:8080/YunHotel/image/test/img_4.jpg');
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*食物介紹的div，用來調位置*/
+.food_intro_div{
+	float:right;
+	margin-top:100px;
+	margin-right:100px;
+	width: 600px;
+	height:350px;
+}
+
+/*食物介紹*/
+.food_introduce{
+	width: 600px;
+	height:350px;
+	background-size:cover;
+	background-image: url('http://localhost:8080/YunHotel/image/steak.jpg');
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*SPA介紹的div，用來調位置*/
+.spa_intro_div{
+	float:right;
+	margin-top:20px;
+	margin-right:100px;
+	width: 600px;
+	height:350px;
+}
+
+/*SPA介紹*/
+.spa_introduce{
+	width: 600px;
+	height:350px;
+	background-size:cover;
+	background-image: url('http://localhost:8080/YunHotel/image/spa.jpg');
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*左遮罩*/
+.thirdDark_left{
+	width: 700px;
+	height:720px;
+	background-size:cover;
+	transition: 1s; 
+}
+/*滑鼠滑過_遮罩*/
+.thirdDark_left:hover{
+	transition: 0.8s; /*1秒後才完全遮罩*/
+	background: rgba(67, 67, 67, 0.7); 
+}
+/*滑鼠滑過_不顯示超連結底線*/
+.thirdDark_left:hover a{
+	text-decoration:none;
+}
+/*右遮罩*/
+.thirdDark_right{
+	width: 600px;
+	height:350px;
+	background-size:cover;
+	transition: 1s; 
+}
+/*滑鼠滑過_遮罩*/
+.thirdDark_right:hover{
+	transition: 0.8s; /*1秒後才完全遮罩*/
+	background: rgba(67, 67, 67, 0.7); 
+}
+/*滑鼠滑過_不顯示超連結底線*/
+.thirdDark_right:hover a{
+	text-decoration:none;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*左標題字*/
+.thirdF_left{
+	margin-top:290px;
+	color:#fff;
+	font-size: 2.4em;
+	font-weight: bold;
+}
+/*右標題字*/
+.thirdF_right{
+	margin-top:120px;
+	color:#fff;
+	font-size: 2.4em;
+	font-weight: bold;
+}
+/*查看更多_先隱藏*/
+.thirdmin{
+	display:none; /*隱藏*/
+	transition: 0.5s;
+}
+/*查看更多_滑鼠滑過才顯示小字*/
+.thirdDark_left:hover .thirdmin,.thirdDark_right:hover .thirdmin{
+	font-size:1.2em;
+	color:white;
+	display:block; /*顯示(佔個區塊)*/
+	transition: 0.8s;
+}
+/*====================================================*/
+.map_pos{
+	margin-top: 100px;
+}
+/*====================================================*/
 /* 頁尾 */
 .footer{
-    height: 20px;
+    height: 50px;
     width: 100vw;  /*寬度=網頁寬 */
     text-align: center;
     background-color: #0F2540;
     color: white;
 }
+.CoF{
+	padding-top: 15px;
+}
+

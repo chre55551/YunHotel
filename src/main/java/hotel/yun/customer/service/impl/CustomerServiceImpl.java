@@ -1,13 +1,16 @@
 package hotel.yun.customer.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import hotel.yun.bmember.model.BmemberBean;
 import hotel.yun.customer.dao.CustomerDao;
 import hotel.yun.customer.model.Customer;
+import hotel.yun.customer.model.Member;
 import hotel.yun.customer.service.CustomerService;
 
 @Transactional
@@ -22,23 +25,31 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer insert(Customer cBean) {
-		return cDao.insert(cBean);
+	public Customer insertC(Customer cBean) {
+		Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());	
+		cBean.getMember().setregister_Time(ts);
+		return cDao.insertC(cBean);
+		
 	}
 
 	@Override
-	public List<Customer> queryAll(int customer_id) {
-		return cDao.queryAll(customer_id);
+	public Member insertM(Member mBean) {
+		return cDao.insertM(mBean);
+		
 	}
 
 	@Override
-	public Customer update(Customer cBean) {
-		return cDao.update(cBean);
+	public List<Customer> queryAll() {
+		return cDao.queryAll();
+	}
+	@Override
+	public Customer update(Customer cu) {
+		return cDao.update(cu);
 	}
 
 	@Override
-	public void delete(int customer_id) {
-		cDao.delete(customer_id);
+	public void delete(int member_id) {
+		cDao.delete(member_id);
 
 	}
 
@@ -47,4 +58,27 @@ public class CustomerServiceImpl implements CustomerService {
 		return cDao.query(c);
 
 	}
+
+	@Override
+	public Member checkIdPassword(String account, String password) {
+
+		return cDao.checkIdPassword(account, password);
+	}
+
+	@Override
+	public Customer queryByAc(String s) {
+		Customer c = cDao.queryByAc(s);
+		return c;
+	}
+
+	@Override
+	public Customer memquerycut(Customer c) {
+		
+		return cDao.memquerycut(c);
+	}
+
+	@Override
+	public Customer queryByAc1(String s) {
+		return cDao.queryByAc1(s);
+}
 }

@@ -13,34 +13,30 @@
 
     <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-
-        <div class="container">
+	
+    <div class="right">
+        <p class="title">會員</p>
+        <p class="hr"></p>
+        
+     <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        	
             <ul class="ALLdiamond">
             
-            
-                
-  
-            <li class="diamond">
-                <a href="ShowBmember" class="diamondtxt">顯示所有會員</a>
+            <li class="diamond_M">
+                <a href="ShowBmember" class="diamondtxt_M">顯示後台所有會員</a>
             </li>
-            <li class="diamond">
-                <a href="InsertBmemberBM" class="diamondtxt">新增會員</a>
+            <li class="diamond_M">
+                <a href="InsertBmemberBM" class="diamondtxt_M">&emsp;新增後台會員</a>
             </li>
-            <li class="diamond">
-                <a href="QueryBmember" class="diamondtxt">查詢會員</a>
+            <li class="diamond_M">
+                <a href="QueryBmember" class="diamondtxt_M">&emsp;查詢後台會員</a>
             </li>
-            <li class="diamond">
-                <a href="UpdateBmember" class="diamondtxt">修改會員</a>
+             <li class="diamond_M">
+                <a href="ShowRMember" class="diamondtxt_M">&emsp;顯示顧客資料</a>
             </li>
-            <li class="diamond">
-                <a href="DeleteBmember" class="diamondtxt">刪除會員</a>
-            </li>
-            
-            
-            
-            
-            
-
+           
             </ul>
         </div>
     </div>

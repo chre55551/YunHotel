@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -40,13 +41,18 @@ public class Room implements Serializable {
 	@JsonIgnore
 	private List<OrderedToRoom> orderedToRoom = new ArrayList<>();
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER,  cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinColumn(name = "room_typeid")
 	private RoomType roomType;
 	
-	@JsonIgnore
-    @ManyToMany(mappedBy = "rooms")
-    private Set<Rdate> date = new HashSet<Rdate>();
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+	@JoinTable(name = "room_rdate", 
+	    joinColumns = {
+			@JoinColumn(name = "fk_room_id", referencedColumnName = "room_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "fk_rdate_id", referencedColumnName = "rdate_id") })
+    private Set<Rdate> rdates_to_rooms = new HashSet<Rdate>();
 	
 	
 	public Room() {
@@ -105,12 +111,12 @@ public class Room implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<Rdate> getDate() {
-		return date;
+	public Set<Rdate> getRdates() {
+		return rdates_to_rooms;
 	}
 
-	public void setDate(Set<Rdate> date) {
-		this.date = date;
+	public void setRdates(Set<Rdate> date) {
+		this.rdates_to_rooms = date;
 	}
 
 

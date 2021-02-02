@@ -13,25 +13,26 @@
 
     <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-
-        <div class="container">
+    
+     <div class="right">
+     <p class="title">房務</p>
+     <p class="hr"></p>
+        
+     <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        	
             <ul class="ALLdiamond">
            
             <li class="diamond">
                 <a href="QueryAllRooms" class="diamondtxt">所有房型</a>
             </li>
             <li class="diamond">
-                <a href="ShowBlankInsertForm" class="diamondtxt">新增房型</a>
+                <a href="ShowBlankInsertRoomForm" class="diamondtxt">新增房型</a>
             </li>
             <li class="diamond">
-                <a href="ShowBlankQueryForm" class="diamondtxt">查詢房型</a>
-            </li>
-            <li class="diamond">
-                <a href="" class="diamondtxt">修改房型</a>
-            </li>
-            <li class="diamond">
-                <a href="" class="diamondtxt">刪除房型</a>
-            </li>
+                <a href="ShowBlankQueryRoomForm" class="diamondtxt">查詢房型</a>
+          
             
             
             
@@ -39,6 +40,7 @@
             
 
             </ul>
+            </div>
         </div>
     </div>
 
