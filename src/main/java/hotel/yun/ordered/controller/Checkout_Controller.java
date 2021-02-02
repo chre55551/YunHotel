@@ -70,6 +70,15 @@ public class Checkout_Controller {
 		Rdate rdate = dser.queryByRoomDate(lastUseDay);
 		
 		Ordered od = oser.queryOdByRoomAndRdate(room,rdate);
+		System.out.println(od.getOrdered_number());
+		System.out.println(od.getOrdered_number());
+		System.out.println(od.getOrdered_number());
+		System.out.println(od.getOrdered_number());
+		System.out.println(od.getOrderedToRoom().getRdates());
+		System.out.println(od.getOrderedToRoom().getRdates());
+		System.out.println(od.getOrderedToRoom().getRdates());
+		System.out.println(od.getOrderedToRoom().getRdates());
+//		return "ordered/checkoutQueryRoomOd";
 		model.addAttribute("od", od);
 		model.addAttribute("room", od.getOrderedToRoom().getRoom());//房間
 		model.addAttribute("rdates", od.getOrderedToRoom().getRdates());//退房日期
