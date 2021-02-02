@@ -41,10 +41,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<th>訂單編號</th>
-							<th>訂單類型</th>
-							<th>訂單狀態</th>
-							<th>成立時間</th>
+							<th class="orthpos">訂單編號</th>
+							<th class="orthpos">訂單類型</th>
+							<th class="orthpos">訂單狀態</th>
+							<th class="orthpos">成立時間</th>
 						</tr>
 						<c:forEach var="od" items="${odl}" varStatus="state">
 							<tr>
@@ -68,7 +68,7 @@
 								<%-- 								<td>${od.orderedPayment.bill_status}</td> --%>
 								<td>${od.orderedStatus.ordered_status}</td>
 								<td>${od.ordered_date}</td>
-								<td><button onclick="location.href='/YunHotel/ordered/outsidethisOrdered'">查詢</button></td>
+								<td><button onclick="location.href='/YunHotel/ordered/outsidethisOrdered/YunHotel/ordered/thisOrdered/${ordered.ordered_number}'">查詢</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
