@@ -24,17 +24,17 @@
 			class="container">
 			<div id="basic">
 				<div class="bormm2">
-					<label class="bormt">姓名</label> <input name="chinese_name" class="bodsm"/>
-					<label class="bormt">手機</label> <input name="mobile_phone" class="bodsm"/>
+					<label class="bormt">姓名</label> <input name="chinese_name" class="bodsm" style="margin:auto"/>
+					<label class="bormt">手機</label> <input name="mobile_phone" class="bodsm" style="margin:auto"/>
 				</div>
 			</div>
-			<div class="bormm2">
-				<label class="bormt">身分證</label> <input name="idcard_number" class="bodsm" style="margin-left: 25px"/>
-				<label class="bormt">生日</label> <input name="birthday" type="date" class="bodsm"/>
+			<div class="bormm2"">
+				<label class="bormt">身分證</label> <input name="idcard_number" class="bodsm" style="margin:auto"/>
+				<label class="bormt">生日</label> <input name="birthday" type="date" class="bodsm" style="margin:auto"/>
 			</div>
 			<div class="bormm2">
-				<label class="bormt">地址</label> <input name="address" class="bodsm"/>
-				<label class="bormt">房型</label> <select name="room_type" id="room_type" class="bodsm">
+				<label class="bormt">地址</label> <input name="address" class="bodsm" style="margin:auto"/>
+				<label class="bormt">房型</label> <select name="room_type" id="room_type" class="bodsm" style="margin:auto">
 					<option selected>請選擇欲訂的房型</option>
 					<option>普通兩人房</option>
 					<option>豪華兩人房</option>
