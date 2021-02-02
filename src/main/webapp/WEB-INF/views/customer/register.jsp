@@ -119,7 +119,7 @@
 										let defaultJob = "工程師";
 										let defaultEmail = "test123@gmail.com";
 										let defaultCard = "A123456765";
-										let defaultDate = new Date().toISOString().slice(0,10);
+										let defaultDate = new Date("1996-06-21").toISOString().slice(0,10);
 										let defaultName = "大帥哥"
 										let defaultAddress = "台北市大安區";
 
