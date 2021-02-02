@@ -69,7 +69,7 @@
 								<td>${od.orderedStatus.ordered_status}</td>
 								<td>${od.ordered_date}</td>
 								<td><button  class="ormBtn" onclick="location.href='/YunHotel/ordered/outsidethisOrdered/${od.ordered_number}'">查詢</button></td>
-								<td><button  class="ormBtn" id="cancel">取消訂單</button></td>
+								<td><button  class="ormBtn2" type="button" onclick="location.href='/YunHotel/ordered/outsideQueryCustomerOd/${od.ordered_number}'">取消訂單</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -92,19 +92,25 @@
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 	<script type="text/javascript">
-	$('#cancel').click(function(){
-		$.ajax({
-			url:'http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd/cancelOrdered'
-			type:'POST'
-			dataType:'json'
-			success:function(data){
-				$("#success").tml(data.msg);
-			},
-			error:function(){
-				alert("不可修改");
-			}
-		})
-	})
+// 	$('#cancel').click(function(){
+// 		$.ajax({
+// 			url:'http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd/cancelOrdered'
+// 			type:'POST'
+// 			dataType:'json'
+// 			data: {ordered_number : $("#ordered_number").val(),
+// 				   ordered_status : "已成立",	
+// 			},
+// 			success:function(data){
+// 				$("#success").tml(data.msg);
+// 				let cc = data
+// 				var my_data = '';
+// 				$('#success').append(my_data);
+// 			},
+// 			error:function(){
+// 				alert("不可修改");
+// 			}
+// 		})
+// 	})
 	</script>
 </body>
 </html>

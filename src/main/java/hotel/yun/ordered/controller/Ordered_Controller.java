@@ -71,10 +71,10 @@ public class Ordered_Controller {
 //-----------------------------------------------------------------------------------------------------
 	// 後台的進入點
 	@GetMapping("/indexOrdered")
-	public String indexOrdered(Model model ,HttpSession session) {
+	public String indexOrdered(Model model, HttpSession session) {
 		String kk = (String) session.getAttribute("BLoginOK");
 		if (kk != null) {
-		return "ordered/ordered";
+			return "ordered/ordered";
 		} else {
 			return "login/PleaseLoginInBS";
 		}
@@ -104,12 +104,12 @@ public class Ordered_Controller {
 	// 訂餐~~~~~~~~~
 	@GetMapping("/insertMealsOd")
 	public String ShowMealsOrdered(Model model, HttpSession session) {
-		String kk = (String)session.getAttribute("BLoginOK");
-		if(kk!=null) {
-		Ordered od = new Ordered();
-		model.addAttribute("odd", od);
-		return "ordered/insertMealsOd";
-		}else {
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
+			Ordered od = new Ordered();
+			model.addAttribute("odd", od);
+			return "ordered/insertMealsOd";
+		} else {
 			return "login/PleaseLoginInBS";
 		}
 	}
@@ -259,11 +259,11 @@ public class Ordered_Controller {
 	// 送出空白的表單，來接住使用者輸入的值 訂位~~~~
 	@GetMapping("/outsideInsertMealsOd")
 	public String outsideShowMealsOrdered(Model model, HttpSession session) {
-		if(session.getAttribute("LoginOK")!=null) {
+		if (session.getAttribute("LoginOK") != null) {
 			Ordered od = new Ordered();
 			model.addAttribute("odd", od);
-		return "ordered/outsideInsertMealsOd";
-		}else {
+			return "ordered/outsideInsertMealsOd";
+		} else {
 			return "customer/Login";
 		}
 	}
@@ -325,7 +325,7 @@ public class Ordered_Controller {
 		System.out.println(od);
 		System.out.println(od);
 		System.out.println(od);
-		
+
 		Ordered odd;
 		try {
 			odd = service.insert(od);
@@ -343,16 +343,17 @@ public class Ordered_Controller {
 	@GetMapping("/outsideInsertRoomOd")
 	public String outsideShowRoomOrdered(@RequestParam(value = "rdate", required = false) String rdate,
 			@RequestParam(value = "rdateEnd", required = false) String rdateEnd, Model model, HttpSession session) {
-		if(session.getAttribute("LoginOK")!=null) {
-		Ordered od = new Ordered();
-		model.addAttribute("odd", od);
-		try {
-		model.addAttribute("rdate", rdate);
-		model.addAttribute("rdateEnd", rdateEnd);
-		}catch(Exception e) {
-			
-		}
-		return "ordered/outsideInsertRoomOd";}else {
+		if (session.getAttribute("LoginOK") != null) {
+			Ordered od = new Ordered();
+			model.addAttribute("odd", od);
+			try {
+				model.addAttribute("rdate", rdate);
+				model.addAttribute("rdateEnd", rdateEnd);
+			} catch (Exception e) {
+
+			}
+			return "ordered/outsideInsertRoomOd";
+		} else {
 			return "customer/Login";
 		}
 	}
@@ -360,8 +361,7 @@ public class Ordered_Controller {
 	// 讓使用者輸入，就可以新增進去，取他的值導到查詢頁面 訂房~~~~~~~~~‵
 //	@SuppressWarnings("rawtypes")
 	@PostMapping("/outsideCustomerRoomOd")
-	public String outsideinsertRoomOrdered(
-			@RequestParam(value = "room_name") String room_name,
+	public String outsideinsertRoomOrdered(@RequestParam(value = "room_name") String room_name,
 			@RequestParam(value = "room_type", required = false) String room_type, // 可以不用
 			@RequestParam(value = "rdate", required = false) Date rdate,
 			@RequestParam(value = "rdateEnd", required = false) Date rdateEnd,
@@ -417,7 +417,7 @@ public class Ordered_Controller {
 //		OrderedStatus os = new OrderedStatus();
 //		os.setStatus_id(1);
 //		od.setOrderedStatus(os);
-		
+
 //		OrderedPayment op = new OrderedPayment();
 //		op.setPayment_id(1);
 //		od.setOrderedPayment(op);
@@ -463,7 +463,7 @@ public class Ordered_Controller {
 		} catch (Exception e) {
 
 		}
-		
+
 		try {
 			model.addAttribute("meals", ordered.getOrderedToMeals().getMeals());
 		} catch (Exception e) {
@@ -473,12 +473,12 @@ public class Ordered_Controller {
 	}
 
 //-----------------------------------------------------------------------------------------------------
-	
+
 	// 前台 需要從顧客查詢到他的訂單 ~~~~~~~~~~~~~~~~~~~
-	
+
 	@RequestMapping("/outsideQueryCustomerOd")
 	public String outsideQueryCustomerOd(Model model, HttpSession session) {
-		if(session.getAttribute("LoginOK")!=null) {
+		if (session.getAttribute("LoginOK") != null) {
 			Customer ct = new Customer();
 
 			try {
@@ -536,19 +536,19 @@ public class Ordered_Controller {
 				}
 
 				model.addAttribute("odl", odl);
-				
-					if(!rooms.isEmpty()) {
-						model.addAttribute("rooms", rooms);
-					}
-					if(!rdates.isEmpty()) {
-						model.addAttribute("rdates", rdates);
-					}
-					if(!mdates.isEmpty()) {
-						model.addAttribute("mdates", mdates);
-					}
-					if(!otms.isEmpty()) {
-						model.addAttribute("otms",otms);
-					}
+
+				if (!rooms.isEmpty()) {
+					model.addAttribute("rooms", rooms);
+				}
+				if (!rdates.isEmpty()) {
+					model.addAttribute("rdates", rdates);
+				}
+				if (!mdates.isEmpty()) {
+					model.addAttribute("mdates", mdates);
+				}
+				if (!otms.isEmpty()) {
+					model.addAttribute("otms", otms);
+				}
 
 //			java.lang.String gson = new Gson().toJson(odl);
 				// List<Object> list = new ArrayList<Object>();
@@ -584,9 +584,9 @@ public class Ordered_Controller {
 				e.printStackTrace();
 			}
 			return "ordered/outsideQueryCustomerOd";
-		}else {
+		} else {
 			return "customer/Login";
-			}
+		}
 
 	}
 
@@ -609,7 +609,7 @@ public class Ordered_Controller {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		try {
 			model.addAttribute("otm", ordered.getOrderedToMeals());
 			model.addAttribute("meals", ordered.getOrderedToMeals().getMeals());
@@ -618,8 +618,20 @@ public class Ordered_Controller {
 		}
 		return "ordered/outsidethisOrdered";
 	}
-	
-	
+
+	// 前台 修改訂單狀態成取消
+	@GetMapping("/outsideQueryCustomerOd/{ordered_number}")
+	public String cancelOrdered(@PathVariable(value = "ordered_number") int ordered_number, HttpSession session,
+			Model model) {
+				Ordered ordered = service.queryOrderNum(ordered_number);
+				if(ordered.getOrderedStatus().getStatus_id() == 1) {
+					ordered.getOrderedStatus().setStatus_id(3);
+				}
+				service.updateCustomerOd(ordered);
+				
+				return "redirect:/ordered/outsideQueryCustomerOd";
+	}
+
 //	public String outsidesingleOrderedss(
 //			@PathVariable(value = "ordered_number") 
 //			int ordered_number, 
@@ -666,7 +678,6 @@ public class Ordered_Controller {
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
-
 
 //-----------------------------------------------------------------------------------------------------
 	// 更新s
@@ -731,7 +742,7 @@ public class Ordered_Controller {
 			ordered.getCustomer().setIdcard_number(idcard_number);
 			ordered.getCustomer().setAddress(address);
 		}
-		try {	
+		try {
 			DateTime rdateDT = DateToDateTime(rdate);
 			DateTime rdateEndDT = DateToDateTime(rdateEnd);
 			Set<DateTime> range = getDateRange(rdateDT, rdateEndDT);// 產生 入住日期至退房日期的所有日期
@@ -778,7 +789,7 @@ public class Ordered_Controller {
 			} catch (Exception qqq) {
 				qqq.printStackTrace();
 			}
-		}catch(Exception www) {
+		} catch (Exception www) {
 			System.out.println("非房間訂單或房間訂單出 bug 啦");
 		}
 		try {
@@ -802,7 +813,7 @@ public class Ordered_Controller {
 			} catch (Exception e) {
 
 			}
-		}catch(Exception eee) {
+		} catch (Exception eee) {
 			System.out.println("非餐點訂單或是餐點訂單出 bug 啦");
 		}
 
@@ -810,7 +821,7 @@ public class Ordered_Controller {
 			OrderedStatus os = service.queryStatusByS(ordered_status);
 			ordered.setOrderedStatus(os);
 		}
-		
+
 		if (ordered.getOrderedPayment() != null) {
 			OrderedPayment op = service.queryPaymentBys(bill_status);
 			ordered.setOrderedPayment(op);
@@ -826,8 +837,8 @@ public class Ordered_Controller {
 			model.addAttribute("room", ordered.getOrderedToRoom().getRoom());
 			model.addAttribute("roomType", ordered.getOrderedToRoom().getRoom().getRoomType());
 			model.addAttribute("rdates", ordered.getOrderedToRoom().getRdates());
-		}catch(Exception e) {
-			
+		} catch (Exception e) {
+
 		}
 		return "ordered/thisOrdered";
 	}
@@ -876,6 +887,3 @@ public class Ordered_Controller {
 		return rdates;
 	}
 }
-
-
-

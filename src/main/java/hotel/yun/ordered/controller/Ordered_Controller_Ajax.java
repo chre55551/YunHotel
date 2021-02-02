@@ -291,17 +291,18 @@ public class Ordered_Controller_Ajax {
     }
 	
 //-------------------------------------------------------------------------------------------------------------------------- 
-    //寫前台訂單可以直接取消的ajax
-    @PostMapping("/outsideQueryCustomerOd/cancelOrdered")
-    public @ResponseBody Ordered  cancelOrdered(
-    		@RequestParam(value = "ordered_number") int ordered_number,
-    		@RequestParam(value = "ordered_status") String ordered_status,
-    		Model model, 
-    		HttpSession session) {
-		Ordered ordered = service.queryOrderNum(ordered_number);
-		if(ordered.getOrderedStatus().getStatus_id() == 1) {
-			ordered.getOrderedStatus().setStatus_id(3);
-		}
-		return ordered;
-    }
+//    //寫前台訂單可以直接取消的ajax
+//    @PostMapping("/outsideQueryCustomerOd/cancelOrdered")
+//    public @ResponseBody Ordered  cancelOrdered(
+//    		@RequestParam(value = "ordered_number") int ordered_number,
+//    		@RequestParam(value = "ordered_status") String ordered_status,
+//    		Model model, 
+//    		HttpSession session) {
+//		Ordered ordered = service.queryOrderNum(ordered_number);
+//		if(ordered.getOrderedStatus().getStatus_id() == 1) {
+//			ordered.getOrderedStatus().setStatus_id(3);
+//		}
+//		service.updateCustomerOd(ordered);
+//		return ordered;
+//    }
 }
