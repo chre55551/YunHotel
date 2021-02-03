@@ -55,9 +55,9 @@
 			<div>
 				<label>緊急聯絡人：</label> <input name="emergency_contact"value="一兆"/>
 			</div>
-			<div>
-				<label>職位狀態：</label> <input name="news_content"value=""/>
-			</div>
+<!-- 			<div> -->
+<!-- 				<label>職位狀態：</label> <input name="news_content"value=""/> -->
+<!-- 			</div> -->
 
 																																				
 			<div>
