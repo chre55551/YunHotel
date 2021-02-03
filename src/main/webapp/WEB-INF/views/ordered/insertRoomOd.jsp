@@ -17,24 +17,31 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增房間訂單</h3>
-		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST"
-			class="container">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">新增房間訂單</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST" style="margin-left:350px;">
 			<div id="basic">
 				<div class="bormm2">
-					<label class="bormt">姓名</label> <input name="chinese_name" class="bodsm" style="margin:auto"/>
-					<label class="bormt">手機</label> <input name="mobile_phone" class="bodsm" style="margin:auto"/>
+					<label class="bormt">姓名</label> <input class="input" name="chinese_name" class="bodsm" style="margin:auto"/>
+					<label class="bormt">手機</label> <input class="input" name="mobile_phone" class="bodsm" style="margin:auto"/>
 				</div>
 			</div>
 			<div class="bormm2">
-				<label class="bormt">身分證</label> <input name="idcard_number" class="bodsm" style="margin:auto"/>
-				<label class="bormt">生日</label> <input name="birthday" type="date" class="bodsm" style="margin:auto"/>
+				<label class="bormt">身分證</label> <input class="input" name="idcard_number" class="bodsm" style="margin:auto"/>
+				<label class="bormt">生日</label> <input class="input" name="birthday" type="date" class="bodsm" style="margin:auto"/>
 			</div>
 			<div class="bormm2">
-				<label class="bormt">地址</label> <input name="address" class="bodsm" style="margin:auto"/>
-				<label class="bormt">房型</label> <select name="room_type" id="room_type" class="bodsm" style="margin:auto">
+				<label class="bormt">地址</label> <input class="input" name="address" class="bodsm" style="margin:auto"/>
+				<label class="bormt">房型</label> <select class="input" name="room_type" id="room_type" class="bodsm" style="margin:auto">
 					<option selected>請選擇欲訂的房型</option>
 					<option>普通兩人房</option>
 					<option>豪華兩人房</option>
@@ -45,8 +52,8 @@
 				</select>
 			</div>
 			<div id="QQQ" class="bormm2">
-				<label class="bormt">欲入住日期</label> <input name="rdate" type="date" id="rdate" class="bodsm"/>
-				<br /> <label class="bormt">欲退房日期</label> <input name="rdateEnd" type="date"
+				<label class="bormt">欲入住日期</label> <input class="input" name="rdate" type="date" id="rdate" class="bodsm"/>
+				<br /> <label class="bormt">欲退房日期</label> <input class="input" name="rdateEnd" type="date"
 					id="rdateEnd" class="bodsm"/>
 			</div>
 			<div class="bormm2">
@@ -56,7 +63,7 @@
 				<button id="zzz" type="button" class="bormb">查詢</button>
 			</div>
 			<div class="bormm">
-				<label class="bormt">備註</label> <input name="note" id="requestNote" class="bodsm"/>
+				<label class="bormt">備註</label> <input class="input" name="note" id="requestNote" class="bodsm"/>
 			</div>
 			<br>
 
@@ -66,8 +73,12 @@
 				<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
 
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 	<script>
 // 	' + room.room_name + '
