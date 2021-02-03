@@ -37,7 +37,7 @@
 			</tr>
 			<c:forEach var='NWS' items='${newsList}'>
 				<tr>
-					<td class="newsF">${NWS.news_updated_date}</td>
+					<td class="newsF">${NWS.news_date}</td>
 					<td class="newsFC">${NWS.news_content}</td>
 				</tr>
 			</c:forEach>

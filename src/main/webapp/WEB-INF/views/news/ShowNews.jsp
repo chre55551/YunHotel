@@ -21,9 +21,6 @@
         		
         <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
         	<div class="litletitle"> <!-- 灰色title -->	
-<!--         		<div class="ltF_div"> 按鈕	 -->
-<!--         			<a class="ltF" href='showinsertNews'>新增消息</a> -->
-<!--         		</div> -->
         	</div>
         		<div class="listtitle">
         		
