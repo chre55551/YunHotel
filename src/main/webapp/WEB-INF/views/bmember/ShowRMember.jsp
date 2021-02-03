@@ -10,7 +10,7 @@
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/backstage.css'
 	type="text/css" />
-<title>顯示會員</title>
+<title>前台顧客資料</title>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 			</c:otherwise>
 				</c:choose>
 			</table>
-			<br> <a href="<c:url value='/' />">回首頁</a>
+			<br> <a  style="margin-left:350px;" href="<c:url value='/' />">回首頁</a>
 				</div>
         </div>
         	

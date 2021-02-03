@@ -30,7 +30,7 @@
 			   <th width='56' height='20'>編號</th>
 			   <th width='130' height='20'>上傳時間</th>
 			   <th width='130' height='20'>更新時間</th>
-			   <th width='180' height='20'>消息內容</th>
+			   <th width='500' height='20'>消息內容</th>
 			   <th colspan='2' height='20'>維護</th>
 			</tr>
 			<c:forEach var='NWS' items='${newsList}'>
@@ -40,9 +40,9 @@
 					<td style="text-align:center">${NWS.news_updated_date}</td>
 					<td style="text-align:center">${NWS.news_content}</td>
 					
-					 <td><a
+					 <td style="text-align:center"><a
                         href="${pageContext.request.contextPath}/news/update/${NWS.news_id}">編輯</a></td>
-                    <td><a
+                    <td style="text-align:center"><a
                         href="${pageContext.request.contextPath}/news/DeleteNew/${NWS.news_id}">刪除</a></td>
 				</tr>
 			</c:forEach>

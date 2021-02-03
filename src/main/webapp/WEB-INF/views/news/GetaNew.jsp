@@ -24,7 +24,7 @@
         <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
         	<div class="litletitle"> <!-- 灰色title -->	
         	</div>
-        		<div class="listtitle">
+        		<div class="listtitle"  style="margin-left: 350px;">
         		
 	<h3>查詢第${NWS.news_id}則的消息</h3>
 	<p>編號: ${NWS.news_id}</p>

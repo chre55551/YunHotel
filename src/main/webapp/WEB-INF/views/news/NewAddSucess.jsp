@@ -18,15 +18,14 @@
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
     <div class="right">
-        <p class="title">新增消息</p>
+        <p class="title">新增成功</p>
         <p class="hr"></p>
         		
         <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
         	<div class="litletitle"> <!-- 灰色title -->	
         	</div>
-        		<div class="listtitle">
+        		<div class="listtitle" style="margin-left: 400px;">
 		<div>
-		<h2>新增成功！</h2>
 		<h3>編號：${NWS.news_id}</h3>
 		<p>上傳時間: ${NWS.news_date}</p>
 		<p>內容: ${NWS.news_content}</p>

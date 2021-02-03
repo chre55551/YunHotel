@@ -48,7 +48,7 @@
 			</c:otherwise>
 				</c:choose>
 			</table>
-			<br> <a href="<c:url value='/' />">回首頁</a>
+			<br> <a style="margin-left:350px;" href="<c:url value='/'/>">回首頁</a>
 				</div>
         </div>
         	

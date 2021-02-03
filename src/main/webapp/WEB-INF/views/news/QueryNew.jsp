@@ -26,13 +26,13 @@
         	</div>
         		<div class="listtitle">
         		
-		<form action="/YunHotel/news/getaNew" method="POST">
-			<div>
-				<label>編號</label> <input name="news_id"/>
+		<form action="/YunHotel/news/getaNew" method="POST"  style="margin-left: 350px;">
+			<div class="labelpos">
+				<label>編號</label> <input class="input" name="news_id"/>
 			</div>
 			
-			<div>
-				<input value="查詢" type="submit">
+			<div class="labelpos">
+				<input class="backbtn" value="查詢" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>

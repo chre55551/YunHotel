@@ -15,7 +15,7 @@
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
     
      <div class="right">
-     <p class="title">房務</p>
+     <p class="title">房間</p>
      <p class="hr"></p>
         
      <div class="litlte_allcontent"> <!-- 整個放內容白色區塊 -->	

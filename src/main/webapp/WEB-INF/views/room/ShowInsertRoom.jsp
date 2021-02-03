@@ -14,19 +14,31 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-		<h2>新增完成</h2><hr/>
+    <div class="right">
+        <p class="title">新增完成</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+
 		<h3>房型名稱：${rom.room_type}</h3>
 		<h3>房價: ${rom.room_price}</h3>
 		<h3>房間數量: ${rom.room_stock}</h3>
 <!-- 		<h3 id="myImg">房間圖片:</h3> -->
 <%-- 		<h3>房間圖片名稱: ${rom.room_image_name}</h3> --%>
-		<a href="<c:url value='IndexRoom'/> ">回房務</a>
-		</div>
-	</div>
+		<a href="<c:url value='IndexRoom'/> ">回房間</a>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
+    
 <%@ include file="../CommonTemplates/footer.jsp"%>
 
 	<script>

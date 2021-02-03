@@ -17,15 +17,14 @@
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
     <div class="right">
-        <p class="title">查詢後台會員</p>
+        <p class="title">新增成功</p>
         <p class="hr"></p>
         		
         <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
         	<div class="litletitle"> <!-- 灰色title -->	
         	</div>
-        		<div class="listtitle">
-        		
-		<h2>新增成功</h2><hr/>
+        		<div class="listtitle" style="margin-left:400px;">
+
 		<p>帳號: ${bb.bs_account}</p>
 		<p>密碼: ${bb.bs_password}</p>
 		<p>信箱: ${bb.bs_email}</p>

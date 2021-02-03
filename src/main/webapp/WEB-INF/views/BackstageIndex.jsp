@@ -26,26 +26,26 @@
         	<ul class="ALLdiamond">
 
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/bmember/IndexMember" class="diamondtxt">&emsp;會員</a>
+					<a href="${pageContext.request.contextPath}/bmember/IndexMember" class="diamondtxt">&ensp;會員</a>
 				</li>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/ordered/indexOrdered" class="diamondtxt">&emsp;訂單</a>
+					<a href="${pageContext.request.contextPath}/ordered/indexOrdered" class="diamondtxt">&ensp;訂單</a>
 				</li>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/employee/empindex"  class="diamondtxt">&emsp;員工</a>
+					<a href="${pageContext.request.contextPath}/employee/empindex"  class="diamondtxt">&ensp;員工</a>
 				</li>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/meals2/IndexMeals2" class="diamondtxt">&emsp;餐點</a>
+					<a href="${pageContext.request.contextPath}/meals2/IndexMeals2" class="diamondtxt">&ensp;餐點</a>
 				</li>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/room/IndexRoom" class="diamondtxt">&emsp;房務</a>
+					<a href="${pageContext.request.contextPath}/room/IndexRoom" class="diamondtxt">&ensp;房間</a>
 				</li>
 				<p style="width:150px;height:80px; "></p>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/news/newsindex" class="diamondtxt">&emsp;消息</a>
+					<a href="${pageContext.request.contextPath}/news/newsindex" class="diamondtxt">&ensp;消息</a>
 				</li>
 				<li class="diamond">
-					<a href="${pageContext.request.contextPath}/ordered/checkoutIndex" class="diamondtxt">&emsp;結帳</a>
+					<a href="${pageContext.request.contextPath}/ordered/checkoutIndex" class="diamondtxt">&ensp;結帳</a>
 				</li>
 			
 

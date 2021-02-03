@@ -12,19 +12,27 @@
 </head>
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
-
-    <div class="main">
-        	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-          	<h3>新增房間</h3>
-		<form action="/YunHotel/room/InsertRoom" method="POST" class="container" enctype="multipart/form-data" >
-			<div>
-				<label>房型名稱</label> <input name="room_type" id="requestRoomType" />
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">新增房間</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form action="/YunHotel/room/InsertRoom" method="POST" enctype="multipart/form-data"  style="margin-left: 350px;" >
+			<div class="labelpos">
+				<label>房型名稱</label> <input class="input" name="room_type" id="requestRoomType" />
 			</div>
-			<div>
-				<label>房價</label> <input name="room_price" id="requestRoomPrice" />
+			<div class="labelpos">
+				<label>房價</label> <input class="input" name="room_price" id="requestRoomPrice" />
 			</div>
-			<div>
-				<label>房型總數</label> <input name="room_stock" id="requestRoomStock" />
+			<div class="labelpos">
+				<label>房型總數</label> <input class="input" name="room_stock" id="requestRoomStock" />
 			</div>
 <!-- 			<div> -->
 <!-- 				<label>房型圖片</label>  -->
@@ -32,12 +40,17 @@
 <!-- 			</div> -->
 			
 	
-			<div>
-				<input value="新增" type="submit">
-                 <input value="清除" type="reset" >                       
+			<div class="labelpos">
+				<input class="backbtn" value="新增" type="submit">
+                 <input class="backbtn" value="清除" type="reset" >                       
             </div>
 	   </form>                    
-            </div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
     
 
   <%@ include file="../CommonTemplates/footer.jsp"%>

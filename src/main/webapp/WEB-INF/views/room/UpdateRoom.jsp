@@ -14,35 +14,45 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
-
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>修改房型</h3>
-		<form  method="POST" class="container">
+	
+    <div class="right">
+        <p class="title">修改房間</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form  method="POST"  style="margin-left: 350px;">
 		
-		
-		
-		
-			<div>
-				<label>房型名稱：</label> <input name="room_type_room_type" value="${Rtype}"/>
+			<div class="labelpos">
+				<label>房型名稱：</label> <input class="input" name="room_type_room_type" value="${Rtype}"/>
 			</div>
-			<div>
-				<label>房價：</label> <input name="room_type_room_price" value="${Rprice}"/>
+			<div class="labelpos">
+				<label>房價：</label> <input  class="input" name="room_type_room_price" value="${Rprice}"/>
 			</div>
-			<div>
-				<label>房型總數：</label> <input name="room_type_room_stock" value="${Rstock}"/>
+			<div class="labelpos">
+				<label>房型總數：</label> <input class="input" name="room_type_room_stock" value="${Rstock}"/>
 			</div>
 <!-- 			<p id="myImg">房間圖片:</p> -->
 <!-- 			<div> -->
 <!-- 				<label>房型圖片</label>  -->
 <!-- 				 <input type="file" name="room_type_room_Image"  onchange=""> -->
 <!-- 			</div> -->
-			<div>
-				<input value="修改" type="submit">
+			<div class="labelpos">
+				<input class="backbtn" value="修改" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+		</div>
+        </div>
+        	
+     </div>
+
+</div>
 	
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script>

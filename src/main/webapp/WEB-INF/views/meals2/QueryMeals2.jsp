@@ -14,21 +14,34 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
-
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>查詢餐點</h3>
-		<form action="/YunHotel/meals2/getaMeals2" method="POST" class="container">
-			<div>
-				<label>餐點編號</label> <input name="meals2_id"/>
+	
+    <div class="right">
+        <p class="title">查詢餐點</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+
+		<form action="/YunHotel/meals2/getaMeals2" method="POST" style="margin-left: 350px;">
+			<div class="labelpos">
+				<label>餐點編號</label> <input class="input" name="meals2_id"/>
 			</div>
 			
-			<div>
-				<input value="查詢" type="submit">
+			<div class="labelpos">
+				<input class="backbtn" value="查詢" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+		</div>
+        </div>
+        	
+     </div>
+
+</div>
 	
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">

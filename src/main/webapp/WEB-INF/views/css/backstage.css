@@ -180,10 +180,12 @@ body{
 	height:500px;
 	background-color:white;
 	overflow-y:hidden; 
+	font-size: 20px;
+	color: #0F2540;
 }
 .listtitle{
 	margin-top: 70px;
-	margin-left: 30px;
+	margin-left: 5px;
 } 
 .listtitle ul li{
 	margin-right:30px;
@@ -243,9 +245,9 @@ body{
     text-decoration: none;
 }
 .input{
-	width:120px;
+	width:180px;
 	height:25px;
-	background-color:#b5b5b6;
+	background-color:#e0e0e0;
 	font-size: 1em;
 }
 .backbtn{
@@ -254,6 +256,9 @@ body{
 	color: #FFFFFF;
 	font-size: 18px;
 	width: 70px;
+}
+.labelpos{
+	margin-top: 30px;
 }
 
 /* ========================================================== */

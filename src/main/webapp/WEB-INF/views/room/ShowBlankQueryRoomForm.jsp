@@ -12,27 +12,37 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
-
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>查詢</h3>
-		<form action="/YunHotel/room/ShowQueryRoom" method="Post" class="container">
-			<div>
-				<label>房型ID</label> <input name="room_typeid"/>
+	
+    <div class="right">
+        <p class="title">查詢房間</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form action="/YunHotel/room/ShowQueryRoom" method="Post" style="margin-left: 350px;">
+			<div class="labelpos">
+				<label>房型ID</label> <input class="input" name="room_typeid"/>
 			</div>
 			
-						<div>
-				<input value="查詢" type="submit">
-                 <input value="清除" type="reset" >
-
-            
-            
+				<div class="labelpos">
+				<input class="backbtn" value="查詢" type="submit">
+                 <input class="backbtn" value="清除" type="reset" >
             	</div>
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			
 		</form>
-	</div>
-	
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
+    
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
 

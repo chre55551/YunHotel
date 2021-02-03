@@ -27,15 +27,15 @@
         	</div>
         		<div class="listtitle">
         		
-		<form  method="POST">
-			<div>
-				<label>消息更新時間：</label> <input name="news_updated_date" type="date"/>
+		<form  method="POST"  style="margin-left: 350px;">
+			<div class="labelpos">
+				<label>消息更新時間：</label> <input class="input" name="news_updated_date" type="date"/>
 			</div>
-			<div>
-				<label>消息內容：</label> <input name="news_content"/>
+			<div class="labelpos">
+				<label>消息內容：</label> <input class="input" name="news_content"/>
 			</div>
-			<div>
-				<input value="修改" type="submit">
+			<div class="labelpos">
+				<input class="backbtn" value="修改" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>

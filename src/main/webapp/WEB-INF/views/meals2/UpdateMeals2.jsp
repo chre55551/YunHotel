@@ -14,30 +14,44 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
-
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		
-		<form  method="POST" class="container">
-		 <h3>修改餐點</h3>
-			<div>
-				<label>餐點類型：</label> <input name="meals2_meals2_type" />
+	
+    <div class="right">
+        <p class="title">修改餐點</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form  method="POST" style="margin-left: 350px;">
+
+			<div class="labelpos">
+				<label>餐點類型：</label> <input class="input" name="meals2_meals2_type" />
 			</div>
-			<div>
-				<label>餐點名稱：</label> <input name="meals2_meals2_name"/>
+			<div class="labelpos">
+				<label>餐點名稱：</label> <input class="input" name="meals2_meals2_name"/>
 			</div>
-		<div>
-				<label>餐點價格：</label> <input name="meals2_meals2_price"/>
+		   <div class="labelpos">
+				<label>餐點價格：</label> <input class="input" name="meals2_meals2_price"/>
 			</div>
-			<div>
-				<label>餐點庫存：</label> <input name="meals2_meals2_stock"/>
+			<div class="labelpos">
+				<label>餐點庫存：</label> <input class="input" name="meals2_meals2_stock"/>
 			</div>
-			<div>
-				<input value="修改" type="submit">
+			<div class="labelpos">
+				<input class="backbtn" value="修改" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+		</div>
+        </div>
+        	
+     </div>
+
+</div>
+	
 	
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">

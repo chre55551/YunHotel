@@ -23,7 +23,7 @@
         <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
         	<div class="litletitle"> <!-- 灰色title -->	
         	</div>
-        		<div class="listtitle">
+        		<div class="listtitle"  style="margin-left:400px;">
 	<h3>查詢第${qbm.bs_id}則的編號</h3>
 	<p>編號: ${qbm.bs_id}</p>
 	<p>帳號: ${qbm.bs_account}</p>

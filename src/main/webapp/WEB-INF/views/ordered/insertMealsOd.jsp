@@ -32,7 +32,7 @@
         		<div class="listtitle">
         		
         		
-		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" style="margin-left:350px;">
+		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" 	style="margin-left: 350px;">
 			<div class="bormm">
 				<label class="bormt">姓名: </label> <input class="input" name="chinese_name" id="requestCn" class="bodsm"/>
 			</div>

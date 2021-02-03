@@ -29,7 +29,7 @@
 			<li><img class="pic"
 				src="${pageContext.request.contextPath}/image/roomthing.png">
 				<a href="${pageContext.request.contextPath}/room/IndexRoom"
-				class="menutxt">房務</a></li>
+				class="menutxt">房間</a></li>
 			<li><img class="pic"
 				src="${pageContext.request.contextPath}/image/news.png"> <a
 				href="${pageContext.request.contextPath}/news/newsindex"

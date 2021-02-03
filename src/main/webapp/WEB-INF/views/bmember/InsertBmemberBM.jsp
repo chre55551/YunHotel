@@ -18,54 +18,44 @@
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
     <div class="right">
-        <p class="title">後台會員資料</p>
+        <p class="title">新增後台會員資料</p>
         <p class="hr"></p>
         		
         <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
         	<div class="litletitle"> <!-- 灰色title -->	
         	</div>
-        		<div class="listtitle">
-	
-			<table>
-				<form:form action="insertbmemberbb" method="post"
-					modelAttribute="bb">
-					<tr>
-						<td>帳號</td>
-						<td><form:input class="input" path="bs_account" id="bsac" /></td>
-
-					</tr>
-					<tr>
-						<td>密碼</td>
-						<td><form:input class="input" type="password" path="bs_password" id="bspwd" /></td>
-
-					</tr>
-					<tr>
-						<td>信箱</td>
-						<td><form:input class="input" path="bs_email" id="bsemail" /></td>
-
-					</tr>
-					<tr>
-						<td>權限</td>
-						<td><form:input class="input" path="authority" id="bsau" /></td>
-
-					</tr>
-					<tr>
-						<td>使用者名稱</td>
-						<td><form:input class="input" path="user_id" id="bsuser" /></td>
-
-					</tr>
-					
-					<div>
+        		<div class="listtitle" style="margin-left:350px;">
+				<table>
+				<form:form action="insertbmemberbb" method="post" modelAttribute="bb">
+					<div class="labelpos">
+						<label>帳號</label>
+						<form:input class="input" path="bs_account" id="bsac" />
+					</div>
+					<div class="labelpos">
+						<label>密碼</label>
+						<form:input class="input" type="password" path="bs_password" id="bspwd" /></td>
+					</div>
+					<div class="labelpos">
+						<label>信箱</label>
+						<form:input class="input" path="bs_email" id="bsemail" />
+					</div>
+					<div class="labelpos">
+						<label>權限</label>
+						<form:input class="input" path="authority" id="bsau" />
+					</div>
+					<div class="labelpos">
+						<label>使用者名稱</label>
+						<form:input class="input" path="user_id" id="bsuser" />
+					</div>
+					<div class="labelpos">
 						<a href="<c:url value='/'/> ">回首頁</a>
-						<input value="新增" type="submit">
+						<input class="backbtn" value="新增" type="submit">
 					</div>
 				
 				</form:form>
-
 			</table>
-			<div>
-				<button id="btn"></button>
-				</div>
+			</div>
+			
         </div>
         	
      </div>

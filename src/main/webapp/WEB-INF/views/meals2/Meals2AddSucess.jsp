@@ -14,11 +14,18 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-		<h2>新增成功</h2><hr/>
+    <div class="right">
+        <p class="title">新增成功</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle" style="margin-left: 400px;">
+        		
 		<h3>餐點編號：${MES.meals2_id}</h3>
 		<p>餐點類型: ${MES.meals2_type}</p>
 		<p>餐點價格: ${MES.meals2_price}</p>
@@ -26,7 +33,12 @@
 		
 		<a href="<c:url value='IndexMeals2'/> ">回餐點</a>
 		</div>
-	</div>
+        </div>
+        	
+     </div>
+
+</div>
+	
 <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

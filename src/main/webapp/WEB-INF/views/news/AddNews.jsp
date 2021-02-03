@@ -26,18 +26,18 @@
         	</div>
         		<div class="listtitle">
         		
-		<form action="/YunHotel/news/insertNews" method="POST">
+		<form action="/YunHotel/news/insertNews" method="POST" style="margin-left: 350px;">
 <!-- 			<div> -->
 <!-- 				<label>編號：</label> <input name="news_id"/> -->
 <!-- 			</div> -->
-			<div>
-				<label>消息上傳時間：</label> <input name="news_date" type="date"/>
+			<div class="labelpos">
+				<label>消息上傳時間：</label> <input class="input" name="news_date" type="date"/>
 			</div>
-			<div>
-				<label>消息內容：</label> <input name="news_content"/>
+			<div class="labelpos">
+				<label>消息內容：</label> <input class="input" name="news_content"/>
 			</div>
-			<div>
-				<input value="新增" type="submit">
+			<div class="labelpos">
+				<input class="backbtn" value="新增" type="submit">
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
