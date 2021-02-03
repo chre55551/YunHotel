@@ -16,11 +16,11 @@
     <div class="main">
         	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 
-        <div class="container">
+        <div class="container" style="text-align:center;">
             <ul class="ALLdiamond">
                 
-            <li class="diamond">
-                <a href="insertEmp" class="diamondtxt">員工資料</a>
+            <li class="diamond" >
+                <a href="insertEmp" class="diamondtxt" >員工資料</a>
             </li>
 <!--             <li class="diamond"> -->
 <!--               <a href="insertSch" class="diamondtxt">排班</a> -->
