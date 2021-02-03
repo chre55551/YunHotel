@@ -47,40 +47,32 @@
 							<th class="orthpos">成立時間</th>
 						</tr>
 						<c:forEach var="od" items="${odl}" varStatus="state">
-							<tr>
-								<td>${od.ordered_number}</td>
-								<c:choose>
-									<c:when test="${not empty od.orderedToMeals}">
-										<td>餐廳訂單</td>
+							<c:choose>
+								<c:when test="${od.orderedStatus.ordered_status!='已取消'}">
+									<tr>
+										<td>${od.ordered_number}</td>
+										<c:choose>
+											<c:when test="${not empty od.orderedToMeals}">
+												<td>餐廳訂單</td>
+											</c:when>
+										</c:choose>
+										<c:choose>
+											<c:when test="${not empty od.orderedToRoom}">
+												<td>房間訂單</td>
+											</c:when>
+										</c:choose>
+										<td>${od.orderedStatus.ordered_status}</td>
+										<td>${od.ordered_date}</td>
+										<td><button class="ormBtn"
+												onclick="location.href='/YunHotel/ordered/outsidethisOrdered/${od.ordered_number}'">查詢</button></td>
+										<td><button class="ormBtn2" type="button"
+												onclick="location.href='/YunHotel/ordered/outsideCancelCustomerOd/${od.ordered_number}'">取消訂單</button></td>
 										<%-- 										<td>${otms[state.count-1].mealsnum_of_people}</td> --%>
-										<%-- 										<td>${mdates[state.count-1].mdate}</td> --%>
-										<%-- 										<td>${mdates[state.count-1].time_period}</td> --%>
-									</c:when>
-								</c:choose>
-								<c:choose>
-									<c:when test="${not empty od.orderedToRoom}">
-										<td>房間訂單</td>
-										<%-- 										<td>${room[state.count-1].room_name}</td> --%>
-										<%-- 										<td>${room[state.count-1].roomType.room_type}</td> --%>
-										<%-- 										<td>${rdate[state.count-1].rdate}</td> --%>
-									</c:when>
-								</c:choose>
-								<%-- 								<td>${od.orderedPayment.bill_status}</td> --%>
-								<td>${od.orderedStatus.ordered_status}</td>
-								<td>${od.ordered_date}</td>
-								<td><button  class="ormBtn" onclick="location.href='/YunHotel/ordered/outsidethisOrdered/${od.ordered_number}'">查詢</button></td>
-								<td><button  class="ormBtn2" type="button" onclick="location.href='/YunHotel/ordered/outsideCancelCustomerOd/${od.ordered_number}'">取消訂單</button></td>
-							</tr>
+									</tr>
+								</c:when>
+							</c:choose>
 						</c:forEach>
 					</tbody>
-					<%-- 				<p>訂單編號: ${onum}</p> --%>
-					<%-- 				<p>姓名: ${name}</p> --%>
-					<%-- 				<p>手機: ${phone}</p> --%>
-					<%-- 				<p>訂單時間: ${odate}</p> --%>
-					<%-- 				<p>訂單狀態: ${ostatus}</p> --%>
-					<%-- 				<p>付款方式: ${oBill}</p> --%>
-					<!-- 				<br> <input class="ormBtn" type="button" value="回官網" -->
-					<!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
 				</table>
 			</div>
 		</div>
