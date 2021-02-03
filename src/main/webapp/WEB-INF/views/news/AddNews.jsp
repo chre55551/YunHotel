@@ -34,7 +34,7 @@
 				<label>消息上傳時間：</label> <input class="input" name="news_date" type="date"/>
 			</div>
 			<div class="labelpos">
-				<label>消息內容：</label> <input class="input" name="news_content"/>
+				<label>消息內容：</label> <input class="input" name="news_content" id="News"/>
 			</div>
 			<div class="labelpos">
 				<input class="backbtn" value="新增" type="submit">
@@ -48,5 +48,45 @@
 
 </div>
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
+	    
+	    		<button id="btn"></button>
+				
+	    		<script>
+					//抓與按鈕
+					let myBtn = document.getElementById("btn");
+					//設定點擊事件
+					myBtn
+							.addEventListener(
+									"click",
+									function() {
+										//設定預先輸入的值
+										let defaultType = "本飯店停車場車位有限，採先到先停制，恕無法預約保留，造成不便請見諒。";
+						
+								
+
+										//抓取目標input並填入值
+										document.getElementById("News").value = defaultType;
+					
+									})
+
+					//增加鍵盤敲擊事件
+					document
+							.addEventListener(
+									"keydown",
+									function(event) {
+										if (event.key == "x") { //如果按下的鍵為x鍵
+											//設定預先輸入的值
+									    let defaultType = "本飯店停車場車位有限，採先到先停制，恕無法預約保留，造成不便請見諒。";
+							
+								
+
+											//抓取目標input並填入值
+										document.getElementById("News").value = defaultType;
+								
+										}
+									})
+								
+						
+				</script>
 </body>
 </html>

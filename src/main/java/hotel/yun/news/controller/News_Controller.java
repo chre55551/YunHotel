@@ -101,6 +101,7 @@ public class News_Controller {
 	public String update(Model model, @PathVariable int news_id) {
 		News nw = service.queryNewID(news_id);
 		model.addAttribute("UpdateNew", nw);
+		model.addAttribute("Ncon",nw.getNews_content());
 		return "news/UpdateNew";
 	}
 	@PostMapping("/update/{news_id}")
