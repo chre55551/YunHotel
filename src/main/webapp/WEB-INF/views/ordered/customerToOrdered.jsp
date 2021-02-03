@@ -18,7 +18,7 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	<div class="main">
-		<table class="mytable container" id="container">
+		<table class="container" id="container">
 			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 			<thead>
 				<tr>
@@ -64,9 +64,7 @@
             	$('#clean').empty();
             	let fk = data
                 var this_data = '';
-            			this_data += '<div class="main">';
-            			this_data += '<table>';
-            			this_data += '<tbody>';
+            			this_data += '<table class="query1">';
             			this_data += '<tr>';
             			this_data += '<th>' + '訂單編號' + '</th>';
             			this_data += '<th>' + '姓名' + '</th>';
@@ -85,9 +83,7 @@
     					 		    this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                            			this_data += '</tr>';
                      				 };
-            			this_data += '</tbody>';
             			this_data += '</table>';
-            			this_data += '</div>';
                  						$('#clean').append(this_data);
                					  }else{
                 							 alert('查無資料');
