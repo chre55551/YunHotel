@@ -77,11 +77,11 @@
 				//設定點擊事件
 				myBtn.addEventListener("click", function() {
 					//設定預先輸入的值
-					let defaultAccount = "poky";
+					let defaultAccount = "chris";
 					let defaultPwd = "12345";
-					let defaultEmail = "123@gmail.com";
+					let defaultEmail = "12345@gmail.com";
 					let defaultbsau = "經理";
-					let defaultbsuser = "小魏";
+					let defaultbsuser = "億勳";
 
 					//抓取目標input並填入值
 					document.getElementById("bsac").value = defaultAccount;
@@ -99,11 +99,11 @@
 								function(event) {
 									if (event.key == "f") { //如果按下的鍵為f鍵
 										//設定預先輸入的值
-										let defaultAccount = "poky";
+										let defaultAccount = "chris";
 										let defaultPwd = "12345";
-										let defaultEmail = "123@gmail.com";
+										let defaultEmail = "12345@gmail.com";
 										let defaultbsau = "經理";
-										let defaultbsuser = "小魏";
+										let defaultbsuser = "億勳";
 
 										//抓取目標input並填入值
 										document.getElementById("bsac").value = defaultAccount;

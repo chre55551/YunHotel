@@ -49,9 +49,14 @@ public class Meals2_Controller {
 //--------------------------------------------------------------------------------------	
 	// 後台的進入點
 	@GetMapping("/IndexMeals2")
-	public String IndexMeals2(Model model) {
+	public String IndexMeals2(Model model,HttpSession session) {
+		String kk = (String) session.getAttribute("BLoginOK");
+		if (kk != null) {
 		return "meals2/IndexMeals2";
 
+		} else {
+			return "login/PleaseLoginInBS";
+		}
 	}
 	
 	// 官網的美食佳餚

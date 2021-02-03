@@ -34,8 +34,8 @@
 					class="container">
 <!-- 					<p>帳號:</p> -->
 <!-- 					<input type="text" name="account"></input> <br> -->
-					<p>密碼:</p>
-					<input type="password" name="password"></input> <br>
+<!-- 					<p>密碼:</p> -->
+<!-- 					<input type="password" name="password"></input> <br> -->
 <!-- 					<p>性別:</p> -->
 <!-- 					<input type="text" name="gender"></input> <br> -->
 <!-- 					<p>家裡電話:</p> -->
