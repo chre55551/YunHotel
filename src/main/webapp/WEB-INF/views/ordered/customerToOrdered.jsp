@@ -29,18 +29,24 @@
         	</div>
         		<div class="listtitle">
         		
-		<table id="container">
-			<thead>
+		<table id="container" style="width: 800px;height: 500px;">
+			<thead  style="width: 800px;height: 300px;">
 				<tr>
-					<th>姓名</th>
-					<td><input id="name" type="text"></td>
-					<th>電話</th>
-					<td><input id="phone" type="text"></td>
-					<td><input type="radio" name="r" id="status1" value="1">
+					<th style="width: 50px;">姓名</th>
+					<td>
+						<input id="name" type="text">
+					</td>
+					<th style="width: 50px;">電話</th>
+					<td>
+						<input id="phone" type="text">
+					</td>
+					<td style="width: 250px;">
+					<input type="radio" name="r" id="status1" value="1">
 						<label for="status1"> 已成立 </label> <input type="radio" name="r"
 						id="status2" value="2"> <label for="status2"> 已結單</label>
 						<input type="radio" name="r" id="status3" value="3"> <label
-						for="status3"> 全部 </label></td>
+						for="status3"> 全部 </label>
+					</td>
 					<td>
 						<div class="mycenter">
 							<button id="peko">查詢</button>
@@ -79,8 +85,7 @@
             	$('#clean').empty();
             	let fk = data
                 var this_data = '';
-            			this_data += '<table class="query1">';
-            			this_data += '<tr>';
+            			this_data += '<tr style="width: 800px;height: 100px;'+'">';
             			this_data += '<th>' + '訂單編號' + '</th>';
             			this_data += '<th>' + '姓名' + '</th>';
             			this_data += '<th>' + '電話' + '</th>';
@@ -90,15 +95,14 @@
             				if(fk != null){
             					for(let ordered of fk){
                        	 			this_data += '<tr>';
-                     	    		this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
-                     	    		this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
-                       	   		    this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
-                       			 	this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
-                       			    this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
+                     	    		this_data += '<td style="padding-left: 18px;">' + ordered.ordered_number + '</td>';//訂單編號
+                     	    		this_data += '<td style="padding-left: 80px;">' + ordered.customer.chinese_name + '</td>';//名字
+                       	   		    this_data += '<td style="padding-left: 10px;">' + ordered.customer.mobile_phone + '</td>';//電話
+                       			 	this_data += '<td style="padding-left: 80px;">' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
+                       			    this_data += '<td style="padding-left: 60px;">' + ordered.ordered_date + '</td>';//訂單成立日期
     					 		    this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                            			this_data += '</tr>';
                      				 };
-            			this_data += '</table>';
                  						$('#clean').append(this_data);
                					  }else{
                 							 alert('查無資料');
@@ -126,6 +130,13 @@
             	$('#clean').empty();
             	let fk = data
                 var this_data = '';
+            	this_data += '<tr style="width: 800px;height: 100px;'+'">';
+    			this_data += '<th>' + '訂單編號' + '</th>';
+    			this_data += '<th>' + '姓名' + '</th>';
+    			this_data += '<th>' + '電話' + '</th>';
+    			this_data += '<th>' + '訂單狀態' + '</th>';
+    			this_data += '<th>' + '訂單成立日期' + '</th>';
+    			this_data += '</tr>';
             		if(fk != null){
             			for(let ordered of fk){
                		    	this_data += '<tr>';
@@ -163,18 +174,13 @@
             	$('#clean').empty();
             	let fk = data
                 var this_data = '';
-            	
-            	
-//             	this_data += '<thead><tr><th>姓名</th><td><input id="name'+'" type='+'"text'+'"></td>	<th>電話</th><td><input id='+'"phone'+'" type='+'"text'+'"></td>	<td>';
-//             	this_data += '<input type="radio'+'" name='+'"r'+'" id='+'"status1'+'" value='+'"1'+'">';
-//             	this_data += '<label for="status1'+'"> 已成立</label>';
-//             	this_data += '<input type="radio'+'" name='+'"r'+'" id='+'"status2'+'" value='+'"2'+'">';
-//             	this_data += '<label for="status2'+'"> 已結單</label>';
-//             	this_data += '<input type="radio'+'" name='+'"r'+'" id='+'"status3'+'" value='+'"3'+'">';
-//             	this_data += '<label for="status3'+'"> 全部</label>';
-//             	this_data += '<td><div class="mycenter'+'">';
-//             	this_data += '<button id="peko'+'">查詢</button>'
-//             	this_data += '</div></td></tr></thead>'
+            	this_data += '<tr style="width: 800px;height: 100px;'+'">';
+    			this_data += '<th>' + '訂單編號' + '</th>';
+    			this_data += '<th>' + '姓名' + '</th>';
+    			this_data += '<th>' + '電話' + '</th>';
+    			this_data += '<th>' + '訂單狀態' + '</th>';
+    			this_data += '<th>' + '訂單成立日期' + '</th>';
+    			this_data += '</tr>';
 				if(fk != null){
 	             	for(let ordered of fk){
 	                 	this_data += '<tr>';
