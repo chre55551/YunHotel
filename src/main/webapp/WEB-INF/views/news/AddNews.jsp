@@ -14,11 +14,19 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
-
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增消息</h3>
-		<form action="/YunHotel/news/insertNews" method="POST" class="container">
+	
+    <div class="right">
+        <p class="title">新增消息</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form action="/YunHotel/news/insertNews" method="POST">
 <!-- 			<div> -->
 <!-- 				<label>編號：</label> <input name="news_id"/> -->
 <!-- 			</div> -->
@@ -33,8 +41,12 @@
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
-	
+		</div>
+        </div>
+        	
+     </div>
+
+</div>
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

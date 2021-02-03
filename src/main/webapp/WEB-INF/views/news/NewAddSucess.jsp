@@ -14,17 +14,29 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-		<h2>新增成功</h2><hr/>
+    <div class="right">
+        <p class="title">新增消息</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+		<div>
+		<h2>新增成功！</h2>
 		<h3>編號：${NWS.news_id}</h3>
 		<p>上傳時間: ${NWS.news_date}</p>
 		<p>內容: ${NWS.news_content}</p>
 		<a href="<c:url value='showinsertNews'/> ">回新增</a>
-		</div>
-	</div>
+			</div>
+        </div>
+        	
+     </div>
+
+</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>
