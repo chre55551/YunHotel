@@ -13,19 +13,33 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
+    <div class="right">
+        <p class="title">查詢消息</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
 	<h3>查詢第${NWS.news_id}則的消息</h3>
 	<p>編號: ${NWS.news_id}</p>
 	<p>上傳時間: ${NWS.news_date}</p>
 	<p>更新時間: ${NWS.news_updated_date}</p>
 	<p>消息內容: ${NWS.news_content}</p>
 		<a href="<c:url value='newsindex'/> ">回上一頁</a>
-		<a href="<c:url value='UpdateNew'/> ">修改消息</a>
-		</div>
-	</div>
+		<a href="<c:url value='update/${NWS.news_id}'/> ">修改消息</a>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
+
 <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

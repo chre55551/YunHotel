@@ -15,10 +15,19 @@
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
 
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>修改消息</h3>
-		<form  method="POST" class="container">
+	
+    <div class="right">
+        <p class="title">修改消息</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form  method="POST">
 			<div>
 				<label>消息更新時間：</label> <input name="news_updated_date" type="date"/>
 			</div>
@@ -30,8 +39,12 @@
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
-	
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
 
