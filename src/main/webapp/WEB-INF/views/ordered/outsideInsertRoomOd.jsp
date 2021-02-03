@@ -121,17 +121,19 @@
 			})
 		})
 		
-//     	$('#QQQ').blur(function () {
-//     		 $.ajax({
-//     	            url: 'http://localhost:8080/YunHotel/ordered/roomtype/to/availablerooms',
-//     	            dataType: 'json',
-//     	            data: {chinese_name : $("#name").val(), 
-//     	               mobile_phone : $("#phone").val(),
-//     	               ordered_status : "已成立",
-//     	            },
-//     	            success:
-//     		}
-//     	}
+				//增加鍵盤敲擊事件
+				document
+						.addEventListener(
+								"keydown",
+								function(event) {
+									if (event.key == "f") { //如果按下的鍵為f鍵
+										//設定預先輸入的值
+										let defaultnote = "需要多一條棉被";
+
+										//抓取目標input並填入值
+										document.getElementById("requestNote").value = defaultnote;
+									}
+								})
 	
 	</script>
 </body>

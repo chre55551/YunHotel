@@ -82,7 +82,27 @@
 	</div>
 
 	<script
-		src="${pageContext.request.contextPath}/js/Yun_js/SharedFunctions.js"></script>
+		src="${pageContext.request.contextPath}/js/Yun_js/SharedFunctions.js">
+		</script>
+		
+		<script type="text/javascript">
+		
+		//增加鍵盤敲擊事件
+		document
+				.addEventListener(
+						"keydown",
+						function(event) {
+							if (event.key == "f") { //如果按下的鍵為f鍵
+								//設定預先輸入的值
+								let defaultpeople = "4";
+								let defaultnote = "一位鍋邊素";
+								//抓取目標input並填入值
+								document.getElementById("requestMop").value = defaultpeople;
+								document.getElementById("requestNote").value = defaultnote;
+							}
+						})
+		
+		</script>
 
 </body>
 </html>
