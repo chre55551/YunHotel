@@ -124,6 +124,11 @@ public class Meals2_Controller {
 		public String update(Model model, @PathVariable int meals2_id) {
 			Meals2 ms = service.queryID(meals2_id);
 			model.addAttribute("UpdateMeals2", ms);
+	        model.addAttribute("Mtype",ms.getMeals2_type());
+			model.addAttribute("Mname",ms.getMeals2_name());
+			model.addAttribute("Mprice",ms.getMeals2_price());
+			model.addAttribute("Mstock",ms.getMeals2_stock());
+	
 			return "meals2/UpdateMeals2";
 		}
 		@PostMapping("/update/{meals2_id}")

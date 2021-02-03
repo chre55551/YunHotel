@@ -31,16 +31,16 @@
 <!-- 				<label>編號：</label> <input name="news_id"/> -->
 <!-- 			</div> -->
 			<div class="labelpos">
-				<label>餐點類型：</label> <input class="input" name="meals2_type" />
+				<label>餐點類型：</label> <input class="input" name="meals2_type" id="mType" />
 			</div>
 			<div class="labelpos">
-				<label>餐點名稱：</label> <input class="input" name="meals2_name"/>
+				<label>餐點名稱：</label> <input class="input" name="meals2_name" id="mName" />
 			</div>
 			<div class="labelpos">
-				<label>餐點價格：</label> <input class="input" name="meals2_price"/>
+				<label>餐點價格：</label> <input class="input" name="meals2_price" id="mPrice"/>
 			</div>
 			<div class="labelpos">
-				<label>餐點庫存：</label> <input class="input" name="meals2_stock"/>
+				<label>餐點庫存：</label> <input class="input" name="meals2_stock" id="mStock" />
 			</div>
 			
 			
@@ -61,5 +61,54 @@
 	
 	
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
+	    
+	    			<button id="btn"></button>
+				
+	    		<script>
+					//抓與按鈕
+					let myBtn = document.getElementById("btn");
+					//設定點擊事件
+					myBtn
+							.addEventListener(
+									"click",
+									function() {
+										//設定預先輸入的值
+										let defaultType = "前菜";
+										let defaultName = "香煎厚片煙燻鮭魚";
+										let defaultPrice = "888";
+										let defaultStock = "75";
+								
+
+										//抓取目標input並填入值
+										document.getElementById("mType").value = defaultType;
+										document.getElementById("mName").value = defaultName;
+										document.getElementById("mPrice").value = defaultPrice;
+										document.getElementById("mStock").value = defaultStock;
+										
+									})
+
+					//增加鍵盤敲擊事件
+					document
+							.addEventListener(
+									"keydown",
+									function(event) {
+										if (event.key == "x") { //如果按下的鍵為x鍵
+											//設定預先輸入的值
+									    let defaultType = "前菜";
+										let defaultName = "香煎厚片煙燻鮭魚";
+										let defaultPrice = "888";
+										let defaultStock = "75";
+								
+
+											//抓取目標input並填入值
+										document.getElementById("mType").value = defaultType;
+										document.getElementById("mName").value = defaultName;
+										document.getElementById("mPrice").value = defaultPrice;
+										document.getElementById("mStock").value = defaultStock;
+										}
+									})
+								
+						
+				</script>
 </body>
 </html>
