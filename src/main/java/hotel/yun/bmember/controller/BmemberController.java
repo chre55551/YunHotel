@@ -226,7 +226,7 @@ public class BmemberController {
 //-----------------------------------------------------------------------------------------------------
 	// 顯示前台會員
 	@GetMapping("/ShowRMember")
-	public String getCustomer(Model model, HttpSession session) {
+	public String getCustomer(Model model,HttpSession session) {
 		String kk = (String) session.getAttribute("BLoginOK");
 		if (kk != null) {
 			List<Customer> srm = service.queryAllMember1();
