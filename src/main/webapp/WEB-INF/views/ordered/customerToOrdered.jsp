@@ -17,9 +17,19 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
-		<table class="container" id="container">
-			<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">查詢訂單</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<table id="container">
 			<thead>
 				<tr>
 					<th>姓名</th>
@@ -41,7 +51,12 @@
 			<tbody id="clean">
 			</tbody>
 		</table>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 

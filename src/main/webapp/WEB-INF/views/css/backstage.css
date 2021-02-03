@@ -242,6 +242,19 @@ body{
     font-size: 1.3em;
     text-decoration: none;
 }
+.input{
+	width:120px;
+	height:25px;
+	background-color:#b5b5b6;
+	font-size: 1em;
+}
+.backbtn{
+	border-radius: 8px;
+	background-color: rgba(43, 95, 117, 0.8);
+	color: #FFFFFF;
+	font-size: 18px;
+	width: 70px;
+}
 /* ========================================================== */
 /* 頁尾 */
 .footer{

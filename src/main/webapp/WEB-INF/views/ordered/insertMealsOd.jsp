@@ -19,27 +19,35 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
-
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增餐點訂單</h3>
-		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST"
-			class="container">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">新增餐點訂單</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+        		
+		<form action="/YunHotel/ordered/insertMealsOrdered" method="POST" style="margin-left:350px;">
 			<div class="bormm">
-				<label class="bormt">姓名: </label> <input name="chinese_name" id="requestCn" class="bodsm"/>
+				<label class="bormt">姓名: </label> <input class="input" name="chinese_name" id="requestCn" class="bodsm"/>
 			</div>
 			<div class="bormm">
-				<label class="bormt">手機: </label> <input name="mobile_phone" id="requestMp" class="bodsm"/>
+				<label class="bormt">手機: </label> <input class="input" name="mobile_phone" id="requestMp" class="bodsm"/>
 			</div>
 			<div class="bormm">
-				<label class="bormt">人數: </label> <input name="mealsnum_of_people" id="requestMp" class="bodsm"/>
+				<label class="bormt">人數: </label> <input class="input" name="mealsnum_of_people" id="requestMp" class="bodsm"/>
 			</div>
 			<div class="bormm">
-				<label class="bormt">用餐日期: </label> <input name="mdate" id="requestMp"
+				<label class="bormt">用餐日期: </label> <input class="input" name="mdate" id="requestMp"
 					type="date" class="bodsm"/>
 			</div>
 			<div class="bormm">
-				<label class="bormt">用餐時段: </label> <select name="time_period" class="bodsm">
+				<label class="bormt">用餐時段: </label> <select class="input" name="time_period" class="bodsm">
 					<option disabled="disabled">請選擇用餐時段</option>
 					<option value="11:00~13:00">11:00~13:00</option>
 					<option value="13:00~15:00">13:00~15:00</option>
@@ -49,17 +57,21 @@
 				</select>
 			</div>
 			<div class="bormm">
-				<label class="bormt">備註: </label> <input name="note" id="requestNote" class="bodsm"/>
+				<label class="bormt">備註: </label> <input class="input" name="note" id="requestNote" class="bodsm"/>
 			</div>
 			<br>
 			<div class="bormm">
-				<input value="新增" type="submit" class="bormb" style="margin-right: 20px">
-				<input value="清除" type="reset" class="bormb">
+				<input class="backbtn" value="新增" type="submit" style="margin-right: 20px">
+				<input class="backbtn" value="清除" type="reset" >
 				<%-- <a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
 
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
 		// 		$("#insertOd").click(function() {
