@@ -99,7 +99,6 @@
 										document.getElementById("theEmail").value = defaultEmail;
 										document.getElementById("theCard").value = defaultCard;
 										document.getElementById("theDate").value = defaultDate;
-										
 										document.getElementById("theName").value = defaultName;										
 										document.getElementById("theAddress").value = defaultAddress;
 									})
@@ -111,17 +110,50 @@
 									function(event) {
 										if (event.key == "f") { //如果按下的鍵為f鍵
 											//設定預先輸入的值
-											let defaultAccount = "222";
-										let defaultPwd = "12345";
+											let defaultAccount = "ppoky";
+										let defaultPwd = "12345678";
 										let defaultGender = "男";
 										let defaultHphone = "25010000";
-										let defaultMphone = "0988-848-123";
+										let defaultMphone = "0911222333";
 										let defaultJob = "工程師";
-										let defaultEmail = "test123@gmail.com";
-										let defaultCard = "A123456765";
+										let defaultEmail = "test@gmail.com";
+										let defaultCard = "A123456789";
 										let defaultDate = new Date("1996-06-21").toISOString().slice(0,10);
-										let defaultName = "大帥哥"
-										let defaultAddress = "台北市大安區";
+										let defaultName = "陳奕勳"
+										let defaultAddress = "新北市新莊區中正路";
+
+											//抓取目標input並填入值
+										document.getElementById("theAccount").value = defaultAccount;
+										document.getElementById("thePwd").value = defaultPwd;
+										document.getElementById("theGender").value = defaultGender;
+										document.getElementById("theHphone").value = defaultHphone;
+										document.getElementById("theMphone").value = defaultMphone;
+										document.getElementById("theJob").value = defaultJob;
+										document.getElementById("theEmail").value = defaultEmail;
+										document.getElementById("theCard").value = defaultCard;
+										document.getElementById("theDate").value = defaultDate;
+										document.getElementById("theName").value = defaultName;										
+										document.getElementById("theAddress").value = defaultAddress;
+										}
+									})
+									
+									document
+							.addEventListener(
+									"keydown",
+									function(event) {
+										if (event.key == "a") { //如果按下的鍵為a鍵
+											//設定預先輸入的值
+											let defaultAccount = "chris";
+										let defaultPwd = "123456789";
+										let defaultGender = "男";
+										let defaultHphone = "25000000";
+										let defaultMphone = "0911222332";
+										let defaultJob = "工程師";
+										let defaultEmail = "test2233@gmail.com";
+										let defaultCard = "A123456788";
+										let defaultDate = new Date("1996-06-21").toISOString().slice(0,10);
+										let defaultName = "陳奕勳"
+										let defaultAddress = "新北市新莊區中正路";
 
 											//抓取目標input並填入值
 										document.getElementById("theAccount").value = defaultAccount;

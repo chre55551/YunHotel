@@ -22,5 +22,6 @@
         <br> <input class="ormBtn" type="button" value="回登入"
 				onclick="location.href='http://localhost:8080/YunHotel/bmember/BLogin'">
 	</div>
+	</div>
 </body>
 </html>
