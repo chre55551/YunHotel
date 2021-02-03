@@ -14,12 +14,18 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">詳細訂單</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
 
-
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-			<h3>詳細訂單</h3>
 			<p>訂單編號: ${ordered.ordered_number}</p>
 			<p>姓名: ${ordered.customer.chinese_name}</p>
 			<p>電話: ${ordered.customer.mobile_phone}</p>
@@ -157,13 +163,17 @@
    				</c:otherwise>
 			</c:choose>
 
-			<br> <input type="button" value="修改" id="uuu"> <input
-				type="button" value="刪除" id="xxx"> <input type="button"
-				value="回查詢" onclick="location.href='../customerToOrdered'">
+			<br> <input class="backbtn" type="button" value="修改" id="uuu"> 
+			<input  class="backbtn" type="button" value="刪除" id="xxx"> 
+			<input  class="backbtn" type="button" value="回查詢" onclick="location.href='../customerToOrdered'">
 			<%-- 			<a href="<c:url value='../customerToOrdered'/> ">回查詢</a> --%>
 
-		</div>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 	<script type="text/javascript">

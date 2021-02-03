@@ -19,11 +19,20 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
-
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">確認餐點結帳內容</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
 		<form action="../checkoutMealsOd/${updateOdered.ordered_number}"
-			method="POST" class="container">
+			method="POST" style="margin-left:350px">
 
 			<c:choose>
 				<c:when test="${not empty ${meals_accounts}">
@@ -66,7 +75,12 @@
 				</c:otherwise>
 			</c:choose>
 		</form>
-	</div>
+			</div>
+        </div>
+        	
+     </div>
+
+</div>
 
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>

@@ -18,11 +18,19 @@
 <body>
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<form
-			action="/YunHotel/checkout/checkoutUpdate"
-			method="POST" class="container">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">查詢房務結帳資訊</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+		<form action="/YunHotel/checkout/checkoutUpdate"
+			method="POST" style="margin-left:350px;">
 
 			<c:choose>
 				<c:when test="${not empty room.room_name}">
@@ -105,8 +113,12 @@
 
 
 		</form>
-	</div>
+			</div>
+        </div>
+        	
+     </div>
 
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

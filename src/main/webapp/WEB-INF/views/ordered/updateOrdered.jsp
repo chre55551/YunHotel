@@ -28,18 +28,25 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
-
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>修改訂單</h3>
-		<form action="../updatecheck/${updateOdered.ordered_number}"
-			method="POST" class="container">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">修改訂單</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form action="../updatecheck/${updateOdered.ordered_number}" method="POST">
 			<p>欲修改的 ${updateOdered.customer.chinese_name}, 訂單編號:
 				${updateOdered.ordered_number}</p>
 			<c:choose>
 				<c:when test="${not empty OTR}">
 					<div>
-						<label>生日: </label> <input name="birthday" type="date"
+						<label>生日: </label> <input class="input" name="birthday" type="date"
 							value="${updateOdered.customer.birthday}" />
 					</div>
 				</c:when>
@@ -52,7 +59,7 @@
 			<c:choose>
 				<c:when test="${not empty OTR}">
 					<div>
-						<label>身分證字號: </label> <input name="idcard_number" type="text"
+						<label>身分證字號: </label> <input  class="input" name="idcard_number" type="text"
 							value="${updateOdered.customer.idcard_number}" />
 					</div>
 				</c:when>
@@ -65,7 +72,7 @@
 			<c:choose>
 				<c:when test="${not empty OTR}">
 					<div>
-						<label>地址: </label> <input name="address" type="text"
+						<label>地址: </label> <input class="input" name="address" type="text"
 							value="${updateOdered.customer.address}" />
 					</div>
 				</c:when>
@@ -155,7 +162,7 @@
 				<c:when test="${not empty OTR}">
 					<label>欲入住日期: </label>
 					<div>
-						<input name="rdate" type="date" id="rdate"
+						<input  class="input" name="rdate" type="date" id="rdate"
 							value="${firstDay}" />
 					</div>
 				</c:when>
@@ -167,7 +174,7 @@
 				<c:when test="${not empty OTR}">
 					<label>欲退房日期: </label>
 					<div>
-						<input name="rdateEnd" type="date" id="rdateEnd"
+						<input  class="input" name="rdateEnd" type="date" id="rdateEnd"
 							value="${lastDay}" />
 					</div>
 				</c:when>
@@ -191,7 +198,7 @@
 			<c:choose>
 				<c:when test="${not empty OTM}">
 					<div>
-						<label>用餐人數: </label> <input name="mealsnum_of_people"
+						<label>用餐人數: </label> <input  class="input" name="mealsnum_of_people"
 							value="${updateOdered.orderedToMeals.mealsnum_of_people}" />
 					</div>
 				</c:when>
@@ -202,7 +209,7 @@
 			<c:choose>
 				<c:when test="${not empty OTM}">
 					<div>
-						<label>用餐日期: </label> <input name="mdate" type="date"
+						<label>用餐日期: </label> <input class="input" name="mdate" type="date"
 							value="${Mdate.mdate}" />
 					</div>
 				</c:when>
@@ -216,7 +223,7 @@
 			<c:choose>
 				<c:when test="${time_period=='11:00~13:00'}">
 					<div>
-						<label>用餐時段: </label> <select name="time_period">
+						<label>用餐時段: </label> <select  class="input" name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
 							<option value="11:00~13:00" selected="selected">11:00~13:00</option>
 							<option value="13:00~15:00">13:00~15:00</option>
@@ -228,7 +235,7 @@
 				</c:when>
 				<c:when test="${time_period=='13:00~15:00'}">
 					<div>
-						<label>用餐時段: </label> <select name="time_period">
+						<label>用餐時段: </label> <select   class="input" name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
 							<option value="11:00~13:00">11:00~13:00</option>
 							<option value="13:00~15:00" selected="selected">13:00~15:00</option>
@@ -240,7 +247,7 @@
 				</c:when>
 				<c:when test="${time_period=='15:00~17:00'}">
 					<div>
-						<label>用餐時段: </label> <select name="time_period">
+						<label>用餐時段: </label> <select   class="input" name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
 							<option value="11:00~13:00">11:00~13:00</option>
 							<option value="13:00~15:00">13:00~15:00</option>
@@ -252,7 +259,7 @@
 				</c:when>
 				<c:when test="${time_period=='17:00~19:00'}">
 					<div>
-						<label>用餐時段: </label> <select name="time_period">
+						<label>用餐時段: </label> <select  class="input" name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
 							<option value="11:00~13:00">11:00~13:00</option>
 							<option value="13:00~15:00">13:00~15:00</option>
@@ -264,7 +271,7 @@
 				</c:when>
 				<c:when test="${time_period=='19:00~21:00'}">
 					<div>
-						<label>用餐時段: </label> <select name="time_period">
+						<label>用餐時段: </label> <select  class="input" name="time_period">
 							<option disabled="disabled">請選擇用餐時段</option>
 							<option value="11:00~13:00">11:00~13:00</option>
 							<option value="13:00~15:00">13:00~15:00</option>
@@ -283,7 +290,7 @@
 					<div>
 						<label>訂單狀態: </label>
 						<!-- 				<input name="ordered_status" id="requestMp" /> -->
-						<select name="ordered_status" id="requestOs">
+						<select  class="input" name="ordered_status" id="requestOs">
 							<option disabled>請選擇訂單狀態</option>
 							<option value="已成立" selected>已成立</option>
 							<option value="已結單">已結單</option>
@@ -293,7 +300,7 @@
 
 
 					<div>
-						<label>付款方式: </label> <select name="bill_status" id="requestPS">
+						<label>付款方式: </label> <select  class="input" name="bill_status" id="requestPS">
 							<option disabled>請選擇付款方式</option>
 							<option selected>現金</option>
 							<option>信用卡</option>
@@ -304,7 +311,7 @@
 			<c:choose>
 				<c:when test="${not empty updateOdered.note}">
 					<div>
-						<label>備註</label> <input name="note" id="requestNote" type="text"
+						<label>備註</label> <input class="input" name="note" id="requestNote" type="text"
 							${updateOdered.note} />
 					</div>
 				</c:when>
@@ -315,13 +322,17 @@
 			</c:choose>
 
 			<div>
-				<input type="submit" value="修改"> <input value="清除"
+				<input class="backbtn"  type="submit" value="修改"> <input class="backbtn" value="清除"
 					type="reset">
 				<%-- <a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
 
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 	<script>
 	$('#room_type').change(function(){

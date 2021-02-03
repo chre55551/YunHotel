@@ -18,17 +18,25 @@
 <body>
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<form action="/YunHotel/checkout/checkoutRoomOd" method="POST"
-			class="container">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">查詢房務結帳資訊</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+		<form action="/YunHotel/checkout/checkoutRoomOd" method="POST">
 			<br>
 			<div class="bormm">
-				<label class="bormt">房號:</label> <input name="room_name" id="requestCn" class="bodsm"/>
+				<label class="bormt">房號:</label> <input class="input" name="room_name" id="requestCn" class="bodsm"/>
 			</div>
 			<br>
 			<div class="bormm">
-				<label class="bormt">退房日期:</label> <input name="rdateEnd" id="requestMp" class="bodsm" 
+				<label class="bormt">退房日期:</label> <input class="input" name="rdateEnd" id="requestMp" class="bodsm" 
 					type="date" />
 			</div>
 			<br>
@@ -36,7 +44,12 @@
 				<input value="查詢" type="submit" class="bormb">
 			</div>
 		</form>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

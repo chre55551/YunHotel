@@ -17,11 +17,25 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>完成結帳，請回至結帳首頁</h3>
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">完成結帳</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+		<h3>結帳成功，請回至結帳首頁</h3>
 		<input class="bormb" type="button" value="回結帳" onclick="location.href='http://localhost:8080/YunHotel/checkout/checkoutQueryRoomOd'" >
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>
