@@ -32,6 +32,7 @@
 		<form action="/YunHotel/checkout/checkoutUpdate"
 			method="POST" style="margin-left:350px;">
 
+			<input type="hidden" name="ordered_number" value="${od.ordered_number}">
 			<c:choose>
 				<c:when test="${not empty room.room_name}">
 					<div class="bormm">
@@ -86,10 +87,6 @@
 			
 			<div>
 				<label class="bormt">住房人數: </label><input type="text" name="roomnum_of_people" class="bodsm">
-			</div>
-			
-			<div>
-				<label class="bormt">住房人數: </label><input type="hidden" name="ordered_number" value="${od.ordered_number}">
 			</div>
 
 			<div>

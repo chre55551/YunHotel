@@ -15,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -43,6 +44,7 @@ public class OrderedToRoom implements Serializable {
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
+	@OrderBy
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE},fetch = FetchType.EAGER)
     @JoinTable(name = "orderedToRoom_rdate", 
 		joinColumns = {
