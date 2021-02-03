@@ -40,8 +40,10 @@
 					 value="35000"/>
 			</div>					
 			<div>
-				<label>性別</label> <input name="employee_gender" class="requestMp"
-					 value="男"/>
+				<label>性別</label> <input type="radio" name="employee_gender" class="requestMp"
+					 value="男"/>男
+					 				<input type="radio" name="employee_gender" class="requestMp"
+					 value="女"/>女
 			</div>			
 			<div>
 				<label>年齡</label> <input name="employee_age" class="requestMp"

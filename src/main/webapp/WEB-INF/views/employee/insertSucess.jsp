@@ -30,9 +30,10 @@
 		<p>電話: ${NBbeans.employee_info.employee_phone}</p>
 		<p>電子信箱: ${NBbeans.employee_info.employee_email}</p>
 		<p>緊急聯絡人: ${NBbeans.employee_info.emergency_contact}</p>
-		<p>大頭照: ${NBbeans.employee_info.employee_image}</p>
+<%-- 		<p>大頭照: ${NBbeans.employee_info.employee_image}</p> --%>
 
 		<a href="<c:url value='insertEmp'/> ">回新增</a>
+		<a href="<c:url value='empindex'/> ">回員工</a>
 		</div>
 	</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
