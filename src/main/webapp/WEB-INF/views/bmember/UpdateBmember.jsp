@@ -35,10 +35,18 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
+    <div class="right">
+        <p class="title">查詢後台會員</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
 		<form:form method='POST' modelAttribute="BmemberBean">
 		<input type="hidden" name="noname"  id='putOrDelete'   value="" >
     		<c:if test='${BmemberBean.bs_id != null}'>
@@ -46,7 +54,7 @@
 			</c:if>
 <!-- 隱藏我的ID  -->
 		
-				<legend>客戶資料</legend>
+<!-- 				<legend>客戶資料</legend> -->
 				<table>
 					<tr>
 						<td>帳號</td>
@@ -87,8 +95,12 @@
 	
 		</form:form>
 		<a href="<c:url value='/' />">回首頁</a>
-	</div>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

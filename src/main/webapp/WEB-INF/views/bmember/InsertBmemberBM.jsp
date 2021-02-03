@@ -14,51 +14,63 @@
 </head>
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
-
-
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-			<h3>新增會員</h3>
-			<a href="<c:url value='/'/> ">回首頁</a>
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">後台會員資料</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+	
 			<table>
 				<form:form action="insertbmemberbb" method="post"
 					modelAttribute="bb">
 					<tr>
 						<td>帳號</td>
-						<td><form:input path="bs_account" id="bsac" /></td>
+						<td><form:input class="input" path="bs_account" id="bsac" /></td>
 
 					</tr>
 					<tr>
 						<td>密碼</td>
-						<td><form:input type="password" path="bs_password" id="bspwd" /></td>
+						<td><form:input class="input" type="password" path="bs_password" id="bspwd" /></td>
 
 					</tr>
 					<tr>
 						<td>信箱</td>
-						<td><form:input path="bs_email" id="bsemail" /></td>
+						<td><form:input class="input" path="bs_email" id="bsemail" /></td>
 
 					</tr>
 					<tr>
 						<td>權限</td>
-						<td><form:input path="authority" id="bsau" /></td>
+						<td><form:input class="input" path="authority" id="bsau" /></td>
 
 					</tr>
 					<tr>
 						<td>使用者名稱</td>
-						<td><form:input path="user_id" id="bsuser" /></td>
+						<td><form:input class="input" path="user_id" id="bsuser" /></td>
 
 					</tr>
-
+					
 					<div>
+						<a href="<c:url value='/'/> ">回首頁</a>
 						<input value="新增" type="submit">
 					</div>
+				
 				</form:form>
 
 			</table>
 			<div>
 				<button id="btn"></button>
-			</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 			<script>
 				//抓與按鈕
 				let myBtn = document.getElementById("btn");

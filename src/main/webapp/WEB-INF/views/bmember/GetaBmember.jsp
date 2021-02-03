@@ -13,10 +13,17 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
+    <div class="right">
+        <p class="title">查詢後台會員</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
 	<h3>查詢第${qbm.bs_id}則的編號</h3>
 	<p>編號: ${qbm.bs_id}</p>
 	<p>帳號: ${qbm.bs_account}</p>
@@ -25,8 +32,12 @@
 	<p>權限: ${qbm.authority}</p>
 	<p>使用者名稱:${qbm.user_id}</p>
 		<a href="<c:url value='IndexMember'/> ">回上一頁</a>
-		</div>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

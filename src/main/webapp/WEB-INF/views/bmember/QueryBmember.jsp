@@ -14,11 +14,19 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
-
-	<div class="main">
+<div class="main">
 	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>查詢後台會員</h3>
-		<form action="/YunHotel/bmember/GetaBmember" method="POST" class="container">
+	
+    <div class="right">
+        <p class="title">查詢後台會員</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+	
+		<form action="/YunHotel/bmember/GetaBmember" method="POST">
 			<div>
 				<label>後台會員ID</label> <input name="bs_account" id="bs_account" />
 			</div>
@@ -28,7 +36,12 @@
 <%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 
 	    <%@ include file="../CommonTemplates/footer.jsp"%>
 	<script type="text/javascript">
