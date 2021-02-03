@@ -70,7 +70,7 @@
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('image/test2/image_1.jpg');">
+              <a class="block-20 rounded" style="background-image: url('image/test2/OtherFacilities/GYM.png');">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
@@ -78,90 +78,109 @@
 <!--                   <div><a href="#">Admin</a></div> -->
 <!--                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <a href="#" class="btn btn-secondary rounded">More info</a>
+                <h3 class="heading"><a href="#">健身房</a></h3>
+                <h4>飯店特別引進各式專業健身房等級的健身器材，讓您在室內也能盡情享受揮汗的快感。搭配安全且循序漸進的運動步調，來訓練身體各主要肌群，達到全身運動效果。</h4>
+                <P>樓層：5F </P>
+                <P>容納人數：20 – 30位</P>
+                <P>營業時間：07:30 - 22:00</P>
+                <P>中場清潔時間：12：30－14：00</P>
+<!-- 注意事項：為保護您在運動時安全，請穿著運動服裝及運動鞋；另為維護孩童健全身體發展，未滿16歲之青少年，不開放使用健身設備。 -->
+<!--                 <a href="#" class="btn btn-secondary rounded">More info</a> -->
               </div>
             </div>
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_2.jpg');">
+              <a  class="block-20 rounded" style="background-image: url('image/test2/OtherFacilities/SPA.jpg');">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
-                  <div><a href="#">Oct. 30, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+<!--                   <div><a href="#">Oct. 30, 2019</a></div> -->
+<!--                   <div><a href="#">Admin</a></div> -->
+<!--                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <a href="#" class="btn btn-secondary rounded">More info</a>
+                <h3 class="heading"><a href="#">SPA</a></h3>
+                <H4>針對溫泉SPA設計為療程設計核心，結合芳香療法、能量療法及養生保健方式，讓每位貴賓來到SPA不只享受放鬆，更能讓身心靈獲得療癒。</H4>
+
+
+                <p>樓層：6F</p>
+                <p>營業時間：14:00~22:00 最後預約時間:20:00</p>
+                <p>每週三為QUAN SPA例行保養日，故不對外開放預約，若有造成不便，敬請見諒。</p>
+<!--                 <a href="#" class="btn btn-secondary rounded">More info</a> -->
               </div>
             </div>
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_3.jpg');">
+              <a  class="block-20 rounded" style="background-image: url('image/test2/OtherFacilities/PoolRoom.jpg');">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
-                  <div><a href="#">Oct. 30, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+<!--                   <div><a href="#">Oct. 30, 2019</a></div> -->
+<!--                   <div><a href="#">Admin</a></div> -->
+<!--                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <a href="#" class="btn btn-secondary rounded">More info</a>
+                <h3 class="heading"><a href="#">撞球間</a></h3>
+                <h4>專屬包廂空間讓您享有一桿進洞的快感，不論定桿、推桿、跳球等技術，對於訓練定力與耐力都是一項極佳的運動，提供良好環境供您培養友誼與親子間的幸福。</h4>
+                <p>樓層：6F</p>
+                <p>營業時間：12:00~22:00</p>
+<!--                 <a href="#" class="btn btn-secondary rounded">More info</a> -->
               </div>
             </div>
           </div>
 
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_4.jpg');">
+              <a  class="block-20 rounded" style="background-image: url('image/test2/OtherFacilities/ClimbingRoom.png');">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
-                  <div><a href="#">Oct. 30, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+<!--                   <div><a href="#">Oct. 30, 2019</a></div> -->
+<!--                   <div><a href="#">Admin</a></div> -->
+<!--                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <a href="#" class="btn btn-secondary rounded">More info</a>
+                <h3 class="heading"><a href="#">攀岩室</a></h3>
+                <h4>健康又時尚的攀岩活動在怡灣假期也能輕鬆體驗，面對面的攀岩牆讓你和同伴一同挑戰！</h4>
+                <p>樓層：B1</p>
+                <p>適合12歲以上體重20公斤以上使用，12歲以下需監護人簽屬風險同意書</p>
+                <p>營業時間：14:00-18:00</p>
+<!--                 <a href="#" class="btn btn-secondary rounded">More info</a> -->
               </div>
             </div>
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_5.jpg');">
+              <a  class="block-20 rounded" style="background-image: url('image/test2/OtherFacilities/BoardGameRoom.jpg');">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
-                  <div><a href="#">Oct. 30, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+<!--                   <div><a href="#">Oct. 30, 2019</a></div> -->
+<!--                   <div><a href="#">Admin</a></div> -->
+<!--                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <a href="#" class="btn btn-secondary rounded">More info</a>
+                <h3 class="heading"><a href="#">桌遊室</a></h3>
+                <h4>提供多款熱門,有趣的桌遊項目讓您和三五好友一起同樂!在趣淘的每一刻，都是開心玩樂不無聊!</h4>
+                <p>樓層：6F</p>
+                <p>營業時間：12:00-20:00</p>
+<!--                 <a href="#" class="btn btn-secondary rounded">More info</a> -->
               </div>
             </div>
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_6.jpg');">
+              <a  class="block-20 rounded" style="background-image: url('image/test2/OtherFacilities/TableTennisRoom.jpg');">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
-                  <div><a href="#">Oct. 30, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+<!--                   <div><a href="#">Oct. 30, 2019</a></div> -->
+<!--                   <div><a href="#">Admin</a></div> -->
+<!--                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <a href="#" class="btn btn-secondary rounded">More info</a>
+                <h3 class="heading"><a href="#">桌球室</a></h3>
+                <h4>設有乒乓球桌和電子式桌上曲棍球桌，讓旅客擁有充分的空間，盡情的玩樂放鬆身心。</h4>
+                <p>樓層：5F</p>
+                <p>營業時間：10:00-20:00</p>
+<!--                 <a href="#" class="btn btn-secondary rounded">More info</a> -->
               </div>
             </div>
           </div>
