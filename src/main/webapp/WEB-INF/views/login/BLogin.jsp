@@ -13,11 +13,17 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-	<h3>會員登入</h3>
+    <div class="right">
+        <p class="title">會員登入</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
 
 	<form action="../bmember/login" method="post">
 		<p>帳號: </p>
@@ -30,8 +36,12 @@
 	
 	<a href="<c:url value='/'/> ">回首頁</a>
 	</form>
-	</div>
-	</div>
-	
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
+
 </body>
 </html>

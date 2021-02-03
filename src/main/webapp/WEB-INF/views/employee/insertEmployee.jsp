@@ -13,12 +13,19 @@
 <body>
 	<%@ include file="../CommonTemplates/header.jsp"%>
 
-
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<h3>新增員工資料</h3>
-		<form action="/YunHotel/employee/insertEmployee" method="POST"
-			class="container">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">新增員工資料</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
+		<form action="/YunHotel/employee/insertEmployee" method="POST">
 			<div>
 				<label>姓名</label> <input name="employee_name" class="requestCn" 
 					value="張凱翔"/>
@@ -80,7 +87,12 @@
 				<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 
 	<%@ include file="../CommonTemplates/footer.jsp"%>
 	

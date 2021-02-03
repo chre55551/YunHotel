@@ -12,10 +12,18 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
+    <div class="right">
+        <p class="title">會員登入</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        		
 		<h2>新增成功</h2><hr/>
 		<p>員工編號:${NBbeans.employee_id}</p>
 		<p>姓名：${NBbeans.employee_name}</p>
@@ -34,8 +42,12 @@
 
 		<a href="<c:url value='insertEmp'/> ">回新增</a>
 		<a href="<c:url value='empindex'/> ">回員工</a>
-		</div>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

@@ -13,10 +13,18 @@
 <body>
 <%@ include file="../CommonTemplates/header.jsp"%>
 
-    <div class="main">
-        	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-
-        <div class="container" style="text-align:center;">
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
+	
+    <div class="right">
+        <p class="title">新增員工資料</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle">
+        <divstyle="text-align:center;">
             <ul class="ALLdiamond">
                 
             <li class="diamond" >
@@ -26,9 +34,12 @@
 <!--               <a href="insertSch" class="diamondtxt">排班</a> -->
 <!--             </li> -->
             </ul>
+				</div>
         </div>
-    </div>
+        	
+     </div>
 
+</div>
     <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>
