@@ -255,7 +255,7 @@ public class Employee_Controller {
 	//新增的分流
 	@GetMapping("/insertEmployee")
 	public String insertEmployee(Model model){
-		return "employee/insert";
+		return "employee/insertEmployee";
 	}
 	
 	//查詢的分流
