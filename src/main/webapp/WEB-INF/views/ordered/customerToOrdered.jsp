@@ -49,7 +49,7 @@
 					</td>
 					<td>
 						<div class="mycenter">
-							<button id="peko">查詢</button>
+							<button id="peko" class="bormb">查詢</button>
 						</div>
 					</td>
 				</tr>
@@ -90,7 +90,7 @@
             			this_data += '<th>' + '姓名' + '</th>';
             			this_data += '<th>' + '電話' + '</th>';
             			this_data += '<th>' + '訂單狀態' + '</th>';
-//             			this_data += '<th>' + '訂單成立日期' + '</th>';
+            			this_data += '<th>' + '訂單成立日期' + '</th>';
             			this_data += '</tr>';
             				if(fk != null){
             					for(let ordered of fk){
@@ -99,8 +99,8 @@
                      	    		this_data += '<td style="padding-left: 80px;">' + ordered.customer.chinese_name + '</td>';//名字
                        	   		    this_data += '<td style="padding-left: 10px;">' + ordered.customer.mobile_phone + '</td>';//電話
                        			 	this_data += '<td style="padding-left: 80px;">' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
-//                        			    this_data += '<td style="padding-left: 60px;">' + ordered.ordered_date + '</td>';//訂單成立日期
-    					 		    this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
+                       			    this_data += '<td style="padding-left: 60px;">' + ordered.ordered_date + '</td>';//訂單成立日期
+    					 		    this_data += "<td><button class='ormb' onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                            			this_data += '</tr>';
                      				 };
                  						$('#clean').append(this_data);
@@ -140,10 +140,10 @@
             		if(fk != null){
             			for(let ordered of fk){
                		    	this_data += '<tr>';
-                 			this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
-               		   	    this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
-                 		   	this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
-               		   		this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
+             	    		this_data += '<td style="padding-left: 18px;">' + ordered.ordered_number + '</td>';//訂單編號
+             	    		this_data += '<td style="padding-left: 80px;">' + ordered.customer.chinese_name + '</td>';//名字
+               	   		    this_data += '<td style="padding-left: 10px;">' + ordered.customer.mobile_phone + '</td>';//電話
+               			 	this_data += '<td style="padding-left: 80px;">' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
 					  		this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
                   			this_data += '</tr>';
                 		  };
@@ -184,10 +184,10 @@
 				if(fk != null){
 	             	for(let ordered of fk){
 	                 	this_data += '<tr>';
-	                 	this_data += '<td>' + ordered.ordered_number + '</td>';//訂單編號
-	                 	this_data += '<td>' + ordered.customer.chinese_name + '</td>';//名字
-	                 	this_data += '<td>' + ordered.customer.mobile_phone + '</td>';//電話
-	               		  this_data += '<td>' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
+         	    		this_data += '<td style="padding-left: 18px;">' + ordered.ordered_number + '</td>';//訂單編號
+         	    		this_data += '<td style="padding-left: 80px;">' + ordered.customer.chinese_name + '</td>';//名字
+           	   		    this_data += '<td style="padding-left: 10px;">' + ordered.customer.mobile_phone + '</td>';//電話
+           			 	this_data += '<td style="padding-left: 80px;">' + ordered.orderedStatus.ordered_status + '</td>';//訂單狀態
 // 	               		  this_data += '<td>' + ordered.ordered_date + '</td>';//訂單成立日期
 	 						this_data += "<td><button onclick="+'"'+"window.location.href='/YunHotel/ordered/thisOrdered/"+ ordered.ordered_number + "'"+'">詳細資料</button>'
 	              		   this_data += '</tr>';

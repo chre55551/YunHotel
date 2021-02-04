@@ -28,12 +28,12 @@
 
 	<div class="queryODBG">
 		<div class="main">
-			<div class="orm2">
-				<h4 class="ormt2">詳細訂單</h4>
+			<div class="orm2" style="text-align:left;">
+				<h4 class="ormt2" style="margin-left: 10px; margin-top: 20px;">詳細訂單</h4>
 				<c:choose>
 					<c:when
 						test="${not empty otm.mealsnum_of_people}">
-						<p class="ormt2">用餐人數:
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">用餐人數:
 							${otm.mealsnum_of_people}</p>
 					</c:when>
 					<c:otherwise>
@@ -42,7 +42,7 @@
 
 				<c:choose>
 					<c:when test="${not empty mdate.mdate}">
-						<p class="ormt2">用餐日期: ${mdate.mdate}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">用餐日期: ${mdate.mdate}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -50,7 +50,7 @@
 
 				<c:choose>
 					<c:when test="${not empty mdate.time_period}">
-						<p class="ormt2">用餐時段: ${mdate.time_period}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">用餐時段: ${mdate.time_period}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -58,7 +58,7 @@
 
 				<c:choose>
 					<c:when test="${not empty room.room_name}">
-						<p class="ormt2">房號: ${room.room_name}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">房號: ${room.room_name}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -66,7 +66,7 @@
 
 				<c:choose>
 					<c:when test="${not empty roomType.room_type}">
-						<p class="ormt2">房型: ${roomType.room_type}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">房型: ${roomType.room_type}</p>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -74,9 +74,9 @@
 
 				<c:choose>
 					<c:when test="${not empty rdates}">
-						<p class="ormt2">欲訂房日期:</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">欲訂房日期:</p>
 						<c:forEach var="rdate" items="${rdates}">
-							<p>${rdate.rdate}</p>
+							<p style="margin-left: 10px; margin-top: 20px;">${rdate.rdate}</p>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
@@ -85,16 +85,16 @@
 
 				<c:choose>
 					<c:when test="${not empty od.ordered_accounts}">
-						<p class="ormt2">訂單總價: ${od.ordered_accounts}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">訂單總價: ${od.ordered_accounts}</p>
 					</c:when>
 					<c:otherwise>
-						<p class="ormt2">訂單總價: 無</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">訂單總價: 無</p>
 					</c:otherwise>
 				</c:choose>
 
 				<c:choose>
 					<c:when test="${not empty od.ordered_date}">
-						<p class="ormt2">訂單成立時間: ${od.ordered_date}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">訂單成立時間: ${od.ordered_date}</p>
 					</c:when>
 					<c:otherwise>
 						<!--     				訂單成立時間: 無 -->
@@ -103,7 +103,7 @@
 
 				<c:choose>
 					<c:when test="${not empty od.ordered_last_update}">
-						<p class="ormt2">訂單修改時間: ${od.ordered_last_update}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">訂單修改時間: ${od.ordered_last_update}</p>
 					</c:when>
 					<c:otherwise>
 						<!--     				訂單修改時間: 無 -->
@@ -112,16 +112,16 @@
 
 				<c:choose>
 					<c:when test="${not empty od.note}">
-						<p class="ormt2">備註: ${od.note}</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">備註: ${od.note}</p>
 					</c:when>
 					<c:otherwise>
-						<p class="ormt2">備註: 無</p>
+						<p class="ormt2" style="margin-left: 10px; margin-top: 20px;">備註: 無</p>
 					</c:otherwise>
 				</c:choose>
 				<br> 
 <!-- 				<input class="ormBtn" type="button" value="回官網" -->
 <!-- 					onclick="location.href='http://localhost:8080/YunHotel/YunPage'"> -->
-				<input class="ormBtn" type="button" value="回列表"
+				<input class="ormBtn" type="button" value="回列表"  style="margin-bottom: 10px;"
 					onclick="location.href='http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd'">
 			</div>
 		</div>

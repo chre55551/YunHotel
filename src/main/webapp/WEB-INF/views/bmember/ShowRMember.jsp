@@ -31,7 +31,7 @@
 				<tr>
 					<th width='60'>編輯</th>
 					<th width='160'>客戶帳號</th>
-					<th width='60'>刪除</th>
+<!-- 					<th width='60'>刪除</th> -->
 				</tr>
 				<c:choose>
 					<c:when test="${not empty sm}">
@@ -39,7 +39,7 @@
 							<tr>
 								<td align='center'><a>${s.customer_id}</a></td>
 								<td align='center'>${s.chinese_name}</td>
-								<td align='center'><a href="modifyRMember/${s.customer_id}">刪除</a></td>
+<%-- 								<td align='center'><a href="modifyRMember/${s.customer_id}">刪除</a></td> --%>
 							</tr>
 						</c:forEach>
 					</c:when>

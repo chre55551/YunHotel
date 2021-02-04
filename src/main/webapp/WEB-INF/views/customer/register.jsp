@@ -110,16 +110,16 @@
 									function(event) {
 										if (event.key == "f") { //如果按下的鍵為f鍵
 											//設定預先輸入的值
-											let defaultAccount = "ppoky";
+											let defaultAccount = "pocky";
 										let defaultPwd = "12345678";
 										let defaultGender = "男";
-										let defaultHphone = "25010000";
-										let defaultMphone = "0911222333";
+										let defaultHphone = "25010023";
+										let defaultMphone = "0911333333";
 										let defaultJob = "工程師";
-										let defaultEmail = "test@gmail.com";
-										let defaultCard = "A123456789";
-										let defaultDate = new Date("1996-06-21").toISOString().slice(0,10);
-										let defaultName = "陳奕勳"
+										let defaultEmail = "test9@gmail.com";
+										let defaultCard = "A125896740";
+										let defaultDate = new Date("1996-03-21").toISOString().slice(0,10);
+										let defaultName = "魏伯源"
 										let defaultAddress = "新北市新莊區中正路";
 
 											//抓取目標input並填入值
@@ -143,14 +143,14 @@
 									function(event) {
 										if (event.key == "a") { //如果按下的鍵為a鍵
 											//設定預先輸入的值
-											let defaultAccount = "chris";
+											let defaultAccount = "chriss";
 										let defaultPwd = "123456789";
 										let defaultGender = "男";
-										let defaultHphone = "25000000";
-										let defaultMphone = "0911222332";
+										let defaultHphone = "25098765";
+										let defaultMphone = "0911222333";
 										let defaultJob = "工程師";
-										let defaultEmail = "test2233@gmail.com";
-										let defaultCard = "A123456788";
+										let defaultEmail = "test10@gmail.com";
+										let defaultCard = "A145896777";
 										let defaultDate = new Date("1996-06-21").toISOString().slice(0,10);
 										let defaultName = "陳奕勳"
 										let defaultAddress = "新北市新莊區中正路";
