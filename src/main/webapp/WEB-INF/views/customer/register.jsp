@@ -25,48 +25,43 @@
 	<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 	<div class="steakRR">
 		<div class="main">
-			<br>
-
-			<h3>註冊帳號</h3>
-			<div class="container">
-
-				<form action="/YunHotel/customer/registerOK" method="POST"
-					class="container">
-					<p>帳號:</p>
-					<input type="text" name="account" id="theAccount">
-					<p>密碼:</p>
-					<input type="password" name="password" id="thePwd"></input><br>
-					<div>
-						性別: <select name="gender" id="theGender">
+			<div class="rg">
+			<p class="rgF">註冊帳號</p>
+				<form action="/YunHotel/customer/registerOK" method="POST">
+					<div class="rgtxt">帳號:
+					<input type="text" name="account" id="theAccount"></div>
+					<div class="rgtxt">密碼:
+					<input type="password" name="password" id="thePwd"></input></div>
+					
+					<div class="rgtxt">性別:<select name="gender" id="theGender">
 							<option value="0">請選擇</option>
 							<option value="男">男</option>
 							<option value="女">女</option>
-						</select>
-					</div>
-					<br>
-					<p>家裡電話:</p>
-					<input type="text" name="home_phone" id="theHphone"></input> <br>
-					<p>手機電話:</p>
-					<input type="text" name="mobile_phone" id="theMphone"></input> <br>
-					<p>工作:</p>
-					<input type="text" name="job" id="theJob"></input> <br>
-					<p>電子信箱:</p>
-					<input type="text" name="email" id="theEmail"></input> <br>
-					<p>真實姓名:</p>
-					<input type="text" name="chinese_name" id="theName"></input> <br>
-					<p>身分證字號:</p>
-					<input type="text" name="idcard_number" id="theCard"></input> <br>
-					<p>生日:</p>
-					<input type="date" name="birthday" id="theDate"></input> <br>
-					<p>地址:</p>
-					<input type="text" name="address" id="theAddress"></input> <br>
-					<br> <input class="ormBtn" type="submit" value="註冊"
+						</select></div>
+					<div class="rgtxt">家裡電話:
+					<input type="text" name="home_phone" id="theHphone"></input> </div>
+					<div class="rgtxt">手機電話:
+					<input type="text" name="mobile_phone" id="theMphone"></input> </div>
+					<div class="rgtxt">工作:
+					<input type="text" name="job" id="theJob"></input> </div>
+					<div class="rgtxt">電子信箱:
+					<input type="text" name="email" id="theEmail"></input> </div>
+					<div class="rgtxt">真實姓名:
+					<input type="text" name="chinese_name" id="theName"></input> </div>
+					<div class="rgtxt">身分證字號:
+					<input type="text" name="idcard_number" id="theCard"></input> </div>
+					<div class="rgtxt">生日:
+					<input type="date" name="birthday" id="theDate"></input></div> 
+					<div class="rgtxt">地址:
+					<input type="text" name="address" id="theAddress"></input> </div>
+					<input class="ormBtn" type="submit" value="註冊"  style="margin-top:40px;"
 						onclick="location.href='http://localhost:8080/YunHotel/YunPage'">
-
 				</form>
-				<div>
-					<button id="btn"></button>
+					<button id="btn" style="display:none;"></button>
 				</div>
+		</div>
+		<div style="width:100vw;height:200px;"></div>
+</div>
 
 				<script>
 					//抓與按鈕
@@ -143,14 +138,14 @@
 									function(event) {
 										if (event.key == "a") { //如果按下的鍵為a鍵
 											//設定預先輸入的值
-											let defaultAccount = "chriss";
+											let defaultAccount = "chris";
 										let defaultPwd = "123456789";
 										let defaultGender = "男";
-										let defaultHphone = "25098765";
-										let defaultMphone = "0911222333";
+										let defaultHphone = "2500000";
+										let defaultMphone = "0911222332";
 										let defaultJob = "工程師";
-										let defaultEmail = "test10@gmail.com";
-										let defaultCard = "A145896777";
+										let defaultEmail = "test2233@gmail.com";
+										let defaultCard = "A123456788";
 										let defaultDate = new Date("1996-06-21").toISOString().slice(0,10);
 										let defaultName = "陳奕勳"
 										let defaultAddress = "新北市新莊區中正路";
@@ -172,9 +167,8 @@
 				</script>
 
 
-			</div>
-		</div>
-	</div>
+
+	<%@ include file="../CommonTemplates/footer.jsp"%>
 
 </body>
 </html>

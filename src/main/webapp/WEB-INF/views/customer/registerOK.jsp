@@ -23,14 +23,16 @@
 <body>
 <%-- 	<%@ include file="../CommonTemplates/Indexheader.jsp"%> --%>
 
-
+<%@ include file="../CommonTemplates/Indexheader.jsp"%>
 	<div class="steakRR">
 		<div class="main">
-
-			<h3>新增成功</h3>
+		<div class="rgok">
+			<h3 style="margin-top:50px;">新增成功</h3>
 			<br> <input class="ormBtn" type="button" value="回登入"
 				onclick="location.href='http://localhost:8080/YunHotel/customer/Login'">
 				</div>
 				</div>
+		</div>
+<%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

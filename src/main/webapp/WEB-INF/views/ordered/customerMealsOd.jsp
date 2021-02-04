@@ -14,21 +14,32 @@
 
 	<%@ include file="../CommonTemplates/header.jsp"%>
 	
+<div class="main">
+	<%@ include file="../CommonTemplates/leftmenu.jsp"%>
 	
-	<div class="main">
-		<%@ include file="../CommonTemplates/leftmenu.jsp"%>
-		<div class="container">
-		<h2>新增成功</h2><hr/>
+    <div class="right">
+        <p class="title">新增成功</p>
+        <p class="hr"></p>
+        		
+        <div class="allcontent"> <!-- 整個放內容白色區塊 -->	
+        	<div class="litletitle"> <!-- 灰色title -->	
+        	</div>
+        		<div class="listtitle" 	style="margin-left: 400px;">
+	
 		<h3>這是${odd.customer.chinese_name}的訂單</h3>
 		<p>姓名: ${odd.customer.chinese_name}</p>
 		<p>手機: ${odd.customer.mobile_phone}</p>
 		<p>人數: ${odd.orderedToMeals.mealsnum_of_people}</p>
 		<p>用餐日期: ${odd.orderedToMeals.mdate.mdate}</p>
 		<p>用餐時段: ${odd.orderedToMeals.mdate.time_period }</p><br>
-		<input type="button" value="回新增" onclick="location.href='http://localhost:8080/YunHotel/ordered/insertIndex'" >
+		<input class="backbtn" type="button" value="回新增" onclick="location.href='http://localhost:8080/YunHotel/ordered/insertIndex'" >
 <%-- 		<a href="<c:url value='insertMealsOd'/> ">回新增</a> --%>
-		</div>
-	</div>
+				</div>
+        </div>
+        	
+     </div>
+
+</div>
 <%@ include file="../CommonTemplates/footer.jsp"%>
 </body>
 </html>

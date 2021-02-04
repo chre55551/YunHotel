@@ -348,7 +348,16 @@ header ul li a:hover{
 	display:block; /*顯示(佔個區塊)*/
 	transition: 0.8s;
 }
-
+/*====================================================*/
+.LoginF{
+	margin-top:10px;
+	font-size: 1.5em;
+	color: #0F2540;
+}
+.Functionline{
+	margin-top: 30px;
+	font-size: 1.5em;
+}
 /*====================================================*/
 /* 頁尾 */
 .footer{

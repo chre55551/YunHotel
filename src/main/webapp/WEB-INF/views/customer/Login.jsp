@@ -31,17 +31,21 @@
 			<br>
 			<div class="orm">
 				<form action="../customer/login" method="post">
-					<p>帳號:</p>
+					<p class="LoginF">帳號:</p>
 					<input type="text" name="account"></input> <br>
-					<p>密碼:</p>
-					<input type="password" name="password"></input> <br> <input
-						type="submit" value="登入"> <a href="http://localhost:8080/YunHotel/customer/register" type="submit"
-						class="diamondtxt">新增會員</a> <a
-						href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
+					<p class="LoginF">密碼:</p>
+					<input type="password" name="password"></input> <br> 
+					<div class="Functionline">
+					<input type="submit" value="登入"> 
+						<a href="http://localhost:8080/YunHotel/customer/register" type="submit" class="diamondtxt">新增會員</a> 
+						<a href="<c:url value='http://localhost:8080/YunHotel/YunPage'/> ">回首頁</a>
+					</div>
 				</form>
 
 			</div>
 		</div>
 	</div>
+		<%@ include file="../CommonTemplates/footer.jsp"%>
+	
 </body>
 </html>

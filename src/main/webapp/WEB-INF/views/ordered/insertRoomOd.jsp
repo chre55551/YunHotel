@@ -28,7 +28,7 @@
         	<div class="litletitle"> <!-- 灰色title -->	
         	</div>
         		<div class="listtitle">
-		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST" style="margin-left:350px;">
+		<form action="/YunHotel/ordered/insertRoomOrdered" method="POST" style="margin-left:170px;float:left;">
 			<div id="basic">
 				<div class="bormm2">
 					<label class="bormt">姓名</label> <input class="input" name="chinese_name" class="bodsm" style="margin:auto"/>
@@ -67,9 +67,10 @@
 			</div>
 			<br>
 
-			<div>
-				<input value="新增" type="submit" class="bormb" style="margin-right: 20px"> <input value="清除"
-					type="reset" class="bormb">
+			<div style="margin-left:250px;">
+				<input value="新增" type="submit" class="bormb" style="margin-right:20px;">
+				<input value="清除" type="reset" class="bormb">
+					
 				<%-- 				<a href="<c:url value='indexOrdered'/> ">返回</a> --%>
 			</div>
 		</form>
