@@ -6,22 +6,34 @@
 	width: 1100px;
 	height: 500px;
 	border-radius: 30px;
+	overflow-y: hidden;
+}
+.leftFdiv{
+	float: left;
+	width:500px;
+	padding: 20px;
 }
 .titleus{
+	margin-top:50px;
+	margin-left:70px;
 	float:left;
 	color:#0F2540;
 	font-size: 1.4em;
+	font-weight: bold;
 }
 .line{
-	width: 100px;
-	height: 5px;
+	margin-top:100px;
+	margin-left:-80px;
+	float:left;
+	width: 250px;
+	height: 3px;
 	background-color:#0F2540;
 }
 
 .aboutF {
 	padding:20px;
 	margin-top:100px;
-	margin-left:50px;
+ 	margin-left:60px; 
 	width:300px;
 	text-align:left;
 	color: #0F2540;
@@ -45,7 +57,7 @@
 
 /*====================================================*/
 .map_pos{
-	margin-top: -350px;
+	margin-top: -400px;
 	margin-right:100px;
 	float:right;
 	width: 600px;
