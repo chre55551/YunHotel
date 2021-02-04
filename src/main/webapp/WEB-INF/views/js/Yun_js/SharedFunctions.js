@@ -1,13 +1,13 @@
 //隨捲軸移動訂位===============================================================		
 
 			var $win = $(window),
-			$ad = $('.abgne_float').css('opacity', 0).show(),	// 讓廣告區塊變透明且顯示出來
+			$ad = $('.abgne_float').css('opacity', 0).show(),	// 讓區塊變透明且顯示出來
 			_width = $ad.width(),
 			_height = $ad.height(),
 			_diffY = 45, _diffX = 32,	// 距離右及下方邊距
 			_moveSpeed = 650;	// 移動的速度
 	 
-		// 先把 #abgne_float_ad 移動到定點
+		// 先把 #abgne_float 移動到定點
 		$ad.css({
 			top: $(document).height(),
 			left: $win.width() - _width - _diffX,
@@ -18,7 +18,7 @@
 		$win.bind('scroll resize', function(){
 			var $this = $(this);
 	 
-			// 控制 #abgne_float_ad 的移動
+			// 控制 #abgne_float 的移動
 			$ad.stop().animate({
 				top: $this.scrollTop() + $this.height() - _height - _diffY,
 				left: $this.scrollLeft() + $this.width() - _width - _diffX

@@ -10,10 +10,14 @@
 	<div class="abgne_float">
 
 		<div class="abgne_OR">
-			<a href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd" style="color: white;">餐廳訂位</a>
+			<a class="abgne_a" href="http://localhost:8080/YunHotel/ordered/outsideInsertMealsOd">
+			<p class="abgneF">餐廳訂位</p>
+			</a>
 		</div>
 		<div class="abgne_OR">
-			<a href="http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd" style="color: white;">查詢訂單</a>
+			<a class="abgne_a" href="http://localhost:8080/YunHotel/ordered/outsideQueryCustomerOd">
+			<p class="abgneF">查詢訂單</p>
+			</a>
 		</div>
 
 	</div>

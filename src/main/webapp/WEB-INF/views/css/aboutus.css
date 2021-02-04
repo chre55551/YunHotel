@@ -7,6 +7,16 @@
 	height: 500px;
 	border-radius: 30px;
 }
+.titleus{
+	float:left;
+	color:#0F2540;
+	font-size: 1.4em;
+}
+.line{
+	width: 100px;
+	height: 5px;
+	background-color:#0F2540;
+}
 
 .aboutF {
 	padding:20px;

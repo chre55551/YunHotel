@@ -29,6 +29,8 @@
 	<div class="BG">
 		<div class="main">
 			<div class="aboutdiv">
+			<p class="titleus">關於我們</p>
+			<p class="line"></p>
 			<p class="aboutF">
 			一個簡約又不失高雅的旅遊好去處，在繁忙的生活中，提供您閑靜愜意的環境，
 			遠離都市的塵囂，讓身心靈好好地充個電，望向藍天大海，享受著大自然帶來的寧靜，

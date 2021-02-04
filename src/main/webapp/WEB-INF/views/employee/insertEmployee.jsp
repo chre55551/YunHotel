@@ -48,7 +48,7 @@
 			</div>					
 			<div>
 				<label>性別</label> <input type="radio" name="employee_gender" class="requestMp"
-					 value="男"/>男
+					 value="男" checked/>男
 					 				<input type="radio" name="employee_gender" class="requestMp"
 					 value="女"/>女
 			</div>			
